@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://3polhrcbmmyg"]
+
+[ext_resource type="Script" uid="uid://cm8xp4ahhh34a" path="res://Character/Scripts/Player/personnage.gd" id="1_puvc7"]
+[ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="1_r5xyr"]
+[ext_resource type="Script" uid="uid://blkdeds5ixb5b" path="res://Character/Scripts/StateMachines/state_Mother.gd" id="2_04cgm"]
+[ext_resource type="Script" uid="uid://dq36efs6bxser" path="res://Character/Scripts/StateMachines/State.gd" id="3_puvc7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0tgg2"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_04cgm"]
+
+[node name="Personnage" type="CharacterBody3D"]
+script = ExtResource("1_puvc7")
+
+[node name="PLayer_collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0282717, 0)
+shape = SubResource("CapsuleShape3D_0tgg2")
+
+[node name="The Lost Sinner1" parent="." instance=ExtResource("1_r5xyr")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Camera_pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7286122, 1.9545819, 1.281084)
+
+[node name="Aiming" type="Node3D" parent="Camera_pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7523632, -0.9444556, -4.5141764)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera_pivot/Aiming"]
+mesh = SubResource("CapsuleMesh_04cgm")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Camera_pivot"]
+transform = Transform3D(1, 0, 0, 0, 0.90571684, 0.4238833, 0, -0.4238833, 0.90571684, 0.071780324, 0, 0)
+spring_length = 0.5
+
+[node name="Camera3D" type="Camera3D" parent="Camera_pivot/SpringArm3D"]
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_04cgm")
+initial_state = NodePath("On_Ground")
+
+[node name="On_Ground" type="Node" parent="StateMachine"]
+script = ExtResource("3_puvc7")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Airborne" type="Node" parent="StateMachine"]
+script = ExtResource("3_puvc7")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
