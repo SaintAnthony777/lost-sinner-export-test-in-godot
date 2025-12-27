@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://d2k0q7oywavj0"]
 
 [ext_resource type="PackedScene" uid="uid://ddsrivurqh05n" path="res://Environnement/empty_old_garage_room.glb" id="1_0uoqy"]
-[ext_resource type="PackedScene" uid="uid://3polhrcbmmyg" path="res://Character/Scenes/personnage.tscn" id="2_jg32r"]
+[ext_resource type="PackedScene" uid="uid://srgn3wkeivsn" path="res://Character/Scenes/personnage.tscn" id="2_jg32r"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jg32r"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -156,4 +156,4 @@ shape = SubResource("ConcavePolygonShape3D_lecu6")
 shape = SubResource("ConcavePolygonShape3D_rmmta")
 
 [node name="Personnage" parent="." index="3" instance=ExtResource("2_jg32r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32419968, -4.1186647, -7.3803186)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.135822, -5)

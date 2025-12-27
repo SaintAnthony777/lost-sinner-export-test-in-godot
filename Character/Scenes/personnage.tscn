@@ -1,47 +1,131 @@
-[gd_scene load_steps=7 format=3 uid="uid://3polhrcbmmyg"]
+[gd_scene load_steps=9 format=3 uid="uid://srgn3wkeivsn"]
 
-[ext_resource type="Script" uid="uid://cm8xp4ahhh34a" path="res://Character/Scripts/Player/personnage.gd" id="1_puvc7"]
-[ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="1_r5xyr"]
-[ext_resource type="Script" uid="uid://blkdeds5ixb5b" path="res://Character/Scripts/StateMachines/state_Mother.gd" id="2_04cgm"]
-[ext_resource type="Script" uid="uid://dq36efs6bxser" path="res://Character/Scripts/StateMachines/State.gd" id="3_puvc7"]
+[ext_resource type="Script" uid="uid://bhjwagrue8av5" path="res://Character/Scripts/Player/personnage.gd" id="1_ov8r6"]
+[ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="2_ov8r6"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0tgg2"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ov8r6"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_04cgm"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_ov8r6"]
+
+[sub_resource type="Animation" id="Animation_ov8r6"]
+resource_name = "Camera_switching"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera_pivot/SpringArm3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.32286727, -0.4913187, -1.4996645), Vector3(-0.76383317, -0.4913187, -1.4996645)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera_pivot/Aiming:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.6701095, 2.091804, 3.5302541), Vector3(-0.8867841, 2.091804, 3.5302544)]
+}
+
+[sub_resource type="Animation" id="Animation_al2sp"]
+resource_name = "Camera_switching_to_right"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera_pivot/SpringArm3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.76383317, -0.4913187, -1.4996645), Vector3(0.323, -0.491, -1.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera_pivot/Aiming:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.8867841, 2.091804, 3.5302544), Vector3(1.6701095, 2.091804, 3.5302541)]
+}
+
+[sub_resource type="Animation" id="Animation_y3tdl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera_pivot/SpringArm3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.32286727, -0.4913187, -1.4996645)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera_pivot/Aiming:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.6701095, 2.091804, 3.5302541)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_al2sp"]
+_data = {
+&"Camera_switching_To_Right": SubResource("Animation_ov8r6"),
+&"Camera_switching_to_Left": SubResource("Animation_al2sp"),
+&"RESET": SubResource("Animation_y3tdl")
+}
 
 [node name="Personnage" type="CharacterBody3D"]
-script = ExtResource("1_puvc7")
+script = ExtResource("1_ov8r6")
 
-[node name="PLayer_collision" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0282717, 0)
-shape = SubResource("CapsuleShape3D_0tgg2")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0458833, 0)
+shape = SubResource("CapsuleShape3D_ov8r6")
 
-[node name="The Lost Sinner1" parent="." instance=ExtResource("1_r5xyr")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+[node name="The Lost Sinner1" parent="." instance=ExtResource("2_ov8r6")]
 
 [node name="Camera_pivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7286122, 1.9545819, 1.281084)
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.938746, -0.34461, 0, 0.34461, 0.938746, 0, 1.548, 0)
 
-[node name="Aiming" type="Node3D" parent="Camera_pivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7523632, -0.9444556, -4.5141764)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera_pivot/Aiming"]
-mesh = SubResource("CapsuleMesh_04cgm")
+[node name="Looking at" type="Node3D" parent="Camera_pivot"]
+transform = Transform3D(1, 0, 0, 0, 0.938746, 0.34461, 0, -0.34461, 0.938746, 0, 0.17478669, 2.0663383)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="Camera_pivot"]
-transform = Transform3D(1, 0, 0, 0, 0.90571684, 0.4238833, 0, -0.4238833, 0.90571684, 0.071780324, 0, 0)
-spring_length = 0.5
+transform = Transform3D(-0.9951677, -0.024405818, -0.09510947, 0.014037091, 0.9233087, -0.38380343, 0.09718243, -0.38328397, -0.9185038, 0.32286727, -0.4913187, -1.4996645)
+shape = SubResource("SphereShape3D_ov8r6")
+spring_length = 0.3
 
 [node name="Camera3D" type="Camera3D" parent="Camera_pivot/SpringArm3D"]
+unique_name_in_owner = true
+doppler_tracking = 2
 
-[node name="StateMachine" type="Node" parent="."]
-script = ExtResource("2_04cgm")
-initial_state = NodePath("On_Ground")
+[node name="Aiming" type="Node3D" parent="Camera_pivot"]
+transform = Transform3D(1, 0, 0, 0, 0.938746, 0.34461, 0, -0.34461, 0.938746, 1.6701095, 2.091804, 3.5302541)
 
-[node name="On_Ground" type="Node" parent="StateMachine"]
-script = ExtResource("3_puvc7")
-metadata/_custom_type_script = "uid://dq36efs6bxser"
-
-[node name="Airborne" type="Node" parent="StateMachine"]
-script = ExtResource("3_puvc7")
-metadata/_custom_type_script = "uid://dq36efs6bxser"
+[node name="Camera_animations" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_al2sp")
+}
