@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 @export_group("camera")
 @export_range(0.0,1.0) var mouse_sensitivity:float=0.025
-@export var SPEED := 7.0
+@export var SPEED := 5.0
 @export var JUMP_VELOCITY :=8.0
 
 @onready var camera_controller: Node3D = %Camera_pivot
@@ -93,13 +93,13 @@ func normal_moves_logics(vel:Vector3):
 		else : character.normal_motion("Idle_unarmed")
 	else:
 		pass
-
 ###Strafing logic here
 func strafing_motion_logic(vel:Vector3,input_dir:Vector2):
 	if is_on_floor():
 		character.strafing_motion(input_dir)
 	else:
 		pass
+### Locking Motion logic  here
 
 ## La fonction permettant de faire tourner le personnage dans une direction
 func character_rotation(move_dir:Vector3,last_mov_dir:Vector3,delta:float,aiming_stance:bool):
@@ -113,7 +113,7 @@ func character_rotation(move_dir:Vector3,last_mov_dir:Vector3,delta:float,aiming
 ## Fonction permettant de déplacer le personnage
 func character_moving(dir:Vector3):
 	if is_aiming : SPEED = 3.0 
-	else : SPEED = 7.0
+	else : SPEED = 5.0
 	if dir:
 		velocity.x = dir.x * SPEED
 		velocity.z = dir.z * SPEED
@@ -146,10 +146,3 @@ func camera_switch_logic():
 		camera_animations.play("Camera_switching_to_Left")
 		await camera_animations.animation_finished
 		camera_position="left"
-
-### Fonction permettant de récuperer la direction de strafing:
-func strafing_direction():
-	if Input.is_action_pressed("Haut") : strafe_direction = "forward"
-	if Input.is_action_pressed("Gauche") : strafe_direction = "left"
-	if Input.is_action_pressed("Droite") : strafe_direction = "right"
-	if Input.is_action_pressed("Bas") : strafe_direction = "backwards"
