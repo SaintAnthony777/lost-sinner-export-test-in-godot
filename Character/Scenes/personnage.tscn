@@ -1,7 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://srgn3wkeivsn"]
+[gd_scene load_steps=12 format=3 uid="uid://srgn3wkeivsn"]
 
 [ext_resource type="Script" uid="uid://bhjwagrue8av5" path="res://Character/Scripts/Player/personnage.gd" id="1_ov8r6"]
 [ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="2_ov8r6"]
+[ext_resource type="Script" uid="uid://bua0kbub8bjta" path="res://Character/Scripts/StateMachines/Source_codes/StateMachine.gd" id="3_04cgm"]
+[ext_resource type="Script" uid="uid://c75wfe85pvm4w" path="res://Character/Scripts/StateMachines/Extended_scripts/aiming.gd" id="4_xehxg"]
+[ext_resource type="Script" uid="uid://bpofh6khtjy35" path="res://Character/Scripts/StateMachines/Extended_scripts/normal.gd" id="5_itldn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ov8r6"]
 
@@ -116,11 +119,11 @@ transform = Transform3D(1, 0, 0, 0, 0.938746, 0.34461, 0, -0.34461, 0.938746, 0,
 [node name="SpringArm3D" type="SpringArm3D" parent="Camera_pivot"]
 transform = Transform3D(-0.9951677, -0.024405818, -0.09510947, 0.014037091, 0.9233087, -0.38380343, 0.09718243, -0.38328397, -0.9185038, 0.32286727, -0.4913187, -1.4996645)
 shape = SubResource("SphereShape3D_ov8r6")
-spring_length = 0.2
+spring_length = 0.1
 
 [node name="Camera3D" type="Camera3D" parent="Camera_pivot/SpringArm3D"]
 unique_name_in_owner = true
-doppler_tracking = 2
+doppler_tracking = 1
 
 [node name="Aiming" type="Node3D" parent="Camera_pivot"]
 transform = Transform3D(1, 0, 0, 0, 0.938746, 0.34461, 0, -0.34461, 0.938746, 1.6701095, 2.091804, 3.5302541)
@@ -129,3 +132,16 @@ transform = Transform3D(1, 0, 0, 0, 0.938746, 0.34461, 0, -0.34461, 0.938746, 1.
 libraries = {
 &"": SubResource("AnimationLibrary_al2sp")
 }
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_04cgm")
+initial_state = NodePath("normal")
+metadata/_custom_type_script = "uid://bua0kbub8bjta"
+
+[node name="aiming" type="Node" parent="StateMachine"]
+script = ExtResource("4_xehxg")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="normal" type="Node" parent="StateMachine"]
+script = ExtResource("5_itldn")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
