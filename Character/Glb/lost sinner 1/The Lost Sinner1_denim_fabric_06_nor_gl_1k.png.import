@@ -2,7 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch4qx4q2oodta"
+uid="uid://d10irehog2ew0"
 path.s3tc="res://.godot/imported/The Lost Sinner1_denim_fabric_06_nor_gl_1k.png-0481d4920264e6b545e4d65adaa7729c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
@@ -30,7 +30,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://Glb/lost sinner 1/The Lost Sinner1_denim_fabric_06_nor_gl_1k.png"
+roughness/src_normal="res://Character/Glb/lost sinner 1/The Lost Sinner1_denim_fabric_06_nor_gl_1k.png"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

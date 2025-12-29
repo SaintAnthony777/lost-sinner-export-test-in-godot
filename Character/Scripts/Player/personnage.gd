@@ -68,8 +68,6 @@ func _physics_process(delta: float) -> void:
 
 ## Fonction permettant de déplacer le personnage
 func character_moving(dir:Vector3):
-	if is_aiming : SPEED = 3.0 
-	else : SPEED = 4.0
 	if dir:
 		velocity.x = dir.x * SPEED
 		velocity.z = dir.z * SPEED

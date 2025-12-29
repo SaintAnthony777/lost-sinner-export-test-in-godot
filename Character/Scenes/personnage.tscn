@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://srgn3wkeivsn"]
+[gd_scene load_steps=13 format=3 uid="uid://srgn3wkeivsn"]
 
 [ext_resource type="Script" uid="uid://bhjwagrue8av5" path="res://Character/Scripts/Player/personnage.gd" id="1_ov8r6"]
 [ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="2_ov8r6"]
 [ext_resource type="Script" uid="uid://bua0kbub8bjta" path="res://Character/Scripts/StateMachines/Source_codes/StateMachine.gd" id="3_04cgm"]
 [ext_resource type="Script" uid="uid://c75wfe85pvm4w" path="res://Character/Scripts/StateMachines/Extended_scripts/aiming.gd" id="4_xehxg"]
 [ext_resource type="Script" uid="uid://bpofh6khtjy35" path="res://Character/Scripts/StateMachines/Extended_scripts/normal.gd" id="5_itldn"]
+[ext_resource type="Script" uid="uid://dq36efs6bxser" path="res://Character/Scripts/StateMachines/Source_codes/State.gd" id="6_itldn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ov8r6"]
 
@@ -138,10 +139,14 @@ script = ExtResource("3_04cgm")
 initial_state = NodePath("normal")
 metadata/_custom_type_script = "uid://bua0kbub8bjta"
 
+[node name="normal" type="Node" parent="StateMachine"]
+script = ExtResource("5_itldn")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
 [node name="aiming" type="Node" parent="StateMachine"]
 script = ExtResource("4_xehxg")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
 
-[node name="normal" type="Node" parent="StateMachine"]
-script = ExtResource("5_itldn")
+[node name="Locking" type="Node" parent="StateMachine"]
+script = ExtResource("6_itldn")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
