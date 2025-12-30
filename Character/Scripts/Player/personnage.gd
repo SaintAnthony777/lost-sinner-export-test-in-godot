@@ -26,7 +26,7 @@ var is_aiming:bool=false
 
 ##innervars
 var player_move_direction:Vector3
-
+var player_direction:Vector3
 func _ready() -> void:
 	pass
 func _input(_event: InputEvent) -> void:
@@ -59,11 +59,10 @@ func _physics_process(delta: float) -> void:
 	var move_direction:=forward*input_dir.y*-1 + right*input_dir.x*-1
 	player_move_direction=move_direction
 	var direction := (camera_controller.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	player_direction=direction
 	move_direction.y = 0.0
 	move_direction=move_direction.normalized()
 	
-	## Character_moves
-	character_moving(direction)
 	move_and_slide()
 
 ## Fonction permettant de déplacer le personnage
