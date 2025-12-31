@@ -16,3 +16,6 @@ func grounding(stance:String):
 	animation_tree.set("parameters/Moving/transition_request",stance)
 func normal_motion_grounded(move:String):
 	animation_tree.set("parameters/Normal_Transition/transition_request",move)
+func locking_motion(direction:Vector2)->void:
+	grounding("Locking")
+	animation_tree.set("parameters/locking_blendspace/blend_position",direction)
