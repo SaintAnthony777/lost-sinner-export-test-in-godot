@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctqpmqq3t8rrh"]
+
+[ext_resource type="Script" uid="uid://cugap2g484shs" path="res://Ennemies/Enemy root/enemy_root.gd" id="1_xdjbw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xdjbw"]
+
+[node name="EnemyRoot" type="CharacterBody3D"]
+script = ExtResource("1_xdjbw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9981823, 0)
+shape = SubResource("CapsuleShape3D_xdjbw")

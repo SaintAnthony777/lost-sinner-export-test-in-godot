@@ -1,0 +1,1 @@
+class_name regular_enemy extends enemy

@@ -12,6 +12,8 @@ class_name player_character
 @onready var camera: Camera3D = %Camera3D
 @onready var camera_animations: AnimationPlayer = $Camera_animations
 @onready var looking_at_node: Node3D = $"Camera_pivot/Looking at"
+@onready var camera_area_of_sight: Area3D = $Camera_pivot/SpringArm3D/Camera_area_of_sight
+@onready var camera_line_of_sight: RayCast3D = $Camera_pivot/SpringArm3D/Camera_line_of_sight
 
 ###Camera Vars
 var camera_input_direction:=Vector2.ZERO
@@ -52,7 +54,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	## Faire en sorte que la fonction de rotation de la camera passe avant tout
 	camera_rotation_logic(delta,is_aiming)
-	
+	print('objets interagissant avec la line of sight ',camera_line_of_sight.get_collider())
 	var input_dir := Input.get_vector("Droite", "Gauche", "Bas", "Haut").normalized()
 	var forward:=camera.global_basis.z
 	var right:=camera.global_basis.x

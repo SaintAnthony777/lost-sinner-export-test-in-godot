@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://srgn3wkeivsn"]
+[gd_scene load_steps=14 format=3 uid="uid://srgn3wkeivsn"]
 
 [ext_resource type="Script" uid="uid://bhjwagrue8av5" path="res://Character/Scripts/Player/personnage.gd" id="1_ov8r6"]
 [ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="2_ov8r6"]
@@ -10,6 +10,9 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ov8r6"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ov8r6"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_itldn"]
+points = PackedVector3Array(0, 0, 0, 10, 5, -10, 10, -5, -10, -10, -5, -10, -10, 5, -10)
 
 [sub_resource type="Animation" id="Animation_ov8r6"]
 resource_name = "Camera_switching"
@@ -102,6 +105,8 @@ _data = {
 }
 
 [node name="Personnage" type="CharacterBody3D"]
+collision_layer = 7
+collision_mask = 7
 script = ExtResource("1_ov8r6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -125,6 +130,17 @@ spring_length = 0.1
 [node name="Camera3D" type="Camera3D" parent="Camera_pivot/SpringArm3D"]
 unique_name_in_owner = true
 doppler_tracking = 1
+
+[node name="Camera_area_of_sight" type="Area3D" parent="Camera_pivot/SpringArm3D"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera_pivot/SpringArm3D/Camera_area_of_sight"]
+shape = SubResource("ConvexPolygonShape3D_itldn")
+
+[node name="Camera_line_of_sight" type="RayCast3D" parent="Camera_pivot/SpringArm3D"]
+target_position = Vector3(0, 0, -10)
+collision_mask = 6
 
 [node name="Aiming" type="Node3D" parent="Camera_pivot"]
 transform = Transform3D(1, 0, 0, 0, 0.938746, 0.34461, 0, -0.34461, 0.938746, 1.6701095, 2.091804, 3.5302541)
