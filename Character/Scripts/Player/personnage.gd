@@ -28,7 +28,7 @@ var is_locking : bool = false
 ##innervars
 var player_move_direction : Vector3
 var player_direction : Vector3
-var best_target : enemy
+var current_target : enemy
 
 func _ready() -> void:
 	pass
@@ -44,7 +44,9 @@ func _input(_event: InputEvent) -> void:
 		is_aiming=true
 	if Input.is_action_just_released("Aiming"):
 		is_aiming=false
-	
+	if Input.is_action_just_pressed("locking"):
+		is_locking=true
+
 func _unhandled_input(event: InputEvent) -> void:
 	var camera_is_in_motion:=(
 		event is InputEventMouseMotion and 
@@ -54,6 +56,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera_input_direction=event.screen_relative*mouse_sensitivity
 
 func _physics_process(_delta: float) -> void:
+	if !is_locking : current_target=get_best_target()
+	print(current_target)
 	var input_dir := Input.get_vector("Droite", "Gauche", "Bas", "Haut").normalized()
 	var forward:=camera.global_basis.z
 	var right:=camera.global_basis.x
@@ -97,7 +101,18 @@ func camera_switch_logic():
 		camera_position="left"
 
 func get_best_target()->enemy:
-	var best_target=null
+	var best_target:enemy
 	var min_angle=INF
-	var candidates=camera
-	return null
+	var enemies_in_sight=camera_area_of_sight.get_overlapping_bodies()
+	for foe in enemies_in_sight :
+		if foe is enemy:
+			camera_line_of_sight.look_at(foe.aiming_node.global_position)
+			camera_line_of_sight.force_raycast_update()
+			if camera_line_of_sight.is_colliding() and camera_line_of_sight.get_collider() is enemy:
+				var direction_to_enemy=(foe.global_position-self.global_position).normalized()
+				var camera_forward=-camera.global_basis.z
+				var angle = camera_forward.angle_to(direction_to_enemy)
+				if angle < min_angle:
+					min_angle = angle
+					best_target=foe
+	return best_target

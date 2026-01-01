@@ -8,9 +8,8 @@ var walking_speed:=4.0
 func physics_update(_delta) -> void:
 	state_logics(_delta,player.velocity)
 	if player.is_aiming: state_machine.change_state("aiming")
-	
+	if player.is_locking : state_machine.change_state("locking")
 func state_logics (delta:float,velocity:Vector3) -> void : 
-	
 	player.camera_rotation_logic(delta,player.is_aiming,player.is_locking)
 	player.character_moving(player.player_direction)
 	character_rotation(player.player_move_direction,player.last_movement_direction,delta)

@@ -19,3 +19,6 @@ shape = SubResource("CapsuleShape3D_cyqdd")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0250047, 0)
 mesh = SubResource("CapsuleMesh_2wixn")
+
+[node name="Aiming Node" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5455726, 0)

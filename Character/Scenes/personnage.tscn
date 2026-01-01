@@ -12,7 +12,7 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_ov8r6"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_itldn"]
-points = PackedVector3Array(0, 0, 0, 10, 5, -10, 10, -5, -10, -10, -5, -10, -10, 5, -10)
+points = PackedVector3Array(0, 0, 0, 10, 5, -20, 10, -5, -20, -10, -5, -20, -10, 5, -20)
 
 [sub_resource type="Animation" id="Animation_ov8r6"]
 resource_name = "Camera_switching"
@@ -139,7 +139,7 @@ collision_mask = 4
 shape = SubResource("ConvexPolygonShape3D_itldn")
 
 [node name="Camera_line_of_sight" type="RayCast3D" parent="Camera_pivot/SpringArm3D"]
-target_position = Vector3(0, 0, -10)
+target_position = Vector3(0, 0, -20)
 collision_mask = 6
 
 [node name="Aiming" type="Node3D" parent="Camera_pivot"]
