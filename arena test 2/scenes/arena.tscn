@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4nksg7f130a5"]
+
+[ext_resource type="PackedScene" uid="uid://dgmqlm7yltt6" path="res://arena test 2/Arena.glb" id="1_70fiv"]
+[ext_resource type="PackedScene" uid="uid://srgn3wkeivsn" path="res://Character/Scenes/personnage.tscn" id="2_sxufi"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d5jdl"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_j3wjx"]
+sky_material = SubResource("ProceduralSkyMaterial_d5jdl")
+
+[sub_resource type="Environment" id="Environment_4hrnm"]
+background_mode = 2
+sky = SubResource("Sky_j3wjx")
+ambient_light_color = Color(0.3020129, 0.7595174, 0.85033387, 1)
+ambient_light_sky_contribution = 0.75
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.44539493, 0.5844387, 0.56116134, 1)
+fog_light_energy = 2.85
+fog_density = 1.0
+
+[node name="Arena" instance=ExtResource("1_70fiv")]
+
+[node name="Main Arena" parent="." index="0"]
+cast_shadow = 0
+
+[node name="Plane" parent="." index="1"]
+cast_shadow = 0
+
+[node name="Arena Pillars" parent="." index="2"]
+cast_shadow = 0
+
+[node name="MainArch" parent="." index="3"]
+cast_shadow = 0
+
+[node name="Entrance Pillars" parent="." index="4"]
+cast_shadow = 0
+
+[node name="Supporting Pillars" parent="." index="5"]
+cast_shadow = 0
+
+[node name="Walls" parent="." index="6"]
+cast_shadow = 0
+
+[node name="Boat" parent="." index="7"]
+cast_shadow = 0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="8"]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, -2.826835, 3.264147, 4.896221)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="9"]
+environment = SubResource("Environment_4hrnm")
+
+[node name="Personnage" parent="." index="10" instance=ExtResource("2_sxufi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3924727, -5)
+collision_layer = 1
+collision_mask = 1
+
+[node name="Grounds" type="Node3D" parent="." index="11"]

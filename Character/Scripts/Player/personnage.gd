@@ -44,7 +44,7 @@ func _input(_event: InputEvent) -> void:
 		is_aiming=true
 	if Input.is_action_just_released("Aiming"):
 		is_aiming=false
-	if Input.is_action_just_pressed("locking"):
+	if Input.is_action_just_pressed("locking") and current_target!=null:
 		is_locking=true
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -57,7 +57,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _physics_process(_delta: float) -> void:
 	if !is_locking : current_target=get_best_target()
-	print(current_target)
+	
 	var input_dir := Input.get_vector("Droite", "Gauche", "Bas", "Haut").normalized()
 	var forward:=camera.global_basis.z
 	var right:=camera.global_basis.x
@@ -79,12 +79,12 @@ func character_moving(dir:Vector3):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
-func camera_rotation_logic(delta:float,aiming_stance:bool,locking_stance:bool):
+func camera_rotation_logic(delta:float):
 	camera_controller.rotation.x+=camera_input_direction.y*delta
 	camera_controller.rotation.x=clamp(camera_controller.rotation.x, -PI/6.0 , PI/3.0)
 	camera_controller.rotation.y-=camera_input_direction.x*delta
 	camera_input_direction=Vector2.ZERO
-	if !aiming_stance and !locking_stance:
+	if !is_aiming and !is_locking:
 		camera.fov=lerp(camera.fov,75.0,.15)
 	else :
 		camera.fov=lerp(camera.fov,55.0,.15)
