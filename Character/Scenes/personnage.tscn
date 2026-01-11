@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://srgn3wkeivsn"]
+[gd_scene load_steps=15 format=3 uid="uid://srgn3wkeivsn"]
 
 [ext_resource type="Script" uid="uid://bhjwagrue8av5" path="res://Character/Scripts/Player/personnage.gd" id="1_ov8r6"]
 [ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="2_ov8r6"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://c75wfe85pvm4w" path="res://Character/Scripts/StateMachines/Extended_scripts/aiming.gd" id="4_xehxg"]
 [ext_resource type="Script" uid="uid://bpofh6khtjy35" path="res://Character/Scripts/StateMachines/Extended_scripts/normal.gd" id="5_itldn"]
 [ext_resource type="Script" uid="uid://lvtu4uf4kfcl" path="res://Character/Scripts/StateMachines/Extended_scripts/locking.gd" id="6_itldn"]
+[ext_resource type="Script" uid="uid://c2oxjoxy44e1y" path="res://Character/Scripts/StateMachines/Extended_scripts/normal_rolling.gd" id="7_wu8eo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ov8r6"]
 
@@ -165,4 +166,8 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="Locking" type="Node" parent="StateMachine"]
 script = ExtResource("6_itldn")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Normal_rolling" type="Node" parent="StateMachine"]
+script = ExtResource("7_wu8eo")
 metadata/_custom_type_script = "uid://dq36efs6bxser"

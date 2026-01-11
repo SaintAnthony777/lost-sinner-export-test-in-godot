@@ -10,6 +10,8 @@ func physics_update(_delta) -> void:
 	if player.is_aiming: state_machine.change_state("aiming")
 	if player.is_locking : state_machine.change_state("locking")
 	
+	if Input.is_action_pressed("rolling"):state_machine.change_state("normal_rolling")
+	
 func state_logics (delta:float,velocity:Vector3) -> void : 
 	player.camera_rotation_logic(delta)
 	player.character_moving(player.player_direction)

@@ -10,12 +10,15 @@ func normal_motion(current_action:String):
 func strafing_motion(direction:Vector2):
 	grounding("Aiming")
 	animation_tree.set("parameters/Strafe_blendspace/blend_position",direction)
+func locking_motion(direction:Vector2)->void:
+	grounding("Locking")
+	animation_tree.set("parameters/locking_blendspace/blend_position",direction)
+func rolling():
+	grounding("Rolling")
+	animation_tree.set("parameters/roll_transistion/transition_request","rolling")
+
 func grounding(stance:String):
 	animation_tree.set("parameters/State/transition_request","Grounded")
 	animation_tree.set("parameters/Ground_state/transition_request","Ground_Motion")
 	animation_tree.set("parameters/Moving/transition_request",stance)
-func normal_motion_grounded(move:String):
-	animation_tree.set("parameters/Normal_Transition/transition_request",move)
-func locking_motion(direction:Vector2)->void:
-	grounding("Locking")
-	animation_tree.set("parameters/locking_blendspace/blend_position",direction)
+	
