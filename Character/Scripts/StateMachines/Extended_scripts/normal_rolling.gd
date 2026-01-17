@@ -3,17 +3,20 @@ extends State
 @onready var player: player_character = $"../.."
 @onready var character_animation_player: AnimationPlayer = $"../../The Lost Sinner1/AnimationPlayer"
 
-var dash_speed := 6.0
+var dash_speed := 10.0
 
+func enter() -> void:
+	pass
 func physics_update(_delta) -> void:
-	state_logic()
-func state_logic():
-	
+	state_logic(_delta)
+
+func state_logic(delta):
+	player.camera_rotation_logic(delta)
 	character.rolling()
 	dashlogic()
-	await get_tree().create_timer(1.2).timeout
-	state_machine.change_state("normal")
-	
+	if !character.isrolling:
+		state_machine.change_state("normal")
+
 func dashlogic():
 	var dashdirection=character.transform.basis.z.normalized()
 	player.velocity=dashdirection*dash_speed

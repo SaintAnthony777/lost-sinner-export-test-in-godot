@@ -8,7 +8,10 @@ func physics_update(_delta) -> void:
 
 func state_logic(_delta:float):
 	player.SPEED=5.0
-	if Input.is_action_just_pressed("locking") or Input.is_action_just_pressed("Aiming") : player.is_locking=false; state_machine.change_state("normal")
+	if (Input.is_action_just_pressed("locking") or 
+	Input.is_action_just_pressed("Aiming") or 
+	player.global_position.distance_to(player.current_target.global_position) > 12):
+		player.is_locking=false; state_machine.change_state("normal")
 	
 	if player.current_target :
 		player_force_rotation()
