@@ -14,7 +14,7 @@ config/name="Lost Sinner Test export"
 config/tags=PackedStringArray("character+codes", "gotta_keep_it_on", "prototype", "to_be_used_for_a_silent_chaos")
 run/main_scene="uid://d2k0q7oywavj0"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://flvau0snwba7"
 
 [input]
 
