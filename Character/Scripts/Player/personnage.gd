@@ -56,8 +56,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera_input_direction=event.screen_relative*mouse_sensitivity
 
 func _physics_process(_delta: float) -> void:
+	if !is_on_floor(): velocity.y+=gravity
 	if !is_locking : current_target=get_best_target()
-	
 	var input_dir := Input.get_vector("Droite", "Gauche", "Bas", "Haut").normalized()
 	var forward:=camera.global_basis.z
 	var right:=camera.global_basis.x

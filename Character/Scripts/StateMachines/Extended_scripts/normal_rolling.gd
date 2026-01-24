@@ -6,7 +6,7 @@ extends State
 var dash_speed := 10.0
 
 func enter() -> void:
-	pass
+	character.rolling()
 func physics_update(_delta) -> void:
 	state_logic(_delta)
 

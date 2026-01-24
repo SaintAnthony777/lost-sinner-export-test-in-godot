@@ -26,7 +26,3 @@ func grounding(stance:String):
 	
 func done_rolling_func():
 	isrolling=false
-
-
-func _on_done_rolling() -> void:
-	pass # Replace with function body.
