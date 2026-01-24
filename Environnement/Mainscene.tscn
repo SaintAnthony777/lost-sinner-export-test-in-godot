@@ -5,8 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://cdun6lufk65r" path="res://Ennemies/regular enemies/scene/enemy.tscn" id="3_j3wjx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jg32r"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+sky_top_color = Color(0, 0.5164236, 0.50541794, 1)
+sky_horizon_color = Color(0.2823219, 0.74948573, 0.76589084, 1)
+ground_bottom_color = Color(0.26308912, 0.4874577, 0.81466186, 1)
+ground_horizon_color = Color(0.5986936, 0.6917543, 0.69701284, 1)
 
 [sub_resource type="Sky" id="Sky_j3wjx"]
 sky_material = SubResource("ProceduralSkyMaterial_jg32r")
@@ -14,15 +16,20 @@ sky_material = SubResource("ProceduralSkyMaterial_jg32r")
 [sub_resource type="Environment" id="Environment_qkbc4"]
 background_mode = 2
 sky = SubResource("Sky_j3wjx")
-ambient_light_color = Color(0.3020129, 0.7595174, 0.85033387, 1)
-ambient_light_sky_contribution = 0.75
-tonemap_mode = 2
+ambient_light_source = 3
+ambient_light_color = Color(0.11287414, 0.30010724, 0.26837406, 1)
+ambient_light_sky_contribution = 0.5
+ambient_light_energy = 1.98
+tonemap_mode = 3
+tonemap_exposure = 1.98
 glow_enabled = true
 fog_enabled = true
 fog_mode = 1
-fog_light_color = Color(0.44539493, 0.5844387, 0.56116134, 1)
-fog_light_energy = 2.85
+fog_light_color = Color(0.20418552, 0.5831017, 0.8312832, 1)
+fog_light_energy = 3.83
+fog_sun_scatter = 0.12
 fog_density = 1.0
+fog_aerial_perspective = 0.49
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_j3wjx"]
 data = PackedVector3Array(1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1)
@@ -242,6 +249,7 @@ environment = SubResource("Environment_qkbc4")
 
 [node name="Sketchfab_model" parent="." index="2"]
 transform = Transform3D(0.7, 0, 0, 0, -3.059797e-08, 0.7, 0, -0.7, -3.059797e-08, 0, 0, 0)
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_1/Object_4" index="0"]
 collision_layer = 7

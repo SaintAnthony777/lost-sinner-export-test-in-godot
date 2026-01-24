@@ -7,8 +7,8 @@ var walking_speed:=4.0
 
 func physics_update(_delta) -> void:
 	state_logics(_delta,player.velocity)
-	if player.is_aiming: state_machine.change_state("aiming")
-	if player.is_locking : state_machine.change_state("locking")
+	if Input.is_action_pressed("Aiming"):state_machine.change_state("aiming")
+	if Input.is_action_just_pressed("locking")and player.current_target!=null : state_machine.change_state("locking")
 	if Input.is_action_just_pressed("rolling") : 
 		character.isrolling=true
 		state_machine.change_state("normal_rolling")

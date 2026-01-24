@@ -4,8 +4,8 @@ extends State
 
 func physics_update(_delta) -> void:
 	state_logics(_delta)
-	if !player.is_aiming : state_machine.change_state("normal")
-	if player.is_locking : state_machine.change_state("locking")
+	if Input.is_action_just_released("Aiming") : state_machine.change_state("normal")
+	if Input.is_action_just_pressed("locking") and player.current_target!=null : state_machine.change_state("locking")
 
 func state_logics (delta:float) -> void :
 	player.SPEED=3.0

@@ -40,12 +40,6 @@ func _input(_event: InputEvent) -> void:
 		Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
 	if Input.is_action_just_pressed("Camera Switching"):
 		camera_switch_logic()
-	if Input.is_action_pressed("Aiming"):
-		is_aiming=true
-	if Input.is_action_just_released("Aiming"):
-		is_aiming=false
-	if Input.is_action_just_pressed("locking") and current_target!=null:
-		is_locking=true
 
 func _unhandled_input(event: InputEvent) -> void:
 	var camera_is_in_motion:=(
