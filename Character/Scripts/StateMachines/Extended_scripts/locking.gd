@@ -8,6 +8,7 @@ func physics_update(_delta) -> void:
 
 func state_logic(_delta:float):
 	player.SPEED=5.0
+	player.gravity_applying()
 	if (Input.is_action_just_pressed("locking") or 
 	Input.is_action_just_pressed("Aiming") or 
 	player.global_position.distance_to(player.current_target.global_position) > 12):

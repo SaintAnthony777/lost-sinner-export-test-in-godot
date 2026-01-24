@@ -8,6 +8,7 @@ var dash_speed := 10.0
 func enter() -> void:
 	character.rolling()
 func physics_update(_delta) -> void:
+	player.gravity_applying()
 	state_logic(_delta)
 
 func state_logic(delta):

@@ -9,6 +9,7 @@ func physics_update(_delta) -> void:
 
 func state_logics (delta:float) -> void :
 	player.SPEED=3.0
+	player.gravity_applying()
 	player.camera_rotation_logic(delta)
 	player.character_moving(player.player_direction)
 	var input_dir := Input.get_vector("Droite", "Gauche", "Bas", "Haut") 

@@ -50,8 +50,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera_input_direction=event.screen_relative*mouse_sensitivity
 
 func _physics_process(_delta: float) -> void:
-	if !is_on_floor(): velocity.y+=gravity
-	if !is_locking : current_target=get_best_target()
+	current_target=get_best_target()
 	var input_dir := Input.get_vector("Droite", "Gauche", "Bas", "Haut").normalized()
 	var forward:=camera.global_basis.z
 	var right:=camera.global_basis.x
@@ -61,7 +60,6 @@ func _physics_process(_delta: float) -> void:
 	player_direction=direction
 	move_direction.y = 0.0
 	move_direction=move_direction.normalized()
-	
 	move_and_slide()
 
 ## Fonction permettant de déplacer le personnage
@@ -75,14 +73,13 @@ func character_moving(dir:Vector3):
 
 func camera_rotation_logic(delta:float):
 	camera_controller.rotation.x+=camera_input_direction.y*delta
-	camera_controller.rotation.x=clamp(camera_controller.rotation.x, -PI/6.0 , PI/3.0)
+	camera_controller.rotation.x=clamp(camera_controller.rotation.x, -PI/8.0 , PI/6.0)
 	camera_controller.rotation.y-=camera_input_direction.x*delta
 	camera_input_direction=Vector2.ZERO
 	if !is_aiming and !is_locking:
 		camera.fov=lerp(camera.fov,75.0,.15)
 	else :
 		camera.fov=lerp(camera.fov,55.0,.15)
-		
 ###fonction permettant de faire du va et viens entre gauche droite de la camera
 func camera_switch_logic():
 	if camera_position=="left":
@@ -110,3 +107,12 @@ func get_best_target()->enemy:
 					min_angle = angle
 					best_target=foe
 	return best_target
+
+func gravity_applying()->void:
+	if !is_on_floor(): velocity.y+=gravity
+
+func character_rotation(move_dir:Vector3,last_mov_dir:Vector3,delta:float):
+	if move_dir.length() > 0.2:
+		last_mov_dir=move_dir
+		var target_angle:=Vector3.BACK.signed_angle_to(last_mov_dir,Vector3.UP)
+		character.global_rotation.y=lerp_angle(character.rotation.y,target_angle,rotation_speed*delta)

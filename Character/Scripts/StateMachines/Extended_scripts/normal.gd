@@ -8,15 +8,16 @@ var walking_speed:=4.0
 func physics_update(_delta) -> void:
 	state_logics(_delta,player.velocity)
 	if Input.is_action_pressed("Aiming"):state_machine.change_state("aiming")
-	if Input.is_action_just_pressed("locking")and player.current_target!=null : state_machine.change_state("locking")
+	if Input.is_action_just_pressed("locking") and player.current_target!=null : state_machine.change_state("locking")
 	if Input.is_action_just_pressed("rolling") : 
 		character.isrolling=true
 		state_machine.change_state("normal_rolling")
-	
+	if Input.is_action_pressed("sprinting"):state_machine.change_state("sprinting")
 func state_logics (delta:float,velocity:Vector3) -> void : 
+	player.gravity_applying()
 	player.camera_rotation_logic(delta)
 	player.character_moving(player.player_direction)
-	character_rotation(player.player_move_direction,player.last_movement_direction,delta)
+	player.character_rotation(player.player_move_direction,player.last_movement_direction,delta)
 	if velocity.length()>=.2 :
 		if Input.is_action_pressed("walk"):
 			player.SPEED=walking_speed
@@ -25,10 +26,3 @@ func state_logics (delta:float,velocity:Vector3) -> void :
 			player.SPEED=running_speed
 			character.normal_motion("Run")
 	else : character.normal_motion("Idle_unarmed")
-
-func character_rotation(move_dir:Vector3,last_mov_dir:Vector3,delta:float):
-	if move_dir.length() > 0.2:
-		last_mov_dir=move_dir
-		var target_angle:=Vector3.BACK.signed_angle_to(last_mov_dir,Vector3.UP)
-		character.global_rotation.y=lerp_angle(character.rotation.y,target_angle,player.rotation_speed*delta)
-	
