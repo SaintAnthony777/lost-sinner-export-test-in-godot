@@ -12,14 +12,11 @@ func state_logic(_delta:float):
 	Input.is_action_just_pressed("Aiming") or 
 	player.global_position.distance_to(player.current_target.global_position) > 12):
 		player.is_locking=false; state_machine.change_state("normal")
-	
-	if player.current_target :
+		
+	else: 
 		player_force_rotation()
 		camera_force_rotation()
 		camera_and_mesh_rotation()
-	
-	else : player.is_locking=false; state_machine.change_state("normal")
-
 
 func player_force_rotation()->void:
 	var input_dir := Input.get_vector("Droite", "Gauche", "Bas", "Haut") 
