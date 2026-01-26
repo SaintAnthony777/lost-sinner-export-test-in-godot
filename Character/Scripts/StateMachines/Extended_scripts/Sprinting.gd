@@ -2,7 +2,7 @@ extends State
 @onready var character: character_mesh = $"../../The Lost Sinner1"
 @onready var player: player_character = $"../.."
 
-var sprinting_speed:=10.0
+var sprinting_speed:=9.0
 
 func physics_update(_delta) -> void:
 	state_logic(_delta)

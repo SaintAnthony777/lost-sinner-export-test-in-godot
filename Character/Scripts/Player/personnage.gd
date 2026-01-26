@@ -55,12 +55,11 @@ func _physics_process(_delta: float) -> void:
 	var forward:=camera.global_basis.z
 	var right:=camera.global_basis.x
 	var move_direction:=forward*input_dir.y*-1 + right*input_dir.x*-1
+	move_direction.y = 0.0
+	move_direction=move_direction.normalized()
 	player_move_direction=move_direction
 	var direction := (camera_controller.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	player_direction=direction
-	move_direction.y = 0.0
-	move_direction=move_direction.normalized()
-	move_and_slide()
 
 ## Fonction permettant de déplacer le personnage
 func character_moving(dir:Vector3):
@@ -70,16 +69,15 @@ func character_moving(dir:Vector3):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-
+	move_and_slide()
+	
 func camera_rotation_logic(delta:float):
 	camera_controller.rotation.x+=camera_input_direction.y*delta
-	camera_controller.rotation.x=clamp(camera_controller.rotation.x, -PI/8.0 , PI/6.0)
+	camera_controller.rotation.x=clamp(camera_controller.rotation.x, -PI/12.0 , PI/6.0)
 	camera_controller.rotation.y-=camera_input_direction.x*delta
 	camera_input_direction=Vector2.ZERO
-	if !is_aiming and !is_locking:
-		camera.fov=lerp(camera.fov,75.0,.15)
-	else :
-		camera.fov=lerp(camera.fov,55.0,.15)
+	
+
 ###fonction permettant de faire du va et viens entre gauche droite de la camera
 func camera_switch_logic():
 	if camera_position=="left":
