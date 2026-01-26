@@ -3,19 +3,17 @@ extends State
 @onready var player: player_character = $"../.."
 @onready var character_animation_player: AnimationPlayer = $"../../The Lost Sinner1/AnimationPlayer"
 
-var dash_speed := 10.0
+var dash_speed := 15.0
 
-func enter() -> void:
-	character.rolling()
 func physics_update(_delta) -> void:
 	player.gravity_applying()
 	state_logic(_delta)
 
 func state_logic(delta):
 	player.camera_rotation_logic(delta)
-	character.rolling()
+	character.sliding()
 	dashlogic()
-	if !character.isrolling:
+	if !character.is_sliding:
 		state_machine.change_state("normal")
 
 func dashlogic():

@@ -3,6 +3,7 @@ extends Node3D
 class_name character_mesh
 
 var isrolling:bool=false
+var is_sliding:bool=false
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 
@@ -15,10 +16,13 @@ func strafing_motion(direction:Vector2)->void:
 func locking_motion(direction:Vector2)->void:
 	grounding("Locking")
 	animation_tree.set("parameters/locking_blendspace/blend_position",direction)
+	
 func rolling()->void:
 	grounding("Rolling")
 	animation_tree.set("parameters/roll_transistion/transition_request","rolling")
-
+func sliding()->void:
+	grounding("Rolling")
+	animation_tree.set("parameters/roll_transistion/transition_request","sliding")
 func grounding(stance:String)->void:
 	animation_tree.set("parameters/State/transition_request","Grounded")
 	animation_tree.set("parameters/Ground_state/transition_request","Ground_Motion")
@@ -29,3 +33,5 @@ func sprinting()->void:
 	
 func done_rolling_func()->void:
 	isrolling=false
+func done_sliding()->void:
+	is_sliding=false
