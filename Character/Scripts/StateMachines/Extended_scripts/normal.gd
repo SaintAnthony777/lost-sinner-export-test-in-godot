@@ -4,8 +4,8 @@ extends State
 
 var running_speed:=6.0
 var walking_speed:=4.0
-
 func physics_update(_delta) -> void:
+	player.camera.fov=lerp(player.camera.fov,75.0,.1)
 	state_logics(_delta,player.velocity)
 	if Input.is_action_pressed("Aiming"):state_machine.change_state("aiming")
 	if Input.is_action_just_pressed("locking") and player.current_target!=null : state_machine.change_state("locking")
