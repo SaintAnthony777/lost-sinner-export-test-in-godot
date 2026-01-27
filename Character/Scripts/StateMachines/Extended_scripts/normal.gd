@@ -12,7 +12,7 @@ func physics_update(_delta) -> void:
 	if Input.is_action_just_pressed("rolling") : 
 		character.isrolling=true
 		state_machine.change_state("normal_rolling")
-	if Input.is_action_pressed("sprinting"):state_machine.change_state("sprinting")
+
 func state_logics (delta:float,velocity:Vector3) -> void : 
 	player.gravity_applying()
 	player.camera_rotation_logic(delta)
@@ -25,4 +25,5 @@ func state_logics (delta:float,velocity:Vector3) -> void :
 		else :
 			player.SPEED=running_speed
 			character.normal_motion("Run")
+			if Input.is_action_pressed("sprinting"):state_machine.change_state("sprinting")
 	else : character.normal_motion("Idle_unarmed")
