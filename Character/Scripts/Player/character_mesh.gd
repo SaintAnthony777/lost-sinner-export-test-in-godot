@@ -4,6 +4,8 @@ class_name character_mesh
 
 var isrolling:bool=false
 var is_sliding:bool=false
+var is_backfliping:bool=false
+var starts_backflips:bool=false
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 
@@ -27,11 +29,21 @@ func grounding(stance:String)->void:
 	animation_tree.set("parameters/State/transition_request","Grounded")
 	animation_tree.set("parameters/Ground_state/transition_request","Ground_Motion")
 	animation_tree.set("parameters/Moving/transition_request",stance)
-	
+func backflip()->void:
+	grounding("Rolling")
+	animation_tree.set("parameters/roll_transistion/transition_request","backflip")
+
 func sprinting()->void:
 	grounding("Sprinting")
-	
+
 func done_rolling_func()->void:
 	isrolling=false
 func done_sliding()->void:
 	is_sliding=false
+func done_backflips()->void:
+	is_backfliping=false
+
+func starts_backflipping()->void:
+	starts_backflips=true
+func stops_backflipping()->void:
+	starts_backflips=false

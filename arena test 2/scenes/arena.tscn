@@ -106,12 +106,10 @@ void fragment() {
 
 // Texture2D:2
 	vec4 n_out2p0 = texture(tex_frg_2, n_out3p0);
-	float n_out2p4 = n_out2p0.a;
 
 
 // Output:0
 	ALBEDO = vec3(n_out2p0.xyz);
-	ALPHA = n_out2p4;
 	EMISSION = vec3(n_out2p0.xyz);
 
 
@@ -125,7 +123,7 @@ nodes/fragment/4/node = SubResource("VisualShaderNodeInput_d5jdl")
 nodes/fragment/4/position = Vector2(-640, 320)
 nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_sxufi")
 nodes/fragment/5/position = Vector2(-400, 160)
-nodes/fragment/connections = PackedInt32Array(3, 0, 2, 0, 2, 4, 0, 1, 2, 0, 0, 0, 2, 0, 0, 5, 5, 0, 3, 2, 4, 0, 5, 0)
+nodes/fragment/connections = PackedInt32Array(3, 0, 2, 0, 2, 0, 0, 0, 2, 0, 0, 5, 5, 0, 3, 2, 4, 0, 5, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tbh8e"]
 render_priority = 0

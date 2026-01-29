@@ -1,0 +1,19 @@
+extends State
+@onready var character: character_mesh = $"../../The Lost Sinner1"
+@onready var player: player_character = $"../.."
+
+@export var walk_speed:=6.0
+
+func physics_update(_delta) -> void:
+	state_logic(_delta)
+	if player.velocity==Vector3.ZERO:
+		state_machine.change_state("idle")
+	if Input.is_action_just_released("walk"):
+		state_machine.change_state("run")
+
+func state_logic(delta)->void:
+	player.SPEED=walk_speed
+	player.gravity_applying()
+	player.camera_rotation_logic(delta)
+	player.character_moving(player.player_direction)
+	character.normal_motion("walk")
