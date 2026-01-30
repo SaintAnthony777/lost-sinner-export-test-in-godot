@@ -5,6 +5,7 @@ extends State
 @export var running_speed:=6.0
 
 func physics_update(_delta) -> void:
+	player.camera.fov=lerp(player.camera.fov,85.0,.1)
 	state_logic(_delta)
 	if player.velocity==Vector3.ZERO:
 		state_machine.change_state("idle")
@@ -15,7 +16,8 @@ func physics_update(_delta) -> void:
 	if Input.is_action_just_pressed("rolling") : 
 		character.isrolling=true
 		state_machine.change_state("normal_rolling")
-
+	if Input.is_action_pressed("Aiming"):
+		state_machine.change_state("aiming")
 
 func state_logic(delta)->void:
 	player.SPEED=running_speed

@@ -8,6 +8,7 @@ func physics_update(_delta) -> void:
 	if Input.is_action_just_pressed("locking") and player.current_target!=null : state_machine.change_state("locking")
 
 func state_logics (delta:float) -> void :
+	player.camera.fov=lerp(player.camera.fov,55.0,.1)
 	player.SPEED=3.0
 	player.gravity_applying()
 	player.camera_rotation_logic(delta)
