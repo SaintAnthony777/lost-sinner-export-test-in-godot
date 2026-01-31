@@ -50,7 +50,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera_input_direction=event.screen_relative*mouse_sensitivity
 
 func _physics_process(_delta: float) -> void:
-	current_target=get_best_target()
+	print(current_target)
+	if !current_target or !is_locking:
+		current_target=get_best_target()
 	var input_dir := Input.get_vector("Droite", "Gauche", "Bas", "Haut").normalized()
 	var forward:=camera.global_basis.z
 	var right:=camera.global_basis.x
@@ -60,7 +62,7 @@ func _physics_process(_delta: float) -> void:
 	player_move_direction=move_direction
 	var direction := (camera_controller.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	player_direction=direction
-
+	
 ## Fonction permettant de déplacer le personnage
 func character_moving(dir:Vector3):
 	if dir:

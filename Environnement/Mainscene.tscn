@@ -259,21 +259,29 @@ collision_mask = 7
 shape = SubResource("ConcavePolygonShape3D_j3wjx")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_1/Object_4" index="1"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_1/Object_4/StaticBody3D2" index="0"]
 shape = SubResource("ConcavePolygonShape3D_nkadi")
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_1/Object_4" index="2"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_1/Object_4/StaticBody3D3" index="0"]
 shape = SubResource("ConcavePolygonShape3D_f65qj")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_1/Object_5" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_1/Object_5/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_ayxcv")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_1/Object_5" index="1"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_1/Object_5/StaticBody3D2" index="0"]
 shape = SubResource("ConcavePolygonShape3D_prclx")
@@ -286,11 +294,15 @@ collision_mask = 7
 shape = SubResource("ConcavePolygonShape3D_qkbc4")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_001_2/Object_7" index="1"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_001_2/Object_7/StaticBody3D2" index="0"]
 shape = SubResource("ConcavePolygonShape3D_ig75p")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_001_2/Object_8" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_001_2/Object_8/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_j511t")
@@ -303,21 +315,29 @@ collision_mask = 7
 shape = SubResource("ConcavePolygonShape3D_07pph")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_002_3/Object_10" index="1"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_002_3/Object_10/StaticBody3D2" index="0"]
 shape = SubResource("ConcavePolygonShape3D_ffg3q")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_002_3/Object_11" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_002_3/Object_11/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_svmli")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_003_4/Object_13" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_003_4/Object_13/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_whtim")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_003_4/Object_13" index="1"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_003_4/Object_13/StaticBody3D2" index="0"]
 shape = SubResource("ConcavePolygonShape3D_v8xl8")
@@ -330,51 +350,71 @@ collision_mask = 7
 shape = SubResource("ConcavePolygonShape3D_xgntq")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_003_4/Object_14" index="1"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_003_4/Object_14/StaticBody3D2" index="0"]
 shape = SubResource("ConcavePolygonShape3D_hexfv")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_005_5/Object_16" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_005_5/Object_16/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_fu2xe")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_005_5/Object_16" index="1"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_005_5/Object_16/StaticBody3D2" index="0"]
 shape = SubResource("ConcavePolygonShape3D_k76no")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_005_5/Object_17" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_005_5/Object_17/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_qym55")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_006_6/Object_19" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_006_6/Object_19/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_jjt1g")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_006_6/Object_20" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_006_6/Object_20/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_2rfxd")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_007_7/Object_22" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_007_7/Object_22/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_lhxh4")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_007_7/Object_23" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_007_7/Object_23/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_mted5")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_007_7/Object_23" index="1"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_007_7/Object_23/StaticBody3D2" index="0"]
 shape = SubResource("ConcavePolygonShape3D_lj7iy")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_008_8/Object_25" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_008_8/Object_25/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_33ett")
@@ -387,11 +427,15 @@ collision_mask = 7
 shape = SubResource("ConcavePolygonShape3D_kp3np")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_008_8/Object_26" index="1"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_008_8/Object_26/StaticBody3D2" index="0"]
 shape = SubResource("ConcavePolygonShape3D_uwxj2")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_009_9/Object_28" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_009_9/Object_28/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_cwp1i")
@@ -404,6 +448,8 @@ collision_mask = 7
 shape = SubResource("ConcavePolygonShape3D_hkoo0")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_009_9/Object_29" index="1"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_009_9/Object_29/StaticBody3D2" index="0"]
 shape = SubResource("ConcavePolygonShape3D_fhvxt")
@@ -416,11 +462,15 @@ collision_mask = 7
 shape = SubResource("ConcavePolygonShape3D_kqlei")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_010_10/Object_31" index="1"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_010_10/Object_31/StaticBody3D2" index="0"]
 shape = SubResource("ConcavePolygonShape3D_ccrfl")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_011_11/Object_33" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_011_11/Object_33/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_45kdj")
@@ -433,11 +483,15 @@ collision_mask = 7
 shape = SubResource("ConcavePolygonShape3D_wtqjh")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_012_12/Object_35" index="1"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_012_12/Object_35/StaticBody3D2" index="0"]
 shape = SubResource("ConcavePolygonShape3D_yr042")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_013_13/Object_37" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_013_13/Object_37/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_qphn7")
@@ -450,51 +504,71 @@ collision_mask = 7
 shape = SubResource("ConcavePolygonShape3D_3u31m")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_014_14/Object_39" index="1"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_014_14/Object_39/StaticBody3D2" index="0"]
 shape = SubResource("ConcavePolygonShape3D_bvr5c")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cylinder_17/Object_41" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cylinder_17/Object_41/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_q4t3d")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cylinder_001_18/Object_43" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cylinder_001_18/Object_43/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_jag5i")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cylinder_002_19/Object_45" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cylinder_002_19/Object_45/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_jprrp")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cylinder_003_20/Object_47" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cylinder_003_20/Object_47/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_vgaa1")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cylinder_004_21/Object_49" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cylinder_004_21/Object_49/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_a0gfy")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cylinder_005_22/Object_51" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cylinder_005_22/Object_51/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_biuc3")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cylinder_006_23/Object_53" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cylinder_006_23/Object_53/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_vemry")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cylinder_007_24/Object_55" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cylinder_007_24/Object_55/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_jmvdc")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_004_26/Object_57" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_004_26/Object_57/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_caerm")
@@ -507,16 +581,22 @@ collision_mask = 7
 shape = SubResource("ConcavePolygonShape3D_y70x1")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_015_27/Object_59" index="1"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_015_27/Object_59/StaticBody3D2" index="0"]
 shape = SubResource("ConcavePolygonShape3D_2erhu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_015_27/Object_60" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_015_27/Object_60/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_m2eef")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cylinder_009_28/Object_62" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cylinder_009_28/Object_62/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_t4nfb")
@@ -529,11 +609,15 @@ collision_mask = 7
 shape = SubResource("ConcavePolygonShape3D_flob8")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/block_low_29/Object_64" index="1"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/block_low_29/Object_64/StaticBody3D2" index="0"]
 shape = SubResource("ConcavePolygonShape3D_eyd2l")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/block_low_29/Object_65" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/block_low_29/Object_65/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_cv2bb")
@@ -546,11 +630,15 @@ collision_mask = 7
 shape = SubResource("ConcavePolygonShape3D_a5ga8")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/block_low_001_30/Object_67" index="1"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/block_low_001_30/Object_67/StaticBody3D2" index="0"]
 shape = SubResource("ConcavePolygonShape3D_b5rrc")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/block_low_001_30/Object_68" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/block_low_001_30/Object_68/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_qsb1n")
@@ -563,26 +651,36 @@ collision_mask = 7
 shape = SubResource("ConcavePolygonShape3D_04iw0")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/block_low_002_31/Object_70" index="1"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/block_low_002_31/Object_70/StaticBody3D2" index="0"]
 shape = SubResource("ConcavePolygonShape3D_nrvw3")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/block_low_002_31/Object_71" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/block_low_002_31/Object_71/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_07inr")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/block_low_003_32/Object_73" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/block_low_003_32/Object_73/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_l5f6d")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/block_low_003_32/Object_73" index="1"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/block_low_003_32/Object_73/StaticBody3D2" index="0"]
 shape = SubResource("ConcavePolygonShape3D_7q37t")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/block_low_003_32/Object_74" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/block_low_003_32/Object_74/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_u28q0")
@@ -595,11 +693,15 @@ collision_mask = 7
 shape = SubResource("ConcavePolygonShape3D_lecu6")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/block_low_004_33/Object_76" index="1"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/block_low_004_33/Object_76/StaticBody3D2" index="0"]
 shape = SubResource("ConcavePolygonShape3D_uymfw")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/block_low_004_33/Object_77" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/block_low_004_33/Object_77/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_ke5d0")
@@ -612,16 +714,22 @@ collision_mask = 7
 shape = SubResource("ConcavePolygonShape3D_rmmta")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/block_low_005_34/Object_79" index="1"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/block_low_005_34/Object_79/StaticBody3D2" index="0"]
 shape = SubResource("ConcavePolygonShape3D_scsud")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/block_low_005_34/Object_80" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/block_low_005_34/Object_80/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_3k35w")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/NurbsPath_001_35/Object_82" index="0"]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/NurbsPath_001_35/Object_82/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_2p5w8")

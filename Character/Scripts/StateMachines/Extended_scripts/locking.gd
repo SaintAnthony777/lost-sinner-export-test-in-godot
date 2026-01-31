@@ -3,22 +3,28 @@ extends State
 @onready var character: character_mesh = $"../../The Lost Sinner1"
 @onready var player: player_character = $"../.."
 
+func enter() -> void:
+	player.is_locking=true
 func physics_update(_delta) -> void:
 	state_logic(_delta)
 
 func state_logic(_delta:float):
 	player.SPEED=5.0
+	player.camera.fov=lerp(player.camera.fov,55.0,.1)
 	player.gravity_applying()
 	if (Input.is_action_just_pressed("locking") or 
 	Input.is_action_just_pressed("Aiming") or 
 	player.global_position.distance_to(player.current_target.global_position) > 12):
 		player.is_locking=false
+		player.current_target=null
 		state_machine.change_state("normal")
 	else: 
 		player_force_rotation()
 		camera_force_rotation()
 		camera_and_mesh_rotation()
-
+func exit() -> void:
+	player.is_locking=false
+	
 func player_force_rotation()->void:
 	var input_dir := Input.get_vector("Droite", "Gauche", "Bas", "Haut") 
 	var look_pos = Vector3(player.current_target.aiming_node.global_position.x,
