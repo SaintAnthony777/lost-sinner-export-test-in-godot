@@ -7,7 +7,6 @@ var dash_speed := 15.0
 func enter() -> void: 
 	player.camera_animations.play("camera_sliding")
 func physics_update(_delta) -> void:
-	player.gravity_applying()
 	state_logic(_delta)
 	player.camera.fov=lerp(player.camera.fov,100.0,.1)
 func state_logic(delta):
@@ -20,5 +19,5 @@ func state_logic(delta):
 func dashlogic():
 	var dashdirection=character.transform.basis.z.normalized()
 	player.velocity=dashdirection*dash_speed
-	player.velocity.y+=0
+	player.gravity_applying()
 	player.move_and_slide()
