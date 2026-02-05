@@ -14,7 +14,10 @@ func physics_update(_delta) -> void:
 		state_machine.change_state("aiming")
 	if Input.is_action_just_pressed("locking") and player.current_target:
 		state_machine.change_state("locking")
-	
+		
+	if Input.is_action_just_pressed("shouts"):
+		character.is_shouting=true
+		state_machine.change_state("shouting")
 func state_logic(delta)->void:
 	character.normal_motion("Idle_unarmed")
 	player.gravity_applying()

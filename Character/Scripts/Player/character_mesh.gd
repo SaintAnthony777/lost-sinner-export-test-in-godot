@@ -6,6 +6,7 @@ var isrolling:bool=false
 var is_sliding:bool=false
 var is_backfliping:bool=false
 var starts_backflips:bool=false
+var is_shouting:bool=false
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 
@@ -18,23 +19,29 @@ func strafing_motion(direction:Vector2)->void:
 func locking_motion(direction:Vector2)->void:
 	grounding("Locking")
 	animation_tree.set("parameters/locking_blendspace/blend_position",direction)
-	
+
+func grounding(stance:String)->void:
+	animation_tree.set("parameters/State/transition_request","Grounded")
+	animation_tree.set("parameters/Ground_state/transition_request","Ground_Motion")
+	animation_tree.set("parameters/Moving/transition_request",stance)
+
+### Rolling and all that
 func rolling()->void:
 	grounding("Rolling")
 	animation_tree.set("parameters/roll_transistion/transition_request","rolling")
 func sliding()->void:
 	grounding("Rolling")
-	animation_tree.set("parameters/roll_transistion/transition_request","sliding")
-func grounding(stance:String)->void:
-	animation_tree.set("parameters/State/transition_request","Grounded")
-	animation_tree.set("parameters/Ground_state/transition_request","Ground_Motion")
-	animation_tree.set("parameters/Moving/transition_request",stance)
+	animation_tree.set("parameters/roll_transistion/transition_request","sliding")	
 func backflip()->void:
 	grounding("Rolling")
 	animation_tree.set("parameters/roll_transistion/transition_request","backflip")
-
 func sprinting()->void:
 	grounding("Sprinting")
+
+func Shouting()->void:
+	grounding("Ground Attacks")
+	animation_tree.set('parameters/Ground Attack transitions/transition_request','Hand')
+	animation_tree.set('parameters/Hand transitions/transition_request',"Burst attack")
 
 func done_rolling_func()->void:
 	isrolling=false
@@ -42,6 +49,8 @@ func done_sliding()->void:
 	is_sliding=false
 func done_backflips()->void:
 	is_backfliping=false
+func done_shouting()->void:
+	is_shouting=false
 
 func starts_backflipping()->void:
 	starts_backflips=true

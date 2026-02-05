@@ -24,7 +24,7 @@ var camera_position:String="left"
 var can_switch_camera:bool
 var is_aiming : bool = false
 var is_locking : bool = false
-
+var is_shouting:bool=false
 ##innervars
 var player_move_direction : Vector3
 var player_direction : Vector3
