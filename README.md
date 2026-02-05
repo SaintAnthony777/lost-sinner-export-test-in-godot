@@ -1,4 +1,4 @@
-<img width="1366" height="768" alt="Screenshot_2026-02-06-01-30-47_1366x768" src="https://github.com/user-attachments/assets/8cd033e7-59a2-45e7-95b9-7ba3e6fdefe6" /># Overview 
+# Overview 
 A Character controller made in godot 4.5 
 Using States instead of manual code placing 
 
