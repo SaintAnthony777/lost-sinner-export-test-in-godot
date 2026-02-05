@@ -31,8 +31,8 @@ data = PackedVector3Array(0.098, -0.43159997, -0.34899998, 0.21149999, -0.408099
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d5jdl"]
 sky_top_color = Color(0.6926959, 0.33396655, 3.85046e-07, 1)
 sky_horizon_color = Color(0.8279761, 0.58845836, 0.5159939, 1)
-ground_bottom_color = Color(0.61847645, 0.37039515, 0.117344745, 1)
-ground_horizon_color = Color(0.9212126, 0.5436699, 0.3423239, 1)
+ground_bottom_color = Color(1.8057269, 1.0198148, 0.33013698, 1)
+ground_horizon_color = Color(0.88526773, 0.4677717, 0.90008545, 1)
 energy_multiplier = 2.0
 
 [sub_resource type="Sky" id="Sky_j3wjx"]
@@ -44,6 +44,7 @@ sky = SubResource("Sky_j3wjx")
 ambient_light_energy = 1.84
 tonemap_mode = 2
 glow_enabled = true
+glow_intensity = 0.3
 fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0.7291792, 0.46176606, 0.23835862, 1)

@@ -50,7 +50,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera_input_direction=event.screen_relative*mouse_sensitivity
 
 func _physics_process(_delta: float) -> void:
-	print(current_target)
+	
 	if !current_target or !is_locking:
 		current_target=get_best_target()
 	var input_dir := Input.get_vector("Droite", "Gauche", "Bas", "Haut").normalized()

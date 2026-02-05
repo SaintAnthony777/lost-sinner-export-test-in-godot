@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1l45y1110wk2"]
+
+[ext_resource type="PackedScene" uid="uid://4c40plj0rtp" path="res://Character/Miscs/Angel Wings/angel-wings.glb" id="1_kshft"]
+[ext_resource type="Texture2D" uid="uid://cksutpxpyeqqw" path="res://Character/Miscs/Angel Wings/angel-wings_0.png" id="2_e4yte"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kshft"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+albedo_texture = ExtResource("2_e4yte")
+
+[node name="Angel Node" instance=ExtResource("1_kshft")]
+
+[node name="Object_3" parent="Sketchfab_model/Wings_lwo/polySurface2193" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_kshft")
