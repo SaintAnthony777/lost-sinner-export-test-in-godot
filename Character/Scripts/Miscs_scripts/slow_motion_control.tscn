@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgncmnh2cm1yh"]
+
+[ext_resource type="Script" uid="uid://b1uanle5o6ojn" path="res://Character/Scripts/Miscs_scripts/slow_motion_control.gd" id="1_cmi7r"]
+
+[node name="Slow_motion_control" type="Node"]
+script = ExtResource("1_cmi7r")
