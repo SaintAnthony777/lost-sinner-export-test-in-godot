@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgpavmvlrll1f"]
+
+[ext_resource type="Texture2D" uid="uid://dnf4evlf7efyf" path="res://Character/Miscs/textures/Rune_symbol.png" id="1_3evvf"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_e7cyj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_77tf7"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(2.5619988, 1.604812, 0.46716645, 1)
+albedo_texture = ExtResource("1_3evvf")
+albedo_texture_msdf = true
+uv1_offset = Vector3(-0.01, 0.055, 0)
+
+[node name="angel_burst_rune" type="Node3D"]
+
+[node name="rune_mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_e7cyj")
+surface_material_override/0 = SubResource("StandardMaterial3D_77tf7")
