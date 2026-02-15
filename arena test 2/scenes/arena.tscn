@@ -194,9 +194,9 @@ shape = SubResource("ConcavePolygonShape3D_w30xb")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="8"]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, -2.826835, 3.264147, 4.896221)
+light_color = Color(0.8169229, 0.44085443, 0.24903923, 1)
 light_bake_mode = 1
 shadow_enabled = true
-shadow_opacity = 0.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="9"]
 environment = SubResource("Environment_4hrnm")
