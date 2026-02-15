@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://xumlackoysv2"]
+[gd_scene load_steps=66 format=4 uid="uid://xumlackoysv2"]
 
 [ext_resource type="PackedScene" uid="uid://dshsna3bwyfl7" path="res://Character/Glb/lost sinner 1/The Lost Sinner1.glb" id="1_ag85x"]
 [ext_resource type="Script" uid="uid://dijb6jh7etgx0" path="res://Character/Scripts/Player/character_mesh.gd" id="2_ukanm"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cksutpxpyeqqw" path="res://Character/Miscs/Angel Wings/angel-wings_0.png" id="3_opacw"]
 [ext_resource type="AnimationLibrary" uid="uid://cfc0r3vfci1tu" path="res://Character/Imported Animations/first_animation_packs.res" id="3_rf1bm"]
 [ext_resource type="Texture2D" uid="uid://c1fy2l0dcbqmt" path="res://Character/Miscs/Angel Wings/angel-wings_1.png" id="4_61bvd"]
-[ext_resource type="PackedScene" uid="uid://dgpohhmyu3v2l" path="res://Character/Miscs/Particles/wings_burst.tscn" id="5_yywp5"]
 [ext_resource type="Texture2D" uid="uid://dnf4evlf7efyf" path="res://Character/Miscs/textures/Rune_symbol.png" id="8_61bvd"]
 [ext_resource type="PackedScene" uid="uid://b4r6hmgc4mw7e" path="res://Character/Miscs/Slow_motion/slow_motion_control.tscn" id="8_opacw"]
 
@@ -4919,7 +4918,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Particles bursts/Wings Burst/feathers:emitting")
+tracks/5/path = NodePath("Feet_bursts/angel_burst_rune:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -4931,22 +4930,10 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Feet_bursts/angel_burst_rune:visible")
+tracks/6/path = NodePath("Feet_bursts/angel_burst_rune/rune_mesh:surface_material_override/0:albedo_color")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Feet_bursts/angel_burst_rune/rune_mesh:surface_material_override/0:albedo_color")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -10758,11 +10745,11 @@ tracks/140/keys = {
 tracks/141/type = "value"
 tracks/141/imported = false
 tracks/141/enabled = true
-tracks/141/path = NodePath("Particles bursts/Wings Burst/feathers:emitting")
+tracks/141/path = NodePath("Feet_bursts/angel_burst_rune:visible")
 tracks/141/interp = 1
 tracks/141/loop_wrap = true
 tracks/141/keys = {
-"times": PackedFloat32Array(0.55, 2.5333333),
+"times": PackedFloat32Array(1.1866664, 2.3666666),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -10770,22 +10757,10 @@ tracks/141/keys = {
 tracks/142/type = "value"
 tracks/142/imported = false
 tracks/142/enabled = true
-tracks/142/path = NodePath("Feet_bursts/angel_burst_rune:visible")
+tracks/142/path = NodePath("Feet_bursts/angel_burst_rune/rune_mesh:surface_material_override/0:albedo_color")
 tracks/142/interp = 1
 tracks/142/loop_wrap = true
 tracks/142/keys = {
-"times": PackedFloat32Array(1.1866664, 2.3666666),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/143/type = "value"
-tracks/143/imported = false
-tracks/143/enabled = true
-tracks/143/path = NodePath("Feet_bursts/angel_burst_rune/rune_mesh:surface_material_override/0:albedo_color")
-tracks/143/interp = 1
-tracks/143/loop_wrap = true
-tracks/143/keys = {
 "times": PackedFloat32Array(1.4666667, 2.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -15055,7 +15030,7 @@ bone_idx = 1
 transform = Transform3D(1.0000001, -1.3969839e-09, 7.450581e-09, -1.6298145e-09, 0.99948615, 0.032056216, -7.450581e-09, -0.032056227, 0.99948615, -5.344285e-09, 1.7038095, -0.42601255)
 visible = false
 light_color = Color(5.8763404, 3.9270608, 0, 1)
-light_energy = 0.5
+light_energy = 0.2
 omni_range = 43.927
 
 [node name="Angel wings" type="Node3D" parent="Armature/Skeleton3D/Wings_Attachement" index="1"]
@@ -15109,13 +15084,6 @@ parameters/TimeScale/scale = 0.7999999999999972
 
 [node name="Particles bursts" type="Node3D" parent="." index="3"]
 
-[node name="Wings Burst" parent="Particles bursts" index="0" instance=ExtResource("5_yywp5")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-
-[node name="feathers" parent="Particles bursts/Wings Burst" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2371674, 0)
-emitting = false
-
 [node name="Feet_bursts" type="Node3D" parent="." index="4"]
 
 [node name="angel_burst_rune" type="Node3D" parent="Feet_bursts" index="0"]
@@ -15127,5 +15095,3 @@ mesh = SubResource("PlaneMesh_61bvd")
 surface_material_override/0 = SubResource("StandardMaterial3D_ipk5c")
 
 [node name="Slow_motion_control" parent="." index="5" instance=ExtResource("8_opacw")]
-
-[editable path="Particles bursts/Wings Burst"]

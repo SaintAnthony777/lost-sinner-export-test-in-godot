@@ -10,7 +10,6 @@ func physics_update(_delta) -> void:
 	character.Shouting()
 	player.camera.fov=lerp(player.camera.fov,115.0,.1)
 	player.camera_rotation_logic(_delta)
-
 func state_logics () -> void :
 	if !character.is_shouting:
 		state_machine.change_state("idle")
