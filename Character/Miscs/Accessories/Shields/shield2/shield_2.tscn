@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvkdsfiil7hxn"]
+
+[ext_resource type="PackedScene" uid="uid://bfq5461w534xx" path="res://Character/Miscs/Accessories/Shields/shield2/Shield2.glb" id="1_uhfhs"]
+[ext_resource type="Texture2D" uid="uid://dpnm0p42w4eon" path="res://Character/Miscs/Accessories/Shields/shield2/Shield2_motif_pour_bouclier_1.png" id="2_h1el2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_puvh8"]
+albedo_color = Color(1.0255096, 2.817357, 3.363807, 1)
+albedo_texture = ExtResource("2_h1el2")
+metallic = 0.35
+metallic_specular = 1.0
+roughness = 0.3
+emission = Color(0, 0, 0.79607844, 1)
+emission_energy_multiplier = 8.15
+emission_operator = 1
+emission_texture = ExtResource("2_h1el2")
+
+[node name="Shield2" instance=ExtResource("1_uhfhs")]
+
+[node name="Torus" parent="." index="0"]
+surface_material_override/1 = SubResource("StandardMaterial3D_puvh8")
