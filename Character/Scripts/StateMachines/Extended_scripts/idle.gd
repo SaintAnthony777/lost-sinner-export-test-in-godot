@@ -25,3 +25,5 @@ func input_logic()->void:
 	if Input.is_action_just_pressed("shouts"):
 		character.is_shouting=true
 		state_machine.change_state("shouting")
+	if Input.is_action_pressed("Blocks"):
+		state_machine.change_state("shield_idle")
