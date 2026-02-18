@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bh4eyifphqnvg"]
+
+[ext_resource type="Texture2D" uid="uid://dnf4evlf7efyf" path="res://Character/Miscs/textures/Rune_symbol.png" id="1_541ic"]
+
+[resource]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(7.138959, 4.732084, 0.87561285, 1)
+albedo_texture = ExtResource("1_541ic")
+albedo_texture_msdf = true
+emission = Color(0.9330827, 0.54589313, 0.19563279, 1)
+uv1_offset = Vector3(-0.01, 0.055, 0)

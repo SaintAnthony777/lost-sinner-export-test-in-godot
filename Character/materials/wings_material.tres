@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://epa0jchvjw26"]
+
+[ext_resource type="Texture2D" uid="uid://cksutpxpyeqqw" path="res://Character/Miscs/Angel Wings/angel-wings_0.png" id="1_xbkcg"]
+
+[resource]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+albedo_color = Color(1.113569, 0.41857398, 0.123201065, 1)
+albedo_texture = ExtResource("1_xbkcg")

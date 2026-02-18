@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://o3nypb0n2y18"]
+
+[ext_resource type="Script" uid="uid://cbeu33eueogd" path="res://autoloads/Meshmaterial_preloads/3d/materialspreload.gd" id="1_dbcvn"]
+
+[node name="materialspreload3d" type="Node3D"]
+script = ExtResource("1_dbcvn")
