@@ -25,6 +25,10 @@ func strafing_motion(direction:Vector2)->void:
 func locking_motion(direction:Vector2)->void:
 	grounding("Locking")
 	animation_tree.set("parameters/locking_blendspace/blend_position",direction)
+func shield_motion(current_action:String,input_dir:Vector2):
+	grounding("Ground shielding")
+	animation_tree.set("parameters/Ground shield transistion/transition_request",current_action)
+	animation_tree.set("parameters/Shield blendspace strafe/blend_position",input_dir)
 
 func grounding(stance:String)->void:
 	animation_tree.set("parameters/State/transition_request","Grounded")
@@ -44,11 +48,14 @@ func backflip()->void:
 func sprinting()->void:
 	grounding("Sprinting")
 
+##Bursts animations
 func Shouting()->void:
 	grounding("Ground Attacks")
 	animation_tree.set('parameters/Ground Attack transitions/transition_request','Hand')
 	animation_tree.set('parameters/Hand transitions/transition_request',"Burst attack")
 
+
+###NO signals so use vars xoxo
 func done_rolling_func()->void:
 	isrolling=false
 func done_sliding()->void:
