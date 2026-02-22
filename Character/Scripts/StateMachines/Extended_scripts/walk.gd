@@ -16,4 +16,5 @@ func state_logic(delta)->void:
 	player.gravity_applying()
 	player.camera_rotation_logic(delta)
 	player.character_moving(player.player_direction)
-	character.normal_motion("walk")
+	player.character_rotation(player.player_move_direction,player.last_movement_direction,delta)
+	character.normal_motion("Walk")

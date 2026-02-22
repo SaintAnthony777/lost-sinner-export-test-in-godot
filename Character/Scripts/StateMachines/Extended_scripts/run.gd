@@ -20,10 +20,7 @@ func state_logic(delta)->void:
 func Player_Input_events() -> void:
 	if player.velocity==Vector3.ZERO:
 		state_machine.change_state("idle")
-		
-	if Input.is_action_pressed("walk"):
-		state_machine.change_state("walk")
-	
+
 	if Input.is_action_pressed("sprinting"):
 		state_machine.change_state("sprinting")
 	

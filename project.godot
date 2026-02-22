@@ -16,6 +16,10 @@ run/main_scene="uid://d4nksg7f130a5"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="uid://flvau0snwba7"
 
+[autoload]
+
+Materialspreload="*res://autoloads/Meshmaterial_preloads/3d/materialspreload.gd"
+
 [display]
 
 window/size/mode=2

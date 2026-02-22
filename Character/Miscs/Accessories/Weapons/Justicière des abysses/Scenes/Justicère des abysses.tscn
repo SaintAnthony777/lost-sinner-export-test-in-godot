@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://coxrnqofsffsf"]
+
+[ext_resource type="PackedScene" uid="uid://d4medbrm0yyky" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Premier modèle.blend" id="1_g6a52"]
+[ext_resource type="Material" uid="uid://3x80h7j0o7t2" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/textures/iron/Metal052C_1K-JPG.tres" id="2_mdalh"]
+[ext_resource type="Material" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/textures/handle/Leather034C_1K-JPG.tres" id="3_hoooc"]
+
+[node name="Premier modèle" instance=ExtResource("1_g6a52")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 3.4, 0)
+
+[node name="Cube" parent="." index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_mdalh")
+
+[node name="Cylinder" parent="." index="1"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.6339275, 0)
+surface_material_override/0 = ExtResource("3_hoooc")
+
+[node name="Cylinder_001" parent="." index="2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.3054011, 0)
+surface_material_override/0 = ExtResource("2_mdalh")

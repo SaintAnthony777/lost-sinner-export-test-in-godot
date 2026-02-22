@@ -1,0 +1,21 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://3x80h7j0o7t2"]
+
+[ext_resource type="Texture2D" uid="uid://bw0rlbqk8te3s" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/textures/iron/Metal052C_1K-JPG_Color.jpg" id="Color"]
+[ext_resource type="Texture2D" uid="uid://d2odianx1eiwk" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/textures/iron/Metal052C_1K-JPG_Displacement.jpg" id="Displacement"]
+[ext_resource type="Texture2D" uid="uid://dhr2k6iy07jog" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/textures/iron/Metal052C_1K-JPG_Metalness.jpg" id="Metalness"]
+[ext_resource type="Texture2D" uid="uid://blr0b6aqh56dk" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/textures/iron/Metal052C_1K-JPG_NormalGL.jpg" id="NormalGL"]
+[ext_resource type="Texture2D" uid="uid://b6elaonyinjr8" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/textures/iron/Metal052C_1K-JPG_Roughness.jpg" id="Roughness"]
+
+[resource]
+albedo_color = Color(0.60662574, 0.60662585, 0.6066258, 1)
+albedo_texture = ExtResource("Color")
+metallic = 1.0
+metallic_texture = ExtResource("Metalness")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("Roughness")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("NormalGL")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("Displacement")

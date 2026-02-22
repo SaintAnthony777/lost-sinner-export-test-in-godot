@@ -6,5 +6,5 @@
 transparency = 1
 blend_mode = 1
 cull_mode = 2
-albedo_color = Color(1.113569, 0.41857398, 0.123201065, 1)
+albedo_color = Color(1.3786998, 1.3786998, 1.3786998, 1)
 albedo_texture = ExtResource("1_xbkcg")

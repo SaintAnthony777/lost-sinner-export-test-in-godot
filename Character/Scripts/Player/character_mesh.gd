@@ -12,10 +12,8 @@ var is_shouting:bool=false
 @onready var rune_mesh: MeshInstance3D = $Feet_bursts/angel_burst_rune/rune_mesh
 
 @onready var animation_tree: AnimationTree = $AnimationTree
-
 func _ready() -> void:
 	pass
-	props_preload()
 func normal_motion(current_action:String)->void:
 	grounding("Normal")
 	animation_tree.set("parameters/Normal_Transition/transition_request",current_action)
@@ -69,11 +67,3 @@ func starts_backflipping()->void:
 	starts_backflips=true
 func stops_backflipping()->void:
 	starts_backflips=false
-
-
-func props_preload()->void:
-	wing_mesh.show()
-	wing_mesh.hide()
-	rune_mesh.show()
-	rune_mesh.hide()
-	

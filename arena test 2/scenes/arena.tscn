@@ -41,17 +41,17 @@ sky_material = SubResource("ProceduralSkyMaterial_d5jdl")
 [sub_resource type="Environment" id="Environment_4hrnm"]
 background_mode = 2
 sky = SubResource("Sky_j3wjx")
-ambient_light_energy = 1.84
+ambient_light_color = Color(0.6743112, 0.44811237, 0.3496033, 1)
 tonemap_mode = 2
 glow_enabled = true
 glow_intensity = 0.3
 fog_enabled = true
 fog_mode = 1
-fog_light_color = Color(0.7291792, 0.46176606, 0.23835862, 1)
-fog_light_energy = 13.15
-fog_sun_scatter = 0.13
-fog_density = 1.0
-fog_aerial_perspective = 1.0
+fog_light_color = Color(0.84470046, 0.6466494, 0.42036167, 1)
+fog_light_energy = 2.85
+fog_sun_scatter = 0.37
+fog_density = 0.6538
+fog_depth_end = 50.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_sxufi"]
 size = Vector2(13, 20)
@@ -194,7 +194,7 @@ shape = SubResource("ConcavePolygonShape3D_w30xb")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="8"]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, -2.826835, 3.264147, 4.896221)
-light_color = Color(0.8169229, 0.44085443, 0.24903923, 1)
+light_color = Color(0.88947207, 0.37237033, 0.18425936, 1)
 light_bake_mode = 1
 shadow_enabled = true
 
