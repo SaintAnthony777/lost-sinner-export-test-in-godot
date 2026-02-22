@@ -7,6 +7,7 @@ var is_sliding:bool=false
 var is_backfliping:bool=false
 var starts_backflips:bool=false
 var is_shouting:bool=false
+var can_advance_to_next_atack_pattern:=false
 
 @onready var wing_mesh: MeshInstance3D = $"Armature/Skeleton3D/Wings_Attachement/Angel wings/Wing_Mesh"
 @onready var rune_mesh: MeshInstance3D = $Feet_bursts/angel_burst_rune/rune_mesh
@@ -46,12 +47,13 @@ func backflip()->void:
 func sprinting()->void:
 	grounding("Sprinting")
 
-##Bursts animations
-func Shouting()->void:
-	grounding("Ground Attacks")
-	animation_tree.set('parameters/Ground Attack transitions/transition_request','Hand')
-	animation_tree.set('parameters/Hand transitions/transition_request',"Burst attack")
 
+###Attack animation
+func attacking(current_stance:String,current_weapon:String,current_action:String)->void:
+	grounding("Ground Attacks")
+	animation_tree.set('parameters/Ground Attack transitions/transition_request',current_stance)
+	animation_tree.set('parameters/Weapon_equipped/transition_request',current_weapon)
+	animation_tree.set('parameters/'+current_weapon+'_attack_transition/transition_request',current_weapon+"_"+current_action)
 
 ###NO signals so use vars xoxo
 func done_rolling_func()->void:

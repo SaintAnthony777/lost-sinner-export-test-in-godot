@@ -33,10 +33,6 @@ func Player_Input_events() -> void:
 	
 	if Input.is_action_just_pressed("locking") and player.current_target:
 		state_machine.change_state("locking")
-		
-	if Input.is_action_just_pressed("shouts"):
-		character.is_shouting=true
-		state_machine.change_state("shouting")
-	
+
 	if Input.is_action_pressed("Blocks"):
 		state_machine.change_state("shield_normal")

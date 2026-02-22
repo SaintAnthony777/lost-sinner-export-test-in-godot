@@ -12,6 +12,8 @@ func physics_update(_delta) -> void:
 	if Input.is_action_just_pressed("rolling"):
 		character.is_sliding=true
 		state_machine.change_state("sliding")
+	if Input.is_action_pressed("Aiming"):
+		state_machine.change_state("aiming")
 
 func state_logic(delta:float)->void:
 	player.SPEED=sprinting_speed

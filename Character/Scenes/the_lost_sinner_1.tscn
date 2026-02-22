@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://xumlackoysv2"]
+[gd_scene load_steps=79 format=3 uid="uid://xumlackoysv2"]
 
 [ext_resource type="PackedScene" uid="uid://dshsna3bwyfl7" path="res://Character/Glb/lost sinner 1/The Lost Sinner1.glb" id="1_ag85x"]
 [ext_resource type="Script" uid="uid://dijb6jh7etgx0" path="res://Character/Scripts/Player/character_mesh.gd" id="2_ukanm"]
@@ -14535,18 +14535,14 @@ _data = {
 animation = &"Supplementary animation pack 1/Backflip"
 
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_opacw"]
-input_0/name = "Avelyn"
+input_0/name = "Normal"
 input_0/auto_advance = false
 input_0/break_loop_at_end = false
 input_0/reset = true
-input_1/name = "Hand"
+input_1/name = "Aiming"
 input_1/auto_advance = false
 input_1/break_loop_at_end = false
 input_1/reset = true
-input_2/name = "matilda"
-input_2/auto_advance = false
-input_2/break_loop_at_end = false
-input_2/reset = true
 
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_h8mx0"]
 input_0/name = "walking"
@@ -14572,27 +14568,35 @@ input_1/auto_advance = false
 input_1/break_loop_at_end = false
 input_1/reset = true
 
-[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_61bvd"]
-input_0/name = "Ground attack 1"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xxyrl"]
+animation = &"Ground_hammer_attacks/Hammer attack 1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j1dr1"]
+animation = &"Ground_hammer_attacks/Hammer attack 2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cl0wa"]
+animation = &"Ground_hammer_attacks/Hammer attack 3"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rw4r8"]
+animation = &"Ground_hammer_attacks/Middle Attack"
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_nlbpv"]
+input_0/name = "Hammer_attack_1"
 input_0/auto_advance = false
 input_0/break_loop_at_end = false
 input_0/reset = true
-input_1/name = "Ground attack 2"
+input_1/name = "Hammer_attack_2"
 input_1/auto_advance = false
 input_1/break_loop_at_end = false
 input_1/reset = true
-input_2/name = "Ground attack 3"
+input_2/name = "Hammer_attack_3"
 input_2/auto_advance = false
 input_2/break_loop_at_end = false
 input_2/reset = true
-input_3/name = "Burst attack"
+input_3/name = "Hammer_attack_running"
 input_3/auto_advance = false
 input_3/break_loop_at_end = false
 input_3/reset = true
-input_4/name = "Thrust Attack"
-input_4/auto_advance = false
-input_4/break_loop_at_end = false
-input_4/reset = true
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ag85x"]
 animation = &"Unarmed_Idle"
@@ -14683,9 +14687,6 @@ sync = true
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_50exv"]
 animation = &"blocking animation packs/Shield Idle"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xxyrl"]
-animation = &"Shouting"
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hg5sy"]
 animation = &"Supplementary animation packs 2/Fast_Run"
 
@@ -14734,6 +14735,20 @@ animation = &"blocking animation packs/Shield Strafe forward"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_61bvd"]
 animation = &"Walk forward"
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_uip74"]
+input_0/name = "Hammer"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "Great_Sword"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
+input_2/name = "Light_Sword"
+input_2/auto_advance = false
+input_2/break_loop_at_end = false
+input_2/reset = true
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_2hw2s"]
 
@@ -14790,6 +14805,7 @@ animation = &"Quick roll"
 animation = &"Supplementary animation packs 2/Run slide"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_h8mx0"]
+graph_offset = Vector2(-3772.8406, -254.0949)
 nodes/output/position = Vector2(1680, 186.66667)
 nodes/State/node = SubResource("AnimationNodeTransition_rf1bm")
 nodes/State/position = Vector2(1440, 160)
@@ -14826,20 +14842,28 @@ nodes/Animation/position = Vector2(-3760, 0)
 "nodes/backflip timescale/node" = SubResource("AnimationNodeTimeScale_2hw2s")
 "nodes/backflip timescale/position" = Vector2(-3200, -346.66666)
 "nodes/Ground Attack transitions/node" = SubResource("AnimationNodeTransition_opacw")
-"nodes/Ground Attack transitions/position" = Vector2(-2666.6667, 266.66666)
-"nodes/Hand transitions/node" = SubResource("AnimationNodeTransition_61bvd")
-"nodes/Hand transitions/position" = Vector2(-4000, 346.66666)
-nodes/Shouting/node = SubResource("AnimationNodeAnimation_xxyrl")
-nodes/Shouting/position = Vector2(-4320, 426.66666)
+"nodes/Ground Attack transitions/position" = Vector2(-3440, 400)
+"nodes/Shield blendspace strafe/node" = SubResource("AnimationNodeBlendSpace2D_h8mx0")
+"nodes/Shield blendspace strafe/position" = Vector2(-2746.6667, 1066.6666)
+"nodes/Shiled Idle/node" = SubResource("AnimationNodeAnimation_50exv")
+"nodes/Shiled Idle/position" = Vector2(-2800, 853.3333)
 "nodes/Ground shield transistion/node" = SubResource("AnimationNodeTransition_h8mx0")
 "nodes/Ground shield transistion/position" = Vector2(-2133.3333, 773.3333)
 "nodes/Walk with shiled/node" = SubResource("AnimationNodeAnimation_700hb")
 "nodes/Walk with shiled/position" = Vector2(-2800, 586.6667)
-"nodes/Shiled Idle/node" = SubResource("AnimationNodeAnimation_50exv")
-"nodes/Shiled Idle/position" = Vector2(-2800, 853.3333)
-"nodes/Shield blendspace strafe/node" = SubResource("AnimationNodeBlendSpace2D_h8mx0")
-"nodes/Shield blendspace strafe/position" = Vector2(-2746.6667, 1066.6666)
-node_connections = [&"output", 0, &"State", &"State", 0, &"Ground_state", &"Moving", 0, &"Normal_Transition", &"Moving", 1, &"Strafe_blendspace", &"Moving", 2, &"locking_blendspace", &"Moving", 3, &"roll_transistion", &"Moving", 4, &"TimeScale", &"Moving", 5, &"Ground Attack transitions", &"Moving", 6, &"Ground shield transistion", &"Normal_Transition", 0, &"Walking", &"Normal_Transition", 1, &"Running", &"Normal_Transition", 2, &"Idle_Animation", &"Ground_state", 0, &"Moving", &"roll_transistion", 0, &"slide_animation", &"roll_transistion", 1, &"rolltime_sacle", &"roll_transistion", 2, &"backflip timescale", &"rolltime_sacle", 0, &"rollanimation", &"TimeScale", 0, &"Sprint_animation", &"backflip timescale", 0, &"Animation", &"Ground Attack transitions", 1, &"Hand transitions", &"Hand transitions", 3, &"Shouting", &"Ground shield transistion", 0, &"Walk with shiled", &"Ground shield transistion", 1, &"Shiled Idle", &"Ground shield transistion", 2, &"Shield blendspace strafe"]
+nodes/Hammer_attack_running/node = SubResource("AnimationNodeAnimation_rw4r8")
+nodes/Hammer_attack_running/position = Vector2(-5546.6665, 160)
+nodes/Weapon_equipped/node = SubResource("AnimationNodeTransition_uip74")
+nodes/Weapon_equipped/position = Vector2(-4053.3333, 240)
+nodes/Hammer_attack_transition/node = SubResource("AnimationNodeTransition_nlbpv")
+nodes/Hammer_attack_transition/position = Vector2(-4906.6665, -240)
+nodes/Hammer_attack_1/node = SubResource("AnimationNodeAnimation_xxyrl")
+nodes/Hammer_attack_1/position = Vector2(-5546.6665, -560)
+nodes/Hammer_attack_2/node = SubResource("AnimationNodeAnimation_j1dr1")
+nodes/Hammer_attack_2/position = Vector2(-5546.6665, -293.33334)
+nodes/Hammer_attack_3/node = SubResource("AnimationNodeAnimation_cl0wa")
+nodes/Hammer_attack_3/position = Vector2(-5546.6665, -53.333332)
+node_connections = [&"output", 0, &"State", &"State", 0, &"Ground_state", &"Moving", 0, &"Normal_Transition", &"Moving", 1, &"Strafe_blendspace", &"Moving", 2, &"locking_blendspace", &"Moving", 3, &"roll_transistion", &"Moving", 4, &"TimeScale", &"Moving", 5, &"Ground Attack transitions", &"Moving", 6, &"Ground shield transistion", &"Normal_Transition", 0, &"Walking", &"Normal_Transition", 1, &"Running", &"Normal_Transition", 2, &"Idle_Animation", &"Ground_state", 0, &"Moving", &"roll_transistion", 0, &"slide_animation", &"roll_transistion", 1, &"rolltime_sacle", &"roll_transistion", 2, &"backflip timescale", &"rolltime_sacle", 0, &"rollanimation", &"TimeScale", 0, &"Sprint_animation", &"backflip timescale", 0, &"Animation", &"Ground Attack transitions", 0, &"Weapon_equipped", &"Ground shield transistion", 0, &"Walk with shiled", &"Ground shield transistion", 1, &"Shiled Idle", &"Ground shield transistion", 2, &"Shield blendspace strafe", &"Weapon_equipped", 0, &"Hammer_attack_transition", &"Hammer_attack_transition", 0, &"Hammer_attack_1", &"Hammer_attack_transition", 1, &"Hammer_attack_2", &"Hammer_attack_transition", 2, &"Hammer_attack_3", &"Hammer_attack_transition", 3, &"Hammer_attack_running"]
 
 [node name="The Lost Sinner1" instance=ExtResource("1_ag85x")]
 script = ExtResource("2_ukanm")
@@ -15015,7 +15039,7 @@ bone_name = "mixamorig_Hips"
 bone_idx = 0
 
 [node name="Premier modèle" parent="Armature/Skeleton3D/Unused_weapon_attachment" index="0" instance=ExtResource("6_dqom3")]
-transform = Transform3D(0.1988337, -0.021484632, 0.0018858034, 0.009234422, 0.0690045, -0.18749155, 0.019490302, 0.18648537, 0.06959412, -0.24001738, -0.078261614, 0.012557998)
+transform = Transform3D(-0.19943751, 0.0075545944, -0.012945268, 0.00418998, -0.13774957, -0.14493959, -0.014390836, -0.14480326, 0.13720392, 0.23458363, -0.12829882, -0.12035659)
 
 [node name="Right_hand_weapon_attachment" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="4"]
 transform = Transform3D(0.06770502, -0.7700799, 0.6343443, 0.66424745, -0.43961382, -0.60457814, 0.7444404, 0.4622947, 0.4817595, -0.62978196, 1.0083257, -0.17136943)
@@ -15043,9 +15067,9 @@ parameters/State/current_state = "Grounded"
 parameters/State/transition_request = ""
 parameters/State/current_index = 0
 parameters/Strafe_blendspace/blend_position = Vector2(-0.9748111, 0.009374976)
-parameters/Moving/current_state = "Normal"
+parameters/Moving/current_state = "Ground Attacks"
 parameters/Moving/transition_request = ""
-parameters/Moving/current_index = 0
+parameters/Moving/current_index = 5
 parameters/Normal_Transition/current_state = "Walk"
 parameters/Normal_Transition/transition_request = ""
 parameters/Normal_Transition/current_index = 0
@@ -15059,16 +15083,19 @@ parameters/roll_transistion/current_index = 2
 parameters/rolltime_sacle/scale = 1.5
 parameters/TimeScale/scale = 0.7999999999999972
 "parameters/backflip timescale/scale" = 1.2999999999999972
-"parameters/Ground Attack transitions/current_state" = "Avelyn"
+"parameters/Ground Attack transitions/current_state" = "Normal"
 "parameters/Ground Attack transitions/transition_request" = ""
 "parameters/Ground Attack transitions/current_index" = 0
-"parameters/Hand transitions/current_state" = ""
-"parameters/Hand transitions/transition_request" = ""
-"parameters/Hand transitions/current_index" = -1
+"parameters/Shield blendspace strafe/blend_position" = Vector2(-0.9596977, 0.0031249523)
 "parameters/Ground shield transistion/current_state" = "strafe"
 "parameters/Ground shield transistion/transition_request" = ""
 "parameters/Ground shield transistion/current_index" = 2
-"parameters/Shield blendspace strafe/blend_position" = Vector2(-0.9596977, 0.0031249523)
+parameters/Weapon_equipped/current_state = "Hammer"
+parameters/Weapon_equipped/transition_request = ""
+parameters/Weapon_equipped/current_index = 0
+parameters/Hammer_attack_transition/current_state = "Hammer_attack_1"
+parameters/Hammer_attack_transition/transition_request = ""
+parameters/Hammer_attack_transition/current_index = 0
 
 [node name="Particles bursts" type="Node3D" parent="." index="3"]
 
