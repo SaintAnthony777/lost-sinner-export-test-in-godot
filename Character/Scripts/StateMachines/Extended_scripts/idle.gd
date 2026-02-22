@@ -24,3 +24,6 @@ func input_logic()->void:
 		state_machine.change_state("locking")
 	if Input.is_action_pressed("Blocks"):
 		state_machine.change_state("shield_idle")
+	if Input.is_action_just_pressed("Attack_trigger"):
+		character.is_attacking=true
+		state_machine.change_state("hammer_attack_1")

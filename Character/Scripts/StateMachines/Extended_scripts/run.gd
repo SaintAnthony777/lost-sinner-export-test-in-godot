@@ -36,3 +36,8 @@ func Player_Input_events() -> void:
 
 	if Input.is_action_pressed("Blocks"):
 		state_machine.change_state("shield_normal")
+		
+	if Input.is_action_just_pressed("Attack_trigger"):
+			character.is_attacking=true
+			state_machine.change_state("hammer_attack_1")
+		

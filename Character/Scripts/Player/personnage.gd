@@ -34,10 +34,10 @@ func _ready() -> void:
 	pass
 	
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_pressed("left click"):
-		Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 	if Input.is_action_pressed("Pause"):
-		Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
+		if Input.mouse_mode==Input.MOUSE_MODE_VISIBLE:
+			Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+		else : Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
 	if Input.is_action_just_pressed("Camera Switching"):
 		camera_switch_logic()
 
