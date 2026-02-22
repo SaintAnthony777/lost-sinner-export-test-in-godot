@@ -5,6 +5,7 @@ extends State
 func physics_update(_delta) -> void:
 	attack_stuff()
 	attack_check()
+	state_logic(_delta)
 func attack_stuff()->void:
 	character.attacking("Normal","Hammer","attack_2")
 func attack_check()->void:
@@ -12,3 +13,5 @@ func attack_check()->void:
 		state_machine.change_state("Hammer_attack_3")
 	if character.is_attacking==false:
 		state_machine.change_state("idle")
+func state_logic(delta)->void:
+	player.camera_rotation_logic(delta)
