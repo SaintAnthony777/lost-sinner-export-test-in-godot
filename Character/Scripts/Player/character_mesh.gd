@@ -9,9 +9,12 @@ var starts_backflips:bool=false
 var is_shouting:bool=false
 var can_advance_to_next_atack_pattern:=false
 var is_attacking:bool=false
+var attack_lunge_boolean:=false
+
 
 @onready var wing_mesh: MeshInstance3D = $"Armature/Skeleton3D/Wings_Attachement/Angel wings/Wing_Mesh"
 @onready var rune_mesh: MeshInstance3D = $Feet_bursts/angel_burst_rune/rune_mesh
+@onready var player: player_character = $".."
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 func _ready() -> void:
@@ -76,3 +79,15 @@ func starts_backflipping()->void:
 	starts_backflips=true
 func stops_backflipping()->void:
 	starts_backflips=false
+
+func start_lunging()->void:
+	attack_lunge_boolean=true
+func stops_lunging()->void:
+	attack_lunge_boolean=false
+	
+func check_attack_lunge(lunge_speed:float)->void:
+	if attack_lunge_boolean:
+		var dashdirection=self.transform.basis.z.normalized()
+		player.velocity=dashdirection*lunge_speed
+		player.velocity.y=0
+		player.move_and_slide()

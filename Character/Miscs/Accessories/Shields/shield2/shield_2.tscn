@@ -17,4 +17,5 @@ emission_texture = ExtResource("2_h1el2")
 [node name="Shield2" instance=ExtResource("1_uhfhs")]
 
 [node name="Torus" parent="." index="0"]
+transform = Transform3D(0.15948908, 0, 0, 0, 0.15412605, 0, 0, 0, 0.05691882, 0, 0, 0)
 surface_material_override/1 = SubResource("StandardMaterial3D_puvh8")

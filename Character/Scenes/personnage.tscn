@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://srgn3wkeivsn"]
+[gd_scene load_steps=32 format=3 uid="uid://srgn3wkeivsn"]
 
 [ext_resource type="Script" uid="uid://bhjwagrue8av5" path="res://Character/Scripts/Player/personnage.gd" id="1_ov8r6"]
 [ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="2_ov8r6"]
@@ -28,6 +28,11 @@
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_itldn"]
 points = PackedVector3Array(0, 0, 0, 10, 5, -20, 10, -5, -20, -10, -5, -20, -10, 5, -20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tgsyp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3iy4h"]
+albedo_color = Color(5.944087, 1.4173156, 1.5065131, 1)
 
 [sub_resource type="Animation" id="Animation_ov8r6"]
 resource_name = "Camera_switching"
@@ -189,6 +194,10 @@ collision_mask = 6
 
 [node name="Aiming" type="Node3D" parent="Camera_pivot"]
 transform = Transform3D(1, 0, 0, 0, 0.938746, 0.34461, 0, -0.34461, 0.938746, 1.6701095, 2.091804, 3.5302541)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera_pivot/Aiming"]
+mesh = SubResource("BoxMesh_tgsyp")
+surface_material_override/0 = SubResource("StandardMaterial3D_3iy4h")
 
 [node name="Camera_animations" type="AnimationPlayer" parent="."]
 libraries = {
