@@ -7,11 +7,14 @@ var sprinting_speed:=10.0
 func physics_update(_delta) -> void:
 	player.camera.fov=lerp(player.camera.fov,95.0,.1)
 	state_logic(_delta)
+	
 	if Input.is_action_just_released("sprinting"):
 		state_machine.change_state("run")
-	if Input.is_action_just_pressed("rolling"):
+		
+	if Input.is_action_just_pressed("Attack_trigger"):
 		character.is_sliding=true
 		state_machine.change_state("sliding")
+		
 	if Input.is_action_pressed("Aiming"):
 		state_machine.change_state("aiming")
 

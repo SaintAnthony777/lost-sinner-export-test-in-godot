@@ -15,15 +15,20 @@ func state_logic(delta)->void:
 func input_logic()->void:
 	if player.player_direction!=Vector3.ZERO:
 		state_machine.change_state("run")
-	if Input.is_action_just_pressed("rolling"):
+		
+	if Input.is_action_just_pressed("sprinting"):
 		character.is_backfliping=true
 		state_machine.change_state("backflip")
+		
 	if Input.is_action_pressed("Aiming"):
 		state_machine.change_state("aiming")
+		
 	if Input.is_action_just_pressed("locking") and player.current_target:
 		state_machine.change_state("locking")
+		
 	if Input.is_action_pressed("Blocks"):
 		state_machine.change_state("shield_idle")
+		
 	if Input.is_action_just_pressed("Attack_trigger"):
 		character.is_attacking=true
 		state_machine.change_state("hammer_attack_1")

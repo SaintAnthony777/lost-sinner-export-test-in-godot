@@ -14,7 +14,7 @@ func state_logic(delta):
 	if character.starts_backflips:
 		dashlogic()
 	if !character.is_backfliping:
-		state_machine.change_state("run")
+		state_machine.change_state("idle")
 
 func dashlogic():
 	var dashdirection=character.transform.basis.z.normalized()

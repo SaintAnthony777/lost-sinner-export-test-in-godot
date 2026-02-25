@@ -24,7 +24,7 @@ func Player_Input_events() -> void:
 	if Input.is_action_pressed("sprinting"):
 		state_machine.change_state("sprinting")
 	
-	if Input.is_action_just_pressed("rolling") : 
+	if Input.is_action_just_pressed("sprinting") : 
 		character.isrolling=true
 		state_machine.change_state("normal_rolling")
 	
