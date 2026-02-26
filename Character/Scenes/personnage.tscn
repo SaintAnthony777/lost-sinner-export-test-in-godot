@@ -20,7 +20,7 @@
 [ext_resource type="Script" uid="uid://t3d0b7jxicui" path="res://Character/Scripts/StateMachines/Extended_scripts/shield_normal.gd" id="19_tgsyp"]
 [ext_resource type="Script" uid="uid://c6y0h6jww27wa" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_attack_2.gd" id="20_y8f87"]
 [ext_resource type="Script" uid="uid://bmerrnlmcduef" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_attack_3.gd" id="21_dlyyl"]
-[ext_resource type="Script" uid="uid://m5b15x0swkmb" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_attack_running.gd" id="22_euy1u"]
+[ext_resource type="Script" uid="uid://cqnmoowg3mb5u" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_attack_dashing.gd" id="21_tgsyp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ov8r6"]
 
@@ -277,6 +277,6 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 script = ExtResource("21_dlyyl")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
 
-[node name="hammer_attack_running" type="Node" parent="StateMachine"]
-script = ExtResource("22_euy1u")
+[node name="hammer_attack_dashing" type="Node" parent="StateMachine"]
+script = ExtResource("21_tgsyp")
 metadata/_custom_type_script = "uid://dq36efs6bxser"

@@ -10,6 +10,8 @@ var is_shouting:bool=false
 var can_advance_to_next_atack_pattern:=false
 var is_attacking:bool=false
 var attack_lunge_boolean:=false
+var is_making_dash_attack:=false
+var requested_dash_attack:=false
 
 
 @onready var wing_mesh: MeshInstance3D = $"Armature/Skeleton3D/Wings_Attachement/Angel wings/Wing_Mesh"
@@ -74,6 +76,7 @@ func done_shouting()->void:
 
 func done_attacking()->void:
 	is_attacking=false
+	requested_dash_attack=false
 
 func starts_backflipping()->void:
 	starts_backflips=true
@@ -91,3 +94,8 @@ func check_attack_lunge(lunge_speed:float)->void:
 		player.velocity=dashdirection*lunge_speed
 		player.velocity.y=0
 		player.move_and_slide()
+
+func starting_dash_attack()->void:
+	is_making_dash_attack=true
+func stopped_dash_attack()->void:
+	is_making_dash_attack=false
