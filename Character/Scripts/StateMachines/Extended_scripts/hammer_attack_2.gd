@@ -11,7 +11,7 @@ func physics_update(_delta) -> void:
 	attack_stuff()
 	attack_check()
 	state_logic(_delta)
-	character.check_attack_lunge(1.2)
+	character.check_attack_lunge(2.2)
 func attack_stuff()->void:
 	character.attacking("Normal","Hammer","attack_2")
 func attack_check()->void:
