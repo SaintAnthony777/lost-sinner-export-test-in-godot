@@ -25,6 +25,8 @@ cull_mode = 2
 vertex_color_use_as_albedo = true
 albedo_color = Color(3.46821, 6.144511, 15.934141, 1)
 albedo_texture = ExtResource("1_603i2")
+emission = Color(0.9617111, 0.4825285, 0.3127846, 1)
+emission_energy_multiplier = 16.0
 billboard_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_ivcbv"]

@@ -8,7 +8,6 @@ var dash_speed := 10.0
 func enter() -> void:
 	character.requested_dash_attack=false
 func physics_update(_delta) -> void:
-	print(character.requested_dash_attack)
 	player.gravity_applying()
 	state_logic(_delta)
 	if Input.is_action_just_pressed("Attack_trigger"): character.requested_dash_attack=true

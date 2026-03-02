@@ -6,7 +6,7 @@ func physics_update(_delta) -> void:
 	state_logics(_delta)
 	if Input.is_action_just_released("Aiming") : state_machine.change_state("normal")
 	if Input.is_action_just_pressed("locking") and player.current_target!=null : state_machine.change_state("locking")
-	if Input.is_action_pressed("Blocks"):state_machine.change_state("shield_strafe")
+	if Input.is_action_pressed("Blocks") : state_machine.change_state("shield_strafe")
 func state_logics (delta:float) -> void :
 	player.camera.fov=lerp(player.camera.fov,55.0,.1)
 	player.SPEED=3.0

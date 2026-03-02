@@ -1,0 +1,27 @@
+[gd_resource type="StandardMaterial3D" load_steps=7 format=3 uid="uid://u12qye6l26cd"]
+
+[ext_resource type="Texture2D" uid="uid://x2hfrglrdfqx" path="res://Character/Miscs/Accessories/Shields/Shield remade/textures/motif_pour_bouclier_1.png" id="2_pxhc1"]
+[ext_resource type="Texture2D" uid="uid://c8wwv7dr7qsvl" path="res://Character/Miscs/Accessories/Shields/Shield remade/textures/Scratched Iron/Metal054B_1K-JPG_Color.jpg" id="Color"]
+[ext_resource type="Texture2D" uid="uid://dstxwmf7imag" path="res://Character/Miscs/Accessories/Shields/Shield remade/textures/Scratched Iron/Metal054B_1K-JPG_Displacement.jpg" id="Displacement"]
+[ext_resource type="Texture2D" uid="uid://ciqxa2qfa6ldl" path="res://Character/Miscs/Accessories/Shields/Shield remade/textures/Scratched Iron/Metal054B_1K-JPG_Metalness.jpg" id="Metalness"]
+[ext_resource type="Texture2D" uid="uid://mid356yaana0" path="res://Character/Miscs/Accessories/Shields/Shield remade/textures/Scratched Iron/Metal054B_1K-JPG_NormalGL.jpg" id="NormalGL"]
+[ext_resource type="Texture2D" uid="uid://b1f8axeg41wcp" path="res://Character/Miscs/Accessories/Shields/Shield remade/textures/Scratched Iron/Metal054B_1K-JPG_Roughness.jpg" id="Roughness"]
+
+[resource]
+albedo_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
+albedo_texture = ExtResource("Color")
+metallic = 1.0
+metallic_specular = 1.0
+metallic_texture = ExtResource("Metalness")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("Roughness")
+roughness_texture_channel = 4
+emission = Color(0.109946616, 0.37312654, 0.7411328, 1)
+emission_energy_multiplier = 4.73
+emission_operator = 1
+emission_texture = ExtResource("2_pxhc1")
+normal_enabled = true
+normal_texture = ExtResource("NormalGL")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("Displacement")

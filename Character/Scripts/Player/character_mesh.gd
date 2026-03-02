@@ -12,7 +12,7 @@ var is_attacking:bool=false
 var attack_lunge_boolean:=false
 var is_making_dash_attack:=false
 var requested_dash_attack:=false
-
+var requested_sliding:=false
 
 @onready var wing_mesh: MeshInstance3D = $"Armature/Skeleton3D/Wings_Attachement/Angel wings/Wing_Mesh"
 @onready var rune_mesh: MeshInstance3D = $Feet_bursts/angel_burst_rune/rune_mesh
@@ -60,7 +60,7 @@ func attacking(current_stance:String,current_weapon:String,current_action:String
 	animation_tree.set('parameters/Ground Attack transitions/transition_request',current_stance)
 	animation_tree.set('parameters/Weapon_equipped/transition_request',current_weapon)
 	animation_tree.set('parameters/'+current_weapon+'_attack_transition/transition_request',current_weapon+"_"+current_action)
-###combo logic by meeeee
+###combo logic by me
 func cannot_progress_combo()->void: can_advance_to_next_atack_pattern=false
 func can_progress_combo()->void: can_advance_to_next_atack_pattern=true
 
@@ -87,14 +87,17 @@ func start_lunging()->void:
 	attack_lunge_boolean=true
 func stops_lunging()->void:
 	attack_lunge_boolean=false
-	
+
 func check_attack_lunge(lunge_speed:float)->void:
 	if attack_lunge_boolean:
 		var dashdirection=self.transform.basis.z.normalized()
 		player.velocity=dashdirection*lunge_speed
 		player.velocity.y=0
 		player.move_and_slide()
-
+func force_character_rotation():
+	self.look_at(Vector3(player.looking_at_node.global_position.x,
+	player.global_position.y,
+	player.looking_at_node.global_position.z),Vector3.UP,true)
 func starting_dash_attack()->void:
 	is_making_dash_attack=true
 func stopped_dash_attack()->void:
