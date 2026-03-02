@@ -19,6 +19,7 @@ var requested_sliding:=false
 @onready var player: player_character = $".."
 
 @onready var animation_tree: AnimationTree = $AnimationTree
+
 func _ready() -> void:
 	pass
 func normal_motion(current_action:String)->void:
@@ -60,6 +61,7 @@ func attacking(current_stance:String,current_weapon:String,current_action:String
 	animation_tree.set('parameters/Ground Attack transitions/transition_request',current_stance)
 	animation_tree.set('parameters/Weapon_equipped/transition_request',current_weapon)
 	animation_tree.set('parameters/'+current_weapon+'_attack_transition/transition_request',current_weapon+"_"+current_action)
+	
 ###combo logic by me
 func cannot_progress_combo()->void: can_advance_to_next_atack_pattern=false
 func can_progress_combo()->void: can_advance_to_next_atack_pattern=true
@@ -94,6 +96,7 @@ func check_attack_lunge(lunge_speed:float)->void:
 		player.velocity=dashdirection*lunge_speed
 		player.velocity.y=0
 		player.move_and_slide()
+
 func force_character_rotation():
 	self.look_at(Vector3(player.looking_at_node.global_position.x,
 	player.global_position.y,

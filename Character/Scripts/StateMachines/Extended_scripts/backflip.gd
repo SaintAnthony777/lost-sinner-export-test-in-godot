@@ -25,5 +25,5 @@ func dashlogic():
 func check_dash_attack()->void:
 	if character.requested_dash_attack:
 		character.is_attacking=true
-		state_machine.change_state("hammer_attack_jumping")
+		state_machine.change_state("hammer_attack_dashing")
 	else : state_machine.change_state("idle")

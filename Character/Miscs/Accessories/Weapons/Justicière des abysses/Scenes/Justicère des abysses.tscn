@@ -1,15 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://coxrnqofsffsf"]
+[gd_scene load_steps=10 format=3 uid="uid://coxrnqofsffsf"]
 
 [ext_resource type="PackedScene" uid="uid://d4medbrm0yyky" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Premier modèle.blend" id="1_g6a52"]
 [ext_resource type="Material" uid="uid://3x80h7j0o7t2" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/textures/iron/Metal052C_1K-JPG.tres" id="2_mdalh"]
+[ext_resource type="Texture2D" uid="uid://bw0rlbqk8te3s" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/textures/iron/Metal052C_1K-JPG_Color.jpg" id="2_y3cy3"]
 [ext_resource type="Material" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/textures/handle/Leather034C_1K-JPG.tres" id="3_hoooc"]
+[ext_resource type="Texture2D" uid="uid://d2odianx1eiwk" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/textures/iron/Metal052C_1K-JPG_Displacement.jpg" id="3_houmg"]
+[ext_resource type="Texture2D" uid="uid://dhr2k6iy07jog" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/textures/iron/Metal052C_1K-JPG_Metalness.jpg" id="4_7r7l1"]
+[ext_resource type="Texture2D" uid="uid://blr0b6aqh56dk" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/textures/iron/Metal052C_1K-JPG_NormalGL.jpg" id="5_ie17e"]
+[ext_resource type="Texture2D" uid="uid://b6elaonyinjr8" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/textures/iron/Metal052C_1K-JPG_Roughness.jpg" id="6_3hip4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_18ryx"]
+albedo_color = Color(0.60662574, 0.60662585, 0.6066258, 1)
+albedo_texture = ExtResource("2_y3cy3")
+metallic = 1.0
+metallic_texture = ExtResource("4_7r7l1")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("6_3hip4")
+roughness_texture_channel = 4
+emission_enabled = true
+emission = Color(0.0022547813, 0.1201513, 0.5813989, 1)
+emission_energy_multiplier = 16.0
+normal_enabled = true
+normal_texture = ExtResource("5_ie17e")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("3_houmg")
 
 [node name="Premier modèle" instance=ExtResource("1_g6a52")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 
 [node name="Cube" parent="." index="0"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-surface_material_override/0 = ExtResource("2_mdalh")
+surface_material_override/0 = SubResource("StandardMaterial3D_18ryx")
 
 [node name="Cylinder" parent="." index="1"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.6339275, 0)

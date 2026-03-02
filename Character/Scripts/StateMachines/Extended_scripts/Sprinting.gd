@@ -12,8 +12,8 @@ func physics_update(_delta) -> void:
 		state_machine.change_state("run")
 		
 	if Input.is_action_just_pressed("Attack_trigger"):
-		character.is_sliding=true
-		state_machine.change_state("sliding")
+		character.is_attacking=true
+		state_machine.change_state("hammer_attack_jumping")
 		
 	if Input.is_action_pressed("Aiming"):
 		state_machine.change_state("aiming")
