@@ -3,8 +3,9 @@ extends State
 @onready var player: player_character = $"../.."
 
 func enter() -> void:
-	pass
-	
+	if player.camera_position=="left" : player.camera.h_offset+=.5 
+	else : player.camera.h_offset-=.5
+	player.can_switch_camera=false
 func physics_update(_delta) -> void:
 	state_logics()
 	character.special_attacks("Screaming Silence")
@@ -13,5 +14,7 @@ func physics_update(_delta) -> void:
 func state_logics () -> void :
 	if !character.is_shouting:
 		state_machine.change_state("idle")
-		
-	
+
+func exit() -> void:
+	player.camera.h_offset=.0
+	player.can_switch_camera=true
