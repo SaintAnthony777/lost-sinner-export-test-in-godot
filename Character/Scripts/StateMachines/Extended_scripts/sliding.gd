@@ -5,6 +5,7 @@ extends State
 
 var dash_speed := 15.0
 func enter() -> void: 
+	player.can_switch_camera=false
 	player.camera_animations.play("camera_sliding")
 func physics_update(_delta) -> void:
 	state_logic(_delta)
@@ -14,8 +15,9 @@ func state_logic(delta):
 	character.sliding()
 	dashlogic()
 	if !character.is_sliding:
-		state_machine.change_state("run")
-
+		state_machine.change_state("idle")
+func exit() -> void:
+	player.can_switch_camera=true
 func dashlogic():
 	var dashdirection=character.transform.basis.z.normalized()
 	player.velocity=dashdirection*dash_speed

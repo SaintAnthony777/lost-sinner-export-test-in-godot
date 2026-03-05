@@ -14,8 +14,7 @@ var is_making_dash_attack:=false
 var requested_dash_attack:=false
 var requested_sliding:=false
 
-@onready var wing_mesh: MeshInstance3D = $"Armature/Skeleton3D/Wings_Attachement/Angel wings/Wing_Mesh"
-@onready var rune_mesh: MeshInstance3D = $Feet_bursts/angel_burst_rune/rune_mesh
+
 @onready var player: player_character = $".."
 
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -61,6 +60,11 @@ func attacking(current_stance:String,current_weapon:String,current_action:String
 	animation_tree.set('parameters/Ground Attack transitions/transition_request',current_stance)
 	animation_tree.set('parameters/Weapon_equipped/transition_request',current_weapon)
 	animation_tree.set('parameters/'+current_weapon+'_attack_transition/transition_request',current_weapon+"_"+current_action)
+
+func special_attacks(current_action:String)->void:
+	grounding("Ground Attacks")
+	animation_tree.set('parameters/Ground Attack transitions/transition_request',"Specials")
+	animation_tree.set('parameters/special attacks transitions/transition_request',current_action)
 	
 ###combo logic by me
 func cannot_progress_combo()->void: can_advance_to_next_atack_pattern=false
@@ -71,6 +75,7 @@ func done_rolling_func()->void:
 	isrolling=false
 func done_sliding()->void:
 	is_sliding=false
+	requested_sliding=false
 func done_backflips()->void:
 	is_backfliping=false
 func done_shouting()->void:
@@ -101,6 +106,7 @@ func force_character_rotation():
 	self.look_at(Vector3(player.looking_at_node.global_position.x,
 	player.global_position.y,
 	player.looking_at_node.global_position.z),Vector3.UP,true)
+
 func starting_dash_attack()->void:
 	is_making_dash_attack=true
 func stopped_dash_attack()->void:

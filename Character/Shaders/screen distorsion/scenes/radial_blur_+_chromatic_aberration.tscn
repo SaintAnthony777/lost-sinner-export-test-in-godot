@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0w4j0psbrn51"]
+
+[ext_resource type="Shader" uid="uid://cu55n0xqqy44f" path="res://Character/Shaders/screen distorsion/radial blur.gdshader" id="1_uuhew"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fu22g"]
+shader = ExtResource("1_uuhew")
+shader_parameter/blur_power = 0.01
+shader_parameter/chromatic_power = 0.02
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/samples = 20
+
+[node name="Radial Blur + Chromatic aberration" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_fu22g")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

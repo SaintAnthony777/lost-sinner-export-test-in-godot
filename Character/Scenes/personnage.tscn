@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://srgn3wkeivsn"]
+[gd_scene load_steps=34 format=3 uid="uid://srgn3wkeivsn"]
 
 [ext_resource type="Script" uid="uid://bhjwagrue8av5" path="res://Character/Scripts/Player/personnage.gd" id="1_ov8r6"]
 [ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="2_ov8r6"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" uid="uid://bmerrnlmcduef" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_attack_3.gd" id="21_dlyyl"]
 [ext_resource type="Script" uid="uid://cqnmoowg3mb5u" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_attack_dashing.gd" id="21_tgsyp"]
 [ext_resource type="Script" uid="uid://bckn0rstkrish" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_attack_jumping.gd" id="22_3iy4h"]
+[ext_resource type="Script" uid="uid://7420suqajgby" path="res://Character/Scripts/StateMachines/Extended_scripts/shouting.gd" id="23_y8f87"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ov8r6"]
 
@@ -128,6 +129,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 1.548, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera_pivot/SpringArm3D/Camera3D:h_offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_a0kpl"]
@@ -284,4 +297,8 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="hammer_attack_jumping" type="Node" parent="StateMachine"]
 script = ExtResource("22_3iy4h")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Shouting" type="Node" parent="StateMachine"]
+script = ExtResource("23_y8f87")
 metadata/_custom_type_script = "uid://dq36efs6bxser"

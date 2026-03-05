@@ -20,8 +20,10 @@ var camera_input_direction := Vector2.ZERO
 var last_movement_direction := Vector3.BACK
 var rotation_speed := 6.0
 var gravity := -19.0
+
 var camera_position:String="left"
-var can_switch_camera:bool
+
+var can_switch_camera:bool=true
 var is_aiming : bool = false
 var is_locking : bool = false
 var is_shouting:bool=false
@@ -38,7 +40,7 @@ func _input(_event: InputEvent) -> void:
 		if Input.mouse_mode==Input.MOUSE_MODE_VISIBLE:
 			Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 		else : Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
-	if Input.is_action_just_pressed("Camera Switching"):
+	if Input.is_action_just_pressed("Camera Switching") and can_switch_camera:
 		camera_switch_logic()
 
 func _unhandled_input(event: InputEvent) -> void:
