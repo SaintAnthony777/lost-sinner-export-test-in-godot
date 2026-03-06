@@ -3,7 +3,7 @@ extends State
 @onready var player: player_character = $"../.."
 
 func enter() -> void:
-	character.force_character_rotation()
+	character.force_character_rotation()	
 func physics_update(_delta) -> void:
 	attack_stuff()
 	attack_check()
