@@ -3,7 +3,7 @@ extends State
 @onready var player: player_character = $"../.."
 
 func enter() -> void:
-	pass
+	character.force_character_rotation()
 func physics_update(_delta) -> void:
 	attack_stuff()
 	attack_check()
@@ -14,7 +14,7 @@ func attack_stuff()->void:
 
 func attack_check()->void:
 	if character.can_advance_to_next_atack_pattern and Input.is_action_just_pressed("Attack_trigger"):
-		state_machine.change_state("Hammer_attack_1")
+		state_machine.change_state("Hammer_attack_4")
 	if character.is_attacking==false:
 		state_machine.change_state("idle")
 

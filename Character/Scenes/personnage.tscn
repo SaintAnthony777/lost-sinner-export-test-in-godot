@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://srgn3wkeivsn"]
+[gd_scene load_steps=35 format=3 uid="uid://srgn3wkeivsn"]
 
 [ext_resource type="Script" uid="uid://bhjwagrue8av5" path="res://Character/Scripts/Player/personnage.gd" id="1_ov8r6"]
 [ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="2_ov8r6"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://t3d0b7jxicui" path="res://Character/Scripts/StateMachines/Extended_scripts/shield_normal.gd" id="19_tgsyp"]
 [ext_resource type="Script" uid="uid://c6y0h6jww27wa" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_attack_2.gd" id="20_y8f87"]
 [ext_resource type="Script" uid="uid://bmerrnlmcduef" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_attack_3.gd" id="21_dlyyl"]
+[ext_resource type="Script" uid="uid://ryttj71shnvb" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_attack_4.gd" id="21_euy1u"]
 [ext_resource type="Script" uid="uid://cqnmoowg3mb5u" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_attack_dashing.gd" id="21_tgsyp"]
 [ext_resource type="Script" uid="uid://bckn0rstkrish" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_attack_jumping.gd" id="22_3iy4h"]
 [ext_resource type="Script" uid="uid://7420suqajgby" path="res://Character/Scripts/StateMachines/Extended_scripts/shouting.gd" id="23_y8f87"]
@@ -210,6 +211,7 @@ collision_mask = 6
 transform = Transform3D(1, 0, 0, 0, 0.938746, 0.34461, 0, -0.34461, 0.938746, 1.6701095, 2.091804, 3.5302541)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Camera_pivot/Aiming"]
+visible = false
 mesh = SubResource("BoxMesh_tgsyp")
 surface_material_override/0 = SubResource("StandardMaterial3D_3iy4h")
 
@@ -289,6 +291,10 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="hammer_attack_3" type="Node" parent="StateMachine"]
 script = ExtResource("21_dlyyl")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="hammer_attack_4" type="Node" parent="StateMachine"]
+script = ExtResource("21_euy1u")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="hammer_attack_dashing" type="Node" parent="StateMachine"]

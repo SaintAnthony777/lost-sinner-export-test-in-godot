@@ -8,12 +8,15 @@ func physics_update(_delta) -> void:
 	attack_stuff()
 	attack_check()
 	state_logic(_delta)
+	character.check_attack_lunge(4.5)
 func attack_stuff()->void:
-	character.attacking("Normal","Hammer","attack_1")
+	character.attacking("Normal","Hammer","attack_4")
+
 func attack_check()->void:
 	if character.can_advance_to_next_atack_pattern and Input.is_action_just_pressed("Attack_trigger"):
-		state_machine.change_state("Hammer_attack_2")
+		state_machine.change_state("Hammer_attack_1")
 	if character.is_attacking==false:
 		state_machine.change_state("idle")
+
 func state_logic(delta)->void:
 	player.camera_rotation_logic(delta)
