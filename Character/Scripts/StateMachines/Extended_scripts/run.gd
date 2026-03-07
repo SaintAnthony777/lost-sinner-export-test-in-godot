@@ -40,4 +40,7 @@ func Player_Input_events() -> void:
 	if Input.is_action_just_pressed("Attack_trigger"):
 			character.is_attacking=true
 			state_machine.change_state("hammer_attack_1")
-		
+			
+	if Input.is_action_just_pressed("Special"):
+		character.is_shouting = true
+		state_machine.change_state("shouting")

@@ -13,7 +13,7 @@ var attack_lunge_boolean:=false
 var is_making_dash_attack:=false
 var requested_dash_attack:=false
 var requested_sliding:=false
-
+var requested_slide_attack=false
 
 @onready var player: player_character = $".."
 
@@ -65,6 +65,7 @@ func special_attacks(current_action:String)->void:
 	grounding("Ground Attacks")
 	animation_tree.set('parameters/Ground Attack transitions/transition_request',"Specials")
 	animation_tree.set('parameters/special attacks transitions/transition_request',current_action)
+	
 	
 ###combo logic by me
 func cannot_progress_combo()->void: can_advance_to_next_atack_pattern=false

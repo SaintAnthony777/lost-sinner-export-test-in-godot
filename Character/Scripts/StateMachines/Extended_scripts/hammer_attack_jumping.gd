@@ -11,7 +11,6 @@ func physics_update(_delta) -> void:
 	character.check_attack_lunge(6.5)
 func attack_stuff()->void:
 	character.attacking("Normal","Hammer","attack_jumping")
-
 func attack_check()->void:
 	if character.is_attacking==false:
 		state_machine.change_state("idle")
