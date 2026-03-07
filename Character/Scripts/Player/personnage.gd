@@ -33,7 +33,7 @@ var player_direction : Vector3
 var current_target : enemy
 
 func _ready() -> void:
-	pass
+	camera.h_offset=-.7
 	
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_pressed("Pause"):
