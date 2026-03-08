@@ -21,3 +21,8 @@ func input_logic()->void:
 		
 	if Input.is_action_just_released("Aiming"):
 		state_machine.change_state("shield_idle")
+	
+	if Input.is_action_just_pressed("sprinting"):
+		character.isrolling=true
+		state_machine.change_state("aiming_rolls")
+	

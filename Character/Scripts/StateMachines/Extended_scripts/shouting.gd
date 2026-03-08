@@ -3,8 +3,7 @@ extends State
 @onready var player: player_character = $"../.."
 
 func enter() -> void:
-	if player.camera_position=="left" : player.camera.h_offset+=.5 
-	else : player.camera.h_offset-=.5
+	player.camera.h_offset=0.0
 	player.can_switch_camera=false
 func physics_update(_delta) -> void:
 	state_logics()
@@ -16,5 +15,6 @@ func state_logics () -> void :
 		state_machine.change_state("idle")
 
 func exit() -> void:
-	player.camera.h_offset=.0
+	if player.camera_position=="left" : player.camera.h_offset-=.7 
+	else : player.camera.h_offset+=.7
 	player.can_switch_camera=true

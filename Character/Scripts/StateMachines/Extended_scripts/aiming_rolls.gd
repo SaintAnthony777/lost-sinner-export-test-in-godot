@@ -23,6 +23,7 @@ func state_logics(delta:float):
 	dashlogic()
 	if !character.isrolling:
 		if !Input.is_action_pressed("Aiming") : state_machine.change_state("Idle")
+		if Input.is_action_pressed("Blocks") : state_machine.change_state("shield_normal")
 		else : state_machine.change_state("Aiming")
 func dashlogic(): 
 	player.velocity=roll_dir*dash_speed

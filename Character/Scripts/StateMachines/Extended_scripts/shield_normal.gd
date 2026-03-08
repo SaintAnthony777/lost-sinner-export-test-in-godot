@@ -20,6 +20,8 @@ func state_logic(delta)->void:
 func input_logic()->void:
 	if Input.is_action_just_released("Blocks"):
 		state_machine.change_state("idle")
-
+	if Input.is_action_just_pressed("sprinting"):
+		character.isrolling=true
+		state_machine.change_state("normal_rolling")
 	if Input.is_action_pressed("Aiming"):
 		state_machine.change_state("shield_strafe")
