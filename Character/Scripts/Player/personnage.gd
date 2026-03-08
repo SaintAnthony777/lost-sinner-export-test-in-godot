@@ -34,7 +34,7 @@ var current_target : enemy
 
 func _ready() -> void:
 	camera.h_offset=-.7
-	
+	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_pressed("Pause"):
 		if Input.mouse_mode==Input.MOUSE_MODE_VISIBLE:

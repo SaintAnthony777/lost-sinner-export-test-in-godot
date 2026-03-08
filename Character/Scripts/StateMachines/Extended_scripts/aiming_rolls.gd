@@ -2,10 +2,29 @@ extends State
 @onready var character: character_mesh = $"../../The Lost Sinner1"
 @onready var player: player_character = $"../.."
 
+var dash_speed:=9.0
+var roll_dir:=Vector3.ZERO
+func enter() -> void:
+	var input_dir:=player.player_move_direction
+	if input_dir.length()>.1:
+		roll_dir=input_dir.normalized()
+	else: roll_dir=character.transform.basis.z.normalized()
+	var target_angle = Vector3.BACK.signed_angle_to(roll_dir, Vector3.UP)
+	character.global_rotation.y = target_angle
+
 func physics_update(_delta) -> void:
+	player.gravity_applying()
 	state_logics(_delta)
-	if Input.is_action_just_released("Aiming") : state_machine.change_state("normal")
-	if Input.is_action_just_pressed("locking") and player.current_target!=null : state_machine.change_state("locking")
 
 func state_logics(delta:float):
-	pass
+	player.camera.fov=lerp(player.camera.fov,65.0,.1)
+	player.camera_rotation_logic(delta)
+	character.rolling()
+	dashlogic()
+	if !character.isrolling:
+		if !Input.is_action_pressed("Aiming") : state_machine.change_state("Idle")
+		else : state_machine.change_state("Aiming")
+func dashlogic(): 
+	player.velocity=roll_dir*dash_speed
+	player.velocity.y=0
+	player.move_and_slide()
