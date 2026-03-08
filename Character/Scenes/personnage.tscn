@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://srgn3wkeivsn"]
+[gd_scene load_steps=38 format=3 uid="uid://srgn3wkeivsn"]
 
 [ext_resource type="Script" uid="uid://bhjwagrue8av5" path="res://Character/Scripts/Player/personnage.gd" id="1_ov8r6"]
 [ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="2_ov8r6"]
@@ -25,6 +25,7 @@
 [ext_resource type="Script" uid="uid://bckn0rstkrish" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_attack_jumping.gd" id="22_3iy4h"]
 [ext_resource type="Script" uid="uid://7420suqajgby" path="res://Character/Scripts/StateMachines/Extended_scripts/shouting.gd" id="23_y8f87"]
 [ext_resource type="Script" uid="uid://bxqquxa755lye" path="res://Character/Scripts/StateMachines/Extended_scripts/dropkick.gd" id="25_euy1u"]
+[ext_resource type="Script" uid="uid://cjmdgb7ulifkh" path="res://Character/Scripts/StateMachines/Extended_scripts/sundown.gd" id="26_e8vxi"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ov8r6"]
 
@@ -150,12 +151,16 @@ tracks/0/keys = {
 "values": [Vector3(0, 1.548, 0), Vector3(0, 0.7598554, 0), Vector3(0, 0.7598554, 0), Vector3(0, 1.548, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_e8vxi"]
+resource_name = "camera_up_then_down"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_al2sp"]
 _data = {
 &"Camera_switching_To_Right": SubResource("Animation_ov8r6"),
 &"Camera_switching_to_Left": SubResource("Animation_al2sp"),
 &"RESET": SubResource("Animation_y3tdl"),
-&"camera_sliding": SubResource("Animation_a0kpl")
+&"camera_sliding": SubResource("Animation_a0kpl"),
+&"camera_up_then_down": SubResource("Animation_e8vxi")
 }
 
 [node name="Personnage" type="CharacterBody3D"]
@@ -303,4 +308,8 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="Dropkick" type="Node" parent="StateMachine"]
 script = ExtResource("25_euy1u")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Sundown" type="Node" parent="StateMachine"]
+script = ExtResource("26_e8vxi")
 metadata/_custom_type_script = "uid://dq36efs6bxser"

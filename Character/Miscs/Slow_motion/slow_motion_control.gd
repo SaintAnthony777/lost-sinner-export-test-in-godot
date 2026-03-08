@@ -3,7 +3,7 @@ class_name  slow_mo_node
 var slow_motion_active:bool=false
 
 @export var normal_time_scale:float=1.0
-@export var slown_time_scale:float=1.0
+@export var slown_time_scale:float=.3
 
 func start_slow_motion()->void : 
 	Engine.time_scale=slown_time_scale

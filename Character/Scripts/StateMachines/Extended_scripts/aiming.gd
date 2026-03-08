@@ -11,6 +11,9 @@ func physics_update(_delta) -> void:
 	if Input.is_action_just_pressed("sprinting"):  
 		character.isrolling=true
 		state_machine.change_state("aiming_rolls")
+	if Input.is_action_just_pressed("Special"):
+		character.is_sundowning=true
+		state_machine.change_state("Sundown")
 func state_logics (delta:float) -> void :
 	var input_dir := Input.get_vector("Droite", "Gauche", "Bas", "Haut")
 	player.camera.fov=lerp(player.camera.fov,55.0,.1)

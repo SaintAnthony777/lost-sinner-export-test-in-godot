@@ -7,6 +7,8 @@ var is_sliding:bool=false
 var is_backfliping:bool=false
 var starts_backflips:bool=false
 var is_shouting:bool=false
+var is_sundowning:bool=false
+
 var can_advance_to_next_atack_pattern:=false
 var is_attacking:bool=false
 var attack_lunge_boolean:=false
@@ -81,6 +83,8 @@ func done_backflips()->void:
 	is_backfliping=false
 func done_shouting()->void:
 	is_shouting=false
+func done_sundowning()->void:
+	is_sundowning=false
 
 func done_attacking()->void:
 	is_attacking=false
