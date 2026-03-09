@@ -14,6 +14,11 @@ func attack_stuff()->void:
 func attack_check()->void:
 	if character.is_attacking==false:
 		state_machine.change_state("idle")
-	if character.can_advance_to_next_atack_pattern==true and Input.is_action_just_pressed("Attack_trigger") : state_machine.change_state("hammer_attack_3")
+	if character.can_advance_to_next_atack_pattern==true :
+		if Input.is_action_just_pressed("sprinting"):
+			character.isrolling=true
+			state_machine.change_state("normal_rolling")
+		if Input.is_action_just_pressed("Attack_trigger") : 
+			state_machine.change_state("hammer_attack_3")
 func state_logic(delta)->void:
 	player.camera_rotation_logic(delta)

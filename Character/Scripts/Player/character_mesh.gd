@@ -20,6 +20,7 @@ var requested_slide_attack=false
 @onready var player: player_character = $".."
 
 @onready var animation_tree: AnimationTree = $AnimationTree
+@onready var slow_mo:slow_mo_node=$"Slow_motion_control"
 
 func _ready() -> void:
 	pass

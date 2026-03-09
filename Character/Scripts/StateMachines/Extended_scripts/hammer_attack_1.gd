@@ -11,8 +11,12 @@ func physics_update(_delta) -> void:
 func attack_stuff()->void:
 	character.attacking("Normal","Hammer","attack_1")
 func attack_check()->void:
-	if character.can_advance_to_next_atack_pattern and Input.is_action_just_pressed("Attack_trigger"):
-		state_machine.change_state("Hammer_attack_2")
+	if character.can_advance_to_next_atack_pattern :
+		if Input.is_action_just_pressed("sprinting"):
+			character.isrolling=true
+			state_machine.change_state("normal_rolling")
+		if Input.is_action_just_pressed("Attack_trigger"):
+			state_machine.change_state("Hammer_attack_2")
 	if character.is_attacking==false:
 		state_machine.change_state("idle")
 func state_logic(delta)->void:
