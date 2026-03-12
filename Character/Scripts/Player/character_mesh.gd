@@ -15,7 +15,10 @@ var attack_lunge_boolean:=false
 var is_making_dash_attack:=false
 var requested_dash_attack:=false
 var requested_sliding:=false
+var requested_next_attack:=false
 var requested_slide_attack=false
+var requested_dash:=false
+
 
 @onready var player: player_character = $".."
 
