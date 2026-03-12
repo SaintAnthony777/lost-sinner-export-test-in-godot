@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://6edpchyo140d"]
+
+[ext_resource type="PackedScene" uid="uid://dkyspkgoxy5el" path="res://Character/Miscs/earth meshes bursts/Ground spikes/Lava spikes 1/spike model 1.blend" id="1_m2ui7"]
+[ext_resource type="Material" path="res://Character/Miscs/earth meshes bursts/Ground spikes/Lava spikes 1/textures/Lava004_1K-JPG/Lava004_1K-JPG.tres" id="2_jwctl"]
+
+[node name="spike model 1" instance=ExtResource("1_m2ui7")]
+
+[node name="Spike model 1" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_jwctl")
