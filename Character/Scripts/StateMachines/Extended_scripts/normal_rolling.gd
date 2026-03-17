@@ -6,7 +6,7 @@ extends State
 var dash_speed := 10.0
 var roll_dir := Vector3.ZERO
 func enter() -> void:
-	character.slow_mo.stops_slow_motion()
+	
 	check_rotation()
 	character.requested_dash_attack = false
 	
