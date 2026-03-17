@@ -1,17 +1,11 @@
 extends Node
 class_name  slow_mo_node
+
 var slow_motion_active:bool=false
 
-@export var normal_time_scale:float=1.0
-@export var slown_time_scale:float=.3
-
-func start_slow_motion()->void : 
-	Engine.time_scale=slown_time_scale
+func start_slow_motion(time_sacle:float)->void : 
+	Engine.time_scale=time_sacle
 	slow_motion_active=true
 func stops_slow_motion()->void : 
-	Engine.time_scale=normal_time_scale
+	Engine.time_scale=1.0
 	slow_motion_active=false
-	
-func request_slow_motion_change()->void:
-	if !slow_motion_active : start_slow_motion()
-	else : stops_slow_motion()

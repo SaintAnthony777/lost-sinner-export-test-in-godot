@@ -6,9 +6,9 @@ func enter() -> void:
 	character.requested_next_attack=false
 	character.requested_dash=false
 	character.force_character_rotation()
-	
-func physics_update(_delta) -> void:
 	attack_stuff()
+func physics_update(_delta) -> void:
+	
 	attack_check()
 	state_logic(_delta)
 	character.check_attack_lunge(2.2)

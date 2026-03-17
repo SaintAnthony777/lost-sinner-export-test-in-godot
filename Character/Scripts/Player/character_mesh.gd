@@ -23,7 +23,7 @@ var requested_dash:=false
 @onready var player: player_character = $".."
 
 @onready var animation_tree: AnimationTree = $AnimationTree
-
+@onready var slow_mo_node:slow_mo_node=$"slow_mo_node"
 
 func _ready() -> void:
 	pass
