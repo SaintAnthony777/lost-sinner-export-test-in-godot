@@ -9,6 +9,7 @@ var starts_backflips:bool=false
 var is_shouting:bool=false
 var is_sundowning:bool=false
 
+
 var can_advance_to_next_atack_pattern:=false
 var is_attacking:bool=false
 var attack_lunge_boolean:=false
@@ -19,14 +20,18 @@ var requested_next_attack:=false
 var requested_slide_attack=false
 var requested_dash:=false
 
-
+#Hammer equipping vars
+var is_hammer_thrown:bool=false
 @onready var player: player_character = $".."
-
 @onready var animation_tree: AnimationTree = $AnimationTree
-@onready var slow_mo_node:slow_mo_node=$"slow_mo_node"
+@onready var slow_mo:slow_mo_node=$"slow_mo_node"
+@onready var thrown_hammer:=$"ThrownWeapons/Premier modèle à lancer"
+@onready var equipped_hammer=$"Armature/Skeleton3D/Right_hand_weapon_attachment/Premier modèle"
 
-func _ready() -> void:
-	pass
+
+func _process(delta: float) -> void:
+	if is_attacking : player.camera.fov=lerp(player.camera.fov,75.0,.1)
+
 func normal_motion(current_action:String)->void:
 	grounding("Normal")
 	animation_tree.set("parameters/Normal_Transition/transition_request",current_action)
@@ -72,8 +77,13 @@ func special_attacks(current_action:String)->void:
 	animation_tree.set('parameters/Ground Attack transitions/transition_request',"Specials")
 	animation_tree.set('parameters/special attacks transitions/transition_request',current_action)
 	
+func aiming_attack(current_action:String):
+	grounding("Ground Attacks")
+	animation_tree.set('parameters/Ground Attack transitions/transition_request',"Aiming")
+	animation_tree.set("parameters/aiming attack transition/transition_request",current_action)
 	
 ###combo logic by me
+
 func cannot_progress_combo()->void: can_advance_to_next_atack_pattern=false
 func can_progress_combo()->void: can_advance_to_next_atack_pattern=true
 
@@ -89,6 +99,8 @@ func done_shouting()->void:
 	is_shouting=false
 func done_sundowning()->void:
 	is_sundowning=false
+
+
 
 func done_attacking()->void:
 	is_attacking=false

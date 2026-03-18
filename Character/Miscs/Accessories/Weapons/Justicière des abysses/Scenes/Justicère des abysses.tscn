@@ -10,20 +10,17 @@
 [ext_resource type="Texture2D" uid="uid://b6elaonyinjr8" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/textures/iron/Metal052C_1K-JPG_Roughness.jpg" id="6_3hip4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_18ryx"]
-albedo_color = Color(0.60662574, 0.60662585, 0.6066258, 1)
+albedo_color = Color(0.37162217, 0.37162223, 0.37162206, 1)
 albedo_texture = ExtResource("2_y3cy3")
 metallic = 1.0
 metallic_texture = ExtResource("4_7r7l1")
 metallic_texture_channel = 4
 roughness_texture = ExtResource("6_3hip4")
 roughness_texture_channel = 4
-emission_enabled = true
-emission = Color(0.0022547813, 0.1201513, 0.5813989, 1)
-emission_energy_multiplier = 16.0
+emission = Color(0, 14.948135, 14.877706, 1)
 normal_enabled = true
 normal_texture = ExtResource("5_ie17e")
 heightmap_enabled = true
-heightmap_scale = 1.0
 heightmap_texture = ExtResource("3_houmg")
 
 [node name="Premier modèle" instance=ExtResource("1_g6a52")]

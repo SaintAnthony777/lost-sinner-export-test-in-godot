@@ -8,6 +8,9 @@ func physics_update(_delta) -> void:
 	if Input.is_action_just_released("Aiming") : state_machine.change_state("normal")
 	if Input.is_action_just_pressed("locking") and player.current_target!=null : state_machine.change_state("locking")
 	if Input.is_action_pressed("Blocks") : state_machine.change_state("shield_strafe")
+	if Input.is_action_just_pressed("Attack_trigger"):
+		character.is_attacking=true
+		state_machine.change_state("hammer_throwing")
 	if Input.is_action_just_pressed("sprinting"):  
 		character.isrolling=true
 		state_machine.change_state("aiming_rolls")
