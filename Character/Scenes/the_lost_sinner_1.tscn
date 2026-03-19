@@ -15299,7 +15299,7 @@ metadata/_custom_type_script = "uid://b2q8xkjq2aytj"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.289408, 0)
 
 [node name="Premier modèle à lancer" parent="ThrownWeapons" index="0" instance=ExtResource("6_dqom3")]
-transform = Transform3D(0.038183875, 0.14090024, -0.13670817, -0.13446948, 0.12024184, 0.08637038, 0.14303812, 0.075425625, 0.11769049, -0.5179712, 0.21101893, -0.05801963)
+transform = Transform3D(0.038183875, 0.14090024, -0.13670817, -0.13446948, 0.12024184, 0.086370386, 0.14303812, 0.075425625, 0.117690496, -0.5179712, 0.21101893, -0.05801963)
 visible = false
 
 [editable path="Special effects layer/Radial Blur + Chromatic aberration"]

@@ -59,24 +59,29 @@ func _physics_process(_delta: float) -> void:
 	var right:=camera.global_basis.x
 	var move_direction:=forward*input_dir.y*-1 + right*input_dir.x*-1
 	move_direction.y = 0.0
-	move_direction=move_direction.normalized()
+	if move_direction.length()>0.001 : move_direction.normalized()
 	player_move_direction=move_direction
 	var direction := (camera_controller.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	direction.y=0
+	if direction.length() > 0.001: direction.normalized()
 	player_direction=direction
 	
 ## Fonction permettant de déplacer le personnage
 func character_moving(dir:Vector3):
+	dir.y=0
+	dir=dir.normalized()
 	if dir:
 		velocity.x = dir.x * SPEED
 		velocity.z = dir.z * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+	print(velocity)
 	move_and_slide()
 	
 func camera_rotation_logic(delta:float):
 	camera_controller.rotation.x+=camera_input_direction.y*delta
-	camera_controller.rotation.x=clamp(camera_controller.rotation.x, -PI/12.0 , PI/6.0)
+	camera_controller.rotation.x=clamp(camera_controller.rotation.x, -PI/6.0 , PI/3.0)
 	camera_controller.rotation.y-=camera_input_direction.x*delta
 	camera_input_direction=Vector2.ZERO
 	
