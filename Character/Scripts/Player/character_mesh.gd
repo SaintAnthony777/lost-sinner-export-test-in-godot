@@ -19,18 +19,16 @@ var requested_sliding:=false
 var requested_next_attack:=false
 var requested_slide_attack=false
 var requested_dash:=false
+var thrown_hammer:=false
 
-#Hammer equipping vars
-var is_hammer_thrown:bool=false
+
 @onready var player: player_character = $".."
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var slow_mo:slow_mo_node=$"slow_mo_node"
-@onready var thrown_hammer:=$"ThrownWeapons/Premier modèle à lancer"
-@onready var equipped_hammer=$"Armature/Skeleton3D/Right_hand_weapon_attachment/Premier modèle"
+
+@onready var equipped_hammer=$"Armature/Skeleton3D/Right_hand_weapon_attachment"
 
 
-func _process(delta: float) -> void:
-	if is_attacking : player.camera.fov=lerp(player.camera.fov,75.0,.1)
 
 func normal_motion(current_action:String)->void:
 	grounding("Normal")
@@ -132,3 +130,6 @@ func starting_dash_attack()->void:
 	is_making_dash_attack=true
 func stopped_dash_attack()->void:
 	is_making_dash_attack=false
+
+func has_thrown_hammer():
+	thrown_hammer=true

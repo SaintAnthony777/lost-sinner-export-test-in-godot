@@ -14,6 +14,7 @@ class_name player_character
 @onready var looking_at_node: Node3D = $"Camera_pivot/Looking at"
 @onready var camera_area_of_sight: Area3D = $Camera_pivot/SpringArm3D/Camera_area_of_sight
 @onready var camera_line_of_sight: RayCast3D = $Camera_pivot/SpringArm3D/Camera_line_of_sight
+@onready var hammer_starting_point:Node3D=$"Camera_pivot/Hammer_throw_starter_point"
 
 ###Camera Vars
 var camera_input_direction := Vector2.ZERO
@@ -76,7 +77,6 @@ func character_moving(dir:Vector3):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-	print(velocity)
 	move_and_slide()
 	
 func camera_rotation_logic(delta:float):

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ko6mkcshgc14"]
+
+[ext_resource type="PackedScene" uid="uid://coxrnqofsffsf" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scenes/Justicère des abysses.tscn" id="1_6k0c1"]
+[ext_resource type="Script" uid="uid://b2pb1uhe2wsdr" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scripts/thrown_hammer.gd" id="1_w5j4n"]
+
+[node name="Thrown_hammer" type="Node3D"]
+script = ExtResource("1_w5j4n")
+
+[node name="Premier modèle" parent="." instance=ExtResource("1_6k0c1")]
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, -0.20000002, 0, 0.20000002, -8.742278e-09, 0, 0, 0)
+
+[node name="Hammer_ray_cast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.19123957)
+target_position = Vector3(0, 0, 1)

@@ -213,6 +213,9 @@ visible = false
 mesh = SubResource("BoxMesh_tgsyp")
 surface_material_override/0 = SubResource("StandardMaterial3D_3iy4h")
 
+[node name="Hammer_throw_starter_point" type="Node3D" parent="Camera_pivot"]
+transform = Transform3D(1, 0, 0, 0, 0.91317594, 0.4075656, 0, -0.4075656, 0.91317594, 0, 0.26212335, 0.8271697)
+
 [node name="Camera_animations" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_al2sp")
