@@ -13,7 +13,7 @@ func enter() -> void:
 func physics_update(_delta) -> void:
 	player.gravity_applying()
 	state_logic(_delta)
-	if Input.is_action_just_pressed("Attack_trigger"): character.requested_dash_attack = true
+	if Input.is_action_just_pressed("Attack_trigger") and character.equipped_hammer.visible : character.requested_dash_attack = true
 func state_logic(delta):
 	player.camera_rotation_logic(delta)
 	character.rolling()

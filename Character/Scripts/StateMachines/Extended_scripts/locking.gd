@@ -36,7 +36,7 @@ func player_force_rotation()->void:
 
 func camera_force_rotation()->void:
 	var camera_look_pos =Vector3(player.current_target.global_position.x,
-	player.camera_controller.global_position.y + 2,
+	player.camera_controller.global_position.y+2,
 	player.current_target.global_position.z)
 	player.camera_controller.look_at(camera_look_pos,Vector3.UP)
 	

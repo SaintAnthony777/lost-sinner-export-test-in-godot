@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://srgn3wkeivsn"]
+[gd_scene load_steps=41 format=3 uid="uid://srgn3wkeivsn"]
 
 [ext_resource type="Script" uid="uid://bhjwagrue8av5" path="res://Character/Scripts/Player/personnage.gd" id="1_ov8r6"]
 [ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="2_ov8r6"]
@@ -26,6 +26,8 @@
 [ext_resource type="Script" uid="uid://7420suqajgby" path="res://Character/Scripts/StateMachines/Extended_scripts/shouting.gd" id="23_y8f87"]
 [ext_resource type="Script" uid="uid://bmwsyc0e87u7" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_throwing.gd" id="24_58eqw"]
 [ext_resource type="Script" uid="uid://bxqquxa755lye" path="res://Character/Scripts/StateMachines/Extended_scripts/dropkick.gd" id="25_euy1u"]
+[ext_resource type="Script" uid="uid://c60h1vsk86nqm" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_take_back.gd" id="25_k21se"]
+[ext_resource type="Script" uid="uid://1i120ete8msi" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_take_back_aiming.gd" id="26_05ikt"]
 [ext_resource type="Script" uid="uid://cjmdgb7ulifkh" path="res://Character/Scripts/StateMachines/Extended_scripts/sundown.gd" id="26_e8vxi"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ov8r6"]
@@ -308,6 +310,14 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="Hammer_throwing" type="Node" parent="StateMachine"]
 script = ExtResource("24_58eqw")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Hammer_take_back" type="Node" parent="StateMachine"]
+script = ExtResource("25_k21se")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Hammer_take_back_aiming" type="Node" parent="StateMachine"]
+script = ExtResource("26_05ikt")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="Shouting" type="Node" parent="StateMachine"]

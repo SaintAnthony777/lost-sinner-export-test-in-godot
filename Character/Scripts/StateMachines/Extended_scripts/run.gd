@@ -10,6 +10,7 @@ func physics_update(_delta) -> void:
 	Player_Input_events()
 
 func state_logic(delta)->void:
+	if character.pick_back_hammer:state_machine.change_state("hammer_take_back")
 	player.SPEED=running_speed
 	player.gravity_applying()
 	player.camera_rotation_logic(delta)
@@ -37,7 +38,7 @@ func Player_Input_events() -> void:
 	if Input.is_action_pressed("Blocks"):
 		state_machine.change_state("shield_normal")
 		
-	if Input.is_action_just_pressed("Attack_trigger"):
+	if Input.is_action_just_pressed("Attack_trigger") and character.equipped_hammer.visible:
 			character.is_attacking=true
 			state_machine.change_state("hammer_attack_1")
 			

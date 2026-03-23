@@ -15,4 +15,6 @@ func _process(delta: float) -> void:
 		rotate_y(20*delta)
 		if global_position.distance_to(get_parent().get_node("Personnage").global_position)<3.0:
 			get_parent().get_node("Personnage").get_node("The Lost Sinner1").equipped_hammer.show()
+			get_parent().get_node("Personnage").get_node("The Lost Sinner1").pick_back_hammer=true
+			get_parent().get_node("Personnage").get_node("The Lost Sinner1").hammer_last_pos=self.global_position
 			queue_free()

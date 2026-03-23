@@ -197,4 +197,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.29951668, -11)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.287169, 0.6473745, -11)
 
 [node name="enemy3" parent="." index="14" instance=ExtResource("3_d5jdl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.287169, -0.2995168, -4.127959)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.287169, 3.51899, -4.127959)

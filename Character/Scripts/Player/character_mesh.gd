@@ -19,8 +19,10 @@ var requested_sliding:=false
 var requested_next_attack:=false
 var requested_slide_attack=false
 var requested_dash:=false
+var can_throw_hammer:=true
 var thrown_hammer:=false
-
+var pick_back_hammer:=false
+var hammer_last_pos:=Vector3.ZERO
 
 @onready var player: player_character = $".."
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -132,4 +134,11 @@ func stopped_dash_attack()->void:
 	is_making_dash_attack=false
 
 func has_thrown_hammer():
+	can_throw_hammer=false
 	thrown_hammer=true
+
+func show_hammer():
+	equipped_hammer.show()
+func has_got_hammer_back():
+	can_throw_hammer=true
+	pick_back_hammer=false

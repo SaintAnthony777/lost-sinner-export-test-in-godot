@@ -10,10 +10,13 @@ func physics_update(_delta) -> void:
 	input_logic()
 	
 func state_logic(delta)->void:
+	if character.pick_back_hammer:
+		print(character.pick_back_hammer)
+		state_machine.change_state("hammer_take_back")
 	character.normal_motion("Idle_unarmed")
 	player.gravity_applying()
 	player.camera_rotation_logic(delta)
-
+	
 func input_logic()->void:
 	if player.player_direction!=Vector3.ZERO:
 		state_machine.change_state("run")
@@ -31,7 +34,7 @@ func input_logic()->void:
 	if Input.is_action_pressed("Blocks"):
 		state_machine.change_state("shield_idle")
 		
-	if Input.is_action_just_pressed("Attack_trigger"):
+	if Input.is_action_just_pressed("Attack_trigger") and character.equipped_hammer.visible:
 		character.is_attacking=true
 		state_machine.change_state("hammer_attack_1")
 	

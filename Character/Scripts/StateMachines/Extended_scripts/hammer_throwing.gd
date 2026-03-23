@@ -16,7 +16,7 @@ func state_logic()->void:
 	if character.thrown_hammer and is_instance_valid(instance):
 		get_parent().get_parent().get_parent().add_child(instance)
 		instance.global_position=player.hammer_starting_point.global_position
-		instance.transform.basis=character.transform.basis
+		instance.transform.basis=player.hammer_starting_point.global_basis
 		character.equipped_hammer.hide()
 		character.thrown_hammer=false
 	if !character.is_attacking:
