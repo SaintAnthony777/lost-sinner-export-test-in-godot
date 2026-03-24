@@ -12,3 +12,5 @@ transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, -0.20000002, 0, 0.20000002,
 [node name="Hammer_ray_cast" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.19123957)
 target_position = Vector3(0, 0, 1)
+collision_mask = 6
+collide_with_areas = true

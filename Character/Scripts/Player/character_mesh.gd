@@ -29,7 +29,8 @@ var hammer_last_pos:=Vector3.ZERO
 @onready var slow_mo:slow_mo_node=$"slow_mo_node"
 
 @onready var equipped_hammer=$"Armature/Skeleton3D/Right_hand_weapon_attachment"
-
+@onready var crosshair_layer: CanvasLayer = $CrosshairLayer
+@onready var crosshair:Control=$"CrosshairLayer/Crosshair"
 
 
 func normal_motion(current_action:String)->void:

@@ -1,10 +1,14 @@
 extends Node3D
 
+@onready var hammer_ray_cast: RayCast3D = $Hammer_ray_cast
+
 const HAMMER_SPEED:=40.0
 var lifetime:=0.0
 var returning:bool=false
 func _process(delta: float) -> void:
 	lifetime+=delta
+	if hammer_ray_cast.is_colliding():
+		print(hammer_ray_cast.get_collider())
 	if !returning:
 		global_position+=transform.basis*Vector3(0,0,HAMMER_SPEED)*delta
 		if lifetime>1.0:

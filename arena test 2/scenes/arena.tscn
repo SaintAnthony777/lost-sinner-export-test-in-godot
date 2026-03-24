@@ -135,36 +135,50 @@ shader = SubResource("VisualShader_4hrnm")
 [node name="Arena" instance=ExtResource("1_70fiv")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Main Arena" index="0"]
+collision_layer = 2
+collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Main Arena/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_4hrnm")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Plane" index="0"]
+collision_layer = 2
+collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Plane/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_d5jdl")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Arena Pillars" index="0"]
+collision_layer = 2
+collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Arena Pillars/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_tbh8e")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MainArch" index="0"]
+collision_layer = 2
+collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MainArch/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_lwwnq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Entrance Pillars" index="0"]
+collision_layer = 2
+collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Entrance Pillars/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_ln1rt")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Supporting Pillars" index="0"]
+collision_layer = 2
+collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Supporting Pillars/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_w30xb")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Walls" index="0"]
+collision_layer = 2
+collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_7qjr8")
@@ -180,8 +194,6 @@ environment = SubResource("Environment_4hrnm")
 
 [node name="Personnage" parent="." index="10" instance=ExtResource("2_sxufi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.22183073, -5)
-collision_layer = 1
-collision_mask = 1
 
 [node name="Props" type="Node3D" parent="." index="11"]
 

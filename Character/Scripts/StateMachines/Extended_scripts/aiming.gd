@@ -5,7 +5,7 @@ extends State
 
 func physics_update(_delta) -> void:
 	state_logics(_delta)
-	if Input.is_action_just_released("Aiming") : state_machine.change_state("normal")
+	if Input.is_action_just_released("Aiming") : state_machine.change_state("normal");character.crosshair_layer.hide()
 	if Input.is_action_just_pressed("locking") and player.current_target!=null : state_machine.change_state("locking")
 	if Input.is_action_pressed("Blocks") : state_machine.change_state("shield_strafe")
 	if Input.is_action_just_pressed("Attack_trigger") and character.can_throw_hammer:
@@ -18,6 +18,7 @@ func physics_update(_delta) -> void:
 		character.is_sundowning=true
 		state_machine.change_state("Sundown")
 func state_logics (delta:float) -> void :
+	character.crosshair_layer.show()
 	if character.pick_back_hammer:state_machine.change_state("hammer_take_back")
 	var input_dir := Input.get_vector("Droite", "Gauche", "Bas", "Haut")
 	player.camera.fov=lerp(player.camera.fov,55.0,.1)
@@ -28,6 +29,10 @@ func state_logics (delta:float) -> void :
 	character.look_at(Vector3(player.looking_at_node.global_position.x,
 	player.global_position.y,player.looking_at_node.global_position.z),Vector3.UP,true)
 	character.strafing_motion(input_dir)
+
 func hammer_come_back_check():
 	if character.pick_back_hammer:
 		state_machine.change_state("")
+func Crosshair_tricks():
+	var position2d:=player.camera.unproject_position(player.looking_at_node.global_position)
+	character.crosshair.global_position=position2d

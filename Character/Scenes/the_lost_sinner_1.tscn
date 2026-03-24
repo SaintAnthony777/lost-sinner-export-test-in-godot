@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://xumlackoysv2"]
+[gd_scene load_steps=101 format=3 uid="uid://xumlackoysv2"]
 
 [ext_resource type="PackedScene" uid="uid://dshsna3bwyfl7" path="res://Character/Glb/lost sinner 1/The Lost Sinner1.glb" id="1_ag85x"]
 [ext_resource type="Script" uid="uid://dijb6jh7etgx0" path="res://Character/Scripts/Player/character_mesh.gd" id="2_ukanm"]
@@ -7,6 +7,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cgcabuod3lsed" path="res://Character/meshes/wings_mesh.tres" id="3_ipk5c"]
 [ext_resource type="AnimationLibrary" uid="uid://cfc0r3vfci1tu" path="res://Character/Imported Animations/first_animation_packs.res" id="3_rf1bm"]
 [ext_resource type="Shader" uid="uid://cu55n0xqqy44f" path="res://Character/Shaders/screen distorsion/radial blur.gdshader" id="4_86lmc"]
+[ext_resource type="PackedScene" uid="uid://duumpia3tgccc" path="res://Character/Miscs/CrossHair/crosshair.tscn" id="5_11fhr"]
 [ext_resource type="Material" uid="uid://epa0jchvjw26" path="res://Character/materials/wings_material.tres" id="5_ipk5c"]
 [ext_resource type="PackedScene" uid="uid://k4eg2kxp4alp" path="res://Character/Miscs/Accessories/Shields/Shield remade/shield.tscn" id="5_nlbpv"]
 [ext_resource type="PackedScene" uid="uid://coxrnqofsffsf" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scenes/Justicère des abysses.tscn" id="6_dqom3"]
@@ -14904,7 +14905,6 @@ input_3/break_loop_at_end = false
 input_3/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_h8mx0"]
-graph_offset = Vector2(-5611.154, 858.1162)
 nodes/output/position = Vector2(1680, 186.66667)
 nodes/State/node = SubResource("AnimationNodeTransition_rf1bm")
 nodes/State/position = Vector2(1440, 160)
@@ -15006,6 +15006,11 @@ process_mode = 4
 
 [node name="ColorRect" parent="Special effects layer/Radial Blur + Chromatic aberration" index="0"]
 material = SubResource("ShaderMaterial_11fhr")
+
+[node name="CrosshairLayer" type="CanvasLayer" parent="." index="1"]
+visible = false
+
+[node name="Crosshair" parent="CrosshairLayer" index="0" instance=ExtResource("5_11fhr")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/position = Vector3(0, 0, 0)
@@ -15188,7 +15193,7 @@ bone_idx = 49
 [node name="Premier modèle" parent="Armature/Skeleton3D/Right_hand_weapon_attachment" index="0" instance=ExtResource("6_dqom3")]
 transform = Transform3D(-0.017689157, 0.19894014, 0.010483983, 0.0360424, 0.013547446, -0.19625853, -0.19592865, -0.015468902, -0.037049614, 0.138, 0.081, 0.014)
 
-[node name="AnimationPlayer" parent="." index="2"]
+[node name="AnimationPlayer" parent="." index="3"]
 libraries = {
 &"": SubResource("AnimationLibrary_86lmc"),
 &"Ground_hammer_attacks": ExtResource("7_nlbpv"),
@@ -15201,7 +15206,7 @@ libraries = {
 }
 movie_quit_on_finish = true
 
-[node name="AnimationTree" type="AnimationTree" parent="." index="3"]
+[node name="AnimationTree" type="AnimationTree" parent="." index="4"]
 tree_root = SubResource("AnimationNodeBlendTree_h8mx0")
 anim_player = NodePath("../AnimationPlayer")
 parameters/State/current_state = "Grounded"
@@ -15249,13 +15254,13 @@ parameters/dropkick_timeseek/seek_request = -1.0
 "parameters/TimeScale 3/scale" = 1.5
 "parameters/TimeScale 4/scale" = 1.5
 
-[node name="Particles bursts" type="Node3D" parent="." index="4"]
+[node name="Particles bursts" type="Node3D" parent="." index="5"]
 
 [node name="Lava particles bursts" type="Node3D" parent="Particles bursts" index="0"]
 
-[node name="Feet_bursts" type="Node3D" parent="." index="5"]
+[node name="Feet_bursts" type="Node3D" parent="." index="6"]
 
-[node name="Spike Bursts" type="Node3D" parent="." index="6"]
+[node name="Spike Bursts" type="Node3D" parent="." index="7"]
 
 [node name="lava spikes" type="Node3D" parent="Spike Bursts" index="0"]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
@@ -15278,7 +15283,7 @@ transform = Transform3D(-0.6405034, 0, 0.70290005, 0, 0.60965765, 0, -0.610199, 
 [node name="spike model 4" parent="Spike Bursts/lava spikes" index="5" instance=ExtResource("19_50exv")]
 transform = Transform3D(-0.7820019, 0, -0.47642747, 0, 0.60965765, 0, 0.41359454, 0, -0.9008032, -1.5682061, -4.7683713e-07, 1.7104793)
 
-[node name="slow_mo_node" type="Node" parent="." index="7"]
+[node name="slow_mo_node" type="Node" parent="." index="8"]
 script = ExtResource("20_50exv")
 metadata/_custom_type_script = "uid://b2q8xkjq2aytj"
 
