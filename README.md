@@ -11,6 +11,5 @@ Just Import your mesh and animations and adapt it into the AnimationTree Node Of
 Keep in mind To Change the name of the character mesh in the character body3d script xoxo
 
 # Managed shouting
-Used angel wings found on sketchfab cto this time xoxo
-<img width="1366" height="768" alt="Screenshot_2026-02-06-01-30-47_1366x768" src="https://github.com/user-attachments/assets/ab5bd2b2-c57e-4cc3-aef7-087564792977" />
-<img width="1366" height="768" alt="Screenshot_2026-02-06-01-31-52_1366x768" src="https://github.com/user-attachments/assets/7f6506fe-18be-463b-8803-c4ff3f472a1f" />
+Removed angel bursts and added spikes no credits to be used
+<img width="1366" height="768" alt="Screenshot_2026-03-18-21-10-30_1366x768" src="https://github.com/user-attachments/assets/9faa1959-cfae-4aba-8fc9-15ac5128ee45" />
