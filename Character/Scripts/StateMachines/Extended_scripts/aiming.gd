@@ -33,6 +33,7 @@ func state_logics (delta:float) -> void :
 func hammer_come_back_check():
 	if character.pick_back_hammer:
 		state_machine.change_state("")
+		
 func Crosshair_tricks():
 	var position2d:=player.camera.unproject_position(player.looking_at_node.global_position)
 	character.crosshair.global_position=position2d
