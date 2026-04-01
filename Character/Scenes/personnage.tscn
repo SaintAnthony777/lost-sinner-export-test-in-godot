@@ -71,6 +71,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [-0.7, 0.7]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera_pivot/Hammer_throw_starter_point:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.36451107, 0.5454136, -0.21304138), Vector3(-0.3994287, -0.33079016, 0.13276309)]
+}
 
 [sub_resource type="Animation" id="Animation_al2sp"]
 resource_name = "Camera_switching_to_right"
@@ -98,6 +110,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.7, -0.7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera_pivot/Hammer_throw_starter_point:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.3994287, -0.33079016, 0.13276309), Vector3(-0.36451107, 0.5454136, -0.21304138)]
 }
 
 [sub_resource type="Animation" id="Animation_y3tdl"]
@@ -137,6 +161,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera_pivot/Hammer_throw_starter_point:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.3994287, -0.33079016, 0.13276309)]
 }
 
 [sub_resource type="Animation" id="Animation_a0kpl"]
@@ -210,12 +246,11 @@ collision_mask = 6
 transform = Transform3D(1, 0, 0, 0, 0.938746, 0.34461, 0, -0.34461, 0.938746, 1.6701095, 2.091804, 3.5302541)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Camera_pivot/Aiming"]
-visible = false
 mesh = SubResource("BoxMesh_tgsyp")
 surface_material_override/0 = SubResource("StandardMaterial3D_3iy4h")
 
 [node name="Hammer_throw_starter_point" type="Node3D" parent="Camera_pivot"]
-transform = Transform3D(1, 0, 0, 0, 0.91317594, 0.4075656, 0, -0.4075656, 0.91317594, 0, 0.26212335, 0.8271697)
+transform = Transform3D(0.9541828, -1.4901161e-08, -0.29922405, 0.12195341, 0.91317594, 0.38889214, 0.27324414, -0.4075656, 0.871337, 0, 0.26212335, 0.8271697)
 
 [node name="Camera_animations" type="AnimationPlayer" parent="."]
 libraries = {

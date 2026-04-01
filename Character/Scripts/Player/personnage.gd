@@ -15,6 +15,7 @@ class_name player_character
 @onready var camera_area_of_sight: Area3D = $Camera_pivot/SpringArm3D/Camera_area_of_sight
 @onready var camera_line_of_sight: RayCast3D = $Camera_pivot/SpringArm3D/Camera_line_of_sight
 @onready var hammer_starting_point:Node3D=$"Camera_pivot/Hammer_throw_starter_point"
+@onready var aiming_node:Node3D=$"Camera_pivot/Aiming"
 
 ###Camera Vars
 var camera_input_direction := Vector2.ZERO

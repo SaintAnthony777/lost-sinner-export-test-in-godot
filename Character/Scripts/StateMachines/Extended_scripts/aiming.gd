@@ -26,8 +26,8 @@ func state_logics (delta:float) -> void :
 	player.gravity_applying()
 	player.camera_rotation_logic(delta)
 	player.character_moving(player.player_direction)
-	character.look_at(Vector3(player.looking_at_node.global_position.x,
-	player.global_position.y,player.looking_at_node.global_position.z),Vector3.UP,true)
+	character.look_at(Vector3(player.aiming_node.global_position.x,
+	player.global_position.y,player.aiming_node.global_position.z),Vector3.UP,true)
 	character.strafing_motion(input_dir)
 
 func hammer_come_back_check():
