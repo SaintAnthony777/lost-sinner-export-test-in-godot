@@ -1,0 +1,46 @@
+[gd_resource type="VisualShader" load_steps=4 format=3 uid="uid://dy3buq2jugwsc"]
+
+[ext_resource type="Texture2D" uid="uid://bsl1nw7fse78g" path="res://Character/Miscs/CrossHair/Crosshair.png" id="1_1dyvp"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_w2osj"]
+expanded_output_ports = [0]
+texture = ExtResource("1_1dyvp")
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_1dyvp"]
+parameter_name = "crosshair_color"
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform vec4 crosshair_color : source_color;
+uniform sampler2D tex_frg_2 : source_color;
+
+
+
+void fragment() {
+// ColorParameter:3
+	vec4 n_out3p0 = crosshair_color;
+
+
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, UV);
+	float n_out2p1 = n_out2p0.r;
+
+
+// Output:0
+	COLOR.rgb = vec3(n_out3p0.xyz);
+	COLOR.a = n_out2p1;
+
+
+}
+"
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2(580, 160)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_w2osj")
+nodes/fragment/2/position = Vector2(100, 240)
+nodes/fragment/3/node = SubResource("VisualShaderNodeColorParameter_1dyvp")
+nodes/fragment/3/position = Vector2(240, 80)
+nodes/fragment/connections = PackedInt32Array(2, 1, 0, 1, 3, 0, 0, 0)

@@ -125,4 +125,11 @@ func character_rotation(move_dir:Vector3,last_mov_dir:Vector3,delta:float):
 		character.global_rotation.y=lerp_angle(character.rotation.y,target_angle,rotation_speed*delta)
 
 func get_target_point()->Vector3:
-	return Vector3.ZERO
+	var center := get_viewport().get_visible_rect().size / 2
+	var from := camera.project_ray_origin(center)
+	var to := from + camera.project_ray_normal(center) * 100
+	var space_state:=get_world_3d().direct_space_state
+	var query:=PhysicsRayQueryParameters3D.create(from,to)
+	var result:=space_state.intersect_ray(query)
+	if result: return result.position
+	else : return to

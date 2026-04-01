@@ -14,9 +14,11 @@ func physics_update(_delta) -> void:
 func state_logic()->void:
 	instance=thrown_hammer_mesh.instantiate()
 	if character.thrown_hammer and is_instance_valid(instance):
+		var target_point := player.get_target_point()
 		get_parent().get_parent().get_parent().add_child(instance)
 		instance.global_position=player.hammer_starting_point.global_position
 		instance.transform.basis=player.hammer_starting_point.global_basis
+		instance.look_at(target_point)
 		character.equipped_hammer.hide()
 		character.thrown_hammer=false
 	if !character.is_attacking:

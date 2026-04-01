@@ -5,6 +5,7 @@ extends Node3D
 const HAMMER_SPEED:=40.0
 var lifetime:=0.0
 var returning:bool=false
+
 func _process(delta: float) -> void:
 	lifetime+=delta
 	if !returning:

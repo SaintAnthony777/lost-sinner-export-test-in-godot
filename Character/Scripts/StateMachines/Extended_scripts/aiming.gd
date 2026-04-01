@@ -37,7 +37,7 @@ func hammer_come_back_check():
 		state_machine.change_state("")
 		
 func aiming_angle_correct():
-	player.hammer_starting_point.look_at(player.aiming_node.global_position)
+	player.hammer_starting_point.look_at(player.get_target_point())
 func Crosshair_tricks():
 	var position2d:=get_viewport().get_visible_rect().size/2
 	character.crosshair.global_position=position2d
