@@ -18,6 +18,8 @@ func physics_update(_delta) -> void:
 		character.is_sundowning=true
 		state_machine.change_state("Sundown")
 func state_logics (delta:float) -> void :
+	Crosshair_tricks()
+	aiming_angle_correct()
 	character.crosshair_layer.show()
 	if character.pick_back_hammer:state_machine.change_state("hammer_take_back")
 	var input_dir := Input.get_vector("Droite", "Gauche", "Bas", "Haut")
@@ -34,6 +36,8 @@ func hammer_come_back_check():
 	if character.pick_back_hammer:
 		state_machine.change_state("")
 		
+func aiming_angle_correct():
+	player.hammer_starting_point.look_at(player.aiming_node.global_position)
 func Crosshair_tricks():
-	var position2d:=player.camera.unproject_position(player.looking_at_node.global_position)
+	var position2d:=get_viewport().get_visible_rect().size/2
 	character.crosshair.global_position=position2d

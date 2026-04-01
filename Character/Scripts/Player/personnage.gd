@@ -108,7 +108,7 @@ func get_best_target()->enemy:
 			camera_line_of_sight.force_raycast_update()
 			if camera_line_of_sight.is_colliding() and camera_line_of_sight.get_collider() is enemy:
 				var direction_to_enemy=(foe.global_position-self.global_position).normalized()
-				var camera_forward=-camera.global_basis.z
+				var camera_forward:=-camera.global_basis.z
 				var angle = camera_forward.angle_to(direction_to_enemy)
 				if angle < min_angle:
 					min_angle = angle
@@ -123,3 +123,6 @@ func character_rotation(move_dir:Vector3,last_mov_dir:Vector3,delta:float):
 		last_mov_dir=move_dir
 		var target_angle:=Vector3.BACK.signed_angle_to(last_mov_dir,Vector3.UP)
 		character.global_rotation.y=lerp_angle(character.rotation.y,target_angle,rotation_speed*delta)
+
+func get_target_point()->Vector3:
+	return Vector3.ZERO

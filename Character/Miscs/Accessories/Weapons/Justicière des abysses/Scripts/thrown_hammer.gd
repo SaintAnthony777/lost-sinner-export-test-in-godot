@@ -8,9 +8,8 @@ var returning:bool=false
 func _process(delta: float) -> void:
 	lifetime+=delta
 	if !returning:
-		global_position+=transform.basis*Vector3(0,0,HAMMER_SPEED)*delta
+		global_position+=transform.basis*Vector3(0,0,-HAMMER_SPEED)*delta
 		if hammer_ray_cast.is_colliding() or lifetime > 1.0:
-			print(hammer_ray_cast.get_collider())
 			returning=true
 	else :
 		var direction = (get_parent().get_node("Personnage").hammer_starting_point.global_position-global_position).normalized()
