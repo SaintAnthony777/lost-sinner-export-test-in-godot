@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://duumpia3tgccc"]
+[gd_scene load_steps=5 format=3 uid="uid://duumpia3tgccc"]
 
 [ext_resource type="Texture2D" uid="uid://bsl1nw7fse78g" path="res://Character/Miscs/CrossHair/Crosshair.png" id="1_ag2vq"]
 [ext_resource type="Shader" uid="uid://dy3buq2jugwsc" path="res://Character/Miscs/CrossHair/crosshair.tres" id="1_tven7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tven7"]
+shader = ExtResource("1_tven7")
+shader_parameter/crosshair_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_marq0"]
 shader = ExtResource("1_tven7")
@@ -18,9 +22,43 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.1, 0.1)
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="crosshair_bg" type="TextureRect" parent="."]
+modulate = Color(0.8661998, 0.42057467, 0, 1)
+material = SubResource("ShaderMaterial_tven7")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -512.0
+offset_right = 512.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ag2vq")
+
+[node name="crosshair_target_acquired" type="TextureRect" parent="."]
 modulate = Color(0.8661998, 0.42057467, 0, 1)
 material = SubResource("ShaderMaterial_marq0")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -512.0
+offset_right = 512.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ag2vq")
+
+[node name="crosshair_no_target" type="TextureRect" parent="."]
+modulate = Color(0.8661998, 0.42057467, 0, 1)
+material = SubResource("ShaderMaterial_tven7")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
