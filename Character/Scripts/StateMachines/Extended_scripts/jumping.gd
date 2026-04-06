@@ -14,11 +14,14 @@ func state_logic(delta):
 	player.camera_rotation_logic(delta)
 	player.gravity_applying(delta)
 	player.camera_rotation_logic(delta)
+	player.character_rotation(player.player_move_direction,player.last_movement_direction,delta)
+	player.character_moving(player.player_direction)
 	velocity_check()
 	
 func velocity_check()->void:
 	if player.velocity.y<=0:
 		state_machine.change_state("falling")
+
 func jump_tricks():
 	player.velocity.y+=10.0
 	character.jump_logics("Normal","Start_jumping")

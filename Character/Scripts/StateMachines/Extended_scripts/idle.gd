@@ -15,7 +15,9 @@ func state_logic(delta)->void:
 	character.normal_motion("Idle_unarmed")
 	player.gravity_applying(delta)
 	player.camera_rotation_logic(delta)
-	
+	if !player.is_on_floor():
+		character.landed=false
+		state_machine.change_state("falling")
 func input_logic()->void:
 	if player.player_direction!=Vector3.ZERO:
 		state_machine.change_state("run")

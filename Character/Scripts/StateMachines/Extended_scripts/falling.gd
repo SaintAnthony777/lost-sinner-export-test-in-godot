@@ -10,6 +10,8 @@ func physics_update(_delta) -> void:
 
 func state_logic(delta)->void:
 	ground_check(delta)
+	player.character_moving(player.player_direction)
+	player.character_rotation(player.player_move_direction,player.last_movement_direction,delta)
 	player.camera_rotation_logic(delta)
 
 func ground_check(delta)->void:

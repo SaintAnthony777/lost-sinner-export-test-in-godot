@@ -14690,7 +14690,7 @@ input_6/break_loop_at_end = false
 input_6/reset = true
 
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_xxyrl"]
-xfade_time = 0.1
+xfade_time = 0.5
 input_0/name = "Start_jumping"
 input_0/auto_advance = false
 input_0/break_loop_at_end = false
@@ -14770,6 +14770,7 @@ animation = &"blocking animation packs/Shield Idle"
 animation = &"Supplementary animation packs 2/Fast_Run"
 
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_rf1bm"]
+xfade_time = 0.2
 input_0/name = "Grounded"
 input_0/auto_advance = false
 input_0/break_loop_at_end = false
@@ -14951,6 +14952,7 @@ input_3/break_loop_at_end = false
 input_3/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_h8mx0"]
+graph_offset = Vector2(531.73895, 39.94206)
 nodes/output/position = Vector2(1680, 186.66667)
 nodes/State/node = SubResource("AnimationNodeTransition_rf1bm")
 nodes/State/position = Vector2(1440, 160)

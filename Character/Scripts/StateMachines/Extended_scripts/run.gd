@@ -17,7 +17,9 @@ func state_logic(delta)->void:
 	player.character_moving(player.player_direction)
 	player.character_rotation(player.player_move_direction,player.last_movement_direction,delta)
 	character.normal_motion("Run")
-
+	if !player.is_on_floor():
+		character.landed=false
+		state_machine.change_state("falling")
 func Player_Input_events() -> void:
 	if player.velocity==Vector3.ZERO:
 		state_machine.change_state("idle")
