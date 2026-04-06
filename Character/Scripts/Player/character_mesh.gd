@@ -8,7 +8,7 @@ var is_backfliping:bool=false
 var starts_backflips:bool=false
 var is_shouting:bool=false
 var is_sundowning:bool=false
-
+var landed:=false
 
 var can_advance_to_next_atack_pattern:=false
 var is_attacking:bool=false
@@ -83,6 +83,10 @@ func aiming_attack(current_action:String):
 	animation_tree.set('parameters/Ground Attack transitions/transition_request',"Aiming")
 	animation_tree.set("parameters/aiming attack transition/transition_request",current_action)
 	
+func jump_logics(current_state:String,current_action:String):
+	animation_tree.set("parameters/State/transition_request","Airborne")
+	animation_tree.set("parameters/Airborne transition/transition_request",current_state)
+	animation_tree.set("parameters/Normal Airborne Transitions/transition_request",current_action)
 ###combo logic by me
 
 func cannot_progress_combo()->void: can_advance_to_next_atack_pattern=false
@@ -143,3 +147,7 @@ func show_hammer():
 func has_got_hammer_back():
 	can_throw_hammer=true
 	pick_back_hammer=false
+
+
+func done_landing()->void:
+	landed=true

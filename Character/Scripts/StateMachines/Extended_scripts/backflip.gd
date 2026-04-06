@@ -6,7 +6,7 @@ var dash_speed := 6.0
 
 
 func physics_update(_delta) -> void:
-	player.gravity_applying()
+	player.gravity_applying(_delta)
 	state_logic(_delta)
 func state_logic(delta):
 	player.camera_rotation_logic(delta)

@@ -8,7 +8,7 @@ func physics_update(_delta) -> void:
 func state_logic(delta)->void:
 	player.camera.fov=lerp(player.camera.fov,55.0,.1)
 	player.SPEED=3.0
-	player.gravity_applying()
+	player.gravity_applying(delta)
 	player.camera_rotation_logic(delta)
 	player.character_moving(player.player_direction)
 	var input_dir := Input.get_vector("Droite", "Gauche", "Bas", "Haut") 

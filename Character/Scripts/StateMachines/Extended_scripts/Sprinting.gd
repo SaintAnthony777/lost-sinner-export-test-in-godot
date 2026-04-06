@@ -20,7 +20,7 @@ func physics_update(_delta) -> void:
 
 func state_logic(delta:float)->void:
 	player.SPEED=sprinting_speed
-	player.gravity_applying()
+	player.gravity_applying(delta)
 	player.camera_rotation_logic(delta)
 	player.character_moving(player.player_direction)
 	player.character_rotation(player.player_move_direction,player.last_movement_direction,delta)

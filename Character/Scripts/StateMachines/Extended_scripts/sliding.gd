@@ -10,7 +10,7 @@ func enter() -> void:
 	player.camera_animations.play("camera_sliding")
 	
 func physics_update(_delta) -> void:
-	player.gravity_applying()
+	player.gravity_applying(_delta)
 	state_logic(_delta)
 	player.camera.fov=lerp(player.camera.fov,100.0,.1)
 	if Input.is_action_just_pressed("Attack_trigger") : character.requested_slide_attack = true
@@ -34,5 +34,4 @@ func exit() -> void:
 func dashlogic():
 	var dashdirection=character.transform.basis.z.normalized()
 	player.velocity=dashdirection*dash_speed
-	player.gravity_applying()
 	player.move_and_slide()

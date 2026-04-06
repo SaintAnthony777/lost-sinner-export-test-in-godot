@@ -1,0 +1,22 @@
+extends State
+@onready var character: character_mesh = $"../../The Lost Sinner1"
+@onready var player: player_character = $"../.."
+
+func enter() -> void:
+	character.landed=false
+	falling_process()
+func physics_update(_delta) -> void:
+	state_logic(_delta)
+
+func state_logic(delta)->void:
+	ground_check(delta)
+	player.camera_rotation_logic(delta)
+
+func ground_check(delta)->void:
+	player.gravity_applying(delta)
+	player.move_and_slide()
+	if player.is_on_floor():
+		state_machine.change_state("lands")
+		
+func falling_process()->void:
+	character.jump_logics("Normal","Falls")

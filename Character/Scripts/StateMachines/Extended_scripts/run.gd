@@ -12,7 +12,7 @@ func physics_update(_delta) -> void:
 func state_logic(delta)->void:
 	if character.pick_back_hammer:state_machine.change_state("hammer_take_back")
 	player.SPEED=running_speed
-	player.gravity_applying()
+	player.gravity_applying(delta)
 	player.camera_rotation_logic(delta)
 	player.character_moving(player.player_direction)
 	player.character_rotation(player.player_move_direction,player.last_movement_direction,delta)
@@ -45,3 +45,7 @@ func Player_Input_events() -> void:
 	if Input.is_action_just_pressed("Special"):
 		character.is_shouting = true
 		state_machine.change_state("shouting")
+	
+	if Input.is_action_just_pressed("Jump trigger"):
+		character.landed=false
+		state_machine.change_state("Jumping")

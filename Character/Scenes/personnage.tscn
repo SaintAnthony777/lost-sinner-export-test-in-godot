@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://srgn3wkeivsn"]
+[gd_scene load_steps=46 format=3 uid="uid://srgn3wkeivsn"]
 
 [ext_resource type="Script" uid="uid://bhjwagrue8av5" path="res://Character/Scripts/Player/personnage.gd" id="1_ov8r6"]
 [ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="2_ov8r6"]
@@ -29,6 +29,10 @@
 [ext_resource type="Script" uid="uid://c60h1vsk86nqm" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_take_back.gd" id="25_k21se"]
 [ext_resource type="Script" uid="uid://1i120ete8msi" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_take_back_aiming.gd" id="26_05ikt"]
 [ext_resource type="Script" uid="uid://cjmdgb7ulifkh" path="res://Character/Scripts/StateMachines/Extended_scripts/sundown.gd" id="26_e8vxi"]
+[ext_resource type="Script" uid="uid://02hb3ls3teqf" path="res://Character/Scripts/StateMachines/Extended_scripts/jumping.gd" id="30_lxscr"]
+[ext_resource type="Script" uid="uid://26winygnfai1" path="res://Character/Scripts/StateMachines/Extended_scripts/falling.gd" id="31_ycjfr"]
+[ext_resource type="Script" uid="uid://dwf2476l0ode5" path="res://Character/Scripts/StateMachines/Extended_scripts/aerial_evade.gd" id="32_sd3vh"]
+[ext_resource type="Script" uid="uid://d4j2uxr8608yr" path="res://Character/Scripts/StateMachines/Extended_scripts/lands.gd" id="33_ycjfr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ov8r6"]
 
@@ -217,7 +221,7 @@ mesh = SubResource("BoxMesh_tgsyp")
 surface_material_override/0 = SubResource("StandardMaterial3D_3iy4h")
 
 [node name="Hammer_throw_starter_point" type="Node3D" parent="Camera_pivot"]
-transform = Transform3D(0.9541827, -1.4901161e-08, -0.29922405, 0.1219534, 0.91317594, 0.38889214, 0.2732441, -0.4075656, 0.871337, 0, 0.26212335, 0.8271697)
+transform = Transform3D(0.9541826, -2.9802322e-08, -0.29922405, 0.121953405, 0.91317594, 0.38889217, 0.27324408, -0.40756562, 0.871337, 0, 0.26212335, 0.8271697)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Camera_pivot/Hammer_throw_starter_point"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -336,4 +340,20 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="Sundown" type="Node" parent="StateMachine"]
 script = ExtResource("26_e8vxi")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Jumping" type="Node" parent="StateMachine"]
+script = ExtResource("30_lxscr")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Falling" type="Node" parent="StateMachine"]
+script = ExtResource("31_ycjfr")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Aerial evade" type="Node" parent="StateMachine"]
+script = ExtResource("32_sd3vh")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Lands" type="Node" parent="StateMachine"]
+script = ExtResource("33_ycjfr")
 metadata/_custom_type_script = "uid://dq36efs6bxser"

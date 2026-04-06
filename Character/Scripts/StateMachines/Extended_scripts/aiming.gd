@@ -25,7 +25,7 @@ func state_logics (delta:float) -> void :
 	var input_dir := Input.get_vector("Droite", "Gauche", "Bas", "Haut")
 	player.camera.fov=lerp(player.camera.fov,55.0,.1)
 	player.SPEED=3.0
-	player.gravity_applying()
+	player.gravity_applying(delta)
 	player.camera_rotation_logic(delta)
 	player.character_moving(player.player_direction)
 	character.look_at(Vector3(player.aiming_node.global_position.x,

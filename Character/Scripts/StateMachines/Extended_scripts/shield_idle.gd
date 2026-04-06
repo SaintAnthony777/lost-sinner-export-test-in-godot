@@ -10,7 +10,7 @@ func physics_update(_delta) -> void:
 	
 func state_logic(delta)->void:
 	character.shield_motion("idle",Vector2.ZERO)
-	player.gravity_applying()
+	player.gravity_applying(delta)
 	player.camera_rotation_logic(delta)
 	player.character_moving(player.player_direction)
 	if player.player_direction!=Vector3.ZERO:

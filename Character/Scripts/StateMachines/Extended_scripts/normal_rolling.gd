@@ -11,7 +11,7 @@ func enter() -> void:
 	character.requested_dash_attack = false
 	
 func physics_update(_delta) -> void:
-	player.gravity_applying()
+	player.gravity_applying(_delta)
 	state_logic(_delta)
 	if Input.is_action_just_pressed("Attack_trigger") and character.equipped_hammer.visible : character.requested_dash_attack = true
 func state_logic(delta):

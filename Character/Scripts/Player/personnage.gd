@@ -33,10 +33,11 @@ var is_shouting:bool=false
 var player_move_direction : Vector3
 var player_direction : Vector3
 var current_target : enemy
-
+var self_delta=.01
 func _ready() -> void:
 	camera.h_offset=-.7
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_pressed("Pause"):
 		if Input.mouse_mode==Input.MOUSE_MODE_VISIBLE:
@@ -115,14 +116,15 @@ func get_best_target()->enemy:
 					best_target=foe
 	return best_target
 
-func gravity_applying()->void:
-	if !is_on_floor(): velocity.y+=gravity
+func gravity_applying(delta)->void:
+	if !is_on_floor(): velocity.y+=gravity*delta
 
 func character_rotation(move_dir:Vector3,last_mov_dir:Vector3,delta:float):
 	if move_dir.length() > 0.2:
 		last_mov_dir=move_dir
 		var target_angle:=Vector3.BACK.signed_angle_to(last_mov_dir,Vector3.UP)
 		character.global_rotation.y=lerp_angle(character.rotation.y,target_angle,rotation_speed*delta)
+
 
 func get_target_point()->Vector3:
 	var center := get_viewport().get_visible_rect().size / 2
@@ -133,3 +135,7 @@ func get_target_point()->Vector3:
 	var result:=space_state.intersect_ray(query)
 	if result: return result.position
 	else : return to
+
+func jumping()->void:
+	velocity.y += 50.0
+	move_and_slide()

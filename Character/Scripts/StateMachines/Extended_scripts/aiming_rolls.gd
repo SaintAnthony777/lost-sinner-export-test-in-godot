@@ -8,7 +8,7 @@ func enter() -> void:
 	check_rotation()
 
 func physics_update(_delta) -> void:
-	player.gravity_applying()
+	player.gravity_applying(_delta)
 	state_logics(_delta)
 
 func state_logics(delta:float):
