@@ -13,12 +13,16 @@ func state_logic(delta)->void:
 	player.character_moving(player.player_direction)
 	player.character_rotation(player.player_move_direction,player.last_movement_direction,delta)
 	player.camera_rotation_logic(delta)
-
+	input_check()
 func ground_check(delta)->void:
 	player.gravity_applying(delta)
 	player.move_and_slide()
 	if player.is_on_floor():
 		state_machine.change_state("lands")
-		
+
+func input_check()->void:
+	if Input.is_action_just_pressed("sprinting"):
+		character.aerial_dashing=true
+		state_machine.change_state("aerial evade")
 func falling_process()->void:
 	character.jump_logics("Normal","Falls")

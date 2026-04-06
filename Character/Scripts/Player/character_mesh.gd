@@ -9,6 +9,7 @@ var starts_backflips:bool=false
 var is_shouting:bool=false
 var is_sundowning:bool=false
 var landed:=false
+var aerial_dashing:=false
 
 var can_advance_to_next_atack_pattern:=false
 var is_attacking:bool=false
@@ -151,3 +152,5 @@ func has_got_hammer_back():
 
 func done_landing()->void:
 	landed=true
+func done_aerial_dash()->void:
+	aerial_dashing=false

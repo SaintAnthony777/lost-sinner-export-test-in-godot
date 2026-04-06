@@ -23,6 +23,7 @@ func dashlogic():
 	player.velocity=roll_dir*dash_speed
 	player.velocity.y=0
 	player.move_and_slide()
+	
 func check_rotation()->void:
 	var input_dir:=player.player_move_direction
 	if input_dir.length()>.1:

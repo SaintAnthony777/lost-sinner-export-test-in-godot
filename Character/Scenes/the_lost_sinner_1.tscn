@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=3 uid="uid://xumlackoysv2"]
+[gd_scene load_steps=109 format=3 uid="uid://xumlackoysv2"]
 
 [ext_resource type="PackedScene" uid="uid://dshsna3bwyfl7" path="res://Character/Glb/lost sinner 1/The Lost Sinner1.glb" id="1_ag85x"]
 [ext_resource type="Script" uid="uid://dijb6jh7etgx0" path="res://Character/Scripts/Player/character_mesh.gd" id="2_ukanm"]
@@ -14817,6 +14817,8 @@ animation = &"Specials/SunDown"
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_11fhr"]
 
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_xxyrl"]
+
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_rf1bm"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_700hb"]
@@ -14952,7 +14954,7 @@ input_3/break_loop_at_end = false
 input_3/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_h8mx0"]
-graph_offset = Vector2(531.73895, 39.94206)
+graph_offset = Vector2(-186.66667, 385.33334)
 nodes/output/position = Vector2(1680, 186.66667)
 nodes/State/node = SubResource("AnimationNodeTransition_rf1bm")
 nodes/State/position = Vector2(1440, 160)
@@ -15053,8 +15055,10 @@ nodes/dropkick_timeseek/position = Vector2(-5333.3335, 2506.6667)
 "nodes/landing animation/node" = SubResource("AnimationNodeAnimation_1x2dm")
 "nodes/landing animation/position" = Vector2(-240, 426.66666)
 "nodes/air evade animation/node" = SubResource("AnimationNodeAnimation_xgytu")
-"nodes/air evade animation/position" = Vector2(-53.333332, 666.6667)
-node_connections = [&"output", 0, &"State", &"State", 0, &"Ground_state", &"State", 1, &"Airborne transition", &"Moving", 0, &"Normal_Transition", &"Moving", 1, &"Strafe_blendspace", &"Moving", 2, &"locking_blendspace", &"Moving", 3, &"roll_transistion", &"Moving", 4, &"TimeScale", &"Moving", 5, &"Ground Attack transitions", &"Moving", 6, &"Ground shield transistion", &"Normal_Transition", 0, &"Walking", &"Normal_Transition", 1, &"Running", &"Normal_Transition", 2, &"Idle_Animation", &"Ground_state", 0, &"Moving", &"roll_transistion", 0, &"slide_animation", &"roll_transistion", 1, &"rolltime_sacle", &"roll_transistion", 2, &"backflip timescale", &"rolltime_sacle", 0, &"rollanimation", &"TimeScale", 0, &"Sprint_animation", &"backflip timescale", 0, &"Animation", &"Ground Attack transitions", 0, &"Weapon_equipped", &"Ground Attack transitions", 1, &"aiming attack transition", &"Ground Attack transitions", 2, &"special attacks transitions", &"Ground shield transistion", 0, &"Walk with shiled", &"Ground shield transistion", 1, &"Shiled Idle", &"Ground shield transistion", 2, &"Shield blendspace strafe", &"Weapon_equipped", 0, &"hammer attack timescale", &"Hammer_attack_transition", 0, &"Hammer_attack_1", &"Hammer_attack_transition", 1, &"Hammer_attack_2", &"Hammer_attack_transition", 2, &"Hammer_attack_3", &"Hammer_attack_transition", 3, &"Hammer_attack_running", &"Hammer_attack_transition", 4, &"TimeScale 2", &"Hammer_attack_transition", 5, &"Hammer attack 4", &"hammer attack timescale", 0, &"Hammer_attack_transition", &"TimeScale 2", 0, &"hammer attack jumping", &"special attacks transitions", 0, &"Scream animation", &"special attacks transitions", 1, &"Sundown Animation", &"special attacks transitions", 2, &"Adam\'s rise", &"special attacks transitions", 3, &"dropkick_timeseek", &"dropkick_timeseek", 0, &"Dropkick Animation", &"aiming attack transition", 0, &"TimeScale 3", &"aiming attack transition", 1, &"hammer take back aiming", &"aiming attack transition", 2, &"TimeScale 4", &"TimeScale 3", 0, &"Hammer throw animation", &"TimeScale 4", 0, &"hammer take back normal", &"Normal Airborne Transitions", 0, &"jump animation", &"Normal Airborne Transitions", 1, &"fall animation", &"Normal Airborne Transitions", 2, &"landing animation", &"Normal Airborne Transitions", 3, &"air evade animation", &"Airborne transition", 0, &"Normal Airborne Transitions"]
+"nodes/air evade animation/position" = Vector2(-186.66667, 666.6667)
+"nodes/TimeScale 5/node" = SubResource("AnimationNodeTimeScale_xxyrl")
+"nodes/TimeScale 5/position" = Vector2(213.33333, 560)
+node_connections = [&"output", 0, &"State", &"State", 0, &"Ground_state", &"State", 1, &"Airborne transition", &"Moving", 0, &"Normal_Transition", &"Moving", 1, &"Strafe_blendspace", &"Moving", 2, &"locking_blendspace", &"Moving", 3, &"roll_transistion", &"Moving", 4, &"TimeScale", &"Moving", 5, &"Ground Attack transitions", &"Moving", 6, &"Ground shield transistion", &"Normal_Transition", 0, &"Walking", &"Normal_Transition", 1, &"Running", &"Normal_Transition", 2, &"Idle_Animation", &"Ground_state", 0, &"Moving", &"roll_transistion", 0, &"slide_animation", &"roll_transistion", 1, &"rolltime_sacle", &"roll_transistion", 2, &"backflip timescale", &"rolltime_sacle", 0, &"rollanimation", &"TimeScale", 0, &"Sprint_animation", &"backflip timescale", 0, &"Animation", &"Ground Attack transitions", 0, &"Weapon_equipped", &"Ground Attack transitions", 1, &"aiming attack transition", &"Ground Attack transitions", 2, &"special attacks transitions", &"Ground shield transistion", 0, &"Walk with shiled", &"Ground shield transistion", 1, &"Shiled Idle", &"Ground shield transistion", 2, &"Shield blendspace strafe", &"Weapon_equipped", 0, &"hammer attack timescale", &"Hammer_attack_transition", 0, &"Hammer_attack_1", &"Hammer_attack_transition", 1, &"Hammer_attack_2", &"Hammer_attack_transition", 2, &"Hammer_attack_3", &"Hammer_attack_transition", 3, &"Hammer_attack_running", &"Hammer_attack_transition", 4, &"TimeScale 2", &"Hammer_attack_transition", 5, &"Hammer attack 4", &"hammer attack timescale", 0, &"Hammer_attack_transition", &"TimeScale 2", 0, &"hammer attack jumping", &"special attacks transitions", 0, &"Scream animation", &"special attacks transitions", 1, &"Sundown Animation", &"special attacks transitions", 2, &"Adam\'s rise", &"special attacks transitions", 3, &"dropkick_timeseek", &"dropkick_timeseek", 0, &"Dropkick Animation", &"aiming attack transition", 0, &"TimeScale 3", &"aiming attack transition", 1, &"hammer take back aiming", &"aiming attack transition", 2, &"TimeScale 4", &"TimeScale 3", 0, &"Hammer throw animation", &"TimeScale 4", 0, &"hammer take back normal", &"Normal Airborne Transitions", 0, &"jump animation", &"Normal Airborne Transitions", 1, &"fall animation", &"Normal Airborne Transitions", 2, &"landing animation", &"Normal Airborne Transitions", 3, &"TimeScale 5", &"Airborne transition", 0, &"Normal Airborne Transitions", &"TimeScale 5", 0, &"air evade animation"]
 
 [node name="The Lost Sinner1" instance=ExtResource("1_ag85x")]
 script = ExtResource("2_ukanm")
@@ -15319,6 +15323,7 @@ parameters/dropkick_timeseek/seek_request = -1.0
 "parameters/Airborne transition/current_state" = "Normal"
 "parameters/Airborne transition/transition_request" = ""
 "parameters/Airborne transition/current_index" = 0
+"parameters/TimeScale 5/scale" = 2.0
 
 [node name="Particles bursts" type="Node3D" parent="." index="5"]
 

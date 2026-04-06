@@ -17,11 +17,16 @@ func state_logic(delta):
 	player.character_rotation(player.player_move_direction,player.last_movement_direction,delta)
 	player.character_moving(player.player_direction)
 	velocity_check()
+	input_check()
 	
+func input_check()->void:
+	if Input.is_action_just_pressed("sprinting"):
+		character.aerial_dashing=true
+		state_machine.change_state("aerial evade")
 func velocity_check()->void:
 	if player.velocity.y<=0:
 		state_machine.change_state("falling")
-
+	
 func jump_tricks():
 	player.velocity.y+=10.0
 	character.jump_logics("Normal","Start_jumping")
