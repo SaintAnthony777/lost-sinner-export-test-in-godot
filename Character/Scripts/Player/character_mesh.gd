@@ -24,6 +24,10 @@ var can_throw_hammer:=true
 var thrown_hammer:=false
 var pick_back_hammer:=false
 var hammer_last_pos:=Vector3.ZERO
+var air_rises:=false
+var air_stationary:=false
+var air_lashes:=false
+
 
 @onready var player: player_character = $".."
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -32,7 +36,7 @@ var hammer_last_pos:=Vector3.ZERO
 @onready var equipped_hammer=$"Armature/Skeleton3D/Right_hand_weapon_attachment"
 @onready var crosshair_layer: CanvasLayer = $CrosshairLayer
 @onready var crosshair:Control=$"CrosshairLayer/Crosshair"
-
+@onready var radial_blur_chomatic_color_rect:Control=$"Special effects layer/Radial Blur + Chromatic aberration/ColorRect"
 
 func normal_motion(current_action:String)->void:
 	grounding("Normal")
@@ -87,7 +91,7 @@ func aiming_attack(current_action:String):
 func jump_logics(current_state:String,current_action:String):
 	animation_tree.set("parameters/State/transition_request","Airborne")
 	animation_tree.set("parameters/Airborne transition/transition_request",current_state)
-	animation_tree.set("parameters/Normal Airborne Transitions/transition_request",current_action)
+	animation_tree.set("parameters/"+current_state+" Airborne Transitions/transition_request",current_action)
 ###combo logic by me
 
 func cannot_progress_combo()->void: can_advance_to_next_atack_pattern=false
@@ -149,8 +153,18 @@ func has_got_hammer_back():
 	can_throw_hammer=true
 	pick_back_hammer=false
 
-
 func done_landing()->void:
 	landed=true
 func done_aerial_dash()->void:
 	aerial_dashing=false
+
+func starts_rising():
+	air_rises=true
+func stops_rising():
+	air_rises=false
+	air_stationary=true
+func lashes_downward():
+	air_stationary=false
+	air_lashes=true
+func done_lashing():
+	air_lashes=false

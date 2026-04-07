@@ -2,13 +2,14 @@ extends State
 @onready var character: character_mesh = $"../../The Lost Sinner1"
 @onready var player: player_character = $"../.."
 
-var dash_speed:=10.0
+var dash_speed:=15.0
 
 func enter() -> void:
 	character.jump_logics("Normal","Air_evade")
 func physics_update(_delta) -> void:
 	state_logic(_delta)
 func state_logic(delta)->void:
+	player.camera.fov=lerp(player.camera.fov,105.0,.1)
 	dashlogic(delta)
 	player.camera_rotation_logic(delta)
 	dash_checks()
@@ -19,6 +20,7 @@ func dash_checks()->void:
 		state_machine.change_state("Lands")
 	if character.aerial_dashing==false:
 		state_machine.change_state("Falling")
+
 func dashlogic(delta):
 	var dashdirection=character.transform.basis.z.normalized()
 	player.velocity=dashdirection*dash_speed

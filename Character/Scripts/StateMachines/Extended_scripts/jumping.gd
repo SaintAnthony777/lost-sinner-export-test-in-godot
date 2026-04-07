@@ -21,8 +21,9 @@ func state_logic(delta):
 	
 func input_check()->void:
 	if Input.is_action_just_pressed("sprinting"):
-		character.aerial_dashing=true
-		state_machine.change_state("aerial evade")
+		pass
+	if Input.is_action_just_pressed("Attack_trigger"):
+		state_machine.change_state("hammer_attack_air_ready")
 func velocity_check()->void:
 	if player.velocity.y<=0:
 		state_machine.change_state("falling")

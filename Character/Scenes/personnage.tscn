@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://srgn3wkeivsn"]
+[gd_scene load_steps=49 format=3 uid="uid://srgn3wkeivsn"]
 
 [ext_resource type="Script" uid="uid://bhjwagrue8av5" path="res://Character/Scripts/Player/personnage.gd" id="1_ov8r6"]
 [ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="2_ov8r6"]
@@ -23,8 +23,11 @@
 [ext_resource type="Script" uid="uid://ryttj71shnvb" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_attack_4.gd" id="21_euy1u"]
 [ext_resource type="Script" uid="uid://cqnmoowg3mb5u" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_attack_dashing.gd" id="21_tgsyp"]
 [ext_resource type="Script" uid="uid://bckn0rstkrish" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_attack_jumping.gd" id="22_3iy4h"]
+[ext_resource type="Script" uid="uid://f5828a3hgx8l" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_attack_air_ready.gd" id="22_omsex"]
+[ext_resource type="Script" uid="uid://b86qtb3n3yaf4" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_attack_air_falling.gd" id="23_rt488"]
 [ext_resource type="Script" uid="uid://7420suqajgby" path="res://Character/Scripts/StateMachines/Extended_scripts/shouting.gd" id="23_y8f87"]
 [ext_resource type="Script" uid="uid://bmwsyc0e87u7" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_throwing.gd" id="24_58eqw"]
+[ext_resource type="Script" uid="uid://bbd38my5g50oo" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_attack_air_landing.gd" id="24_e0fex"]
 [ext_resource type="Script" uid="uid://bxqquxa755lye" path="res://Character/Scripts/StateMachines/Extended_scripts/dropkick.gd" id="25_euy1u"]
 [ext_resource type="Script" uid="uid://c60h1vsk86nqm" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_take_back.gd" id="25_k21se"]
 [ext_resource type="Script" uid="uid://1i120ete8msi" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_take_back_aiming.gd" id="26_05ikt"]
@@ -308,6 +311,18 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="hammer_attack_4" type="Node" parent="StateMachine"]
 script = ExtResource("21_euy1u")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="hammer_attack_air_ready" type="Node" parent="StateMachine"]
+script = ExtResource("22_omsex")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="hammer_attack_air_falling" type="Node" parent="StateMachine"]
+script = ExtResource("23_rt488")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="hammer_attack_air_landing" type="Node" parent="StateMachine"]
+script = ExtResource("24_e0fex")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="hammer_attack_dashing" type="Node" parent="StateMachine"]
