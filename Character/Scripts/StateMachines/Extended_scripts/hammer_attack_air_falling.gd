@@ -11,8 +11,10 @@ func state_logic(delta)->void:
 	falling_logic(delta)
 	if player.is_on_floor():state_machine.change_state("hammer_attack_air_landing")
 func falling_logic(delta)->void:
-	player.velocity.y-=(35+delta)*delta
+	player.velocity.y-=(205.0+delta)*delta
 	player.move_and_slide()
+	player.camera_rotation_logic(delta)
+
 
 func falling_trick()->void:
 	player.camera.fov=lerp(player.camera.fov,105.0,.1)

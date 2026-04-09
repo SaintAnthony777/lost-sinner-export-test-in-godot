@@ -10,10 +10,12 @@ func physics_update(_delta) -> void:
 
 func state_logic(delta)->void:
 	input_check()
-	
+	player.camera_rotation_logic(delta)
+
 func falling_trick()->void:
 	player.camera.fov=lerp(player.camera.fov,115.0,.1)
 	character.jump_logics("Attacking","Lands")
+	
 func input_check()->void:
 	if !character.air_lashes:
 		state_machine.change_state("idle")

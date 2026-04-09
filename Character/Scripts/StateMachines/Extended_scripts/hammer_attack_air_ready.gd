@@ -14,7 +14,7 @@ func physics_update(_delta) -> void:
 func state_logic(delta)->void:
 	player.camera_rotation_logic(delta)
 	air_ready_check(delta)
-
+	player.camera_rotation_logic(delta)
 func air_attack_trick()->void:
 	character.jump_logics("Attacking","Ready")
 func air_ready_check(delta)->void:

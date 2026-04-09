@@ -179,6 +179,7 @@ _data = {
 collision_mask = 6
 floor_max_angle = 1.0471976
 script = ExtResource("1_ov8r6")
+mouse_sensitivity = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0458833, 0)
