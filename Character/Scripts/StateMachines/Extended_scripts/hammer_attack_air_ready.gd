@@ -4,11 +4,9 @@ extends State
 
 func enter() -> void:
 	air_attack_trick()
-	player.can_switch_camera=false
-
+	player.velocity=Vector3.ZERO
 func physics_update(_delta) -> void:
 	state_logic(_delta)
-	player.camera.h_offset=lerp(player.camera.h_offset,.0,.1)
 	player.camera.fov=lerp(player.camera.fov,105.0,.1)
 	
 func state_logic(delta)->void:
@@ -22,6 +20,8 @@ func air_ready_check(delta)->void:
 		player.velocity.y+=15.0*delta
 	if character.air_stationary:
 		player.velocity.y=0.0
+	if character.air_stationary and !Input.is_action_pressed("Attack_trigger"):
+		character.lashes_downward()
 	if character.air_lashes:
 		state_machine.change_state("hammer_attack_air_falling")
 	player.move_and_slide()
