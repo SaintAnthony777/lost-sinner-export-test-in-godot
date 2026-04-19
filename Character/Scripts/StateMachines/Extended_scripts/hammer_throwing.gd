@@ -1,9 +1,9 @@
 extends State
 @onready var character: character_mesh = $"../../The Lost Sinner1"
 @onready var player: player_character = $"../.."
+@onready var thrown_hammer_mesh:=preload("res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scenes/thrown_hammer.tscn")
 
 var instance 
-var thrown_hammer_mesh:=load("res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scenes/thrown_hammer.tscn")
 
 func enter() -> void:
 	character.aiming_attack("Hammer_throwing")
