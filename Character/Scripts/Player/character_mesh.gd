@@ -8,6 +8,7 @@ var is_backfliping:bool=false
 var starts_backflips:bool=false
 var is_shouting:bool=false
 var is_sundowning:bool=false
+var is_divine_dividing:=false
 var landed:=false
 var aerial_dashing:=false
 
@@ -37,6 +38,10 @@ var air_lashes:=false
 @onready var crosshair_layer: CanvasLayer = $CrosshairLayer
 @onready var crosshair:Control=$"CrosshairLayer/Crosshair"
 @onready var radial_blur_chomatic_color_rect:Control=$"Special effects layer/Radial Blur + Chromatic aberration/ColorRect"
+
+@onready var current_divine_divider: Label = $"Divine divides and arcane test/Control/Current Divine Divider"
+@onready var current_spirit_grace: Label = $"Divine divides and arcane test/Control/Current Spirit grace"
+
 
 func normal_motion(current_action:String)->void:
 	grounding("Normal")
@@ -88,6 +93,7 @@ func aiming_attack(current_action:String):
 	animation_tree.set('parameters/Ground Attack transitions/transition_request',"Aiming")
 	animation_tree.set("parameters/aiming attack transition/transition_request",current_action)
 	
+###Air Logics 
 func jump_logics(current_state:String,current_action:String):
 	animation_tree.set("parameters/State/transition_request","Airborne")
 	animation_tree.set("parameters/Airborne transition/transition_request",current_state)
@@ -105,11 +111,9 @@ func done_sliding()->void:
 	requested_sliding=false
 func done_backflips()->void:
 	is_backfliping=false
-func done_shouting()->void:
-	is_shouting=false
-func done_sundowning()->void:
-	is_sundowning=false
 
+func done_divided()->void:
+	is_divine_dividing=false
 
 
 func done_attacking()->void:

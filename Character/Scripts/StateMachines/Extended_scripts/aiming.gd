@@ -15,8 +15,8 @@ func physics_update(_delta) -> void:
 		character.isrolling=true
 		state_machine.change_state("aiming_rolls")
 	if Input.is_action_just_pressed("Special"):
-		character.is_sundowning=true
-		state_machine.change_state("Sundown")
+		character.is_divine_dividing=true
+		state_machine.change_state(player.current_divine_divider)
 func state_logics (delta:float) -> void :
 	Crosshair_tricks()
 	aiming_angle_correct()

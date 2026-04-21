@@ -4,7 +4,6 @@ extends State
 
 func enter() -> void:
 	air_attack_trick()
-	player.velocity=Vector3.ZERO
 func physics_update(_delta) -> void:
 	state_logic(_delta)
 	player.camera.fov=lerp(player.camera.fov,105.0,.1)

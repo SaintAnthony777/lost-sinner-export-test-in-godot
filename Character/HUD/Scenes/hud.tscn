@@ -1,0 +1,86 @@
+[gd_scene load_steps=3 format=3 uid="uid://4y8dawkwukrf"]
+
+[ext_resource type="Texture2D" uid="uid://brru30qgiog6c" path="res://Character/HUD/assets/Classic bar texture.png" id="1_7uq4e"]
+[ext_resource type="Texture2D" uid="uid://cw4pa0y1i88nx" path="res://icon.svg" id="2_5e13b"]
+
+[node name="HUD" type="Control"]
+custom_minimum_size = Vector2(1366, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Enemy health bar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -310.0
+offset_top = 15.0
+offset_right = 18.0
+offset_bottom = 72.0
+grow_horizontal = 2
+scale = Vector2(2.135, 1)
+value = 85.0
+texture_under = ExtResource("1_7uq4e")
+texture_progress = ExtResource("1_7uq4e")
+tint_under = Color(0.16206557, 0.1620656, 0.16206557, 1)
+tint_progress = Color(0.84313726, 0.019607844, 0.03137255, 1)
+
+[node name="Jauge D\'arcane" type="TextureProgressBar" parent="."]
+texture_repeat = 2
+layout_mode = 0
+offset_left = 1078.0
+offset_top = 636.0
+offset_right = 1406.0
+offset_bottom = 693.0
+rotation = -1.5707964
+value = 60.0
+texture_under = ExtResource("1_7uq4e")
+texture_progress = ExtResource("1_7uq4e")
+tint_under = Color(0.27265528, 0.2726553, 0.2726553, 1)
+tint_progress = Color(0, 0.56503075, 1.139423, 1)
+
+[node name="Health Chaos and Arcane Gauge" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 547.0
+offset_right = 1155.0
+offset_bottom = 677.769
+scale = Vector2(1, 0.5200006)
+
+[node name="Barre de Vie" type="TextureProgressBar" parent="Health Chaos and Arcane Gauge"]
+layout_mode = 2
+value = 75.0
+rounded = true
+texture_under = ExtResource("1_7uq4e")
+texture_progress = ExtResource("1_7uq4e")
+tint_under = Color(0.20511743, 0.20511743, 0.20511743, 1)
+tint_progress = Color(0, 3.3813243, 0.46372542, 1)
+
+[node name="Jauge de chaos" type="TextureProgressBar" parent="Health Chaos and Arcane Gauge"]
+texture_repeat = 2
+layout_mode = 2
+value = 60.0
+texture_under = ExtResource("1_7uq4e")
+texture_progress = ExtResource("1_7uq4e")
+tint_under = Color(0.27265528, 0.2726553, 0.2726553, 1)
+tint_progress = Color(1.4752738, 0.93920076, 0.32762095, 1)
+
+[node name="Divine Divider" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 502.0
+offset_right = 151.0
+offset_bottom = 630.0
+texture = ExtResource("2_5e13b")
+
+[node name="Arcane spirituelle equipée" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 942.0
+offset_top = 491.0
+offset_right = 1070.0
+offset_bottom = 619.0
+texture = ExtResource("2_5e13b")

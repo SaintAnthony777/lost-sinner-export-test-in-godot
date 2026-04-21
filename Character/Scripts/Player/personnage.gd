@@ -29,11 +29,18 @@ var can_switch_camera:bool=true
 var is_aiming : bool = false
 var is_locking : bool = false
 var is_shouting:bool=false
+
 ##innervars
 var player_move_direction : Vector3
 var player_direction : Vector3
 var current_target : enemy
 var self_delta=.01
+## Grace and Divine Dividers
+var divine_divider_list:=["Screaming Silence","Sundown"]
+var grace_list:=["Disordonance","Disaster"]
+var current_grace:="Sundown"
+var current_divine_divider:="Screaming Silence"
+
 func _ready() -> void:
 	camera.h_offset=-.7
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
@@ -45,6 +52,9 @@ func _input(_event: InputEvent) -> void:
 		else : Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
 	if Input.is_action_just_pressed("Camera Switching") and can_switch_camera:
 		camera_switch_logic()
+	if Input.is_action_just_pressed("Divine Divider switch"):
+		switch_divine_divider()
+		get_viewport().set_input_as_handled()
 
 func _unhandled_input(event: InputEvent) -> void:
 	var camera_is_in_motion:=(
@@ -53,8 +63,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		)
 	if camera_is_in_motion:
 		camera_input_direction=event.screen_relative*mouse_sensitivity
-
+	
+		
 func _physics_process(_delta: float) -> void:
+	character.current_divine_divider.text=current_divine_divider
 	if !current_target or !is_locking:
 		current_target=get_best_target()
 	var input_dir := Input.get_vector("Droite", "Gauche", "Bas", "Haut").normalized()
@@ -139,3 +151,11 @@ func get_target_point()->Vector3:
 func jumping()->void:
 	velocity.y += 50.0
 	move_and_slide()
+
+func switch_divine_divider()->void:
+	var current_index:=divine_divider_list.bsearch(current_divine_divider)
+	current_index+=1
+	if current_index>=divine_divider_list.size():
+		current_index=0
+	current_divine_divider=divine_divider_list[current_index]
+	print(current_divine_divider)

@@ -346,7 +346,7 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 script = ExtResource("26_05ikt")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
 
-[node name="Shouting" type="Node" parent="StateMachine"]
+[node name="Screaming Silence" type="Node" parent="StateMachine"]
 script = ExtResource("23_y8f87")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
 

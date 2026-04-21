@@ -40,8 +40,8 @@ func input_logic()->void:
 		state_machine.change_state("hammer_attack_1")
 	
 	if Input.is_action_just_pressed("Special"):
-		character.is_shouting = true
-		state_machine.change_state("shouting")
+		character.is_divine_dividing=true
+		state_machine.change_state(player.current_divine_divider)
 
 	if Input.is_action_just_pressed("Jump trigger"):
 		character.landed=false
