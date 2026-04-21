@@ -98,8 +98,8 @@ func jump_logics(current_state:String,current_action:String):
 	animation_tree.set("parameters/State/transition_request","Airborne")
 	animation_tree.set("parameters/Airborne transition/transition_request",current_state)
 	animation_tree.set("parameters/"+current_state+" Airborne Transitions/transition_request",current_action)
+	
 ###combo logic by me
-
 func cannot_progress_combo()->void: can_advance_to_next_atack_pattern=false
 func can_progress_combo()->void: can_advance_to_next_atack_pattern=true
 

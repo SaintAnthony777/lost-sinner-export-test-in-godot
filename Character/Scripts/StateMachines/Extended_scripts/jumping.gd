@@ -22,8 +22,9 @@ func state_logic(delta):
 func input_check()->void:
 	if Input.is_action_just_pressed("sprinting"):
 		pass
-	if Input.is_action_just_pressed("Attack_trigger"):
-		state_machine.change_state("hammer_attack_air_ready")
+	if Input.is_action_just_pressed("Special"):
+		character.is_divine_dividing=true
+		state_machine.change_state("Air_"+player.current_divine_divider)
 func velocity_check()->void:
 	if player.velocity.y<=0:
 		state_machine.change_state("falling")

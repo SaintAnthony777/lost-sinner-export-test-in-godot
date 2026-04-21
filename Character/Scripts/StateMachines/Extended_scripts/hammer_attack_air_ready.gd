@@ -12,15 +12,17 @@ func state_logic(delta)->void:
 	player.camera_rotation_logic(delta)
 	air_ready_check(delta)
 	player.camera_rotation_logic(delta)
+	
 func air_attack_trick()->void:
-	character.jump_logics("Attacking","Ready")
+	character.jump_logics("Special","Sundown")
+	
 func air_ready_check(delta)->void:
 	if character.air_rises:
 		player.velocity.y+=15.0*delta
 	if character.air_stationary:
 		player.velocity.y=0.0
-	if character.air_stationary and !Input.is_action_pressed("Attack_trigger"):
+	if character.air_stationary and !Input.is_action_pressed("Special"):
 		character.lashes_downward()
 	if character.air_lashes:
-		state_machine.change_state("hammer_attack_air_falling")
+		state_machine.change_state("Air_Sundown_falling")
 	player.move_and_slide()

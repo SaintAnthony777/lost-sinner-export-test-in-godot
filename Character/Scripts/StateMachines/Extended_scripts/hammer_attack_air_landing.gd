@@ -14,10 +14,11 @@ func state_logic(delta)->void:
 
 func falling_trick()->void:
 	player.camera.fov=lerp(player.camera.fov,115.0,.1)
-	character.jump_logics("Attacking","Lands")
+	character.jump_logics("Special","Sundown_Lands")
 	
 func input_check()->void:
 	if !character.air_lashes:
+		character.is_divine_dividing=false
 		state_machine.change_state("idle")
 
 func exit() -> void:

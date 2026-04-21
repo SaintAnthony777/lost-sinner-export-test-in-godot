@@ -9,7 +9,7 @@ func physics_update(_delta) -> void:
 	state_logic(_delta)
 func state_logic(delta)->void:
 	falling_logic(delta)
-	if player.is_on_floor():state_machine.change_state("hammer_attack_air_landing")
+	if player.is_on_floor():state_machine.change_state("Air_Sundown_landing")
 func falling_logic(delta)->void:
 	player.velocity.y-=(205.0+delta)*delta
 	player.move_and_slide()
@@ -18,5 +18,5 @@ func falling_logic(delta)->void:
 
 func falling_trick()->void:
 	player.camera.fov=lerp(player.camera.fov,105.0,.1)
-	character.jump_logics("Attacking","Falls")
+	character.jump_logics("Special","Sundown_Falls")
 	

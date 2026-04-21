@@ -9,6 +9,7 @@ func physics_update(_delta) -> void:
 	state_logic(_delta)
 
 func state_logic(delta)->void:
+	player.camera.fov=lerp(player.camera.fov,75.0,.1)
 	ground_check(delta)
 	player.character_moving(player.player_direction)
 	player.character_rotation(player.player_move_direction,player.last_movement_direction,delta)
@@ -19,8 +20,9 @@ func ground_check(delta)->void:
 	player.move_and_slide()
 	if player.is_on_floor():
 		state_machine.change_state("lands")
-	if Input.is_action_just_pressed("Attack_trigger"):
-		state_machine.change_state("hammer_attack_air_ready")
+	if Input.is_action_just_pressed("Special"):
+		character.is_divine_dividing=true
+		state_machine.change_state("Air_"+player.current_divine_divider)
 func input_check()->void:
 	if Input.is_action_just_pressed("sprinting"):
 		character.aerial_dashing=true

@@ -38,8 +38,8 @@ var self_delta=.01
 ## Grace and Divine Dividers
 var divine_divider_list:=["Screaming Silence","Sundown"]
 var grace_list:=["Disordonance","Disaster"]
-var current_grace:="Sundown"
-var current_divine_divider:="Screaming Silence"
+var current_grace=grace_list[0]
+var current_divine_divider=divine_divider_list[0]
 
 func _ready() -> void:
 	camera.h_offset=-.7
