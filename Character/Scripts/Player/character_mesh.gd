@@ -83,10 +83,10 @@ func attacking(current_stance:String,current_weapon:String,current_action:String
 	animation_tree.set('parameters/Weapon_equipped/transition_request',current_weapon)
 	animation_tree.set('parameters/'+current_weapon+'_attack_transition/transition_request',current_weapon+"_"+current_action)
 
-func special_attacks(current_action:String)->void:
+func special_attacks(current_state:String,current_action:String)->void:
 	grounding("Ground Attacks")
-	animation_tree.set('parameters/Ground Attack transitions/transition_request',"Specials")
-	animation_tree.set('parameters/special attacks transitions/transition_request',current_action)
+	animation_tree.set('parameters/Ground Attack transitions/transition_request',current_state)
+	animation_tree.set('parameters/'+current_state+' transitions/transition_request',current_action)
 	
 func aiming_attack(current_action:String):
 	grounding("Ground Attacks")

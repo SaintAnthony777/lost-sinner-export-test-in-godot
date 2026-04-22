@@ -10,7 +10,7 @@ func physics_update(_delta) -> void:
 	state_logic(_delta)
 	character.check_attack_lunge(6.5)
 func attack_stuff()->void:
-	character.special_attacks("Dropkick")
+	character.special_attacks("Specials","Dropkick")
 func attack_check()->void:
 	if character.is_attacking==false:
 		state_machine.change_state("idle")

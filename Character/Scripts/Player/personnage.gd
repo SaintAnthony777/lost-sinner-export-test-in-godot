@@ -36,14 +36,19 @@ var player_direction : Vector3
 var current_target : enemy
 var self_delta=.01
 ## Grace and Divine Dividers
-var divine_divider_list:=["Screaming Silence","Sundown"]
-var grace_list:=["Disordonance","Disaster"]
-var current_grace=grace_list[0]
-var current_divine_divider=divine_divider_list[0]
+var divine_divider_list:Array[String]=["Sundown","Screaming Silence"]
+var grace_list:Array[String]=["Disordonance","Disaster"]
+
+var current_grace_index:=0
+var current_divine_divider_index:=0
+var current_divine_divider:=""
+var current_grace:=""
 
 func _ready() -> void:
 	camera.h_offset=-.7
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+	current_divine_divider = divine_divider_list[current_divine_divider_index]
+	current_grace = grace_list[current_grace_index]
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_pressed("Pause"):
@@ -52,9 +57,10 @@ func _input(_event: InputEvent) -> void:
 		else : Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
 	if Input.is_action_just_pressed("Camera Switching") and can_switch_camera:
 		camera_switch_logic()
+	if Input.is_action_just_pressed("Grace switch"):
+		switch_special(grace_list)
 	if Input.is_action_just_pressed("Divine Divider switch"):
-		switch_divine_divider()
-		get_viewport().set_input_as_handled()
+		switch_special(divine_divider_list)
 
 func _unhandled_input(event: InputEvent) -> void:
 	var camera_is_in_motion:=(
@@ -66,7 +72,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 		
 func _physics_process(_delta: float) -> void:
-	character.current_divine_divider.text=current_divine_divider
+	current_divine_divider = divine_divider_list[current_divine_divider_index]
+	current_grace = grace_list[current_grace_index]
+	character.current_divine_divider.text=divine_divider_list[current_divine_divider_index]
+	character.current_spirit_grace.text=grace_list[current_grace_index]
 	if !current_target or !is_locking:
 		current_target=get_best_target()
 	var input_dir := Input.get_vector("Droite", "Gauche", "Bas", "Haut").normalized()
@@ -152,10 +161,12 @@ func jumping()->void:
 	velocity.y += 50.0
 	move_and_slide()
 
-func switch_divine_divider()->void:
-	var current_index:=divine_divider_list.bsearch(current_divine_divider)
-	current_index+=1
-	if current_index>=divine_divider_list.size():
-		current_index=0
-	current_divine_divider=divine_divider_list[current_index]
-	print(current_divine_divider)
+func switch_special(special_to_be_switched_list:Array)->void:
+	if special_to_be_switched_list==grace_list:
+		current_grace_index+=1
+		if current_grace_index>=grace_list.size():
+			current_grace_index=0
+	elif special_to_be_switched_list==divine_divider_list:
+		current_divine_divider_index+=1
+		if current_divine_divider_index>=divine_divider_list.size():
+			current_divine_divider_index=0

@@ -392,6 +392,22 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 script = ExtResource("38_e0fex")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
 
+[node name="Heavy _Charge_await" type="Node" parent="StateMachine"]
+script = ExtResource("38_e0fex")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Heavy _Charge_unleash" type="Node" parent="StateMachine"]
+script = ExtResource("38_e0fex")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Heavy _Charge_Stop" type="Node" parent="StateMachine"]
+script = ExtResource("38_e0fex")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
 [node name="Heavy _burst_air" type="Node" parent="StateMachine"]
+script = ExtResource("38_e0fex")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Heavy _burst_Unleash" type="Node" parent="StateMachine"]
 script = ExtResource("38_e0fex")
 metadata/_custom_type_script = "uid://dq36efs6bxser"

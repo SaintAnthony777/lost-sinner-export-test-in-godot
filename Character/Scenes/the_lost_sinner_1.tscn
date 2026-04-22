@@ -14927,6 +14927,28 @@ input_4/auto_advance = false
 input_4/break_loop_at_end = false
 input_4/reset = true
 
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_7oeku"]
+input_0/name = "Screaming Silence"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "Sundown"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
+input_2/name = "World strongest man ready"
+input_2/auto_advance = false
+input_2/break_loop_at_end = false
+input_2/reset = true
+input_3/name = "World strongest man await"
+input_3/auto_advance = false
+input_3/break_loop_at_end = false
+input_3/reset = true
+input_4/name = "World strongest man unleashed"
+input_4/auto_advance = false
+input_4/break_loop_at_end = false
+input_4/reset = true
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hg5sy"]
 animation = &"Supplementary animation packs 2/Fast_Run"
 
@@ -15098,30 +15120,8 @@ animation = &"Quick roll"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_86lmc"]
 animation = &"Supplementary animation packs 2/Run slide"
 
-[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_7oeku"]
-input_0/name = "Screaming Silence"
-input_0/auto_advance = false
-input_0/break_loop_at_end = false
-input_0/reset = true
-input_1/name = "Sundown"
-input_1/auto_advance = false
-input_1/break_loop_at_end = false
-input_1/reset = true
-input_2/name = "World strongest man ready"
-input_2/auto_advance = false
-input_2/break_loop_at_end = false
-input_2/reset = true
-input_3/name = "World strongest man await"
-input_3/auto_advance = false
-input_3/break_loop_at_end = false
-input_3/reset = true
-input_4/name = "World strongest man unleashed"
-input_4/auto_advance = false
-input_4/break_loop_at_end = false
-input_4/reset = true
-
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_h8mx0"]
-graph_offset = Vector2(-114.81901, 726.24316)
+graph_offset = Vector2(-3195.3523, 937.0789)
 nodes/output/position = Vector2(1680, 186.66667)
 nodes/State/node = SubResource("AnimationNodeTransition_rf1bm")
 nodes/State/position = Vector2(1440, 160)
@@ -15185,8 +15185,8 @@ nodes/Hammer_attack_3/position = Vector2(-5546.6665, -53.333332)
 "nodes/hammer attack jumping/position" = Vector2(-6240, 453.33334)
 "nodes/TimeScale 2/node" = SubResource("AnimationNodeTimeScale_uip74")
 "nodes/TimeScale 2/position" = Vector2(-5653.3335, 320)
-"nodes/special attacks transitions/node" = SubResource("AnimationNodeTransition_7oeku")
-"nodes/special attacks transitions/position" = Vector2(-4533.3335, 1600)
+"nodes/Specials transitions/node" = SubResource("AnimationNodeTransition_7oeku")
+"nodes/Specials transitions/position" = Vector2(-4533.3335, 1600)
 "nodes/Scream animation/node" = SubResource("AnimationNodeAnimation_w728p")
 "nodes/Scream animation/position" = Vector2(-6240, 1360)
 "nodes/Hammer attack 4/node" = SubResource("AnimationNodeAnimation_7oeku")
@@ -15269,7 +15269,7 @@ nodes/Hammer_attack_3/position = Vector2(-5546.6665, -53.333332)
 "nodes/Animation 19/position" = Vector2(-320, 1786.6666)
 "nodes/Animation 20/node" = SubResource("AnimationNodeAnimation_48y4d")
 "nodes/Animation 20/position" = Vector2(-240, 2213.3333)
-node_connections = [&"output", 0, &"State", &"State", 0, &"Ground_state", &"State", 1, &"Airborne transition", &"Moving", 0, &"Normal_Transition", &"Moving", 1, &"Strafe_blendspace", &"Moving", 2, &"locking_blendspace", &"Moving", 3, &"roll_transistion", &"Moving", 4, &"TimeScale", &"Moving", 5, &"Ground Attack transitions", &"Moving", 6, &"Ground shield transistion", &"Normal_Transition", 0, &"Walking", &"Normal_Transition", 1, &"Running", &"Normal_Transition", 2, &"Idle_Animation", &"Ground_state", 0, &"Moving", &"roll_transistion", 0, &"slide_animation", &"roll_transistion", 1, &"rolltime_sacle", &"roll_transistion", 2, &"backflip timescale", &"rolltime_sacle", 0, &"rollanimation", &"TimeScale", 0, &"Sprint_animation", &"backflip timescale", 0, &"Animation", &"Ground Attack transitions", 0, &"Weapon_equipped", &"Ground Attack transitions", 1, &"aiming attack transition", &"Ground Attack transitions", 2, &"special attacks transitions", &"Ground Attack transitions", 3, &"Graces transitions", &"Ground shield transistion", 0, &"Walk with shiled", &"Ground shield transistion", 1, &"Shiled Idle", &"Ground shield transistion", 2, &"Shield blendspace strafe", &"Weapon_equipped", 0, &"hammer attack timescale", &"Hammer_attack_transition", 0, &"Hammer_attack_1", &"Hammer_attack_transition", 1, &"Hammer_attack_2", &"Hammer_attack_transition", 2, &"Hammer_attack_3", &"Hammer_attack_transition", 3, &"Hammer_attack_running", &"Hammer_attack_transition", 4, &"TimeScale 2", &"Hammer_attack_transition", 5, &"Hammer attack 4", &"hammer attack timescale", 0, &"Hammer_attack_transition", &"TimeScale 2", 0, &"hammer attack jumping", &"special attacks transitions", 0, &"Scream animation", &"special attacks transitions", 1, &"Sundown Animation", &"special attacks transitions", 2, &"Animation 11", &"special attacks transitions", 3, &"Animation 12", &"special attacks transitions", 4, &"Animation 13", &"TimeScale 6", 0, &"Animation 3", &"TimeScale 7", 0, &"Animation 2", &"aiming attack transition", 0, &"TimeScale 3", &"aiming attack transition", 1, &"hammer take back aiming", &"aiming attack transition", 2, &"TimeScale 4", &"TimeScale 3", 0, &"Hammer throw animation", &"TimeScale 4", 0, &"hammer take back normal", &"Normal Airborne Transitions", 0, &"jump animation", &"Normal Airborne Transitions", 1, &"fall animation", &"Normal Airborne Transitions", 2, &"landing animation", &"Normal Airborne Transitions", 3, &"TimeScale 5", &"Airborne transition", 0, &"Normal Airborne Transitions", &"Airborne transition", 3, &"Special Airborne Transitions", &"Airborne transition", 4, &"Grace Airborne Transitions", &"TimeScale 5", 0, &"air evade animation", &"Special Airborne Transitions", 0, &"TimeScale 7", &"Special Airborne Transitions", 1, &"TimeScale 6", &"Special Airborne Transitions", 2, &"Animation 4", &"Special Airborne Transitions", 3, &"Animation 5", &"Special Airborne Transitions", 4, &"Animation 10", &"Grace Airborne Transitions", 0, &"Animation 14", &"Grace Airborne Transitions", 1, &"Animation 15", &"Grace Airborne Transitions", 2, &"Animation 16", &"Grace Airborne Transitions", 3, &"Animation 18", &"Grace Airborne Transitions", 4, &"Animation 19", &"Grace Airborne Transitions", 5, &"Animation 17", &"Grace Airborne Transitions", 6, &"Animation 20", &"Graces transitions", 0, &"Heavy Charge ready Animation", &"Graces transitions", 1, &"Animation 6", &"Graces transitions", 2, &"Animation 7", &"Graces transitions", 3, &"Animation 8", &"Graces transitions", 4, &"Animation 9"]
+node_connections = [&"output", 0, &"State", &"State", 0, &"Ground_state", &"State", 1, &"Airborne transition", &"Moving", 0, &"Normal_Transition", &"Moving", 1, &"Strafe_blendspace", &"Moving", 2, &"locking_blendspace", &"Moving", 3, &"roll_transistion", &"Moving", 4, &"TimeScale", &"Moving", 5, &"Ground Attack transitions", &"Moving", 6, &"Ground shield transistion", &"Normal_Transition", 0, &"Walking", &"Normal_Transition", 1, &"Running", &"Normal_Transition", 2, &"Idle_Animation", &"Ground_state", 0, &"Moving", &"roll_transistion", 0, &"slide_animation", &"roll_transistion", 1, &"rolltime_sacle", &"roll_transistion", 2, &"backflip timescale", &"rolltime_sacle", 0, &"rollanimation", &"TimeScale", 0, &"Sprint_animation", &"backflip timescale", 0, &"Animation", &"Ground Attack transitions", 0, &"Weapon_equipped", &"Ground Attack transitions", 1, &"aiming attack transition", &"Ground Attack transitions", 2, &"Specials transitions", &"Ground Attack transitions", 3, &"Graces transitions", &"Ground shield transistion", 0, &"Walk with shiled", &"Ground shield transistion", 1, &"Shiled Idle", &"Ground shield transistion", 2, &"Shield blendspace strafe", &"Weapon_equipped", 0, &"hammer attack timescale", &"Hammer_attack_transition", 0, &"Hammer_attack_1", &"Hammer_attack_transition", 1, &"Hammer_attack_2", &"Hammer_attack_transition", 2, &"Hammer_attack_3", &"Hammer_attack_transition", 3, &"Hammer_attack_running", &"Hammer_attack_transition", 4, &"TimeScale 2", &"Hammer_attack_transition", 5, &"Hammer attack 4", &"hammer attack timescale", 0, &"Hammer_attack_transition", &"TimeScale 2", 0, &"hammer attack jumping", &"Specials transitions", 0, &"Scream animation", &"Specials transitions", 1, &"Sundown Animation", &"Specials transitions", 2, &"Animation 11", &"Specials transitions", 3, &"Animation 12", &"Specials transitions", 4, &"Animation 13", &"TimeScale 6", 0, &"Animation 3", &"TimeScale 7", 0, &"Animation 2", &"aiming attack transition", 0, &"TimeScale 3", &"aiming attack transition", 1, &"hammer take back aiming", &"aiming attack transition", 2, &"TimeScale 4", &"TimeScale 3", 0, &"Hammer throw animation", &"TimeScale 4", 0, &"hammer take back normal", &"Normal Airborne Transitions", 0, &"jump animation", &"Normal Airborne Transitions", 1, &"fall animation", &"Normal Airborne Transitions", 2, &"landing animation", &"Normal Airborne Transitions", 3, &"TimeScale 5", &"Airborne transition", 0, &"Normal Airborne Transitions", &"Airborne transition", 3, &"Special Airborne Transitions", &"Airborne transition", 4, &"Grace Airborne Transitions", &"TimeScale 5", 0, &"air evade animation", &"Special Airborne Transitions", 0, &"TimeScale 7", &"Special Airborne Transitions", 1, &"TimeScale 6", &"Special Airborne Transitions", 2, &"Animation 4", &"Special Airborne Transitions", 3, &"Animation 5", &"Special Airborne Transitions", 4, &"Animation 10", &"Grace Airborne Transitions", 0, &"Animation 14", &"Grace Airborne Transitions", 1, &"Animation 15", &"Grace Airborne Transitions", 2, &"Animation 16", &"Grace Airborne Transitions", 3, &"Animation 18", &"Grace Airborne Transitions", 4, &"Animation 19", &"Grace Airborne Transitions", 5, &"Animation 17", &"Grace Airborne Transitions", 6, &"Animation 20", &"Graces transitions", 0, &"Heavy Charge ready Animation", &"Graces transitions", 1, &"Animation 6", &"Graces transitions", 2, &"Animation 7", &"Graces transitions", 3, &"Animation 8", &"Graces transitions", 4, &"Animation 9"]
 
 [node name="The Lost Sinner1" instance=ExtResource("1_ag85x")]
 script = ExtResource("2_ukanm")
@@ -15542,9 +15542,9 @@ parameters/Hammer_attack_transition/transition_request = ""
 parameters/Hammer_attack_transition/current_index = 4
 "parameters/hammer attack timescale/scale" = 1.5
 "parameters/TimeScale 2/scale" = 0.7000000000000028
-"parameters/special attacks transitions/current_state" = ""
-"parameters/special attacks transitions/transition_request" = ""
-"parameters/special attacks transitions/current_index" = -1
+"parameters/Specials transitions/current_state" = ""
+"parameters/Specials transitions/transition_request" = ""
+"parameters/Specials transitions/current_index" = -1
 "parameters/TimeScale 6/scale" = 0.29999999999999716
 "parameters/TimeScale 7/scale" = 2.0
 "parameters/aiming attack transition/current_state" = "Take_back_normal"
