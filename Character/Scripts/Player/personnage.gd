@@ -168,3 +168,9 @@ func switch_special(special_to_be_switched_list:Array)->void:
 		current_divine_divider_index+=1
 		if current_divine_divider_index>=divine_divider_list.size():
 			current_divine_divider_index=0
+
+func reset_camera()->void:
+	if camera_position=="left" : camera.h_offset=-.7 
+	else : camera.h_offset=.7
+	camera.v_offset=0.0
+	can_switch_camera=true

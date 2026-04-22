@@ -47,6 +47,9 @@ func Player_Input_events() -> void:
 	if Input.is_action_just_pressed("Special"):
 		character.is_divine_dividing=true
 		state_machine.change_state(player.current_divine_divider)
+	if Input.is_action_just_pressed("Grace"):
+		character.is_making_grace=true
+		state_machine.change_state(player.current_grace)
 	
 	if Input.is_action_just_pressed("Jump trigger"):
 		character.landed=false

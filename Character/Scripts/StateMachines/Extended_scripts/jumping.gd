@@ -25,6 +25,9 @@ func input_check()->void:
 	if Input.is_action_just_pressed("Special"):
 		character.is_divine_dividing=true
 		state_machine.change_state("Air_"+player.current_divine_divider)
+	if Input.is_action_just_pressed("Grace"):
+		character.is_making_grace=true
+		state_machine.change_state("Air_"+player.current_grace)
 func velocity_check()->void:
 	if player.velocity.y<=0:
 		state_machine.change_state("falling")
