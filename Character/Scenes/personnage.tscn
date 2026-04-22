@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://srgn3wkeivsn"]
+[gd_scene load_steps=51 format=3 uid="uid://srgn3wkeivsn"]
 
 [ext_resource type="Script" uid="uid://bhjwagrue8av5" path="res://Character/Scripts/Player/personnage.gd" id="1_ov8r6"]
 [ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="2_ov8r6"]
@@ -37,6 +37,7 @@
 [ext_resource type="Script" uid="uid://26winygnfai1" path="res://Character/Scripts/StateMachines/Extended_scripts/falling.gd" id="31_ycjfr"]
 [ext_resource type="Script" uid="uid://dwf2476l0ode5" path="res://Character/Scripts/StateMachines/Extended_scripts/aerial_evade.gd" id="32_sd3vh"]
 [ext_resource type="Script" uid="uid://d4j2uxr8608yr" path="res://Character/Scripts/StateMachines/Extended_scripts/lands.gd" id="33_ycjfr"]
+[ext_resource type="Script" uid="uid://dq36efs6bxser" path="res://Character/Scripts/StateMachines/Source_codes/State.gd" id="38_e0fex"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ov8r6"]
 
@@ -377,4 +378,20 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="Lands" type="Node" parent="StateMachine"]
 script = ExtResource("33_ycjfr")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Disordonance" type="Node" parent="StateMachine"]
+script = ExtResource("38_e0fex")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Disordonance_air" type="Node" parent="StateMachine"]
+script = ExtResource("38_e0fex")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Heavy _burst" type="Node" parent="StateMachine"]
+script = ExtResource("38_e0fex")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Heavy _burst_air" type="Node" parent="StateMachine"]
+script = ExtResource("38_e0fex")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
