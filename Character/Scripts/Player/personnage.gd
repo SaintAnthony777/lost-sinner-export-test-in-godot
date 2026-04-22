@@ -37,7 +37,7 @@ var current_target : enemy
 var self_delta=.01
 ## Grace and Divine Dividers
 var divine_divider_list:Array[String]=["Sundown","Screaming Silence"]
-var grace_list:Array[String]=["Disordonance","Disaster"]
+var grace_list:Array[String]=["Disordonance","Heavy Charge"]
 
 var current_grace_index:=0
 var current_divine_divider_index:=0
@@ -74,8 +74,6 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(_delta: float) -> void:
 	current_divine_divider = divine_divider_list[current_divine_divider_index]
 	current_grace = grace_list[current_grace_index]
-	character.current_divine_divider.text=divine_divider_list[current_divine_divider_index]
-	character.current_spirit_grace.text=grace_list[current_grace_index]
 	if !current_target or !is_locking:
 		current_target=get_best_target()
 	var input_dir := Input.get_vector("Droite", "Gauche", "Bas", "Haut").normalized()

@@ -9,6 +9,7 @@ var starts_backflips:bool=false
 var is_shouting:bool=false
 var is_sundowning:bool=false
 var is_divine_dividing:=false
+var is_making_grace:=false
 var landed:=false
 var aerial_dashing:=false
 
@@ -42,6 +43,11 @@ var air_lashes:=false
 @onready var current_divine_divider: Label = $"Divine divides and arcane test/Control/Current Divine Divider"
 @onready var current_spirit_grace: Label = $"Divine divides and arcane test/Control/Current Spirit grace"
 
+
+
+func _process(_delta: float) -> void:
+	current_divine_divider.text=player.current_divine_divider
+	current_spirit_grace.text=player.current_grace
 
 func normal_motion(current_action:String)->void:
 	grounding("Normal")
@@ -114,7 +120,8 @@ func done_backflips()->void:
 
 func done_divided()->void:
 	is_divine_dividing=false
-
+func done_gracing()->void:
+	is_making_grace=false
 
 func done_attacking()->void:
 	is_attacking=false
