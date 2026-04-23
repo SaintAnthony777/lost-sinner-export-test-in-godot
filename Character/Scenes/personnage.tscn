@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://srgn3wkeivsn"]
+[gd_scene load_steps=60 format=3 uid="uid://srgn3wkeivsn"]
 
 [ext_resource type="Script" uid="uid://bhjwagrue8av5" path="res://Character/Scripts/Player/personnage.gd" id="1_ov8r6"]
 [ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="2_ov8r6"]
@@ -37,7 +37,6 @@
 [ext_resource type="Script" uid="uid://26winygnfai1" path="res://Character/Scripts/StateMachines/Extended_scripts/falling.gd" id="31_ycjfr"]
 [ext_resource type="Script" uid="uid://dwf2476l0ode5" path="res://Character/Scripts/StateMachines/Extended_scripts/aerial_evade.gd" id="32_sd3vh"]
 [ext_resource type="Script" uid="uid://d4j2uxr8608yr" path="res://Character/Scripts/StateMachines/Extended_scripts/lands.gd" id="33_ycjfr"]
-[ext_resource type="Script" uid="uid://dq36efs6bxser" path="res://Character/Scripts/StateMachines/Source_codes/State.gd" id="38_e0fex"]
 [ext_resource type="Script" uid="uid://ddriw1ovd2pqc" path="res://Character/Scripts/StateMachines/Extended_scripts/disordonance.gd" id="38_yg5pt"]
 [ext_resource type="Script" uid="uid://cvriooq5l2rui" path="res://Character/Scripts/StateMachines/Extended_scripts/air_disordonance.gd" id="39_foudc"]
 [ext_resource type="Script" uid="uid://d3g6ri5e2j8vb" path="res://Character/Scripts/StateMachines/Extended_scripts/air_disordonance_fall.gd" id="40_notym"]
@@ -46,6 +45,8 @@
 [ext_resource type="Script" uid="uid://do6ykjxqk6bkg" path="res://Character/Scripts/StateMachines/Extended_scripts/heavy_charge_unleash.gd" id="43_rl0p2"]
 [ext_resource type="Script" uid="uid://bfxvw0trsstc0" path="res://Character/Scripts/StateMachines/Extended_scripts/heavy_charge_stop.gd" id="44_n3rde"]
 [ext_resource type="Script" uid="uid://dmo0tmpo4m13d" path="res://Character/Scripts/StateMachines/Extended_scripts/heavy_charge_to_idle.gd" id="45_2ph42"]
+[ext_resource type="Script" uid="uid://cpchrfmaywu28" path="res://Character/Scripts/StateMachines/Extended_scripts/air_heavy__charge.gd" id="46_2w7pb"]
+[ext_resource type="Script" uid="uid://ctje8fpctqlhq" path="res://Character/Scripts/StateMachines/Extended_scripts/air_heavy_charge_unleash.gd" id="47_2w7pb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ov8r6"]
 
@@ -420,18 +421,10 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 script = ExtResource("45_2ph42")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
 
-[node name="Air_Heavy _Charge" type="Node" parent="StateMachine"]
-script = ExtResource("38_e0fex")
+[node name="Air_Heavy Charge" type="Node" parent="StateMachine"]
+script = ExtResource("46_2w7pb")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
 
-[node name="Air_Heavy _burst_Unleash" type="Node" parent="StateMachine"]
-script = ExtResource("38_e0fex")
-metadata/_custom_type_script = "uid://dq36efs6bxser"
-
-[node name="Air_Heavy _charge_Thrust" type="Node" parent="StateMachine"]
-script = ExtResource("38_e0fex")
-metadata/_custom_type_script = "uid://dq36efs6bxser"
-
-[node name="Air_Heavy _charge_Stop" type="Node" parent="StateMachine"]
-script = ExtResource("38_e0fex")
+[node name="Air Heavy Charge Unleash" type="Node" parent="StateMachine"]
+script = ExtResource("47_2w7pb")
 metadata/_custom_type_script = "uid://dq36efs6bxser"

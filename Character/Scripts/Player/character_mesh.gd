@@ -46,6 +46,7 @@ var stopped_charging:=false
 @onready var current_divine_divider: Label = $"Divine divides and arcane test/Control/Current Divine Divider"
 @onready var current_spirit_grace: Label = $"Divine divides and arcane test/Control/Current Spirit grace"
 
+@onready var heavy_charge_ray_cast: RayCast3D = $"Heavy Charge Ray cast"
 
 
 func _process(_delta: float) -> void:

@@ -11,8 +11,10 @@ func state_logic(delta)->void:
 	character.look_at(Vector3(player.get_target_point().x,player.global_position.y,player.get_target_point().z))
 	if Input.is_action_just_released("Grace"):
 		if !character.can_unleash_heavy_charge:
+			player.reset_camera()
 			state_machine.change_state("idle")
 		else :state_machine.change_state("heavy charge unleash")
+		
 func physics_update(_delta) -> void:
 	state_logic(_delta)
 func heavy_charge_logic()->void:
