@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://srgn3wkeivsn"]
+[gd_scene load_steps=59 format=3 uid="uid://srgn3wkeivsn"]
 
 [ext_resource type="Script" uid="uid://bhjwagrue8av5" path="res://Character/Scripts/Player/personnage.gd" id="1_ov8r6"]
 [ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="2_ov8r6"]
@@ -44,6 +44,8 @@
 [ext_resource type="Script" uid="uid://cw4mdicv17v14" path="res://Character/Scripts/StateMachines/Extended_scripts/air_disordonance_lands.gd" id="41_l8d5u"]
 [ext_resource type="Script" uid="uid://oo8wilo3rkqd" path="res://Character/Scripts/StateMachines/Extended_scripts/heavy__charge.gd" id="42_l8d5u"]
 [ext_resource type="Script" uid="uid://do6ykjxqk6bkg" path="res://Character/Scripts/StateMachines/Extended_scripts/heavy_charge_unleash.gd" id="43_rl0p2"]
+[ext_resource type="Script" uid="uid://bfxvw0trsstc0" path="res://Character/Scripts/StateMachines/Extended_scripts/heavy_charge_stop.gd" id="44_n3rde"]
+[ext_resource type="Script" uid="uid://dmo0tmpo4m13d" path="res://Character/Scripts/StateMachines/Extended_scripts/heavy_charge_to_idle.gd" id="45_2ph42"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ov8r6"]
 
@@ -411,7 +413,11 @@ script = ExtResource("43_rl0p2")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="Heavy Charge Stop" type="Node" parent="StateMachine"]
-script = ExtResource("38_e0fex")
+script = ExtResource("44_n3rde")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Heavy Charge to Idle" type="Node" parent="StateMachine"]
+script = ExtResource("45_2ph42")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="Air_Heavy _Charge" type="Node" parent="StateMachine"]

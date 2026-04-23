@@ -18,4 +18,6 @@ func physics_update(_delta) -> void:
 func heavy_charge_logic()->void:
 	player.camera.h_offset=.0
 	player.can_switch_camera=false
+	character.can_unleash_heavy_charge=false
+	character.stopped_charging=false
 	character.special_attacks("Graces","Heavy Charge ready")

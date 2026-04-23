@@ -12,6 +12,7 @@ func state_logic(delta)->void:
 		state_machine.change_state("Heavy Charge Stop")
 
 func physics_update(_delta) -> void:
+	state_logic(_delta)
 	velocity_check(_delta)
 
 func velocity_check(delta)->void:

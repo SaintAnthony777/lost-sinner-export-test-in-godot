@@ -31,6 +31,8 @@ var air_rises:=false
 var air_stationary:=false
 var air_lashes:=false
 var can_unleash_heavy_charge:=false
+var stopped_charging:=false
+
 
 @onready var player: player_character = $".."
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -182,3 +184,5 @@ func done_lashing():
 	air_lashes=false
 func can_unleash_heavy_charge_now():
 	can_unleash_heavy_charge=true
+func stopped_heavy_charge():
+	stopped_charging=true
