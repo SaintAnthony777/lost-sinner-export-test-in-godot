@@ -4,6 +4,7 @@ extends State
 
 var dash_speed:=9.0
 var roll_dir:=Vector3.ZERO
+
 func enter() -> void:
 	check_rotation()
 

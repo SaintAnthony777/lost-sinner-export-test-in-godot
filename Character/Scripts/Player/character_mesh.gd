@@ -13,6 +13,7 @@ var is_making_grace:=false
 var landed:=false
 var aerial_dashing:=false
 
+
 var can_advance_to_next_atack_pattern:=false
 var is_attacking:bool=false
 var attack_lunge_boolean:=false
@@ -29,7 +30,7 @@ var hammer_last_pos:=Vector3.ZERO
 var air_rises:=false
 var air_stationary:=false
 var air_lashes:=false
-
+var can_unleash_heavy_charge:=false
 
 @onready var player: player_character = $".."
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -179,3 +180,5 @@ func lashes_downward():
 	air_lashes=true
 func done_lashing():
 	air_lashes=false
+func can_unleash_heavy_charge_now():
+	can_unleash_heavy_charge=true
