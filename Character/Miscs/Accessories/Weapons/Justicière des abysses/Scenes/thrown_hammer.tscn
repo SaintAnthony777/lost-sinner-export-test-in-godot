@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ko6mkcshgc14"]
+[gd_scene load_steps=4 format=3 uid="uid://ko6mkcshgc14"]
 
 [ext_resource type="PackedScene" uid="uid://coxrnqofsffsf" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scenes/Justicère des abysses.tscn" id="1_6k0c1"]
 [ext_resource type="Script" uid="uid://b2pb1uhe2wsdr" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scripts/thrown_hammer.gd" id="1_w5j4n"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_w5j4n"]
 
 [node name="Thrown_hammer" type="Node3D"]
 script = ExtResource("1_w5j4n")
@@ -9,8 +11,8 @@ script = ExtResource("1_w5j4n")
 [node name="Premier modèle" parent="." instance=ExtResource("1_6k0c1")]
 transform = Transform3D(-0.2, -1.7484556e-08, 7.6427423e-16, 0, -8.742278e-09, -0.20000002, 1.7484556e-08, -0.20000002, 8.742278e-09, 0, 0, 0)
 
-[node name="Hammer_ray_cast" type="RayCast3D" parent="."]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0.19123957)
-target_position = Vector3(0, 0, 1)
+[node name="Hammer_ray_cast" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03512913, 0)
+shape = SubResource("SphereShape3D_w5j4n")
+target_position = Vector3(0, 0, 0)
 collision_mask = 6
-collide_with_areas = true

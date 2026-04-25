@@ -1,14 +1,21 @@
 extends Node3D
 
-@onready var hammer_ray_cast: RayCast3D = $Hammer_ray_cast
+@onready var hammer_ray_cast: ShapeCast3D = $Hammer_ray_cast
 
 const HAMMER_SPEED:=40.0
 var lifetime:=0.0
 var returning:bool=false
 
+func _ready() -> void:
+	hammer_ray_cast.set_collision_mask_value(2,true)
+	hammer_ray_cast.set_collision_mask_value(3,true)
+	
 func _process(delta: float) -> void:
+	hammer_ray_cast.force_shapecast_update()
 	lifetime+=delta
 	if !returning:
+		var sweep_distance = HAMMER_SPEED * delta * 1.5
+		hammer_ray_cast.target_position = Vector3(0, 0, -sweep_distance)
 		global_position+=transform.basis*Vector3(0,0,-HAMMER_SPEED)*delta
 		if hammer_ray_cast.is_colliding() or lifetime > 1.0:
 			returning=true
