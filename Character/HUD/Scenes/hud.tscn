@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://4y8dawkwukrf"]
+[gd_scene load_steps=5 format=3 uid="uid://4y8dawkwukrf"]
 
+[ext_resource type="Script" uid="uid://cpkqa4muvsuos" path="res://Character/HUD/Scripts/hud.gd" id="1_0t85m"]
 [ext_resource type="Texture2D" uid="uid://brru30qgiog6c" path="res://Character/HUD/assets/Classic bar texture.png" id="1_7uq4e"]
-[ext_resource type="Texture2D" uid="uid://cw4pa0y1i88nx" path="res://icon.svg" id="2_5e13b"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ocbjy"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0t85m"]
+blend_mode = 1
+light_mode = 1
 
 [node name="HUD" type="Control"]
 custom_minimum_size = Vector2(1366, 0)
@@ -12,6 +20,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("1_0t85m")
 
 [node name="Enemy health bar" type="TextureProgressBar" parent="."]
 layout_mode = 1
@@ -87,6 +96,7 @@ tint_under = Color(0.27265528, 0.2726553, 0.2726553, 1)
 tint_progress = Color(1.4752738, 0.93920076, 0.32762095, 1)
 
 [node name="Divine Divider" type="TextureRect" parent="."]
+material = SubResource("CanvasItemMaterial_ocbjy")
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -95,9 +105,10 @@ offset_top = -128.0
 offset_right = 128.0
 grow_vertical = 0
 mouse_filter = 2
-texture = ExtResource("2_5e13b")
+expand_mode = 1
 
-[node name="Arcane spirituelle equipée" type="TextureRect" parent="."]
+[node name="Grace actuelle" type="TextureRect" parent="."]
+material = SubResource("CanvasItemMaterial_0t85m")
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -109,4 +120,5 @@ offset_top = -128.0
 grow_horizontal = 0
 grow_vertical = 0
 mouse_filter = 2
-texture = ExtResource("2_5e13b")
+expand_mode = 1
+stretch_mode = 4
