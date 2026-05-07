@@ -43,15 +43,9 @@ var stopped_charging:=false
 @onready var crosshair:Control=$"CrosshairLayer/Crosshair"
 @onready var radial_blur_chomatic_color_rect:Control=$"Special effects layer/Radial Blur + Chromatic aberration/ColorRect"
 
-@onready var current_divine_divider: Label = $"Divine divides and arcane test/Control/Current Divine Divider"
-@onready var current_spirit_grace: Label = $"Divine divides and arcane test/Control/Current Spirit grace"
-
 @onready var heavy_charge_ray_cast: RayCast3D = $"Heavy Charge Ray cast"
 
 
-func _process(_delta: float) -> void:
-	current_divine_divider.text=player.current_divine_divider
-	current_spirit_grace.text=player.current_grace
 
 func normal_motion(current_action:String)->void:
 	grounding("Normal")

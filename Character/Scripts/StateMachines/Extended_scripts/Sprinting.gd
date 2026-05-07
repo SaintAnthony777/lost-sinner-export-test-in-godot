@@ -10,7 +10,8 @@ func physics_update(_delta) -> void:
 	
 	if Input.is_action_just_released("sprinting"):
 		state_machine.change_state("run")
-		
+	if player.player_direction == Vector3.ZERO:
+		state_machine.change_state("idle")
 	if Input.is_action_just_pressed("Attack_trigger") :
 		character.is_sliding=true
 		state_machine.change_state("sliding")

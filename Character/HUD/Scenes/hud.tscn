@@ -1,15 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://4y8dawkwukrf"]
+[gd_scene load_steps=8 format=3 uid="uid://4y8dawkwukrf"]
 
 [ext_resource type="Script" uid="uid://cpkqa4muvsuos" path="res://Character/HUD/Scripts/hud.gd" id="1_0t85m"]
-[ext_resource type="Texture2D" uid="uid://brru30qgiog6c" path="res://Character/HUD/assets/Classic bar texture.png" id="1_7uq4e"]
+[ext_resource type="Texture2D" uid="uid://eu25ybyhi0g3" path="res://Character/HUD/assets/Barres 2/Fond .PNG" id="2_0t85m"]
+[ext_resource type="Texture2D" uid="uid://busnvhvb8lcsp" path="res://Character/HUD/assets/Icones equipement/Equippement Diamond.png" id="3_0t85m"]
+[ext_resource type="Texture2D" uid="uid://blmh707jhdbwp" path="res://Character/HUD/assets/Barres 2/Remplissage.PNG" id="3_t4jti"]
+[ext_resource type="Texture2D" uid="uid://cjutspfcad54q" path="res://Character/HUD/assets/Icones equipement/Divines dividers/World Strongest man.PNG" id="5_8ydmn"]
+[ext_resource type="Texture2D" uid="uid://cpxkujoilw1lr" path="res://Character/HUD/assets/Icones equipement/Graces/Heavy Charge.PNG" id="6_8ydmn"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ocbjy"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8ydmn"]
 blend_mode = 1
-light_mode = 1
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0t85m"]
-blend_mode = 1
-light_mode = 1
 
 [node name="HUD" type="Control"]
 custom_minimum_size = Vector2(1366, 0)
@@ -22,103 +21,110 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_0t85m")
 
-[node name="Enemy health bar" type="TextureProgressBar" parent="."]
+[node name="Health and equip" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -18.000002
+offset_top = -22.0
+offset_right = 21.999998
+offset_bottom = 18.0
+grow_vertical = 0
+scale = Vector2(0.9, 0.9)
+
+[node name="Health" type="TextureProgressBar" parent="Health and equip"]
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -310.0
-offset_top = 15.0
-offset_right = 18.0
-offset_bottom = 72.0
+anchor_bottom = 0.5
+offset_left = 150.0
+offset_top = -168.8889
+offset_right = 662.0
+offset_bottom = -40.8889
 grow_horizontal = 2
-scale = Vector2(2.135, 1)
-mouse_filter = 2
-value = 85.0
-texture_under = ExtResource("1_7uq4e")
-texture_progress = ExtResource("1_7uq4e")
-tint_under = Color(0.16206557, 0.1620656, 0.16206557, 1)
-tint_progress = Color(0.84313726, 0.019607844, 0.03137255, 1)
+grow_vertical = 2
+scale = Vector2(0.5, 0.3)
+value = 53.0
+texture_under = ExtResource("2_0t85m")
+texture_progress = ExtResource("3_t4jti")
+tint_progress = Color(0, 1.6833125, 0.18417412, 1)
 
-[node name="Jauge D\'arcane" type="TextureProgressBar" parent="."]
-texture_repeat = 2
+[node name="Magic" type="TextureProgressBar" parent="Health and equip"]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -93.0
-offset_top = -148.0
-offset_right = 235.0
-offset_bottom = -91.0
-grow_horizontal = 0
-grow_vertical = 0
-rotation = -1.5707964
-mouse_filter = 2
-value = 60.0
-texture_under = ExtResource("1_7uq4e")
-texture_progress = ExtResource("1_7uq4e")
-tint_under = Color(0.27265528, 0.2726553, 0.2726553, 1)
-tint_progress = Color(0, 0.56503075, 1.139423, 1)
-
-[node name="Health Chaos and Arcane Gauge" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 148.0
-offset_top = -102.99994
-offset_right = 1140.0
-offset_bottom = 27.769104
-grow_vertical = 0
-scale = Vector2(1, 0.5200006)
-mouse_filter = 2
-
-[node name="Barre de Vie" type="TextureProgressBar" parent="Health Chaos and Arcane Gauge"]
-layout_mode = 2
-mouse_filter = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 195.55556
+offset_top = -108.888885
+offset_right = 707.55554
+offset_bottom = 19.111115
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.3)
 value = 75.0
-rounded = true
-texture_under = ExtResource("1_7uq4e")
-texture_progress = ExtResource("1_7uq4e")
-tint_under = Color(0.20511743, 0.20511743, 0.20511743, 1)
-tint_progress = Color(0, 3.3813243, 0.46372542, 1)
+texture_under = ExtResource("2_0t85m")
+texture_progress = ExtResource("3_t4jti")
+tint_progress = Color(0, 0.7562453, 1.1374342, 1)
 
-[node name="Jauge de chaos" type="TextureProgressBar" parent="Health Chaos and Arcane Gauge"]
-texture_repeat = 2
-layout_mode = 2
-mouse_filter = 2
-value = 60.0
-texture_under = ExtResource("1_7uq4e")
-texture_progress = ExtResource("1_7uq4e")
-tint_under = Color(0.27265528, 0.2726553, 0.2726553, 1)
-tint_progress = Color(1.4752738, 0.93920076, 0.32762095, 1)
-
-[node name="Divine Divider" type="TextureRect" parent="."]
-material = SubResource("CanvasItemMaterial_ocbjy")
+[node name="Chaos" type="TextureProgressBar" parent="Health and equip"]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -128.0
-offset_right = 128.0
-grow_vertical = 0
-mouse_filter = 2
-expand_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 156.66667
+offset_top = -53.33336
+offset_right = 668.6667
+offset_bottom = 74.66664
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.3)
+value = 25.0
+texture_under = ExtResource("2_0t85m")
+texture_progress = ExtResource("3_t4jti")
+tint_progress = Color(0.99224734, 0.89665794, 0, 1)
 
-[node name="Grace actuelle" type="TextureRect" parent="."]
-material = SubResource("CanvasItemMaterial_0t85m")
+[node name="Equipements" type="TextureRect" parent="Health and equip"]
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -128.0
-offset_top = -128.0
-grow_horizontal = 0
-grow_vertical = 0
-mouse_filter = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.000001
+offset_top = -192.99998
+offset_right = 35.0
+offset_bottom = -152.99998
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+texture = ExtResource("3_0t85m")
 expand_mode = 1
 stretch_mode = 4
+
+[node name="Divine Divider" type="NinePatchRect" parent="Health and equip"]
+modulate = Color(1.353256, 0.023529412, 0, 1)
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_8ydmn")
+layout_mode = 0
+offset_left = 142.22223
+offset_top = -92.22223
+offset_right = 182.22223
+offset_bottom = -52.22223
+texture = ExtResource("5_8ydmn")
+
+[node name="Grace" type="NinePatchRect" parent="Health and equip"]
+modulate = Color(0, 0.9645353, 1.93708, 1)
+layout_mode = 0
+offset_left = 44.44445
+offset_top = -94.44447
+offset_right = 95.55557
+offset_bottom = -51.1111
+texture = ExtResource("6_8ydmn")

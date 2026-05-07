@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgppf2vdxv5ex"
-path="res://.godot/imported/Heavy Charge.png-518af69080257d8b1cc3c1ca231eb1c3.ctex"
+uid="uid://bvx6bhoge2ah0"
+path="res://.godot/imported/remplissage fond déformé.PNG-0ac9e9e84ba0cc82f4e587e068b5f19d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Character/HUD/assets/icons/Heavy Charge.png"
-dest_files=["res://.godot/imported/Heavy Charge.png-518af69080257d8b1cc3c1ca231eb1c3.ctex"]
+source_file="res://Character/HUD/assets/Barres 2/remplissage fond déformé.PNG"
+dest_files=["res://.godot/imported/remplissage fond déformé.PNG-0ac9e9e84ba0cc82f4e587e068b5f19d.ctex"]
 
 [params]
 
@@ -23,8 +23,8 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
-mipmaps/limit=1
+mipmaps/generate=false
+mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
 process/channel_remap/red=0

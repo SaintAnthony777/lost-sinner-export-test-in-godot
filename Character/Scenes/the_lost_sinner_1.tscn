@@ -15596,47 +15596,12 @@ transform = Transform3D(-0.7820019, 0, -0.47642747, 0, 0.60965765, 0, 0.41359454
 script = ExtResource("20_50exv")
 metadata/_custom_type_script = "uid://b2q8xkjq2aytj"
 
-[node name="Divine divides and arcane test" type="CanvasLayer" parent="." index="9"]
-
-[node name="Control" type="Control" parent="Divine divides and arcane test" index="0"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Current Divine Divider" type="Label" parent="Divine divides and arcane test/Control" index="0"]
-layout_mode = 0
-offset_left = -4.0
-offset_top = 14.0
-offset_right = 465.0
-offset_bottom = 69.0
-theme_override_colors/font_color = Color(1.6957698, 2.6797845, 2.4415495, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "Here's the divine divider"
-
-[node name="Current Spirit grace" type="Label" parent="Divine divides and arcane test/Control" index="1"]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 90.0
-offset_right = 320.0
-offset_bottom = 145.0
-theme_override_colors/font_color = Color(1.6957698, 2.6797845, 2.4415495, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "Here's the grace"
-
-[node name="Hud canvas layer" type="CanvasLayer" parent="." index="10"]
+[node name="Hud canvas layer" type="CanvasLayer" parent="." index="9"]
 follow_viewport_enabled = true
 
 [node name="HUD" parent="Hud canvas layer" index="0" instance=ExtResource("23_14b8p")]
 
-[node name="Heavy Charge Ray cast" type="RayCast3D" parent="." index="11"]
+[node name="Heavy Charge Ray cast" type="RayCast3D" parent="." index="10"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2699435, 0.88781756)
 target_position = Vector3(0, 0, 1)
 collision_mask = 6
