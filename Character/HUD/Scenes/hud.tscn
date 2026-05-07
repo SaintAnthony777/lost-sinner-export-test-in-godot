@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://4y8dawkwukrf"]
+[gd_scene load_steps=11 format=3 uid="uid://4y8dawkwukrf"]
 
 [ext_resource type="Script" uid="uid://cpkqa4muvsuos" path="res://Character/HUD/Scripts/hud.gd" id="1_0t85m"]
 [ext_resource type="Texture2D" uid="uid://eu25ybyhi0g3" path="res://Character/HUD/assets/Barres 2/Fond .PNG" id="2_0t85m"]
 [ext_resource type="Texture2D" uid="uid://busnvhvb8lcsp" path="res://Character/HUD/assets/Icones equipement/Equippement Diamond.png" id="3_0t85m"]
 [ext_resource type="Texture2D" uid="uid://blmh707jhdbwp" path="res://Character/HUD/assets/Barres 2/Remplissage.PNG" id="3_t4jti"]
 [ext_resource type="Texture2D" uid="uid://x3jq8xm761wq" path="res://Character/HUD/assets/Icones equipement/Divines dividers/Sundown.PNG" id="5_t4jti"]
+[ext_resource type="Texture2D" uid="uid://bvrva1hdrwjmq" path="res://Character/HUD/assets/Icones equipement/Graces/Disaster.PNG" id="6_8ydmn"]
 
 [sub_resource type="Animation" id="Animation_hnjob"]
 resource_name = "Divine_divider_switch"
@@ -60,10 +61,63 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(90, -71.48144)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Health and equip/Grace:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Health and equip/Grace:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(183.33334, -72.59259)]
+}
+
+[sub_resource type="Animation" id="Animation_8ydmn"]
+resource_name = "Grace Switch"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Health and equip/Grace:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.02, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Health and equip/Grace:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.26, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(183.33334, -72.59259), Vector2(173.33334, -84.81481), Vector2(183.33334, -72.59259)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5hg1f"]
 _data = {
 &"Divine_divider_switch": SubResource("Animation_hnjob"),
+&"Grace Switch": SubResource("Animation_8ydmn"),
 &"RESET": SubResource("Animation_37fun")
 }
 
@@ -178,7 +232,22 @@ grow_vertical = 2
 texture = ExtResource("5_t4jti")
 expand_mode = 1
 
+[node name="Grace" type="TextureRect" parent="Health and equip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 183.33334
+offset_top = -72.59259
+offset_right = 58.222076
+offset_bottom = -96.81482
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_8ydmn")
+expand_mode = 1
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_5hg1f")
 }
+speed_scale = 1.5

@@ -58,7 +58,12 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Camera Switching") and can_switch_camera:
 		camera_switch_logic()
 	if Input.is_action_just_pressed("Grace switch") and can_switch_special:
+		can_switch_special=false
+		character.hud_animation_player.play("Grace Switch")
 		switch_special(grace_list)
+		await character.hud_animation_player.animation_finished
+		can_switch_special=true
+		
 	if Input.is_action_just_pressed("Divine Divider switch") and can_switch_special:
 		can_switch_special=false
 		character.hud_animation_player.play("Divine_divider_switch")
