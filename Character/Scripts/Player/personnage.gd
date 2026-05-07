@@ -58,18 +58,10 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Camera Switching") and can_switch_camera:
 		camera_switch_logic()
 	if Input.is_action_just_pressed("Grace switch") and can_switch_special:
-		can_switch_special=false
-		character.hud_animation_player.play("Grace Switch")
 		switch_special(grace_list)
-		await character.hud_animation_player.animation_finished
-		can_switch_special=true
 		
 	if Input.is_action_just_pressed("Divine Divider switch") and can_switch_special:
-		can_switch_special=false
-		character.hud_animation_player.play("Divine_divider_switch")
 		switch_special(divine_divider_list)
-		await character.hud_animation_player.animation_finished
-		can_switch_special=true
 
 func _unhandled_input(event: InputEvent) -> void:
 	var camera_is_in_motion:=(
@@ -169,15 +161,19 @@ func jumping()->void:
 	move_and_slide()
 
 func switch_special(special_to_be_switched_list:Array)->void:
+	can_switch_special=false
 	if special_to_be_switched_list==grace_list:
 		current_grace_index+=1
 		if current_grace_index>=grace_list.size():
 			current_grace_index=0
+		character.hud_animation_player.play("Grace Switch")
 	elif special_to_be_switched_list==divine_divider_list:
 		current_divine_divider_index+=1
 		if current_divine_divider_index>=divine_divider_list.size():
 			current_divine_divider_index=0
-
+		character.hud_animation_player.play("Divine_divider_switch")
+	await character.hud_animation_player.animation_finished
+	can_switch_special=true
 func reset_camera()->void:
 	if camera_position=="left" : camera.h_offset=-.7 
 	else : camera.h_offset=.7

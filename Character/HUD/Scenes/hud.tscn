@@ -35,6 +35,34 @@ tracks/1/keys = {
 "values": [Vector2(90, -71.48144), Vector2(80.00001, -85.92588), Vector2(90, -71.48144)]
 }
 
+[sub_resource type="Animation" id="Animation_8ydmn"]
+resource_name = "Grace Switch"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Health and equip/Grace:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.02, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Health and equip/Grace:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.26, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(183.33334, -72.59259), Vector2(173.33334, -84.81481), Vector2(183.33334, -72.59259)]
+}
+
 [sub_resource type="Animation" id="Animation_37fun"]
 length = 0.001
 tracks/0/type = "value"
@@ -84,34 +112,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(183.33334, -72.59259)]
-}
-
-[sub_resource type="Animation" id="Animation_8ydmn"]
-resource_name = "Grace Switch"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Health and equip/Grace:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.02, 0.25, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Health and equip/Grace:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.26, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(183.33334, -72.59259), Vector2(173.33334, -84.81481), Vector2(183.33334, -72.59259)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5hg1f"]
