@@ -42,6 +42,7 @@ var stopped_charging:=false
 @onready var crosshair_layer: CanvasLayer = $CrosshairLayer
 @onready var crosshair:Control=$"CrosshairLayer/Crosshair"
 @onready var radial_blur_chomatic_color_rect:Control=$"Special effects layer/Radial Blur + Chromatic aberration/ColorRect"
+@onready var hud_animation_player: AnimationPlayer = $"Hud canvas layer/HUD/AnimationPlayer"
 
 @onready var heavy_charge_ray_cast: RayCast3D = $"Heavy Charge Ray cast"
 
@@ -181,3 +182,4 @@ func can_unleash_heavy_charge_now():
 	can_unleash_heavy_charge=true
 func stopped_heavy_charge():
 	stopped_charging=true
+	

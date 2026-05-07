@@ -1,14 +1,71 @@
-[gd_scene load_steps=8 format=3 uid="uid://4y8dawkwukrf"]
+[gd_scene load_steps=9 format=3 uid="uid://4y8dawkwukrf"]
 
 [ext_resource type="Script" uid="uid://cpkqa4muvsuos" path="res://Character/HUD/Scripts/hud.gd" id="1_0t85m"]
 [ext_resource type="Texture2D" uid="uid://eu25ybyhi0g3" path="res://Character/HUD/assets/Barres 2/Fond .PNG" id="2_0t85m"]
 [ext_resource type="Texture2D" uid="uid://busnvhvb8lcsp" path="res://Character/HUD/assets/Icones equipement/Equippement Diamond.png" id="3_0t85m"]
 [ext_resource type="Texture2D" uid="uid://blmh707jhdbwp" path="res://Character/HUD/assets/Barres 2/Remplissage.PNG" id="3_t4jti"]
-[ext_resource type="Texture2D" uid="uid://cjutspfcad54q" path="res://Character/HUD/assets/Icones equipement/Divines dividers/World Strongest man.PNG" id="5_8ydmn"]
-[ext_resource type="Texture2D" uid="uid://cpxkujoilw1lr" path="res://Character/HUD/assets/Icones equipement/Graces/Heavy Charge.PNG" id="6_8ydmn"]
+[ext_resource type="Texture2D" uid="uid://x3jq8xm761wq" path="res://Character/HUD/assets/Icones equipement/Divines dividers/Sundown.PNG" id="5_t4jti"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8ydmn"]
-blend_mode = 1
+[sub_resource type="Animation" id="Animation_hnjob"]
+resource_name = "Divine_divider_switch"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Health and equip/Divine divider:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Health and equip/Divine divider:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.26, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(90, -71.48144), Vector2(80.00001, -85.92588), Vector2(90, -71.48144)]
+}
+
+[sub_resource type="Animation" id="Animation_37fun"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Health and equip/Divine divider:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Health and equip/Divine divider:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(90, -71.48144)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5hg1f"]
+_data = {
+&"Divine_divider_switch": SubResource("Animation_hnjob"),
+&"RESET": SubResource("Animation_37fun")
+}
 
 [node name="HUD" type="Control"]
 custom_minimum_size = Vector2(1366, 0)
@@ -26,10 +83,8 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = -18.000002
-offset_top = -22.0
-offset_right = 21.999998
-offset_bottom = 18.0
+offset_top = -78.66669
+offset_right = 174.00012
 grow_vertical = 0
 scale = Vector2(0.9, 0.9)
 
@@ -40,10 +95,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 150.0
-offset_top = -168.8889
-offset_right = 662.0
-offset_bottom = -40.8889
+offset_left = 126.888824
+offset_top = -160.03705
+offset_right = 638.88885
+offset_bottom = -32.03704
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.3)
@@ -59,10 +114,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 195.55556
-offset_top = -108.888885
-offset_right = 707.55554
-offset_bottom = 19.111115
+offset_left = 172.44437
+offset_top = -100.037025
+offset_right = 684.4444
+offset_bottom = 27.962975
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.3)
@@ -78,10 +133,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 156.66667
-offset_top = -53.33336
-offset_right = 668.6667
-offset_bottom = 74.66664
+offset_left = 133.5555
+offset_top = -44.4815
+offset_right = 645.5555
+offset_bottom = 83.5185
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.3)
@@ -98,10 +153,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -5.000001
-offset_top = -192.99998
-offset_right = 35.0
-offset_bottom = -152.99998
+offset_left = -28.111176
+offset_top = -184.14812
+offset_right = 11.888824
+offset_bottom = -144.14812
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(5, 5)
@@ -109,22 +164,21 @@ texture = ExtResource("3_0t85m")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Divine Divider" type="NinePatchRect" parent="Health and equip"]
-modulate = Color(1.353256, 0.023529412, 0, 1)
-texture_filter = 1
-material = SubResource("CanvasItemMaterial_8ydmn")
-layout_mode = 0
-offset_left = 142.22223
-offset_top = -92.22223
-offset_right = 182.22223
-offset_bottom = -52.22223
-texture = ExtResource("5_8ydmn")
+[node name="Divine divider" type="TextureRect" parent="Health and equip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 90.0
+offset_top = -71.48144
+offset_right = -35.111267
+offset_bottom = -95.70367
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_t4jti")
+expand_mode = 1
 
-[node name="Grace" type="NinePatchRect" parent="Health and equip"]
-modulate = Color(0, 0.9645353, 1.93708, 1)
-layout_mode = 0
-offset_left = 44.44445
-offset_top = -94.44447
-offset_right = 95.55557
-offset_bottom = -51.1111
-texture = ExtResource("6_8ydmn")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5hg1f")
+}

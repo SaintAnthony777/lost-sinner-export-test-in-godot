@@ -38,11 +38,11 @@ var self_delta=.01
 ## Grace and Divine Dividers
 var divine_divider_list:Array[String]=["Sundown","Screaming Silence"]
 var grace_list:Array[String]=["Disordonance","Heavy Charge"]
-
 var current_grace_index:=0
 var current_divine_divider_index:=0
 var current_divine_divider:=""
 var current_grace:=""
+var can_switch_special:=true
 
 func _ready() -> void:
 	camera.h_offset=-.7
@@ -57,10 +57,14 @@ func _input(_event: InputEvent) -> void:
 		else : Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
 	if Input.is_action_just_pressed("Camera Switching") and can_switch_camera:
 		camera_switch_logic()
-	if Input.is_action_just_pressed("Grace switch"):
+	if Input.is_action_just_pressed("Grace switch") and can_switch_special:
 		switch_special(grace_list)
-	if Input.is_action_just_pressed("Divine Divider switch"):
+	if Input.is_action_just_pressed("Divine Divider switch") and can_switch_special:
+		can_switch_special=false
+		character.hud_animation_player.play("Divine_divider_switch")
 		switch_special(divine_divider_list)
+		await character.hud_animation_player.animation_finished
+		can_switch_special=true
 
 func _unhandled_input(event: InputEvent) -> void:
 	var camera_is_in_motion:=(
