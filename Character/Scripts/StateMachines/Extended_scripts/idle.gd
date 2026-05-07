@@ -46,6 +46,7 @@ func input_logic()->void:
 	if Input.is_action_just_pressed("Grace"):
 		character.is_making_grace=true
 		state_machine.change_state(player.current_grace)
+		
 	if Input.is_action_just_pressed("Jump trigger"):
 		character.landed=false
 		state_machine.change_state("Jumping")

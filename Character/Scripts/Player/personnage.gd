@@ -23,7 +23,7 @@ var last_movement_direction := Vector3.BACK
 var rotation_speed := 6.0
 var gravity := -19.0
 
-var camera_position:String="left"
+var camera_position:String="right"
 
 var can_switch_camera:bool=true
 var is_aiming : bool = false
@@ -36,8 +36,8 @@ var player_direction : Vector3
 var current_target : enemy
 var self_delta=.01
 ## Grace and Divine Dividers
-var divine_divider_list:Array[String]=["Sundown","Screaming Silence"]
-var grace_list:Array[String]=["Disordonance","Heavy Charge"]
+var divine_divider_list:Array[String]=["Sundown","Screaming Silence","World Strongest Man"]
+var grace_list:Array[String]=["Disordonance","Heavy Charge","Disaster"]
 var current_grace_index:=0
 var current_divine_divider_index:=0
 var current_divine_divider:=""
@@ -45,7 +45,7 @@ var current_grace:=""
 var can_switch_special:=true
 
 func _ready() -> void:
-	camera.h_offset=-.7
+	camera.h_offset=.7
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 	current_divine_divider = divine_divider_list[current_divine_divider_index]
 	current_grace = grace_list[current_grace_index]
