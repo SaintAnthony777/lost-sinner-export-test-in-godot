@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://srgn3wkeivsn"]
+[gd_scene load_steps=65 format=3 uid="uid://srgn3wkeivsn"]
 
 [ext_resource type="Script" uid="uid://bhjwagrue8av5" path="res://Character/Scripts/Player/personnage.gd" id="1_ov8r6"]
 [ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="2_ov8r6"]
@@ -47,7 +47,11 @@
 [ext_resource type="Script" uid="uid://dmo0tmpo4m13d" path="res://Character/Scripts/StateMachines/Extended_scripts/heavy_charge_to_idle.gd" id="45_2ph42"]
 [ext_resource type="Script" uid="uid://cpchrfmaywu28" path="res://Character/Scripts/StateMachines/Extended_scripts/air_heavy__charge.gd" id="46_2w7pb"]
 [ext_resource type="Script" uid="uid://ctje8fpctqlhq" path="res://Character/Scripts/StateMachines/Extended_scripts/air_heavy_charge_unleash.gd" id="47_2w7pb"]
-[ext_resource type="Script" uid="uid://dq36efs6bxser" path="res://Character/Scripts/StateMachines/Source_codes/State.gd" id="48_iw025"]
+[ext_resource type="Script" uid="uid://d2dap4ihspv4y" path="res://Character/Scripts/StateMachines/Extended_scripts/air_world_strongest_man.gd" id="48_qtnpb"]
+[ext_resource type="Script" uid="uid://cp7a7ok5mcvuu" path="res://Character/Scripts/StateMachines/Extended_scripts/world_strongest_man.gd" id="49_hdu1v"]
+[ext_resource type="Script" uid="uid://dvmfvbvvtwjja" path="res://Character/Scripts/StateMachines/Extended_scripts/world_strongest_man_release.gd" id="50_mjqgc"]
+[ext_resource type="Script" uid="uid://cfljjf5ejle66" path="res://Character/Scripts/StateMachines/Extended_scripts/disaster.gd" id="51_1ght0"]
+[ext_resource type="Script" uid="uid://b3v53106dvqoc" path="res://Character/Scripts/StateMachines/Extended_scripts/air_disaster.gd" id="52_qtnpb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ov8r6"]
 
@@ -430,6 +434,22 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 script = ExtResource("47_2w7pb")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
 
+[node name="Air_World Strongest Man" type="Node" parent="StateMachine"]
+script = ExtResource("48_qtnpb")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
 [node name="World Strongest Man" type="Node" parent="StateMachine"]
-script = ExtResource("48_iw025")
+script = ExtResource("49_hdu1v")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="World Strongest man Release" type="Node" parent="StateMachine"]
+script = ExtResource("50_mjqgc")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Disaster" type="Node" parent="StateMachine"]
+script = ExtResource("51_1ght0")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Air_Disaster" type="Node" parent="StateMachine"]
+script = ExtResource("52_qtnpb")
 metadata/_custom_type_script = "uid://dq36efs6bxser"

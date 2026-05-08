@@ -32,7 +32,7 @@ var air_stationary:=false
 var air_lashes:=false
 var can_unleash_heavy_charge:=false
 var stopped_charging:=false
-
+var can_unleash_divine_divider:=false
 
 @onready var player: player_character = $".."
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -183,3 +183,5 @@ func can_unleash_heavy_charge_now():
 func stopped_heavy_charge():
 	stopped_charging=true
 	
+func can_unleash_divine_divider_now():
+	can_unleash_divine_divider=true

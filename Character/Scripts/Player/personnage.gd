@@ -59,7 +59,6 @@ func _input(_event: InputEvent) -> void:
 		camera_switch_logic()
 	if Input.is_action_just_pressed("Grace switch") and can_switch_special:
 		switch_special(grace_list)
-		
 	if Input.is_action_just_pressed("Divine Divider switch") and can_switch_special:
 		switch_special(divine_divider_list)
 
@@ -174,6 +173,7 @@ func switch_special(special_to_be_switched_list:Array)->void:
 		character.hud_animation_player.play("Divine_divider_switch")
 	await character.hud_animation_player.animation_finished
 	can_switch_special=true
+	
 func reset_camera()->void:
 	if camera_position=="left" : camera.h_offset=-.7 
 	else : camera.h_offset=.7
