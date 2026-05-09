@@ -2,7 +2,10 @@ extends State
 @onready var character: character_mesh = $"../../The Lost Sinner1"
 @onready var player: player_character = $"../.."
 
-
+func enter() -> void:
+	character.look_at(Vector3(player.get_target_point().x,player.global_position.y,player.get_target_point().z))
+	character.rotate_y(PI)
+	
 func physics_update(_delta) -> void:
 	state_logics(_delta)
 	if Input.is_action_just_released("Aiming") : state_machine.change_state("normal");character.crosshair_layer.hide()
@@ -17,6 +20,7 @@ func physics_update(_delta) -> void:
 	if Input.is_action_just_pressed("Special"):
 		character.is_divine_dividing=true
 		state_machine.change_state(player.current_divine_divider)
+		
 func state_logics (delta:float) -> void :
 	Crosshair_tricks()
 	aiming_angle_correct()
@@ -28,8 +32,8 @@ func state_logics (delta:float) -> void :
 	player.gravity_applying(delta)
 	player.camera_rotation_logic(delta)
 	player.character_moving(player.player_direction)
-	character.look_at(Vector3(player.aiming_node.global_position.x,
-	player.global_position.y,player.aiming_node.global_position.z),Vector3.UP,true)
+	character.look_at(Vector3(player.get_target_point().x,player.global_position.y,player.get_target_point().z))
+	character.rotate_y(PI)
 	character.strafing_motion(input_dir)
 
 func hammer_come_back_check():

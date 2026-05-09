@@ -47,7 +47,6 @@ var can_unleash_divine_divider:=false
 @onready var heavy_charge_ray_cast: RayCast3D = $"Heavy Charge Ray cast"
 
 
-
 func normal_motion(current_action:String)->void:
 	grounding("Normal")
 	animation_tree.set("parameters/Normal_Transition/transition_request",current_action)
