@@ -1,7 +1,7 @@
 extends Node3D
 
 @onready var hammer_ray_cast: ShapeCast3D = $Hammer_ray_cast
-
+@onready var hammer_hitbox:HitBoxComponent=$Hammer_hitbox
 const HAMMER_SPEED:=40.0
 var lifetime:=0.0
 var returning:bool=false
@@ -9,6 +9,8 @@ var returning:bool=false
 func _ready() -> void:
 	hammer_ray_cast.set_collision_mask_value(2,true)
 	hammer_ray_cast.set_collision_mask_value(3,true)
+	hammer_hitbox.untouchable_owner=get_parent().get_node("Personnage").get_node("The Lost Sinner1")
+	hammer_hitbox.area_entered.connect(hammer_hitbox._on_area_entered)
 	
 func _process(delta: float) -> void:
 	hammer_ray_cast.force_shapecast_update()

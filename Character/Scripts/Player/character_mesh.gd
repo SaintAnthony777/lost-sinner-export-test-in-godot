@@ -45,8 +45,15 @@ var can_unleash_divine_divider:=false
 @onready var hud_animation_player: AnimationPlayer = $"Hud canvas layer/HUD/AnimationPlayer"
 
 @onready var heavy_charge_ray_cast: RayCast3D = $"Heavy Charge Ray cast"
+@onready var hit_box_component: HitBoxComponent = $"Armature/Skeleton3D/Right_hand_weapon_attachment/Premier modèle/Hammer Hitbox"
+@onready var hurt_box_component: HurtBoxComponent = $HurtBoxComponent
+@onready var hitbox_collision: CollisionShape3D = $"Armature/Skeleton3D/Right_hand_weapon_attachment/Premier modèle/Hammer Hitbox/CollisionShape3D"
 
 
+func _ready() -> void:
+	hit_box_component.area_entered.connect(hit_box_component._on_area_entered)
+	hurt_box_component.area_entered.connect(hurt_box_component._on_area_entered)
+	hitbox_collision.disabled=true
 func normal_motion(current_action:String)->void:
 	grounding("Normal")
 	animation_tree.set("parameters/Normal_Transition/transition_request",current_action)

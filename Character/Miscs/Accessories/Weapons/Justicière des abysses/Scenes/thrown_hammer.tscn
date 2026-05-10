@@ -1,9 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://ko6mkcshgc14"]
+[gd_scene load_steps=6 format=3 uid="uid://ko6mkcshgc14"]
 
 [ext_resource type="PackedScene" uid="uid://coxrnqofsffsf" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scenes/Justicère des abysses.tscn" id="1_6k0c1"]
 [ext_resource type="Script" uid="uid://b2pb1uhe2wsdr" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scripts/thrown_hammer.gd" id="1_w5j4n"]
+[ext_resource type="Script" uid="uid://dflwyxok3081k" path="res://Componenents/Hitbox and HurtBox/hitbox_component.gd" id="3_e3h27"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_w5j4n"]
+radius = 0.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_r8oqg"]
 
 [node name="Thrown_hammer" type="Node3D"]
 script = ExtResource("1_w5j4n")
@@ -16,3 +20,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03512913, 0)
 shape = SubResource("SphereShape3D_w5j4n")
 target_position = Vector3(0, 0, 0)
 collision_mask = 6
+
+[node name="Hammer_hitbox" type="Area3D" parent="."]
+script = ExtResource("3_e3h27")
+metadata/_custom_type_script = "uid://dflwyxok3081k"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hammer_hitbox"]
+shape = SubResource("SphereShape3D_r8oqg")
