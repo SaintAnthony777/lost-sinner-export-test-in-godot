@@ -5,7 +5,6 @@ extends State
 func enter() -> void:
 	character.requested_next_attack=false
 	character.requested_dash=false
-	character.force_character_rotation()
 	attack_stuff()
 func physics_update(_delta) -> void:
 	
@@ -30,4 +29,20 @@ func state_logic(delta)->void:
 	if Input.is_action_just_pressed("sprinting"):character.requested_dash=true
 	if Input.is_action_just_pressed("Attack_trigger") and !character.requested_next_attack:character.requested_next_attack = true
 	player.camera_rotation_logic(delta)
-	player.character_rotation(player.player_move_direction,player.last_movement_direction,delta)
+	if player.player_move_direction!=Vector3.ZERO:
+		player.character_rotation(player.player_move_direction,player.last_movement_direction,delta)
+	else :
+		if player.current_target:
+			character.look_at(Vector3(
+				player.current_target.global_position.x,
+				player.global_position.y,
+				player.current_target.global_position.z
+			))
+		else:
+			character.look_at(Vector3(
+				player.get_target_point().x,
+				player.global_position.y,
+				player.get_target_point().z
+			))
+		character.rotate_y(PI)
+		
