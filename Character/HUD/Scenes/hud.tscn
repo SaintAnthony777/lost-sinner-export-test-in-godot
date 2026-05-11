@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://4y8dawkwukrf"]
+[gd_scene load_steps=13 format=3 uid="uid://4y8dawkwukrf"]
 
 [ext_resource type="Script" uid="uid://cpkqa4muvsuos" path="res://Character/HUD/Scripts/hud.gd" id="1_0t85m"]
 [ext_resource type="Texture2D" uid="uid://eu25ybyhi0g3" path="res://Character/HUD/assets/Barres 2/Fond .PNG" id="2_0t85m"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://blmh707jhdbwp" path="res://Character/HUD/assets/Barres 2/Remplissage.PNG" id="3_t4jti"]
 [ext_resource type="Texture2D" uid="uid://x3jq8xm761wq" path="res://Character/HUD/assets/Icones equipement/Divines dividers/Sundown.PNG" id="5_t4jti"]
 [ext_resource type="Texture2D" uid="uid://bvrva1hdrwjmq" path="res://Character/HUD/assets/Icones equipement/Graces/Disaster.PNG" id="6_8ydmn"]
+[ext_resource type="Script" uid="uid://bki642kkfwyem" path="res://Componenents/ArcaneComponent/ArcaneComponent.gd" id="7_di408"]
+[ext_resource type="Script" uid="uid://bibpdrfengocv" path="res://Componenents/HealthComponent/health_component.gd" id="8_hnjob"]
 
 [sub_resource type="Animation" id="Animation_hnjob"]
 resource_name = "Divine_divider_switch"
@@ -159,9 +161,10 @@ scale = Vector2(0.5, 0.3)
 value = 53.0
 texture_under = ExtResource("2_0t85m")
 texture_progress = ExtResource("3_t4jti")
+tint_under = Color(7.9897045e-06, 0.9359855, 0.6635596, 1)
 tint_progress = Color(0, 1.6833125, 0.18417412, 1)
 
-[node name="Magic" type="TextureProgressBar" parent="Health and equip"]
+[node name="Arcane" type="TextureProgressBar" parent="Health and equip"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -169,16 +172,17 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 172.44437
-offset_top = -100.037025
+offset_top = -97.81491
 offset_right = 684.4444
-offset_bottom = 27.962975
+offset_bottom = 30.18509
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.3)
 value = 75.0
 texture_under = ExtResource("2_0t85m")
 texture_progress = ExtResource("3_t4jti")
-tint_progress = Color(0, 0.7562453, 1.1374342, 1)
+tint_under = Color(0, 1, 1, 1)
+tint_progress = Color(2.7097487e-06, 0.6654723, 0.9111079, 1)
 
 [node name="Chaos" type="TextureProgressBar" parent="Health and equip"]
 layout_mode = 1
@@ -197,6 +201,7 @@ scale = Vector2(0.5, 0.3)
 value = 25.0
 texture_under = ExtResource("2_0t85m")
 texture_progress = ExtResource("3_t4jti")
+tint_under = Color(1, 1, 0.34117648, 1)
 tint_progress = Color(0.99224734, 0.89665794, 0, 1)
 
 [node name="Equipements" type="TextureRect" parent="Health and equip"]
@@ -219,6 +224,7 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="Divine divider" type="TextureRect" parent="Health and equip"]
+modulate = Color(0.9005665, 0.091403626, 0.21483527, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -233,6 +239,7 @@ texture = ExtResource("5_t4jti")
 expand_mode = 1
 
 [node name="Grace" type="TextureRect" parent="Health and equip"]
+modulate = Color(0.12941177, 1, 1, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -245,6 +252,16 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_8ydmn")
 expand_mode = 1
+
+[node name="arcane_component" type="Node" parent="Health and equip" node_paths=PackedStringArray("Arcane_Gauge")]
+script = ExtResource("7_di408")
+Max_Arcane = 100.0
+Arcane_Gauge = NodePath("../Arcane")
+metadata/_custom_type_script = "uid://bki642kkfwyem"
+
+[node name="HealthComponent" type="Node" parent="Health and equip"]
+script = ExtResource("8_hnjob")
+metadata/_custom_type_script = "uid://bibpdrfengocv"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

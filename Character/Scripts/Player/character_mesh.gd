@@ -48,6 +48,8 @@ var can_unleash_divine_divider:=false
 @onready var hit_box_component: HitBoxComponent = $"Armature/Skeleton3D/Right_hand_weapon_attachment/Premier modèle/Hammer Hitbox"
 @onready var hurt_box_component: HurtBoxComponent = $HurtBoxComponent
 @onready var hitbox_collision: CollisionShape3D = $"Armature/Skeleton3D/Right_hand_weapon_attachment/Premier modèle/Hammer Hitbox/CollisionShape3D"
+@onready var arcane_component: arcane_component = $"Hud canvas layer/HUD/Health and equip/arcane_component"
+@onready var health_component: HealthComponent = $"Hud canvas layer/HUD/Health and equip/HealthComponent"
 
 
 func _ready() -> void:

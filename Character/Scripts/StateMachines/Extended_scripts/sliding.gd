@@ -7,7 +7,7 @@ var dash_speed := 15.0
 func enter() -> void: 
 	character.requested_slide_attack = false
 	player.can_switch_camera=false
-	player.camera_animations.play("camera_sliding")
+	#player.camera_animations.play("camera_sliding")
 	
 func physics_update(_delta) -> void:
 	player.gravity_applying(_delta)
