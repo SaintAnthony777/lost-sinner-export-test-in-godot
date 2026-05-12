@@ -1,15 +1,28 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdun6lufk65r"]
+[gd_scene load_steps=11 format=3 uid="uid://cdun6lufk65r"]
 
 [ext_resource type="Script" uid="uid://b2mma88kgmdm2" path="res://Ennemies/regular enemies/script/regular_enemy.gd" id="1_cyqdd"]
 [ext_resource type="Script" uid="uid://4i450if78qh1" path="res://Componenents/Hitbox and HurtBox/hurt_box_component.gd" id="2_2wixn"]
 [ext_resource type="Script" uid="uid://bibpdrfengocv" path="res://Componenents/HealthComponent/health_component.gd" id="3_7qs01"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cyqdd"]
-
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2wixn"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_7qs01"]
+size = Vector3(0.475, 1, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cyqdd"]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2wixn"]
-radius = 0.90185547
+radius = 1.1269531
+height = 2.2539063
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7qs01"]
+load_path = "res://.godot/imported/Fond .PNG-fa9a20f05b13b4ccd05883a868e2c2d1.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r0u5x"]
+load_path = "res://.godot/imported/Remplissage.PNG-d6f76734bac8eabf6a0a1699de9f6c39.ctex"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7qs01"]
+viewport_path = NodePath("HealthSubViewPort")
 
 [node name="enemy" type="CharacterBody3D"]
 collision_layer = 4
@@ -17,13 +30,20 @@ collision_mask = 3
 script = ExtResource("1_cyqdd")
 metadata/_custom_type_script = "uid://cugap2g484shs"
 
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0250047, 0)
+mesh = SubResource("CapsuleMesh_2wixn")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Visuals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3841858e-07, 1.1466537, 0.0791142)
+mesh = SubResource("BoxMesh_7qs01")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0250047, 0)
 shape = SubResource("CapsuleShape3D_cyqdd")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0250047, 0)
-mesh = SubResource("CapsuleMesh_2wixn")
 
 [node name="Aiming Node" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5455726, 0)
@@ -39,7 +59,40 @@ metadata/_custom_type_script = "uid://4i450if78qh1"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.149543, 0)
 shape = SubResource("CapsuleShape3D_2wixn")
 
-[node name="HealthComponent" type="Node" parent="."]
+[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("Health_gauge")]
 script = ExtResource("3_7qs01")
 Max_health = 100.0
+Vulnerability = Array[String](["Divine Divider", "Grace"])
+Resistance = Array[String](["Physical"])
+Health_gauge = NodePath("../HealthSubViewPort/EnemyHealth")
+Bearable_power = 3.0
 metadata/_custom_type_script = "uid://bibpdrfengocv"
+
+[node name="HealthSubViewPort" type="SubViewport" parent="."]
+transparent_bg = true
+
+[node name="EnemyHealth" type="TextureProgressBar" parent="HealthSubViewPort"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = -256.0
+offset_right = 406.0
+offset_bottom = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.3)
+value = 53.0
+texture_under = SubResource("CompressedTexture2D_7qs01")
+texture_progress = SubResource("CompressedTexture2D_r0u5x")
+tint_progress = Color(1.1379404, 0, 0.12515214, 1)
+
+[node name="HealthBarAnchor" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0688846, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="HealthBarAnchor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.0688846, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_7qs01")

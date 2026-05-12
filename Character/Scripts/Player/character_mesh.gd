@@ -49,13 +49,18 @@ var can_unleash_divine_divider:=false
 @onready var hurt_box_component: HurtBoxComponent = $HurtBoxComponent
 @onready var hitbox_collision: CollisionShape3D = $"Armature/Skeleton3D/Right_hand_weapon_attachment/Premier modèle/Hammer Hitbox/CollisionShape3D"
 @onready var arcane_component: arcane_component = $"Hud canvas layer/HUD/Health and equip/arcane_component"
+@onready var AOE_hitBox:HitBoxComponent=$"AOE_Hitboxes/HitBoxComponent"
+@onready var AOE_Collision:CollisionShape3D=$"AOE_Hitboxes/HitBoxComponent/CollisionShape3D"
 @onready var health_component: HealthComponent = $"Hud canvas layer/HUD/Health and equip/HealthComponent"
-
+@onready var dealt_attack:Attack
 
 func _ready() -> void:
-	hit_box_component.area_entered.connect(hit_box_component._on_area_entered)
-	hurt_box_component.area_entered.connect(hurt_box_component._on_area_entered)
-	hitbox_collision.disabled=true
+	pass
+	health_component.Moveable_Player=player
+	#hit_box_component.area_entered.connect(hit_box_component._on_area_entered)
+	#hurt_box_component.area_entered.connect(hurt_box_component._on_area_entered)
+	#hitbox_collision.disabled=true
+	#AOE_hitBox.area_entered.connect(AOE_hitBox._on_area_entered)
 func normal_motion(current_action:String)->void:
 	grounding("Normal")
 	animation_tree.set("parameters/Normal_Transition/transition_request",current_action)
@@ -116,6 +121,8 @@ func jump_logics(current_state:String,current_action:String):
 func cannot_progress_combo()->void: can_advance_to_next_atack_pattern=false
 func can_progress_combo()->void: can_advance_to_next_atack_pattern=true
 
+
+
 ###NO signals so use vars xoxo
 func done_rolling_func()->void:
 	isrolling=false
@@ -155,6 +162,23 @@ func force_character_rotation():
 	self.look_at(Vector3(player.looking_at_node.global_position.x,
 	player.global_position.y,
 	player.looking_at_node.global_position.z),Vector3.UP,true)
+func adjust_character_rotation(delta)->void:
+	if player.player_move_direction!=Vector3.ZERO:
+		player.character_rotation(player.player_move_direction,player.last_movement_direction,delta)
+	else :
+		if player.current_target:
+			self.look_at(Vector3(
+				player.current_target.global_position.x,
+				player.global_position.y,
+				player.current_target.global_position.z
+			))
+		else:
+			self.look_at(Vector3(
+				player.get_target_point().x,
+				player.global_position.y,
+				player.get_target_point().z
+			))
+		self.rotate_y(PI)
 
 func starting_dash_attack()->void:
 	is_making_dash_attack=true

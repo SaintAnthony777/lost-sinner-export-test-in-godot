@@ -261,6 +261,7 @@ metadata/_custom_type_script = "uid://bki642kkfwyem"
 
 [node name="HealthComponent" type="Node" parent="Health and equip"]
 script = ExtResource("8_hnjob")
+Bearable_power = 15.0
 metadata/_custom_type_script = "uid://bibpdrfengocv"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

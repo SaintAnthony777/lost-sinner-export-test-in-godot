@@ -1,5 +1,10 @@
 class_name regular_enemy extends enemy
+
 @onready var aiming_node: Node3D = $"Aiming Node"
 @onready var hurtbox:HurtBoxComponent=$HurtBoxComponent
+@onready var health_comp:HealthComponent=$"HealthComponent"
+
+
 func _ready() -> void:
-	hurtbox.area_entered.connect(hurtbox._on_area_entered)
+	visuals=$Visuals
+	health_comp.Moveable_Body=self

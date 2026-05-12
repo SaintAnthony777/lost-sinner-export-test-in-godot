@@ -7,11 +7,19 @@ func enter() -> void:
 	character.requested_dash=false
 	attack_stuff()
 func physics_update(_delta) -> void:
-	
 	attack_check()
 	state_logic(_delta)
 	
 func attack_stuff()->void:
+	var atk:=Attack.new()
+	atk.create_attack(
+		15.0,
+		12.0,
+		"Physical",
+		3.0,
+		0.0
+	)
+	character.dealt_attack=atk
 	character.attacking("Normal","Hammer","attack_1")
 
 func attack_check()->void:
@@ -29,20 +37,5 @@ func state_logic(delta)->void:
 	if Input.is_action_just_pressed("sprinting"):character.requested_dash=true
 	if Input.is_action_just_pressed("Attack_trigger") and !character.requested_next_attack:character.requested_next_attack = true
 	player.camera_rotation_logic(delta)
-	if player.player_move_direction!=Vector3.ZERO:
-		player.character_rotation(player.player_move_direction,player.last_movement_direction,delta)
-	else :
-		if player.current_target:
-			character.look_at(Vector3(
-				player.current_target.global_position.x,
-				player.global_position.y,
-				player.current_target.global_position.z
-			))
-		else:
-			character.look_at(Vector3(
-				player.get_target_point().x,
-				player.global_position.y,
-				player.get_target_point().z
-			))
-		character.rotate_y(PI)
-		
+	character.adjust_character_rotation(delta)
+	

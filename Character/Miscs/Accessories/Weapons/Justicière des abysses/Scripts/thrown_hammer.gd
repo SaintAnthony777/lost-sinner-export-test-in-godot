@@ -5,14 +5,18 @@ extends Node3D
 const HAMMER_SPEED:=40.0
 var lifetime:=0.0
 var returning:bool=false
+var dealt_attack:Attack=Attack.new()
 
 func _ready() -> void:
 	hammer_ray_cast.set_collision_mask_value(2,true)
 	hammer_ray_cast.set_collision_mask_value(3,true)
 	hammer_hitbox.untouchable_owner=get_parent().get_node("Personnage").get_node("The Lost Sinner1")
-	hammer_hitbox.area_entered.connect(hammer_hitbox._on_area_entered)
-	
+	dealt_attack.Base_damage=15
+	dealt_attack.Nature="Physical"
+	dealt_attack.Stun_time=3
+	dealt_attack.Strength=15
 func _process(delta: float) -> void:
+	hammer_hitbox.collsion_shape.disabled=false
 	hammer_ray_cast.force_shapecast_update()
 	lifetime+=delta
 	if !returning:

@@ -19,6 +19,7 @@ config/icon="uid://flvau0snwba7"
 [autoload]
 
 Materialspreload="*res://autoloads/Meshmaterial_preloads/3d/materialspreload.gd"
+SpecialAttacksList="*res://autoloads/Special_attacks/Special_attacks_list.gd"
 
 [display]
 

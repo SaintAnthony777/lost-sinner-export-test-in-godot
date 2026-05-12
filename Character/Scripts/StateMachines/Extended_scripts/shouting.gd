@@ -6,14 +6,15 @@ extends State
 func enter() -> void:
 	player.camera.h_offset=0.0
 	player.can_switch_camera=false
-	var current_attack:SpecialAttack=SpecialAttack.new()
-	current_attack.attack_name=name
-	current_attack.Base_damage=25
+	var current_attack:Attack=Attack.new()
+	current_attack.Base_damage=55
 	current_attack.Nature="Grace"
 	current_attack.Strength=25.0
 	current_attack.Stun_time=2.5
 	current_attack.arcane_consumption=45.0
+	character.dealt_attack=current_attack
 	character.arcane_component.arcane_consumption(current_attack)
+	
 func physics_update(_delta) -> void:
 	state_logics()
 	character.special_attacks("Specials","Screaming Silence")
