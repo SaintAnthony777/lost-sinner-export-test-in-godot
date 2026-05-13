@@ -10,7 +10,7 @@ func enter() -> void:
 	current_attack.Base_damage=55
 	current_attack.Nature="Grace"
 	current_attack.Strength=25.0
-	current_attack.Stun_time=2.5
+	current_attack.Stun_time=5.5
 	current_attack.arcane_consumption=45.0
 	character.dealt_attack=current_attack
 	character.arcane_component.arcane_consumption(current_attack)

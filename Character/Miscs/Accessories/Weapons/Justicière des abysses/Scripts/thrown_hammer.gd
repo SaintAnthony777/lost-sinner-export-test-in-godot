@@ -15,6 +15,7 @@ func _ready() -> void:
 	dealt_attack.Nature="Physical"
 	dealt_attack.Stun_time=3
 	dealt_attack.Strength=15
+	hammer_hitbox.collsion_shape.disabled=false
 func _process(delta: float) -> void:
 	hammer_hitbox.collsion_shape.disabled=false
 	hammer_ray_cast.force_shapecast_update()
