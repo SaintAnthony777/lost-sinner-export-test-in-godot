@@ -34,13 +34,12 @@ func taking_damage(taken_attack:Attack):
 	Current_health-=taken_attack.Base_damage+Damage_Factor
 	dealt_thrown_time=taken_attack.Stun_time
 	if Current_health<0:Current_health=0
-	if Current_health==0:owner.queue_free()
+	if Current_health==0:owner.death_function()
 
 func take_a_step(taken_attack:Attack,delta:float):
 	var expulsion_direction:Vector3=Vector3.ZERO
 	if Bearable_power<=taken_attack.Strength:
 		dealt_thrown_time-=(delta+1)
-		print(dealt_thrown_time)
 		var Node_to_be_rotated
 		if Moveable_Body:Node_to_be_rotated=Moveable_Body.visuals
 		if Moveable_Player:Node_to_be_rotated=Moveable_Player.character

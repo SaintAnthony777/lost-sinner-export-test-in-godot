@@ -1,15 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://duumpia3tgccc"]
+[gd_scene load_steps=7 format=3 uid="uid://duumpia3tgccc"]
 
-[ext_resource type="Texture2D" uid="uid://bsl1nw7fse78g" path="res://Character/Miscs/CrossHair/Crosshair.png" id="1_ag2vq"]
 [ext_resource type="Shader" uid="uid://dy3buq2jugwsc" path="res://Character/Miscs/CrossHair/crosshair.tres" id="1_tven7"]
+[ext_resource type="Texture2D" uid="uid://cl5s3vkyag7ux" path="res://Character/Miscs/CrossHair/White/crosshair052.png" id="2_4dxye"]
+[ext_resource type="Texture2D" uid="uid://b3v1xruncvdyr" path="res://Character/Miscs/CrossHair/White/crosshair001.png" id="3_4tfr8"]
+[ext_resource type="Texture2D" uid="uid://csrknhw4tii7h" path="res://Character/Miscs/CrossHair/White/crosshair009.png" id="4_4dxye"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tven7"]
 shader = ExtResource("1_tven7")
-shader_parameter/crosshair_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_marq0"]
 shader = ExtResource("1_tven7")
-shader_parameter/crosshair_color = Color(0, 0, 0, 1)
 
 [node name="Crosshair" type="Control"]
 layout_mode = 3
@@ -37,9 +37,10 @@ offset_right = 512.0
 offset_bottom = 512.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_ag2vq")
+texture = ExtResource("2_4dxye")
 
 [node name="crosshair_target_acquired" type="TextureRect" parent="."]
+visible = false
 modulate = Color(0.8661998, 0.42057467, 0, 1)
 material = SubResource("ShaderMaterial_marq0")
 layout_mode = 1
@@ -54,9 +55,10 @@ offset_right = 512.0
 offset_bottom = 512.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_ag2vq")
+texture = ExtResource("3_4tfr8")
 
 [node name="crosshair_no_target" type="TextureRect" parent="."]
+visible = false
 modulate = Color(0.8661998, 0.42057467, 0, 1)
 material = SubResource("ShaderMaterial_tven7")
 layout_mode = 1
@@ -71,4 +73,4 @@ offset_right = 512.0
 offset_bottom = 512.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_ag2vq")
+texture = ExtResource("4_4dxye")

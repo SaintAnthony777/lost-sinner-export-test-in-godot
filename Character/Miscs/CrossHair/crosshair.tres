@@ -14,27 +14,8 @@ parameter_name = "crosshair_color"
 code = "shader_type canvas_item;
 render_mode blend_mix;
 
-uniform vec4 crosshair_color : source_color;
-uniform sampler2D tex_frg_2 : source_color;
 
 
-
-void fragment() {
-// ColorParameter:3
-	vec4 n_out3p0 = crosshair_color;
-
-
-// Texture2D:2
-	vec4 n_out2p0 = texture(tex_frg_2, UV);
-	float n_out2p1 = n_out2p0.r;
-
-
-// Output:0
-	COLOR.rgb = vec3(n_out3p0.xyz);
-	COLOR.a = n_out2p1;
-
-
-}
 "
 mode = 1
 flags/light_only = false
@@ -43,4 +24,3 @@ nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_w2osj")
 nodes/fragment/2/position = Vector2(240, 300)
 nodes/fragment/3/node = SubResource("VisualShaderNodeColorParameter_1dyvp")
 nodes/fragment/3/position = Vector2(240, 80)
-nodes/fragment/connections = PackedInt32Array(2, 1, 0, 1, 3, 0, 0, 0)

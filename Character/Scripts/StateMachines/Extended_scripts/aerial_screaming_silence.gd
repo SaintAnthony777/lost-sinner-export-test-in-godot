@@ -7,6 +7,15 @@ func enter() -> void:
 	aerial_trick()
 	player.camera.h_offset=0.0
 	player.can_switch_camera=false
+	var current_attack:Attack=Attack.new()
+	current_attack.Base_damage=55
+	current_attack.Nature="Grace"
+	current_attack.Strength=25.0
+	current_attack.Stun_time=5.5
+	current_attack.arcane_consumption=45.0
+	character.dealt_attack=current_attack
+	character.arcane_component.arcane_consumption(current_attack)
+	
 func physics_update(_delta) -> void:
 	state_logics()
 	player.camera.fov=lerp(player.camera.fov,105.0,.1)
