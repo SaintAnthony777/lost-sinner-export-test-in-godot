@@ -1,9 +1,14 @@
-[gd_scene load_steps=24 format=3 uid="uid://cdun6lufk65r"]
+[gd_scene load_steps=29 format=3 uid="uid://cdun6lufk65r"]
 
 [ext_resource type="Script" uid="uid://b2mma88kgmdm2" path="res://Ennemies/regular enemies/script/regular_enemy.gd" id="1_cyqdd"]
 [ext_resource type="Script" uid="uid://4i450if78qh1" path="res://Componenents/Hitbox and HurtBox/hurt_box_component.gd" id="2_2wixn"]
+[ext_resource type="Script" uid="uid://bwmwaihgj0mtq" path="res://Ennemies/regular enemies/script/Enemy_visuals.gd" id="2_oygi1"]
 [ext_resource type="Script" uid="uid://dflwyxok3081k" path="res://Componenents/Hitbox and HurtBox/hitbox_component.gd" id="2_r0u5x"]
 [ext_resource type="Script" uid="uid://bibpdrfengocv" path="res://Componenents/HealthComponent/health_component.gd" id="3_7qs01"]
+[ext_resource type="Script" uid="uid://bua0kbub8bjta" path="res://Character/Scripts/StateMachines/Source_codes/StateMachine.gd" id="5_4dp6f"]
+[ext_resource type="Script" uid="uid://ck24g86ieunl0" path="res://Ennemies/regular enemies/Extended Scripts/idle.gd" id="6_oygi1"]
+[ext_resource type="Script" uid="uid://bgbua5rci4t1k" path="res://Ennemies/regular enemies/Extended Scripts/attack.gd" id="7_c06go"]
+[ext_resource type="Script" uid="uid://x0fb6is57wkw" path="res://Ennemies/regular enemies/Extended Scripts/chase.gd" id="8_3813o"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2wixn"]
 
@@ -26,6 +31,50 @@ load_path = "res://.godot/imported/Remplissage.PNG-d6f76734bac8eabf6a0a1699de9f6
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_7qs01"]
 viewport_path = NodePath("HealthSubViewPort")
+
+[sub_resource type="Animation" id="Animation_cmgpa"]
+resource_name = "Atack 1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.58, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.94247276, 0.3967228, 0.6717547), Vector3(0.85124147, 0.71619225, 0.2852513), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kgp7e"]
+resource_name = "Chasing"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HurtBoxComponent:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.20238018, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.20238018, 0), Vector3(0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_7qs01"]
 resource_name = "Idle"
@@ -95,50 +144,6 @@ tracks/2/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_kgp7e"]
-resource_name = "Chasing"
-length = 0.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HurtBoxComponent:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0.20238018, 0), Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Visuals:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0.20238018, 0), Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_cmgpa"]
-resource_name = "Atack 1"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Visuals:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.58, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.94247276, 0.3967228, 0.6717547), Vector3(0.85124147, 0.71619225, 0.2852513), Vector3(0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kgp7e"]
 _data = {
 &"Atack 1": SubResource("Animation_cmgpa"),
@@ -188,7 +193,7 @@ input_4/break_loop_at_end = false
 input_4/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_cmgpa"]
-graph_offset = Vector2(-647.7718, -57.010128)
+graph_offset = Vector2(-426.4232, 113.35653)
 nodes/output/position = Vector2(373.33334, 240)
 nodes/Final_State/node = SubResource("AnimationNodeTransition_c06go")
 nodes/Final_State/position = Vector2(51.24056, 204.28401)
@@ -210,6 +215,7 @@ metadata/_custom_type_script = "uid://cugap2g484shs"
 
 [node name="Visuals" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.99999994, 0, 0, 0)
+script = ExtResource("2_oygi1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0250047, 0)
@@ -302,3 +308,20 @@ parameters/Final_State/current_index = 0
 "parameters/Airborne Transitions/current_state" = ""
 "parameters/Airborne Transitions/transition_request" = ""
 "parameters/Airborne Transitions/current_index" = -1
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("5_4dp6f")
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://bua0kbub8bjta"
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("6_oygi1")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource("7_c06go")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Chase" type="Node" parent="StateMachine"]
+script = ExtResource("8_3813o")
+metadata/_custom_type_script = "uid://dq36efs6bxser"

@@ -4,7 +4,7 @@ var Current_health:float
 var Damage_Factor:float
 
 var Moveable_Player:player_character
-var Moveable_Body:enemy
+var Moveable_Body:enemy_root
 var received_attack:Attack
 var attack_sender
 var dealt_thrown_time:float=.0
@@ -20,7 +20,7 @@ func _ready() -> void:
 	
 func _process(_delta: float) -> void:
 	if Health_gauge:
-		Health_gauge.value=lerp(Health_gauge.value,Current_health,.1)
+		Health_gauge.value=lerp(Health_gauge.value,Current_health,.5)
 	if received_attack:
 		take_a_step(received_attack,_delta)
 

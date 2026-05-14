@@ -33,7 +33,7 @@ var is_shouting:bool=false
 ##innervars
 var player_move_direction : Vector3
 var player_direction : Vector3
-var current_target : enemy
+var current_target : enemy_root
 var self_delta=.01
 ## Grace and Divine Dividers
 var divine_divider_list:Array[String]=["Sundown","Screaming Silence","World Strongest Man"]
@@ -118,15 +118,15 @@ func camera_switch_logic():
 		await camera_animations.animation_finished
 		camera_position="left"
 
-func get_best_target()->enemy:
-	var best_target:enemy
+func get_best_target()->enemy_root:
+	var best_target:enemy_root
 	var min_angle=INF
 	var enemies_in_sight=camera_area_of_sight.get_overlapping_bodies()
 	for foe in enemies_in_sight :
-		if foe is enemy:
+		if foe is enemy_root:
 			camera_line_of_sight.look_at(foe.aiming_node.global_position)
 			camera_line_of_sight.force_raycast_update()
-			if camera_line_of_sight.is_colliding() and camera_line_of_sight.get_collider() is enemy:
+			if camera_line_of_sight.is_colliding() and camera_line_of_sight.get_collider() is enemy_root:
 				var direction_to_enemy=(foe.global_position-self.global_position).normalized()
 				var camera_forward:=-camera.global_basis.z
 				var angle = camera_forward.angle_to(direction_to_enemy)

@@ -86,7 +86,7 @@ func rolling()->void:
 	animation_tree.set("parameters/roll_transistion/transition_request","rolling")
 func sliding()->void:
 	grounding("Rolling")
-	animation_tree.set("parameters/roll_transistion/transition_request","sliding")	
+	animation_tree.set("parameters/roll_transistion/transition_request","sliding")
 func backflip()->void:
 	grounding("Rolling")
 	animation_tree.set("parameters/roll_transistion/transition_request","backflip")
@@ -162,6 +162,7 @@ func force_character_rotation():
 	self.look_at(Vector3(player.looking_at_node.global_position.x,
 	player.global_position.y,
 	player.looking_at_node.global_position.z),Vector3.UP,true)
+	
 func adjust_character_rotation(delta)->void:
 	if player.player_move_direction!=Vector3.ZERO:
 		player.character_rotation(player.player_move_direction,player.last_movement_direction,delta)
