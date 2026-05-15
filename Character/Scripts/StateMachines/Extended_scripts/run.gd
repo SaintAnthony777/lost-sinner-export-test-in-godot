@@ -20,6 +20,9 @@ func state_logic(delta)->void:
 	if !player.is_on_floor():
 		character.landed=false
 		state_machine.change_state("falling")
+	if character.is_taking_damage:
+		state_machine.change_state("taking_damage")
+		
 func Player_Input_events() -> void:
 	if player.velocity==Vector3.ZERO:
 		state_machine.change_state("idle")

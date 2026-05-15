@@ -6,9 +6,9 @@
 [ext_resource type="Script" uid="uid://dflwyxok3081k" path="res://Componenents/Hitbox and HurtBox/hitbox_component.gd" id="2_r0u5x"]
 [ext_resource type="Script" uid="uid://bibpdrfengocv" path="res://Componenents/HealthComponent/health_component.gd" id="3_7qs01"]
 [ext_resource type="Script" uid="uid://bua0kbub8bjta" path="res://Character/Scripts/StateMachines/Source_codes/StateMachine.gd" id="5_4dp6f"]
-[ext_resource type="Script" uid="uid://ck24g86ieunl0" path="res://Ennemies/regular enemies/Extended Scripts/idle.gd" id="6_oygi1"]
-[ext_resource type="Script" uid="uid://bgbua5rci4t1k" path="res://Ennemies/regular enemies/Extended Scripts/attack.gd" id="7_c06go"]
-[ext_resource type="Script" uid="uid://x0fb6is57wkw" path="res://Ennemies/regular enemies/Extended Scripts/chase.gd" id="8_3813o"]
+[ext_resource type="Script" uid="uid://ck24g86ieunl0" path="res://Ennemies/regular enemies/Enemies Extended Scripts/idle.gd" id="6_oygi1"]
+[ext_resource type="Script" uid="uid://bgbua5rci4t1k" path="res://Ennemies/regular enemies/Enemies Extended Scripts/attack.gd" id="7_c06go"]
+[ext_resource type="Script" uid="uid://x0fb6is57wkw" path="res://Ennemies/regular enemies/Enemies Extended Scripts/chase.gd" id="8_3813o"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2wixn"]
 
@@ -219,7 +219,7 @@ input_4/break_loop_at_end = false
 input_4/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_cmgpa"]
-graph_offset = Vector2(-756.71893, 242.96516)
+graph_offset = Vector2(-819.8299, -9.044759)
 nodes/output/position = Vector2(373.33334, 240)
 nodes/Final_State/node = SubResource("AnimationNodeTransition_c06go")
 nodes/Final_State/position = Vector2(51.24056, 204.28401)
@@ -358,10 +358,10 @@ texture = SubResource("ViewportTexture_7qs01")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("5_4dp6f")
-initial_state = NodePath("Idle")
+initial_state = NodePath("Idle_Enemy")
 metadata/_custom_type_script = "uid://bua0kbub8bjta"
 
-[node name="Idle" type="Node" parent="StateMachine"]
+[node name="Idle_Enemy" type="Node" parent="StateMachine"]
 script = ExtResource("6_oygi1")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
 

@@ -8,6 +8,7 @@ var Moveable_Body:enemy_root
 var received_attack:Attack
 var attack_sender
 var dealt_thrown_time:float=.0
+
 @export var Max_health:float
 @export var Vulnerability:Array[String]
 @export var Resistance:Array[String]
@@ -25,6 +26,8 @@ func _process(_delta: float) -> void:
 		take_a_step(received_attack,_delta)
 
 func taking_damage(taken_attack:Attack):
+	if Moveable_Player:Moveable_Player.character.is_taking_damage=true
+	if Moveable_Body:Moveable_Body.visuals.is_taking_damage=true
 	if taken_attack.Nature in Vulnerability:
 		Damage_Factor=taken_attack.Base_damage*25/100
 	elif taken_attack.Nature in Resistance:
@@ -41,11 +44,13 @@ func take_a_step(taken_attack:Attack,delta:float):
 	if Bearable_power<=taken_attack.Strength:
 		dealt_thrown_time-=(delta+1)
 		var Node_to_be_rotated
-		if Moveable_Body:Node_to_be_rotated=Moveable_Body.visuals
-		if Moveable_Player:Node_to_be_rotated=Moveable_Player.character
-		print(Node_to_be_rotated)
+		if Moveable_Body:
+			Node_to_be_rotated=Moveable_Body.visuals
+		if Moveable_Player:
+			Node_to_be_rotated=Moveable_Player.character
+		#print(Node_to_be_rotated)
 		if dealt_thrown_time>0:
-			print(attack_sender)
+			#print(attack_sender)
 			Node_to_be_rotated.look_at(Vector3(
 					attack_sender.global_position.x,
 					Node_to_be_rotated.global_position.y,

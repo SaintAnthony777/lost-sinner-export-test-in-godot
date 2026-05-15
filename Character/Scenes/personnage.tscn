@@ -1,8 +1,8 @@
-[gd_scene load_steps=65 format=3 uid="uid://srgn3wkeivsn"]
+[gd_scene load_steps=66 format=3 uid="uid://srgn3wkeivsn"]
 
 [ext_resource type="Script" uid="uid://bhjwagrue8av5" path="res://Character/Scripts/Player/personnage.gd" id="1_ov8r6"]
 [ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="2_ov8r6"]
-[ext_resource type="Script" uid="uid://bua0kbub8bjta" path="res://Character/Scripts/StateMachines/Source_codes/StateMachine.gd" id="3_04cgm"]
+[ext_resource type="Script" uid="uid://bua0kbub8bjta" path="res://Character/Scripts/StateMachines/Source_codes/StateMachine.gd" id="3_1ght0"]
 [ext_resource type="Script" uid="uid://c75wfe85pvm4w" path="res://Character/Scripts/StateMachines/Extended_scripts/aiming.gd" id="4_xehxg"]
 [ext_resource type="Script" uid="uid://bpofh6khtjy35" path="res://Character/Scripts/StateMachines/Extended_scripts/normal.gd" id="5_itldn"]
 [ext_resource type="Script" uid="uid://lvtu4uf4kfcl" path="res://Character/Scripts/StateMachines/Extended_scripts/locking.gd" id="6_itldn"]
@@ -52,6 +52,7 @@
 [ext_resource type="Script" uid="uid://dvmfvbvvtwjja" path="res://Character/Scripts/StateMachines/Extended_scripts/world_strongest_man_release.gd" id="50_mjqgc"]
 [ext_resource type="Script" uid="uid://cfljjf5ejle66" path="res://Character/Scripts/StateMachines/Extended_scripts/disaster.gd" id="51_1ght0"]
 [ext_resource type="Script" uid="uid://b3v53106dvqoc" path="res://Character/Scripts/StateMachines/Extended_scripts/air_disaster.gd" id="52_qtnpb"]
+[ext_resource type="Script" uid="uid://dyo0dfkkoi6dk" path="res://Character/Scripts/StateMachines/Extended_scripts/taking_damage.gd" id="53_1ght0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ov8r6"]
 
@@ -254,7 +255,7 @@ libraries = {
 }
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("3_04cgm")
+script = ExtResource("3_1ght0")
 initial_state = NodePath("Idle")
 metadata/_custom_type_script = "uid://bua0kbub8bjta"
 
@@ -452,4 +453,8 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="Air_Disaster" type="Node" parent="StateMachine"]
 script = ExtResource("52_qtnpb")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Taking_damage" type="Node" parent="StateMachine"]
+script = ExtResource("53_1ght0")
 metadata/_custom_type_script = "uid://dq36efs6bxser"

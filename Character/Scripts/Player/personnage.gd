@@ -35,6 +35,7 @@ var player_move_direction : Vector3
 var player_direction : Vector3
 var current_target : enemy_root
 var self_delta=.01
+
 ## Grace and Divine Dividers
 var divine_divider_list:Array[String]=["Sundown","Screaming Silence","World Strongest Man"]
 var grace_list:Array[String]=["Disordonance","Heavy Charge","Disaster"]
@@ -43,6 +44,8 @@ var current_divine_divider_index:=0
 var current_divine_divider:=""
 var current_grace:=""
 var can_switch_special:=true
+
+
 
 func _ready() -> void:
 	camera.h_offset=.7

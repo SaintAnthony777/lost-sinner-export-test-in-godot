@@ -18,6 +18,12 @@ func state_logic(delta)->void:
 	if !player.is_on_floor():
 		character.landed=false
 		state_machine.change_state("falling")
+	taking_hit_check()
+	
+func taking_hit_check()->void:
+	if character.is_taking_damage:
+		state_machine.change_state("taking_damage")
+		
 func input_logic()->void:
 	if player.player_direction!=Vector3.ZERO:
 		state_machine.change_state("run")

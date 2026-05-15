@@ -33,6 +33,7 @@ var air_lashes:=false
 var can_unleash_heavy_charge:=false
 var stopped_charging:=false
 var can_unleash_divine_divider:=false
+var is_taking_damage:bool=false
 
 @onready var player: player_character = $".."
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -79,6 +80,10 @@ func grounding(stance:String)->void:
 	animation_tree.set("parameters/State/transition_request","Grounded")
 	animation_tree.set("parameters/Ground_state/transition_request","Ground_Motion")
 	animation_tree.set("parameters/Moving/transition_request",stance)
+
+func taking_damage(damage_lift:String)->void:
+	animation_tree.set("parameters/Ground_state/transition_request","Ground_Taking_Damage")
+	animation_tree.set("parameters/Ground_Taking_Damage_transitions/transition_request",damage_lift+" Damage")
 
 ### Rolling and all that
 func rolling()->void:
@@ -215,6 +220,9 @@ func can_unleash_heavy_charge_now():
 	can_unleash_heavy_charge=true
 func stopped_heavy_charge():
 	stopped_charging=true
-	
+
+func done_taking_damage()->void:
+	is_taking_damage=false
+
 func can_unleash_divine_divider_now():
 	can_unleash_divine_divider=true

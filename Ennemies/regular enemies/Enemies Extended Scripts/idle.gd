@@ -3,7 +3,7 @@ extends State
 @onready var enemy_body: regular_enemy = $"../.."
 @onready var visuals: EnemyVisuals = $"../../Visuals"
 
-func _ready() -> void:
+func enter() -> void:
 	visuals.Grounding("Idle")
 
 func physics_update(_delta) -> void:
