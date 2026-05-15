@@ -15668,10 +15668,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2699435, 0.88781756)
 target_position = Vector3(0, 0, 1)
 collision_mask = 6
 
-[node name="HurtBoxComponent" type="Area3D" parent="." index="11"]
+[node name="HurtBoxComponent" type="Area3D" parent="." index="11" node_paths=PackedStringArray("health_comp")]
 collision_layer = 16
 collision_mask = 13
 script = ExtResource("26_0i3i2")
+health_comp = NodePath("../Hud canvas layer/HUD/Health and equip/HealthComponent")
 metadata/_custom_type_script = "uid://4i450if78qh1"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBoxComponent" index="0"]
@@ -15689,3 +15690,4 @@ shape = SubResource("SphereShape3D_0i3i2")
 disabled = true
 
 [editable path="Special effects layer/Radial Blur + Chromatic aberration"]
+[editable path="Hud canvas layer/HUD"]

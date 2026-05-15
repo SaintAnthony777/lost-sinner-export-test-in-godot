@@ -259,8 +259,11 @@ Max_Arcane = 100.0
 Arcane_Gauge = NodePath("../Arcane")
 metadata/_custom_type_script = "uid://bki642kkfwyem"
 
-[node name="HealthComponent" type="Node" parent="Health and equip"]
+[node name="HealthComponent" type="Node" parent="Health and equip" node_paths=PackedStringArray("Health_gauge")]
 script = ExtResource("8_hnjob")
+Max_health = 100.0
+Vulnerability = Array[String](["Physical"])
+Health_gauge = NodePath("../Health")
 Bearable_power = 15.0
 metadata/_custom_type_script = "uid://bibpdrfengocv"
 

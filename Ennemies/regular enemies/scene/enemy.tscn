@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cdun6lufk65r"]
+[gd_scene load_steps=30 format=3 uid="uid://cdun6lufk65r"]
 
 [ext_resource type="Script" uid="uid://b2mma88kgmdm2" path="res://Ennemies/regular enemies/script/regular_enemy.gd" id="1_cyqdd"]
 [ext_resource type="Script" uid="uid://4i450if78qh1" path="res://Componenents/Hitbox and HurtBox/hurt_box_component.gd" id="2_2wixn"]
@@ -17,21 +17,6 @@ size = Vector3(0.475, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kgp7e"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cyqdd"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2wixn"]
-radius = 1.1269531
-height = 2.2539063
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7qs01"]
-load_path = "res://.godot/imported/Fond .PNG-fa9a20f05b13b4ccd05883a868e2c2d1.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r0u5x"]
-load_path = "res://.godot/imported/Remplissage.PNG-d6f76734bac8eabf6a0a1699de9f6c39.ctex"
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_7qs01"]
-viewport_path = NodePath("HealthSubViewPort")
-
 [sub_resource type="Animation" id="Animation_cmgpa"]
 resource_name = "Atack 1"
 tracks/0/type = "value"
@@ -41,10 +26,36 @@ tracks/0/path = NodePath("Visuals:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.58, 1),
+"times": PackedFloat32Array(0.13333334, 0.26666668, 0.53333336, 0.76666665),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0.94247276, 0.3967228, 0.6717547), Vector3(0.85124147, 0.71619225, 0.2852513), Vector3(0, 0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"done_attacking"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/HitBoxComponent/CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
 }
 
 [sub_resource type="Animation" id="Animation_kgp7e"]
@@ -143,6 +154,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals/HitBoxComponent/CollisionShape3D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kgp7e"]
 _data = {
@@ -156,6 +179,9 @@ _data = {
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4dp6f"]
 animation = &"Chasing"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c06go"]
+animation = &"Atack 1"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oygi1"]
 animation = &"Idle"
@@ -193,7 +219,7 @@ input_4/break_loop_at_end = false
 input_4/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_cmgpa"]
-graph_offset = Vector2(-426.4232, 113.35653)
+graph_offset = Vector2(-756.71893, 242.96516)
 nodes/output/position = Vector2(373.33334, 240)
 nodes/Final_State/node = SubResource("AnimationNodeTransition_c06go")
 nodes/Final_State/position = Vector2(51.24056, 204.28401)
@@ -205,12 +231,30 @@ nodes/Animation/node = SubResource("AnimationNodeAnimation_oygi1")
 nodes/Animation/position = Vector2(-640, 0)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_4dp6f")
 "nodes/Animation 2/position" = Vector2(-640, 240)
-node_connections = [&"output", 0, &"Final_State", &"Final_State", 0, &"Ground Transisitons", &"Final_State", 1, &"Airborne Transitions", &"Ground Transisitons", 0, &"Animation", &"Ground Transisitons", 1, &"Animation 2"]
+"nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_c06go")
+"nodes/Animation 3/position" = Vector2(-693.3333, 506.66666)
+node_connections = [&"output", 0, &"Final_State", &"Final_State", 0, &"Ground Transisitons", &"Final_State", 1, &"Airborne Transitions", &"Ground Transisitons", 0, &"Animation", &"Ground Transisitons", 1, &"Animation 2", &"Ground Transisitons", 2, &"Animation 3"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cyqdd"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2wixn"]
+radius = 1.1269531
+height = 2.2539063
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7qs01"]
+load_path = "res://.godot/imported/Fond .PNG-fa9a20f05b13b4ccd05883a868e2c2d1.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r0u5x"]
+load_path = "res://.godot/imported/Remplissage.PNG-d6f76734bac8eabf6a0a1699de9f6c39.ctex"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7qs01"]
+viewport_path = NodePath("HealthSubViewPort")
 
 [node name="enemy" type="CharacterBody3D"]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_cyqdd")
+attack_range = 1.5
 metadata/_custom_type_script = "uid://cugap2g484shs"
 
 [node name="Visuals" type="Node3D" parent="."]
@@ -234,6 +278,27 @@ metadata/_custom_type_script = "uid://dflwyxok3081k"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Visuals/HitBoxComponent"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7649851, 0.32296455)
 shape = SubResource("BoxShape3D_kgp7e")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visuals"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_kgp7e")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Visuals"]
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeBlendTree_cmgpa")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Final_State/current_state = "Grounded"
+parameters/Final_State/transition_request = ""
+parameters/Final_State/current_index = 0
+"parameters/Ground Transisitons/current_state" = "Attacking 1"
+"parameters/Ground Transisitons/transition_request" = ""
+"parameters/Ground Transisitons/current_index" = 2
+"parameters/Airborne Transitions/current_state" = ""
+"parameters/Airborne Transitions/transition_request" = ""
+"parameters/Airborne Transitions/current_index" = -1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0250047, 0)
@@ -290,24 +355,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0688846, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.0688846, 0)
 billboard = 1
 texture = SubResource("ViewportTexture_7qs01")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_kgp7e")
-}
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeBlendTree_cmgpa")
-anim_player = NodePath("../AnimationPlayer")
-parameters/Final_State/current_state = "Grounded"
-parameters/Final_State/transition_request = ""
-parameters/Final_State/current_index = 0
-"parameters/Ground Transisitons/current_state" = "Idle"
-"parameters/Ground Transisitons/transition_request" = ""
-"parameters/Ground Transisitons/current_index" = 0
-"parameters/Airborne Transitions/current_state" = ""
-"parameters/Airborne Transitions/transition_request" = ""
-"parameters/Airborne Transitions/current_index" = -1
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("5_4dp6f")
