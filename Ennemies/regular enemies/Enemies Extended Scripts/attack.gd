@@ -16,7 +16,6 @@ func enter() -> void:
 	visuals.Grounding("Attacking 1")
 
 func physics_update(_delta) -> void:
-	print(visuals.is_attacking)
 	state_logic(_delta)
 
 func state_logic(delta)->void:

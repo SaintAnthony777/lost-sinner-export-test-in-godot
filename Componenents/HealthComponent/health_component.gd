@@ -50,13 +50,21 @@ func take_a_step(taken_attack:Attack,delta:float):
 			Node_to_be_rotated=Moveable_Player.character
 		#print(Node_to_be_rotated)
 		if dealt_thrown_time>0:
-			#print(attack_sender)
-			Node_to_be_rotated.look_at(Vector3(
+			
+			if Moveable_Body:
+				Node_to_be_rotated.owner.look_at(Vector3(
 					attack_sender.global_position.x,
 					Node_to_be_rotated.global_position.y,
 					attack_sender.global_position.z
 				))
-			Node_to_be_rotated.rotate_y(PI)
+				Node_to_be_rotated.owner.rotate_y(PI)
+			else:
+				Node_to_be_rotated.look_at(Vector3(
+					attack_sender.global_position.x,
+					Node_to_be_rotated.global_position.y,
+					attack_sender.global_position.z
+				))
+				Node_to_be_rotated.rotate_y(PI)
 			expulsion_direction=Node_to_be_rotated.transform.basis.z.normalized()
 			Node_to_be_rotated.owner.velocity=-(expulsion_direction*taken_attack.Strength)
 			Node_to_be_rotated.owner.move_and_slide()
