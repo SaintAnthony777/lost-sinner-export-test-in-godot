@@ -9,3 +9,11 @@ var dealt_attack:Attack
 
 func initialize_player() -> void:
 	target=get_parent().get_node("Personnage")
+func aiming_at_player()->void:
+	visuals.look_at(Vector3(
+		target.global_position.x,
+		self.global_position.y,
+		target.global_position.z
+		)
+	)
+	visuals.rotate_y(PI)
