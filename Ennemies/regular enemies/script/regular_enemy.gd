@@ -1,6 +1,5 @@
 class_name regular_enemy extends enemy_root
 
-@onready var aiming_node: Node3D = $"Aiming Node"
 @onready var hurtbox:HurtBoxComponent=$HurtBoxComponent
 @onready var health_comp:HealthComponent=$"HealthComponent"
 

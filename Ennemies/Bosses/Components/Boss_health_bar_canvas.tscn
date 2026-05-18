@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7jx5iccg44ma"]
+
+[ext_resource type="Texture2D" uid="uid://blmh707jhdbwp" path="res://Character/HUD/assets/Barres 2/Remplissage.PNG" id="1_3mhe2"]
+
+[node name="HealthBar canvas" type="CanvasLayer"]
+
+[node name="Boss Hud" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="Boss Hud"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -85.0
+offset_right = 20.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.6, 0.6)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Boss Hud/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.6505954, 0.36766726)
+mouse_filter = 2
+value = 50.0
+texture_under = ExtResource("1_3mhe2")
+texture_over = ExtResource("1_3mhe2")
+texture_progress = ExtResource("1_3mhe2")
+tint_under = Color(0.24840015, 0.24840015, 0.24840021, 0.5294118)
+tint_over = Color(1, 1, 1, 0)
+tint_progress = Color(1.0468559, 0.054842632, 0, 1)
+
+[node name="Boss Name" type="Label" parent="Boss Hud/Control"]
+layout_mode = 0
+offset_left = -206.66667
+offset_top = -81.666664
+offset_right = 67.33333
+offset_bottom = -32.666664
+theme_override_font_sizes/font_size = 35
+text = "Nom Du Boss Ici"

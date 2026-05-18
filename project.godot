@@ -10,9 +10,9 @@ config_version=5
 
 [application]
 
-config/name="Lost Sinner Test export"
+config/name="A soaring Silence"
 config/tags=PackedStringArray("character+codes", "gotta_keep_it_on", "prototype", "to_be_used_for_a_silent_chaos")
-run/main_scene="uid://d4nksg7f130a5"
+run/main_scene="uid://d2vjed12ol1jh"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="uid://flvau0snwba7"
 

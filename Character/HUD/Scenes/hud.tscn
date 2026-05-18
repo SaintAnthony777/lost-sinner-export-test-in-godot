@@ -139,10 +139,12 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -78.66669
-offset_right = 174.00012
+offset_left = -28.0
+offset_top = -46.0
+offset_right = 146.00012
+offset_bottom = 32.666687
 grow_vertical = 0
-scale = Vector2(0.9, 0.9)
+scale = Vector2(0.7, 0.7)
 
 [node name="Health" type="TextureProgressBar" parent="Health and equip"]
 layout_mode = 1

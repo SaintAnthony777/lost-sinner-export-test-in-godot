@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://divb5q1et4b3y"]
+
+[ext_resource type="Script" uid="uid://cbvmw20gjks86" path="res://Ennemies/Bosses/Halfrey/Scripts/halfrey_root.gd" id="1_60m16"]
+[ext_resource type="PackedScene" uid="uid://bctt1rhu83hot" path="res://Ennemies/Bosses/Halfrey/Scenes/halfrey.tscn" id="2_l6s3y"]
+[ext_resource type="Script" uid="uid://bua0kbub8bjta" path="res://Character/Scripts/StateMachines/Source_codes/StateMachine.gd" id="3_l6rd2"]
+[ext_resource type="Script" uid="uid://c70qw3w5xgu4q" path="res://Ennemies/Bosses/Halfrey/Scripts/Extended Scripts/kneeling_idle.gd" id="4_jgvxt"]
+[ext_resource type="Script" uid="uid://dq36efs6bxser" path="res://Character/Scripts/StateMachines/Source_codes/State.gd" id="4_xr3cn"]
+[ext_resource type="PackedScene" uid="uid://c7jx5iccg44ma" path="res://Ennemies/Bosses/Components/Boss_health_bar_canvas.tscn" id="7_5vsh5"]
+[ext_resource type="Script" uid="uid://bibpdrfengocv" path="res://Componenents/HealthComponent/health_component.gd" id="7_ww0a5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l6s3y"]
+radius = 0.78808594
+height = 3.5214844
+
+[node name="Halfrey root" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_60m16")
+metadata/_custom_type_script = "uid://cugap2g484shs"
+
+[node name="Halfrey" parent="." instance=ExtResource("2_l6s3y")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7250175, 0)
+shape = SubResource("CapsuleShape3D_l6s3y")
+
+[node name="aiming node" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5355036, 0)
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_l6rd2")
+initial_state = NodePath("Kneeling Idle")
+metadata/_custom_type_script = "uid://bua0kbub8bjta"
+
+[node name="Kneeling Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_jgvxt")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Getting Ready" type="Node" parent="StateMachine"]
+script = ExtResource("4_xr3cn")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_xr3cn")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("Health_gauge")]
+script = ExtResource("7_ww0a5")
+Max_health = 500.0
+Resistance = Array[String](["Physical", "Divine Divider", "Grace"])
+Health_gauge = NodePath("../HealthBar canvas/Boss Hud/Control/TextureProgressBar")
+metadata/_custom_type_script = "uid://bibpdrfengocv"
+
+[node name="HealthBar canvas" parent="." instance=ExtResource("7_5vsh5")]
+
+[editable path="HealthBar canvas"]

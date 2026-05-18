@@ -17,6 +17,7 @@ var dealt_thrown_time:float=.0
 @export var Bearable_power:float
 
 func _ready() -> void:
+	Health_gauge.max_value=Max_health
 	Current_health=Max_health
 	
 func _process(_delta: float) -> void:

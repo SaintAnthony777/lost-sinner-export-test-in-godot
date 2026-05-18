@@ -1,0 +1,21 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://dfn4tit5njim1"]
+
+[ext_resource type="Texture2D" uid="uid://jrv6xdb2yg3g" path="res://Ennemies/Bosses/Halfrey/Models/Mixamo And Sword/Textures/Rusted iron/Metal053C_1K-JPG_Color.jpg" id="Color"]
+[ext_resource type="Texture2D" uid="uid://cy665bs8mg3qc" path="res://Ennemies/Bosses/Halfrey/Models/Mixamo And Sword/Textures/Rusted iron/Metal053C_1K-JPG_Displacement.jpg" id="Displacement"]
+[ext_resource type="Texture2D" uid="uid://digl032tkwhpo" path="res://Ennemies/Bosses/Halfrey/Models/Mixamo And Sword/Textures/Rusted iron/Metal053C_1K-JPG_Metalness.jpg" id="Metalness"]
+[ext_resource type="Texture2D" uid="uid://b4jgguvkalvhf" path="res://Ennemies/Bosses/Halfrey/Models/Mixamo And Sword/Textures/Rusted iron/Metal053C_1K-JPG_NormalGL.jpg" id="NormalGL"]
+[ext_resource type="Texture2D" uid="uid://qqojsw5vfn62" path="res://Ennemies/Bosses/Halfrey/Models/Mixamo And Sword/Textures/Rusted iron/Metal053C_1K-JPG_Roughness.jpg" id="Roughness"]
+
+[resource]
+albedo_color = Color(0.5796909, 0.57969093, 0.57969093, 1)
+albedo_texture = ExtResource("Color")
+metallic = 1.0
+metallic_texture = ExtResource("Metalness")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("Roughness")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("NormalGL")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("Displacement")
