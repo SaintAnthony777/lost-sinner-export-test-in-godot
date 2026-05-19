@@ -192,7 +192,7 @@ _data = {
 &"camera_up_then_down": SubResource("Animation_e8vxi")
 }
 
-[node name="Personnage" type="CharacterBody3D"]
+[node name="Personnage" type="CharacterBody3D" groups=["Personnage", "Player"]]
 collision_mask = 6
 floor_max_angle = 1.0471976
 script = ExtResource("1_ov8r6")
