@@ -49,9 +49,7 @@ func take_a_step(taken_attack:Attack,delta:float):
 			Node_to_be_rotated=Moveable_Body.visuals
 		if Moveable_Player:
 			Node_to_be_rotated=Moveable_Player.character
-		#print(Node_to_be_rotated)
 		if dealt_thrown_time>0:
-			
 			if Moveable_Body:
 				Node_to_be_rotated.owner.look_at(Vector3(
 					attack_sender.global_position.x,

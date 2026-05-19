@@ -7,7 +7,7 @@ var isattacking:bool=false
 var is_lunging:bool=false
 var is_turning_at_player:bool=false
 var is_ready:bool=false
-
+var dealt_attack:Attack
 func Boss_motion(current_state:String,current_action:String)->void:
 	animation_tree.set("parameters/Final Output Transition/transition_request",current_state)
 	animation_tree.set("parameters/"+current_state+" Motion Transition/transition_request",current_action)

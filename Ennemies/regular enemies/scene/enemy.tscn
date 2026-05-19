@@ -291,7 +291,7 @@ parameters/Final_State/current_index = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0250047, 0)
 shape = SubResource("CapsuleShape3D_cyqdd")
 
-[node name="Aiming Node" type="Node3D" parent="."]
+[node name="aiming node" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5455726, 0)
 
 [node name="HurtBoxComponent" type="Area3D" parent="." node_paths=PackedStringArray("health_comp")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://divb5q1et4b3y"]
+[gd_scene load_steps=14 format=3 uid="uid://divb5q1et4b3y"]
 
 [ext_resource type="Script" uid="uid://cbvmw20gjks86" path="res://Ennemies/Bosses/Halfrey/Scripts/halfrey_root.gd" id="1_60m16"]
 [ext_resource type="PackedScene" uid="uid://bctt1rhu83hot" path="res://Ennemies/Bosses/Halfrey/Scenes/halfrey.tscn" id="2_l6s3y"]
@@ -15,6 +15,10 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l6s3y"]
 radius = 0.78808594
 height = 3.5214844
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_50gp6"]
+radius = 1.1645508
+height = 3.4667969
 
 [node name="Halfrey root" type="CharacterBody3D"]
 collision_layer = 4
@@ -61,6 +65,7 @@ script = ExtResource("7_ww0a5")
 Max_health = 500.0
 Resistance = Array[String](["Physical", "Divine Divider", "Grace"])
 Health_gauge = NodePath("../HealthBar canvas/Boss Hud/Control/TextureProgressBar")
+Bearable_power = 50.0
 metadata/_custom_type_script = "uid://bibpdrfengocv"
 
 [node name="HealthBar canvas" parent="." instance=ExtResource("7_5vsh5")]
@@ -73,5 +78,9 @@ height = 0.01
 script = ExtResource("11_50gp6")
 health_comp = NodePath("../HealthComponent")
 metadata/_custom_type_script = "uid://4i450if78qh1"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBoxComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36777782, 1.474607, 0)
+shape = SubResource("CapsuleShape3D_50gp6")
 
 [editable path="HealthBar canvas"]

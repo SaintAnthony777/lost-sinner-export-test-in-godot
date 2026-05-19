@@ -11,6 +11,6 @@ func _ready() -> void:
 	visuals=$Visuals
 	health_comp.Moveable_Body=self
 	initialize_player()
-
+	initialize_aiming_node()
 func death_function():
 	queue_free()
