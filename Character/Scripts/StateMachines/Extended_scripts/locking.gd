@@ -28,7 +28,8 @@ func state_logic(_delta:float):
 		player.player_force_rotation()
 		player.camera_force_rotation(camera_offset_no_offense_here)
 		player.camera_and_mesh_rotation()
-		
+	if character.is_taking_damage:
+		state_machine.change_state("taking_damage")
 	if Input.is_action_just_pressed("Attack_trigger"):
 		character.is_attacking=true
 		state_machine.change_state("hammer_attack_1")

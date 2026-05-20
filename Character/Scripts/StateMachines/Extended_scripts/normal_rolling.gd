@@ -22,6 +22,8 @@ func state_logic(delta):
 		check_dash_attack()
 	if character.pick_back_hammer and character.equipped_hammer.visible:
 		character.has_got_hammer_back()
+	if character.is_taking_damage:
+		state_machine.change_state("taking_damage")
 func dashlogic():
 	player.velocity=roll_dir*dash_speed
 	player.velocity.y=0

@@ -22,11 +22,7 @@ func ground_check(delta)->void:
 	player.move_and_slide()
 	if player.is_on_floor():
 		state_machine.change_state("lands")
-	
-	
 func input_check()->void:
-	if Input.is_action_just_pressed("sprinting"):
-		pass
 	if Input.is_action_just_pressed("Special"):
 		character.is_divine_dividing=true
 		state_machine.change_state("Air_"+player.current_divine_divider)
