@@ -35,4 +35,4 @@ func state_logic(_delta:float):
 		state_machine.change_state("hammer_attack_1")
 	if Input.is_action_just_pressed("sprinting"):
 		character.isrolling=true
-		state_machine.change_state("aiming_rolls")
+		state_machine.change_state("locking_rolls")

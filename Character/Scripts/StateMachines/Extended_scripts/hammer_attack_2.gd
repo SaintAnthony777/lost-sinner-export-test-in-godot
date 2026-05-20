@@ -30,7 +30,7 @@ func attack_check()->void:
 			if !player.is_locking:
 				state_machine.change_state("normal_rolling")
 			else:
-				state_machine.change_state("aiming_rolls")
+				state_machine.change_state("locking_rolls")
 	if character.can_advance_to_next_atack_pattern : 
 		if character.requested_next_attack==true:
 			character.can_advance_to_next_atack_pattern=false
