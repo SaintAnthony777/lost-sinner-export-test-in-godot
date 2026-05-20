@@ -197,6 +197,7 @@ func has_thrown_hammer():
 
 func show_hammer():
 	equipped_hammer.show()
+	
 func has_got_hammer_back():
 	can_throw_hammer=true
 	pick_back_hammer=false

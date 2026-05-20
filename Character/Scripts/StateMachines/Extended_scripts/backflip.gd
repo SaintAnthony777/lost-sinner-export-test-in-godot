@@ -9,6 +9,8 @@ func physics_update(_delta) -> void:
 	player.gravity_applying(_delta)
 	state_logic(_delta)
 func state_logic(delta):
+	if character.pick_back_hammer and character.equipped_hammer.visible:
+		character.has_got_hammer_back()
 	player.camera_rotation_logic(delta)
 	character.backflip()
 	if Input.is_action_just_pressed("Attack_trigger"): character.requested_dash_attack=true

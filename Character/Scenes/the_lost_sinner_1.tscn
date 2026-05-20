@@ -10723,30 +10723,13 @@ tracks/140/keys = {
 "update": 0,
 "values": [Vector3(0.01, 0.01, 0.01), Vector3(0.01, 0.01, 0.01), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(0.01, 0.01, 0.01), Vector3(0.01, 0.01, 0.01)]
 }
-tracks/141/type = "method"
+tracks/141/type = "value"
 tracks/141/imported = false
 tracks/141/enabled = true
-tracks/141/path = NodePath("slow_mo_node")
+tracks/141/path = NodePath("AOE_Hitboxes/HitBoxComponent/CollisionShape3D:disabled")
 tracks/141/interp = 1
 tracks/141/loop_wrap = true
 tracks/141/keys = {
-"times": PackedFloat32Array(0.56666666, 1),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [0.2],
-"method": &"start_slow_motion"
-}, {
-"args": [],
-"method": &"stops_slow_motion"
-}]
-}
-tracks/142/type = "value"
-tracks/142/imported = false
-tracks/142/enabled = true
-tracks/142/path = NodePath("AOE_Hitboxes/HitBoxComponent/CollisionShape3D:disabled")
-tracks/142/interp = 1
-tracks/142/loop_wrap = true
-tracks/142/keys = {
 "times": PackedFloat32Array(0, 0.53333336, 2.1666667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,

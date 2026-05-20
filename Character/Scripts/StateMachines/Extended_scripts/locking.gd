@@ -25,27 +25,13 @@ func state_logic(_delta:float):
 		player.current_target=null
 		state_machine.change_state("normal")
 	else: 
-		player_force_rotation()
-		camera_force_rotation()
-		camera_and_mesh_rotation()
+		player.player_force_rotation()
+		player.camera_force_rotation(camera_offset_no_offense_here)
+		player.camera_and_mesh_rotation()
+		
 	if Input.is_action_just_pressed("Attack_trigger"):
 		character.is_attacking=true
 		state_machine.change_state("hammer_attack_1")
-func player_force_rotation()->void:
-	var input_dir := Input.get_vector("Droite", "Gauche", "Bas", "Haut") 
-	var look_pos = Vector3(player.current_target.aiming_node.global_position.x,
-	player.global_position.y,
-	player.current_target.global_position.z)
-	player.character_moving(player.player_direction)
-	player.character.locking_motion(input_dir)
-	player.character.look_at(look_pos,Vector3.UP)
-
-func camera_force_rotation()->void:
-	var camera_look_pos =Vector3(player.current_target.global_position.x,
-	player.camera_controller.global_position.y+camera_offset_no_offense_here,
-	player.current_target.global_position.z)
-	player.camera_controller.look_at(camera_look_pos,Vector3.UP)
-	
-func camera_and_mesh_rotation()->void:
-	player.character.rotate_y(PI)
-	player.camera_controller.rotate_y(PI)
+	if Input.is_action_just_pressed("sprinting"):
+		character.isrolling=true
+		state_machine.change_state("aiming_rolls")

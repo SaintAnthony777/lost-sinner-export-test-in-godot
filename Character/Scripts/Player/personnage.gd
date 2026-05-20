@@ -182,3 +182,24 @@ func reset_camera()->void:
 	else : camera.h_offset=.7
 	camera.v_offset=0.0
 	can_switch_camera=true
+	
+func player_force_rotation()->void:
+	var input_dir := Input.get_vector("Droite", "Gauche", "Bas", "Haut") 
+	var look_pos = Vector3(self.current_target.aiming_node.global_position.x,
+	self.global_position.y,
+	self.current_target.global_position.z)
+	self.character_moving(self.player_direction)
+	self.character.locking_motion(input_dir)
+	self.character.look_at(look_pos,Vector3.UP)
+
+func camera_force_rotation(camera_offset_no_offense_here:float)->void:
+	camera_offset_no_offense_here=self.global_position.distance_to(self.current_target.global_position)
+	camera_offset_no_offense_here=clamp(camera_offset_no_offense_here,0.0,2.0)
+	var camera_look_pos =Vector3(self.current_target.global_position.x,
+	self.camera_controller.global_position.y+camera_offset_no_offense_here,
+	self.current_target.global_position.z)
+	self.camera_controller.look_at(camera_look_pos,Vector3.UP)
+	
+func camera_and_mesh_rotation()->void:
+	self.character.rotate_y(PI)
+	self.camera_controller.rotate_y(PI)

@@ -5,7 +5,9 @@ extends State
 func physics_update(_delta) -> void:
 	state_logic(_delta)
 	input_logic()
+	character.crosshair_layer.show()
 func state_logic(delta)->void:
+	
 	player.camera.fov=lerp(player.camera.fov,55.0,.1)
 	player.SPEED=3.0
 	player.gravity_applying(delta)

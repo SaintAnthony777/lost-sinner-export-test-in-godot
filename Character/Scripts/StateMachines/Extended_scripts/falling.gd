@@ -9,6 +9,8 @@ func physics_update(_delta) -> void:
 	state_logic(_delta)
 
 func state_logic(delta)->void:
+	if character.pick_back_hammer and character.equipped_hammer.visible:
+		character.has_got_hammer_back()
 	player.camera.fov=lerp(player.camera.fov,75.0,.1)
 	ground_check(delta)
 	player.character_moving(player.player_direction)

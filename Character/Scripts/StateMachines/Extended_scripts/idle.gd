@@ -2,7 +2,8 @@ extends State
 
 @onready var character: character_mesh = $"../../The Lost Sinner1"
 @onready var player: player_character = $"../.."
-
+func enter() -> void:
+	character.crosshair_layer.hide()
 
 func physics_update(_delta) -> void:
 	player.camera.fov=lerp(player.camera.fov,75.0,.1)
@@ -10,7 +11,7 @@ func physics_update(_delta) -> void:
 	input_logic()
 	
 func state_logic(delta)->void:
-	if character.pick_back_hammer:
+	if character.pick_back_hammer :
 		state_machine.change_state("hammer_take_back")
 	character.normal_motion("Idle_unarmed")
 	player.gravity_applying(delta)
