@@ -12,7 +12,7 @@ var is_divine_dividing:=false
 var is_making_grace:=false
 var landed:=false
 var aerial_dashing:=false
-
+var is_blocking:=false
 
 var can_advance_to_next_atack_pattern:=false
 var is_attacking:bool=false

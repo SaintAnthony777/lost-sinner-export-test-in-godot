@@ -15,7 +15,7 @@ var dealt_thrown_time:float=.0
 @export var Immunity:Array[String]
 @export var Health_gauge:TextureProgressBar
 @export var Bearable_power:float
-
+@export var Armor_value:float
 func _ready() -> void:
 	Health_gauge.max_value=Max_health
 	Current_health=Max_health
@@ -35,7 +35,12 @@ func taking_damage(taken_attack:Attack):
 		Damage_Factor=-taken_attack.Base_damage*5/100
 	elif taken_attack.Nature in Immunity :
 		Damage_Factor=-taken_attack.Base_damage
-	Current_health-=taken_attack.Base_damage+Damage_Factor
+		
+	if Moveable_Player and Moveable_Player.character.is_blocking :
+		var dealt_dmg=(taken_attack.Base_damage+Damage_Factor)-Armor_value
+		if dealt_dmg<=0:dealt_dmg=0
+		Current_health-=dealt_dmg
+	else : Current_health-=taken_attack.Base_damage+Damage_Factor
 	dealt_thrown_time=taken_attack.Stun_time
 	if Current_health<0:Current_health=0
 	if Current_health==0:owner.death_function()

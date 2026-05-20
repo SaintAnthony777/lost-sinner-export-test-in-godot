@@ -1,6 +1,8 @@
 extends State
 @onready var character: character_mesh = $"../../The Lost Sinner1"
 @onready var player: player_character = $"../.."
+func enter() -> void:
+	character.is_blocking=true
 
 func physics_update(_delta) -> void:
 	player.camera.fov=lerp(player.camera.fov,75.0,.1)
@@ -19,6 +21,7 @@ func state_logic(delta)->void:
 
 func input_logic()->void:
 	if Input.is_action_just_released("Blocks"):
+		character.is_blocking=false
 		state_machine.change_state("idle")
 	if Input.is_action_just_pressed("sprinting"):
 		character.isrolling=true

@@ -5,6 +5,8 @@ extends State
 @export var running_speed:=6.0
 func enter() -> void:
 	character.crosshair_layer.hide()
+	#character.health_component.Armor_value=15
+
 func physics_update(_delta) -> void:
 	player.camera.fov=lerp(player.camera.fov,85.0,.1)
 	state_logic(_delta)

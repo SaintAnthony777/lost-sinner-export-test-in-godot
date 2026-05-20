@@ -64,6 +64,7 @@ Max_health = 500.0
 Resistance = Array[String](["Physical", "Divine Divider", "Grace"])
 Health_gauge = NodePath("../HealthBar canvas/Boss Hud/Control/TextureProgressBar")
 Bearable_power = 50.0
+Armor_value = 25.0
 metadata/_custom_type_script = "uid://bibpdrfengocv"
 
 [node name="HealthBar canvas" parent="." instance=ExtResource("7_5vsh5")]
