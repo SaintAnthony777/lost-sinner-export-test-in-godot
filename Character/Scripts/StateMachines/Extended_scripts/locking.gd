@@ -13,7 +13,8 @@ func physics_update(_delta) -> void:
 func state_logic(_delta:float):
 	camera_offset_no_offense_here=player.global_position.distance_to(player.current_target.global_position)
 	camera_offset_no_offense_here=clamp(camera_offset_no_offense_here,0.0,2.0)
-	if camera_offset_no_offense_here<2.0:camera_offset_no_offense_here=lerp(camera_offset_no_offense_here,-1.0,.1)
+	if camera_offset_no_offense_here<2.0:
+		camera_offset_no_offense_here=lerp(camera_offset_no_offense_here,-1.0,.1)
 	player.SPEED=5.0
 	player.camera.fov=lerp(player.camera.fov,100.0,.1)
 	player.gravity_applying(_delta)
@@ -27,11 +28,9 @@ func state_logic(_delta:float):
 		player_force_rotation()
 		camera_force_rotation()
 		camera_and_mesh_rotation()
-
-
-func exit() -> void:
-	player.is_locking=false
-	
+	if Input.is_action_just_pressed("Attack_trigger"):
+		character.is_attacking=true
+		state_machine.change_state("hammer_attack_1")
 func player_force_rotation()->void:
 	var input_dir := Input.get_vector("Droite", "Gauche", "Bas", "Haut") 
 	var look_pos = Vector3(player.current_target.aiming_node.global_position.x,

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://divb5q1et4b3y"]
+[gd_scene load_steps=12 format=3 uid="uid://divb5q1et4b3y"]
 
 [ext_resource type="Script" uid="uid://cbvmw20gjks86" path="res://Ennemies/Bosses/Halfrey/Scripts/halfrey_root.gd" id="1_60m16"]
 [ext_resource type="PackedScene" uid="uid://bctt1rhu83hot" path="res://Ennemies/Bosses/Halfrey/Scenes/halfrey.tscn" id="2_l6s3y"]
@@ -10,15 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://c7jx5iccg44ma" path="res://Ennemies/Bosses/Components/Boss_health_bar_canvas.tscn" id="7_5vsh5"]
 [ext_resource type="Script" uid="uid://bibpdrfengocv" path="res://Componenents/HealthComponent/health_component.gd" id="7_ww0a5"]
 [ext_resource type="Script" uid="uid://cpen2spseiwre" path="res://Ennemies/Bosses/Halfrey/Scripts/Extended Scripts/attack_state.gd" id="8_egc4a"]
-[ext_resource type="Script" uid="uid://4i450if78qh1" path="res://Componenents/Hitbox and HurtBox/hurt_box_component.gd" id="11_50gp6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l6s3y"]
 radius = 0.78808594
 height = 3.5214844
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_50gp6"]
-radius = 1.1645508
-height = 3.4667969
 
 [node name="Halfrey root" type="CharacterBody3D"]
 collision_layer = 4
@@ -27,6 +22,9 @@ script = ExtResource("1_60m16")
 metadata/_custom_type_script = "uid://cugap2g484shs"
 
 [node name="Halfrey" parent="." instance=ExtResource("2_l6s3y")]
+
+[node name="HurtBoxComponent" parent="Halfrey" index="4" node_paths=PackedStringArray("health_comp")]
+health_comp = NodePath("../../HealthComponent")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9405031, 0)
@@ -74,13 +72,5 @@ visible = false
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 height = 0.01
 
-[node name="HurtBoxComponent" type="Area3D" parent="." node_paths=PackedStringArray("health_comp")]
-script = ExtResource("11_50gp6")
-health_comp = NodePath("../HealthComponent")
-metadata/_custom_type_script = "uid://4i450if78qh1"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBoxComponent"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36777782, 1.474607, 0)
-shape = SubResource("CapsuleShape3D_50gp6")
-
+[editable path="Halfrey"]
 [editable path="HealthBar canvas"]

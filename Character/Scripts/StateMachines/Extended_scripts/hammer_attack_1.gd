@@ -6,6 +6,7 @@ func enter() -> void:
 	character.requested_next_attack=false
 	character.requested_dash=false
 	attack_stuff()
+	print(player.is_locking)
 func physics_update(_delta) -> void:
 	attack_check()
 	state_logic(_delta)
@@ -31,11 +32,15 @@ func attack_check()->void:
 			character.can_advance_to_next_atack_pattern=false
 			state_machine.change_state("Hammer_attack_2")
 	if character.is_attacking==false:
-		state_machine.change_state("idle")
+		if player.is_locking:
+			state_machine.change_state("locking")
+		else :
+			state_machine.change_state("idle")
 
 func state_logic(delta)->void:
 	if Input.is_action_just_pressed("sprinting"):character.requested_dash=true
 	if Input.is_action_just_pressed("Attack_trigger") and !character.requested_next_attack:character.requested_next_attack = true
 	player.camera_rotation_logic(delta)
-	character.adjust_character_rotation(delta)
+	if !player.is_locking:
+		character.adjust_character_rotation(delta)
 	

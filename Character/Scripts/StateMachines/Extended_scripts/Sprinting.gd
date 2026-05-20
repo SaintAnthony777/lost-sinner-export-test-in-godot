@@ -18,7 +18,10 @@ func physics_update(_delta) -> void:
 		
 	if Input.is_action_pressed("Aiming"):
 		state_machine.change_state("aiming")
-
+	if Input.is_action_just_pressed("Jump trigger"):
+		character.landed=false
+		state_machine.change_state("Jumping")
+	
 func state_logic(delta:float)->void:
 	player.SPEED=sprinting_speed
 	player.gravity_applying(delta)
