@@ -35,7 +35,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5355036, 0)
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_l6rd2")
-initial_state = NodePath("Kneeling Idle")
+initial_state = NodePath("Chasing fierce")
 metadata/_custom_type_script = "uid://bua0kbub8bjta"
 
 [node name="Kneeling Idle" type="Node" parent="StateMachine"]

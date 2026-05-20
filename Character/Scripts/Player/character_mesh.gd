@@ -56,12 +56,7 @@ var is_taking_damage:bool=false
 @onready var dealt_attack:Attack
 
 func _ready() -> void:
-	pass
 	health_component.Moveable_Player=player
-	#hit_box_component.area_entered.connect(hit_box_component._on_area_entered)
-	#hurt_box_component.area_entered.connect(hurt_box_component._on_area_entered)
-	#hitbox_collision.disabled=true
-	#AOE_hitBox.area_entered.connect(AOE_hitBox._on_area_entered)
 func normal_motion(current_action:String)->void:
 	grounding("Normal")
 	animation_tree.set("parameters/Normal_Transition/transition_request",current_action)
@@ -227,3 +222,8 @@ func done_taking_damage()->void:
 
 func can_unleash_divine_divider_now():
 	can_unleash_divine_divider=true
+
+func roll_hurt_box_disable()->void:
+	hurt_box_component.collision_shape.disabled=true
+func roll_hurtbox_enable()->void:
+	hurt_box_component.collision_shape.disabled=false
