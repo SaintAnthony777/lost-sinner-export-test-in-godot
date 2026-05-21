@@ -1,4 +1,4 @@
-[gd_scene load_steps=153 format=3 uid="uid://xumlackoysv2"]
+[gd_scene load_steps=152 format=3 uid="uid://xumlackoysv2"]
 
 [ext_resource type="PackedScene" uid="uid://dshsna3bwyfl7" path="res://Character/Glb/lost sinner 1/The Lost Sinner1.glb" id="1_ag85x"]
 [ext_resource type="Script" uid="uid://dijb6jh7etgx0" path="res://Character/Scripts/Player/character_mesh.gd" id="2_ukanm"]
@@ -14965,6 +14965,7 @@ animation = &"blocking animation packs/Shield Strafe forward"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tstfb"]
 animation = &"blocking animation packs/Shield Strafe forward"
+play_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_14b8p"]
 animation = &"blocking animation packs/Shield strafe right"
@@ -14975,9 +14976,6 @@ play_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tt1bb"]
 animation = &"blocking animation packs/Shield Idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0i3i2"]
-animation = &"blocking animation packs/Shield Strafe forward"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_h8mx0"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_pxubl")
@@ -14990,8 +14988,6 @@ blend_point_3/node = SubResource("AnimationNodeAnimation_55dcl")
 blend_point_3/pos = Vector2(1, 0)
 blend_point_4/node = SubResource("AnimationNodeAnimation_tt1bb")
 blend_point_4/pos = Vector2(0, 0)
-blend_point_5/node = SubResource("AnimationNodeAnimation_0i3i2")
-blend_point_5/pos = Vector2(0, -1)
 sync = true
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_50exv"]
@@ -15213,6 +15209,7 @@ animation = &"Quick roll"
 animation = &"Supplementary animation packs 2/Run slide"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_h8mx0"]
+graph_offset = Vector2(-2807.7168, 476.96445)
 nodes/output/position = Vector2(1680, 186.66667)
 nodes/State/node = SubResource("AnimationNodeTransition_rf1bm")
 nodes/State/position = Vector2(1440, 160)
@@ -15562,7 +15559,7 @@ parameters/TimeScale/scale = 0.7999999999999972
 "parameters/Ground Attack transitions/current_state" = "Specials"
 "parameters/Ground Attack transitions/transition_request" = ""
 "parameters/Ground Attack transitions/current_index" = 2
-"parameters/Shield blendspace strafe/blend_position" = Vector2(-0.9596977, 0.0031249523)
+"parameters/Shield blendspace strafe/blend_position" = Vector2(-0.0077519417, -0.20479298)
 "parameters/Ground shield transistion/current_state" = "strafe"
 "parameters/Ground shield transistion/transition_request" = ""
 "parameters/Ground shield transistion/current_index" = 2

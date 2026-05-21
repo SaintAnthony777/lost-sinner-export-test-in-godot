@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://srgn3wkeivsn"]
+[gd_scene load_steps=68 format=3 uid="uid://srgn3wkeivsn"]
 
 [ext_resource type="Script" uid="uid://bhjwagrue8av5" path="res://Character/Scripts/Player/personnage.gd" id="1_ov8r6"]
 [ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="2_ov8r6"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://bn657wf0lbtq5" path="res://Character/Scripts/StateMachines/Extended_scripts/backflip.gd" id="15_5krre"]
 [ext_resource type="Script" uid="uid://bnqwgc56u767e" path="res://Character/Scripts/StateMachines/Extended_scripts/shield_idle.gd" id="17_u8phq"]
 [ext_resource type="Script" uid="uid://b18w5bi75035r" path="res://Character/Scripts/StateMachines/Extended_scripts/shield_strafe.gd" id="18_5ct1c"]
+[ext_resource type="Script" uid="uid://c83e018iy8fth" path="res://Character/Scripts/StateMachines/Extended_scripts/shield_locking.gd" id="18_ywyje"]
 [ext_resource type="Script" uid="uid://bgnydv1tqmfax" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_attack_1.gd" id="19_3iy4h"]
 [ext_resource type="Script" uid="uid://t3d0b7jxicui" path="res://Character/Scripts/StateMachines/Extended_scripts/shield_normal.gd" id="19_tgsyp"]
 [ext_resource type="Script" uid="uid://c6y0h6jww27wa" path="res://Character/Scripts/StateMachines/Extended_scripts/hammer_attack_2.gd" id="20_y8f87"]
@@ -314,6 +315,10 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="shield_normal" type="Node" parent="StateMachine"]
 script = ExtResource("19_tgsyp")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Shield_Locking" type="Node" parent="StateMachine"]
+script = ExtResource("18_ywyje")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="hammer_attack_1" type="Node" parent="StateMachine"]

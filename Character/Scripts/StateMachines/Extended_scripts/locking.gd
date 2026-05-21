@@ -36,3 +36,6 @@ func state_logic(_delta:float):
 	if Input.is_action_just_pressed("sprinting"):
 		character.isrolling=true
 		state_machine.change_state("locking_rolls")
+	if Input.is_action_pressed("Blocks"):
+		character.is_blocking=true
+		state_machine.change_state("shield_locking")

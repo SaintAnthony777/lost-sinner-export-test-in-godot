@@ -23,7 +23,7 @@ func attack_picker() -> void:
 	halfrey.Boss_motion("Attack",ATTACK_LIST[attack_picked])
 func attack_check()->void:
 	if !halfrey.isattacking:
-		state_machine.change_state("Chasing fierce")
+		state_machine.change_state("idle")
 func init_attacks()->void:
 	Attack_1.create_attack(15.0,25.0,"Physical",3.0,0.0)
 	Attack_array.append(Attack_1)

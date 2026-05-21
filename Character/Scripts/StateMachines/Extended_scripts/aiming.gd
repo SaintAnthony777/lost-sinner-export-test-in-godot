@@ -19,6 +19,7 @@ func physics_update(_delta) -> void:
 		state_machine.change_state("aiming_rolls")
 	if Input.is_action_just_pressed("Special"):
 		character.is_divine_dividing=true
+		character.crosshair_layer.hide()
 		state_machine.change_state(player.current_divine_divider)
 		
 func state_logics (delta:float) -> void :

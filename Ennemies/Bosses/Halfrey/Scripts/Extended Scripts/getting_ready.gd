@@ -10,4 +10,4 @@ func getting_ready_tricks()->void:
 	halfrey.Boss_motion("Still","Getting Ready")
 func physics_update(_delta) -> void:
 	if halfrey.is_ready:
-		state_machine.change_state("Chasing fierce")
+		state_machine.change_state("idle")
