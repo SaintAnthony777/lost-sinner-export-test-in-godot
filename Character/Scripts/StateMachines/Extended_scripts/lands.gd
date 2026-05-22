@@ -12,7 +12,8 @@ func physics_update(_delta) -> void:
 func state_logic(delta)->void:
 	input_check()
 	player.camera_rotation_logic(delta)
-
+	if character.pick_back_hammer and character.equipped_hammer.visible:
+		character.has_got_hammer_back()
 func input_check()->void:
 	if player.player_direction!=Vector3.ZERO:
 		character.landed=true

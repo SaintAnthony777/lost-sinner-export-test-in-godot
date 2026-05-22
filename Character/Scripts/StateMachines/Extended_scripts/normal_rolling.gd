@@ -13,6 +13,7 @@ func enter() -> void:
 func physics_update(_delta) -> void:
 	player.gravity_applying(_delta)
 	state_logic(_delta)
+	check_damage()
 	if Input.is_action_just_pressed("Attack_trigger") and character.equipped_hammer.visible : character.requested_dash_attack = true
 func state_logic(delta):
 	player.camera_rotation_logic(delta)
@@ -45,3 +46,8 @@ func check_rotation()->void:
 	else: roll_dir=character.transform.basis.z.normalized()
 	var target_angle = Vector3.BACK.signed_angle_to(roll_dir, Vector3.UP)
 	character.global_rotation.y = target_angle
+
+func check_damage()->void:
+	if character.is_taking_damage:
+		character.isrolling=false
+		state_machine.change_state("taking_damage")

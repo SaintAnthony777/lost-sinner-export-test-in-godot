@@ -3,7 +3,7 @@ extends State
 @onready var character: character_mesh = $"../../The Lost Sinner1"
 @onready var player: player_character = $"../.."
 
-var camera_offset_no_offense_here:float
+var camera_offset_no_offense_here:float=1.0
 
 func enter() -> void:
 	player.is_locking=true
@@ -11,8 +11,9 @@ func physics_update(_delta) -> void:
 	state_logic(_delta)
 
 func state_logic(_delta:float):
-	camera_offset_no_offense_here=player.global_position.distance_to(player.current_target.global_position)
-	camera_offset_no_offense_here=clamp(camera_offset_no_offense_here,0.0,2.0)
+	if player.current_target:
+		camera_offset_no_offense_here=player.global_position.distance_to(player.current_target.global_position)
+		camera_offset_no_offense_here=clamp(camera_offset_no_offense_here,0.0,2.0)
 	if camera_offset_no_offense_here<2.0:
 		camera_offset_no_offense_here=lerp(camera_offset_no_offense_here,-1.0,.1)
 	player.SPEED=5.0

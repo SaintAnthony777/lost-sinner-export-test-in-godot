@@ -20,6 +20,8 @@ func physics_update(_delta) -> void:
 	status_check()
 	continuous_roll()
 	rollmoves(_delta)
+	check_damage()
+	
 func roll_checks()->void:
 	input_dir = Input.get_vector("Droite", "Gauche", "Bas", "Haut").normalized()
 	camera_basis = player.camera_controller.global_transform.basis
@@ -39,6 +41,12 @@ func continuous_roll()->void:
 		roll_direction = forward
 	else:
 		roll_direction=(right*input_dir.x+forward*input_dir.y).normalized()
+		
+func check_damage()->void:
+	if character.is_taking_damage:
+		character.isrolling=false
+		state_machine.change_state("taking_damage")
+		
 func rollmoves(delta)->void:
 	player.velocity=roll_direction*roll_speed
 	player.move_and_slide()

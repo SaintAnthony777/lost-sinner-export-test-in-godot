@@ -188,7 +188,8 @@ func player_force_rotation()->void:
 	var look_pos = Vector3(self.current_target.aiming_node.global_position.x,
 	self.global_position.y,
 	self.current_target.global_position.z)
-	self.character_moving(self.player_direction)
+	if !character.is_taking_damage:
+		self.character_moving(self.player_direction)
 	self.character.locking_motion(input_dir)
 	self.character.look_at(look_pos,Vector3.UP)
 

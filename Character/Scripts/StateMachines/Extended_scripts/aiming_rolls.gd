@@ -11,7 +11,7 @@ func enter() -> void:
 func physics_update(_delta) -> void:
 	player.gravity_applying(_delta)
 	state_logics(_delta)
-
+	check_damage()
 func state_logics(delta:float):
 	if character.pick_back_hammer and character.equipped_hammer.visible:
 		character.has_got_hammer_back()
@@ -34,3 +34,8 @@ func check_rotation()->void:
 	else: roll_dir=character.transform.basis.z.normalized()
 	var target_angle = Vector3.BACK.signed_angle_to(roll_dir, Vector3.UP)
 	character.global_rotation.y = target_angle
+
+func check_damage()->void:
+	if character.is_taking_damage:
+		character.isrolling=false
+		state_machine.change_state("taking_damage")
