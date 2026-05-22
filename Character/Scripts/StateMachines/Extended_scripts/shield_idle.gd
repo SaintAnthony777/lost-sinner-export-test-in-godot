@@ -18,11 +18,11 @@ func state_logic(delta)->void:
 		state_machine.change_state("shield_normal")
 	if character.health_component.received_attack:
 		character.health_component.Armor_value=75
+	if character.is_taking_damage:
+		state_machine.change_state("blocked_successfully")
 func input_logic()->void:
-	if Input.is_action_just_released("Blocks"):
+	if !Input.is_action_pressed("Blocks"):
 		character.is_blocking=false
 		state_machine.change_state("idle")
-
-		
 	if Input.is_action_pressed("Aiming"):
 		state_machine.change_state("shield_strafe")

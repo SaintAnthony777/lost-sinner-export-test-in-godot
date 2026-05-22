@@ -18,9 +18,10 @@ func state_logic(delta)->void:
 	player.character_rotation(player.player_move_direction,player.last_movement_direction,delta)
 	if player.player_direction==Vector3.ZERO:
 		state_machine.change_state("shield_idle")
-
+	if character.is_taking_damage:
+		state_machine.change_state("blocked_successfully")
 func input_logic()->void:
-	if Input.is_action_just_released("Blocks"):
+	if !Input.is_action_pressed("Blocks"):
 		character.is_blocking=false
 		state_machine.change_state("idle")
 	if Input.is_action_just_pressed("sprinting"):

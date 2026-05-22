@@ -4,6 +4,7 @@ extends State
 
 @export var running_speed:=6.0
 func enter() -> void:
+	character.is_blocking=false
 	character.crosshair_layer.hide()
 	#character.health_component.Armor_value=15
 

@@ -37,6 +37,7 @@ func taking_damage(taken_attack:Attack):
 		Damage_Factor=-taken_attack.Base_damage
 		
 	if Moveable_Player and Moveable_Player.character.is_blocking :
+		print(Moveable_Player.character.is_blocking)
 		var dealt_dmg=(taken_attack.Base_damage+Damage_Factor)-Armor_value
 		if dealt_dmg<=0:dealt_dmg=0
 		Current_health-=dealt_dmg

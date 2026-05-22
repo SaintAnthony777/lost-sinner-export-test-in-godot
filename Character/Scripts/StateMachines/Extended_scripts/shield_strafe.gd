@@ -9,7 +9,6 @@ func physics_update(_delta) -> void:
 	input_logic()
 	character.crosshair_layer.show()
 func state_logic(delta)->void:
-	
 	player.camera.fov=lerp(player.camera.fov,55.0,.1)
 	player.SPEED=3.0
 	player.gravity_applying(delta)
@@ -18,9 +17,11 @@ func state_logic(delta)->void:
 	var input_dir := Input.get_vector("Droite", "Gauche", "Bas", "Haut") 
 	character.look_at(Vector3(player.looking_at_node.global_position.x,player.global_position.y,player.looking_at_node.global_position.z),Vector3.UP,true)
 	character.shield_motion("strafe",input_dir)
-	
+	if character.is_taking_damage:
+		state_machine.change_state("blocked_successfully")
+		
 func input_logic()->void:
-	if Input.is_action_just_released("Blocks"):
+	if !Input.is_action_pressed("Blocks"):
 		character.is_blocking=false
 		state_machine.change_state("idle")
 		

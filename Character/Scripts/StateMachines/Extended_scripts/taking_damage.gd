@@ -6,6 +6,7 @@ var camera_offset_no_offense_here:float=1.0
 func enter() -> void:
 	taking_damage_tricks()
 func physics_update(_delta) -> void:
+	player.gravity_applying(_delta)
 	if player.current_target:
 		camera_offset_no_offense_here=player.global_position.distance_to(player.current_target.global_position)
 		camera_offset_no_offense_here=clamp(camera_offset_no_offense_here,0.0,2.0)

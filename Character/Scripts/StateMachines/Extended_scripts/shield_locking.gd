@@ -24,9 +24,10 @@ func state_logic(delta)->void:
 	player.player_force_rotation()
 	player.camera_and_mesh_rotation()
 	character.shield_motion("strafe",input_dir)
-	
+	if character.is_taking_damage:
+		state_machine.change_state("blocked_successfully")
 func input_logic()->void:
-	if Input.is_action_just_released("Blocks"):
+	if !Input.is_action_pressed("Blocks"):
 		character.is_blocking=false
 		state_machine.change_state("locking")
 		
