@@ -15,4 +15,4 @@ func physics_update(_delta) -> void:
 func check_Idle_Stop()->void:
 	if halfrey_root.global_position.distance_to(halfrey_root.target.global_position)<=15.0:
 		pass
-		#state_machine.change_state("Getting Ready")
+		state_machine.change_state("Getting Ready")

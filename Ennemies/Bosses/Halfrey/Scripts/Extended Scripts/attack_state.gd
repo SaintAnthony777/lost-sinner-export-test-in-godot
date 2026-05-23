@@ -16,6 +16,7 @@ func enter() -> void:
 	init_attacks()
 	attack_picker()
 	halfrey.dealt_attack=Attack_array[attack_picked]
+	halfrey_root.aiming_at_player()
 func physics_update(_delta) -> void:
 	attack_check()
 func attack_picker() -> void:
