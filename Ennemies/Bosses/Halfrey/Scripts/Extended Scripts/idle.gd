@@ -20,6 +20,9 @@ func status_check()->void:
 			state_machine.change_state("Chasing fierce")
 		else:
 			state_machine.change_state("Attack state")
+	if !halfrey_root.is_alive:
+		state_machine.change_state("Dying")
 	else:pass
+	
 func idle_animation()->void:
 	halfrey.Boss_motion("Still","Idle")

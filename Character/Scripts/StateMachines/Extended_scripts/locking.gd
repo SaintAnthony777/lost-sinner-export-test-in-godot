@@ -10,7 +10,6 @@ func enter() -> void:
 func physics_update(_delta) -> void:
 	state_logic(_delta)
 	if !character.is_alive:state_machine.change_state("Dying")
-
 func state_logic(_delta:float):
 	if player.current_target:
 		camera_offset_no_offense_here=player.global_position.distance_to(player.current_target.global_position)
@@ -22,7 +21,7 @@ func state_logic(_delta:float):
 	player.gravity_applying(_delta)
 	if (Input.is_action_just_pressed("locking") or 
 	Input.is_action_just_pressed("Aiming") or 
-	player.global_position.distance_to(player.current_target.global_position) > 12):
+	player.global_position.distance_to(player.current_target.global_position) > 12 or !player.current_target.is_alive):
 		player.is_locking=false
 		player.current_target=null
 		state_machine.change_state("normal")

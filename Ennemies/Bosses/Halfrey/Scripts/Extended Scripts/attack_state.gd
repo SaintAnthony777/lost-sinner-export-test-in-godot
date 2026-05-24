@@ -19,9 +19,12 @@ func enter() -> void:
 	halfrey_root.aiming_at_player()
 func physics_update(_delta) -> void:
 	attack_check()
+	if !halfrey_root.is_alive:
+		state_machine.change_state("Dying")
 func attack_picker() -> void:
 	attack_picked=randi_range(0,4)
 	halfrey.Boss_motion("Attack",ATTACK_LIST[attack_picked])
+	
 func attack_check()->void:
 	if !halfrey.isattacking:
 		state_machine.change_state("idle")

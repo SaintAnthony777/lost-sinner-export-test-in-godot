@@ -11,6 +11,8 @@ func enter() -> void:
 func physics_update(_delta) -> void:
 	slow_chase_physics(_delta)
 	Distance_Check()
+	if !halfrey_root.is_alive:
+		state_machine.change_state("Dying")
 func slow_chase_physics(delta)->void:
 	halfrey_root.aiming_at_player()
 	halfrey_root.nav_agent.set_target_position(halfrey_root.target.global_position)

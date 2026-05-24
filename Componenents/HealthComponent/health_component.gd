@@ -48,8 +48,7 @@ func taking_damage(taken_attack:Attack):
 	if Current_health<0:Current_health=0
 	if Current_health==0:
 		if Node_to_call_on_death:
-			Node_to_call_on_death.is_isalive=false
-			
+			Node_to_call_on_death.is_alive=false
 		if player_to_call_on_death:
 			player_to_call_on_death.is_alive=false
 			

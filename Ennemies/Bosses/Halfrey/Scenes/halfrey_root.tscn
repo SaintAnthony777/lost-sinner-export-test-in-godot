@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://divb5q1et4b3y"]
+[gd_scene load_steps=16 format=3 uid="uid://divb5q1et4b3y"]
 
 [ext_resource type="Script" uid="uid://cbvmw20gjks86" path="res://Ennemies/Bosses/Halfrey/Scripts/halfrey_root.gd" id="1_60m16"]
 [ext_resource type="PackedScene" uid="uid://bctt1rhu83hot" path="res://Ennemies/Bosses/Halfrey/Scenes/halfrey.tscn" id="2_l6s3y"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://bibpdrfengocv" path="res://Componenents/HealthComponent/health_component.gd" id="7_ww0a5"]
 [ext_resource type="Script" uid="uid://cpen2spseiwre" path="res://Ennemies/Bosses/Halfrey/Scripts/Extended Scripts/attack_state.gd" id="8_egc4a"]
 [ext_resource type="Script" uid="uid://bt5876p7u6fai" path="res://Ennemies/Bosses/Halfrey/Scripts/Extended Scripts/slow_chase.gd" id="9_50gp6"]
+[ext_resource type="Script" uid="uid://up0tqqvyqkey" path="res://Ennemies/Bosses/Halfrey/Scripts/Extended Scripts/dying.gd" id="10_3xsv6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l6s3y"]
 radius = 0.78808594
@@ -31,6 +32,9 @@ script = ExtResource("1_60m16")
 metadata/_custom_type_script = "uid://cugap2g484shs"
 
 [node name="Halfrey" parent="." instance=ExtResource("2_l6s3y")]
+
+[node name="Skeleton3D" parent="Halfrey/Armature" index="0"]
+bones/163/rotation = Quaternion(0.021748787, 6.0077237e-09, 0.9997635, 4.3177095e-10)
 
 [node name="HurtBoxComponent" parent="Halfrey" index="4" node_paths=PackedStringArray("health_comp")]
 health_comp = NodePath("../../HealthComponent")
@@ -76,9 +80,13 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 script = ExtResource("9_50gp6")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
 
+[node name="Dying" type="Node" parent="StateMachine"]
+script = ExtResource("10_3xsv6")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("Health_gauge", "Node_to_call_on_death")]
 script = ExtResource("7_ww0a5")
-Max_health = 500.0
+Max_health = 100.0
 Resistance = Array[String](["Physical", "Divine Divider", "Grace"])
 Health_gauge = NodePath("../HealthBar canvas/Boss Hud/Control/TextureProgressBar")
 Bearable_power = 50.0
