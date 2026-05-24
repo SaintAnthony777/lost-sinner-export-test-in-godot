@@ -12,6 +12,7 @@ func physics_update(_delta) -> void:
 	player.camera.fov=lerp(player.camera.fov,85.0,.1)
 	state_logic(_delta)
 	Player_Input_events()
+	if !character.is_alive:state_machine.change_state("Dying")
 
 func state_logic(delta)->void:
 	if character.pick_back_hammer:state_machine.change_state("hammer_take_back")

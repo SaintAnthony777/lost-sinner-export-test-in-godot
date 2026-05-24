@@ -36,3 +36,7 @@ func init_attacks()->void:
 	Attack_array.append(Attack_4)
 	Attack_5.create_attack(35.0,35.0,"Divine Divider",3.0,0.0)
 	Attack_array.append(Attack_5)
+
+func is_player_alive_check()->void:
+	if !halfrey_root.target.character.is_alive:
+		state_machine.change_state("idle")

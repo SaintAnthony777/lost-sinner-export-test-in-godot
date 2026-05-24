@@ -16,7 +16,7 @@ class_name player_character
 @onready var camera_line_of_sight: RayCast3D = $Camera_pivot/SpringArm3D/Camera_line_of_sight
 @onready var hammer_starting_point:Node3D=$"Camera_pivot/Hammer_throw_starter_point"
 @onready var aiming_node:Node3D=$"Camera_pivot/Aiming"
-
+@onready var state_mach:StateMachine=$"StateMachine"
 ###Camera Vars
 var camera_input_direction := Vector2.ZERO
 var last_movement_direction := Vector3.BACK
@@ -90,7 +90,6 @@ func _physics_process(_delta: float) -> void:
 	direction.y=0
 	if direction.length() > 0.001: direction.normalized()
 	player_direction=direction
-	
 ## Fonction permettant de déplacer le personnage
 func character_moving(dir:Vector3):
 	dir.y=0
@@ -122,16 +121,16 @@ func camera_switch_logic():
 		camera_position="left"
 
 func get_best_target()->enemy_root:
-	var best_target:enemy_root
-	var min_angle=INF
+	var best_target : enemy_root
+	var min_angle = INF
 	var enemies_in_sight=camera_area_of_sight.get_overlapping_bodies()
 	for foe in enemies_in_sight :
 		if foe is enemy_root:
 			camera_line_of_sight.look_at(foe.aiming_node.global_position)
 			camera_line_of_sight.force_raycast_update()
 			if camera_line_of_sight.is_colliding() and camera_line_of_sight.get_collider() is enemy_root:
-				var direction_to_enemy=(foe.global_position-self.global_position).normalized()
-				var camera_forward:=-camera.global_basis.z
+				var direction_to_enemy = (foe.global_position-self.global_position).normalized()
+				var camera_forward := -camera.global_basis.z
 				var angle = camera_forward.angle_to(direction_to_enemy)
 				if angle < min_angle:
 					min_angle = angle
@@ -139,12 +138,12 @@ func get_best_target()->enemy_root:
 	return best_target
 
 func gravity_applying(delta)->void:
-	if !is_on_floor(): velocity.y+=gravity*delta
+	if !is_on_floor() : velocity.y+=gravity*delta
 
 func character_rotation(move_dir:Vector3,last_mov_dir:Vector3,delta:float):
-	if move_dir.length() > 0.2:
+	if move_dir.length() > 0.2 :
 		last_mov_dir=move_dir
-		var target_angle:=Vector3.BACK.signed_angle_to(last_mov_dir,Vector3.UP)
+		var target_angle := Vector3.BACK.signed_angle_to(last_mov_dir,Vector3.UP)
 		character.global_rotation.y=lerp_angle(character.rotation.y,target_angle,rotation_speed*delta)
 
 
@@ -152,9 +151,9 @@ func get_target_point()->Vector3:
 	var center := get_viewport().get_visible_rect().size / 2
 	var from := camera.project_ray_origin(center)
 	var to := from + camera.project_ray_normal(center) * 100
-	var space_state:=get_world_3d().direct_space_state
-	var query:=PhysicsRayQueryParameters3D.create(from,to)
-	var result:=space_state.intersect_ray(query)
+	var space_state := get_world_3d().direct_space_state
+	var query := PhysicsRayQueryParameters3D.create(from,to)
+	var result := space_state.intersect_ray(query)
 	if result: return result.position
 	else : return to
 

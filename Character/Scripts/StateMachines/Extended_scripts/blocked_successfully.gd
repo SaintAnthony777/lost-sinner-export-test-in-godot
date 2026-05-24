@@ -4,9 +4,6 @@ extends State
 @onready var player: player_character = $"../.."
 var camera_offset_no_offense_here:float
 
-func enter() -> void:
-	print("attack blocked successfully")
-	
 func physics_update(_delta) -> void:
 	blocking_damage_success()
 	if player.current_target:
@@ -18,6 +15,7 @@ func physics_update(_delta) -> void:
 		player.camera_and_mesh_rotation()
 		character.shield_motion("Blocking impact",Vector2.ZERO)
 	if !character.is_taking_damage:
+		player.velocity=Vector3.ZERO
 		if !player.is_locking:
 			state_machine.change_state("shield_idle")
 		else:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://srgn3wkeivsn"]
+[gd_scene load_steps=70 format=3 uid="uid://srgn3wkeivsn"]
 
 [ext_resource type="Script" uid="uid://bhjwagrue8av5" path="res://Character/Scripts/Player/personnage.gd" id="1_ov8r6"]
 [ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="2_ov8r6"]
@@ -56,6 +56,7 @@
 [ext_resource type="Script" uid="uid://b3v53106dvqoc" path="res://Character/Scripts/StateMachines/Extended_scripts/air_disaster.gd" id="52_qtnpb"]
 [ext_resource type="Script" uid="uid://dyo0dfkkoi6dk" path="res://Character/Scripts/StateMachines/Extended_scripts/taking_damage.gd" id="53_1ght0"]
 [ext_resource type="Script" uid="uid://cf6ff127pnuu" path="res://Character/Scripts/StateMachines/Extended_scripts/running_jump.gd" id="54_gcbli"]
+[ext_resource type="Script" uid="uid://dg4uwqirgf7wm" path="res://Character/Scripts/StateMachines/Extended_scripts/dying.gd" id="57_0nhk7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ov8r6"]
 
@@ -472,4 +473,8 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="Running Jump" type="Node" parent="StateMachine"]
 script = ExtResource("54_gcbli")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Dying" type="Node" parent="StateMachine"]
+script = ExtResource("57_0nhk7")
 metadata/_custom_type_script = "uid://dq36efs6bxser"

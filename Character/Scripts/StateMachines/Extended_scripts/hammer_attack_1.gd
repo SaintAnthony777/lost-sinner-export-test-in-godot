@@ -6,7 +6,6 @@ func enter() -> void:
 	character.requested_next_attack=false
 	character.requested_dash=false
 	attack_stuff()
-	print(player.is_locking)
 func physics_update(_delta) -> void:
 	attack_check()
 	state_logic(_delta)

@@ -7,8 +7,8 @@ func physics_update(_delta) -> void:
 	player.camera.fov=lerp(player.camera.fov,75.0,.1)
 	state_logic(_delta)
 	input_logic()
-	
-	
+	if !character.is_alive:state_machine.change_state("Dying")
+
 func state_logic(delta)->void:
 	character.shield_motion("idle",Vector2.ZERO)
 	player.gravity_applying(delta)
@@ -20,6 +20,9 @@ func state_logic(delta)->void:
 		character.health_component.Armor_value=75
 	if character.is_taking_damage:
 		state_machine.change_state("blocked_successfully")
+	if Input.is_action_just_pressed("locking") and player.current_target:
+		player.is_locking=true
+		state_machine.change_state("shield_locking")
 func input_logic()->void:
 	if !Input.is_action_pressed("Blocks"):
 		character.is_blocking=false

@@ -7,7 +7,8 @@ var sprinting_speed:=10.0
 func physics_update(_delta) -> void:
 	player.camera.fov=lerp(player.camera.fov,95.0,.1)
 	state_logic(_delta)
-	
+	if !character.is_alive:state_machine.change_state("Dying")
+
 	if Input.is_action_just_released("sprinting"):
 		state_machine.change_state("run")
 	if player.player_direction == Vector3.ZERO:

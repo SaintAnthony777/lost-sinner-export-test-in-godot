@@ -34,6 +34,7 @@ var can_unleash_heavy_charge:=false
 var stopped_charging:=false
 var can_unleash_divine_divider:=false
 var is_taking_damage:bool=false
+var is_alive:bool=true
 
 @onready var player: player_character = $".."
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -57,6 +58,7 @@ var is_taking_damage:bool=false
 
 func _ready() -> void:
 	health_component.Moveable_Player=player
+	health_component.Armor_value=50
 func normal_motion(current_action:String)->void:
 	grounding("Normal")
 	animation_tree.set("parameters/Normal_Transition/transition_request",current_action)

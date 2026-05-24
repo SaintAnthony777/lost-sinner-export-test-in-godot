@@ -12,6 +12,7 @@ func physics_update(_delta) -> void:
 	player.gravity_applying(_delta)
 	state_logics(_delta)
 	check_damage()
+	if !character.is_alive:state_machine.change_state("Dying")
 func state_logics(delta:float):
 	if character.pick_back_hammer and character.equipped_hammer.visible:
 		character.has_got_hammer_back()

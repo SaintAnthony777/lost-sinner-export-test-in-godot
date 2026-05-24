@@ -11,4 +11,3 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Halfrey.is_ready:Boss_hud.show()
 	check_if_aimed_at()
-	

@@ -9,6 +9,7 @@ func enter() -> void:
 	player.is_locking=true
 func physics_update(_delta) -> void:
 	state_logic(_delta)
+	if !character.is_alive:state_machine.change_state("Dying")
 
 func state_logic(_delta:float):
 	if player.current_target:

@@ -76,13 +76,14 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 script = ExtResource("9_50gp6")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
 
-[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("Health_gauge")]
+[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("Health_gauge", "Node_to_call_on_death")]
 script = ExtResource("7_ww0a5")
 Max_health = 500.0
 Resistance = Array[String](["Physical", "Divine Divider", "Grace"])
 Health_gauge = NodePath("../HealthBar canvas/Boss Hud/Control/TextureProgressBar")
 Bearable_power = 50.0
 Armor_value = 25.0
+Node_to_call_on_death = NodePath("..")
 metadata/_custom_type_script = "uid://bibpdrfengocv"
 
 [node name="HealthBar canvas" parent="." instance=ExtResource("7_5vsh5")]

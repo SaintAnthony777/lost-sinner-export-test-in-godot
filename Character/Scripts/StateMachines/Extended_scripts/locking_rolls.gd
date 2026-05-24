@@ -15,8 +15,10 @@ func enter() -> void:
 	rolling_tricks()
 	roll_checks()
 func physics_update(_delta) -> void:
+	
 	camera_offset_no_offense_here=player.global_position.distance_to(player.current_target.global_position)
 	camera_offset_no_offense_here=clamp(camera_offset_no_offense_here,0.0,2.0)
+	if !character.is_alive:state_machine.change_state("Dying")
 	status_check()
 	continuous_roll()
 	rollmoves(_delta)

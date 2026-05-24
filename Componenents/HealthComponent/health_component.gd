@@ -16,6 +16,9 @@ var dealt_thrown_time:float=.0
 @export var Health_gauge:TextureProgressBar
 @export var Bearable_power:float
 @export var Armor_value:float
+@export var Node_to_call_on_death:enemy_root
+@export var player_to_call_on_death:character_mesh
+
 func _ready() -> void:
 	Health_gauge.max_value=Max_health
 	Current_health=Max_health
@@ -37,15 +40,19 @@ func taking_damage(taken_attack:Attack):
 		Damage_Factor=-taken_attack.Base_damage
 		
 	if Moveable_Player and Moveable_Player.character.is_blocking :
-		print(Moveable_Player.character.is_blocking)
 		var dealt_dmg=(taken_attack.Base_damage+Damage_Factor)-Armor_value
 		if dealt_dmg<=0:dealt_dmg=0
 		Current_health-=dealt_dmg
 	else : Current_health-=taken_attack.Base_damage+Damage_Factor
 	dealt_thrown_time=taken_attack.Stun_time
 	if Current_health<0:Current_health=0
-	if Current_health==0:owner.death_function()
-
+	if Current_health==0:
+		if Node_to_call_on_death:
+			Node_to_call_on_death.is_isalive=false
+			
+		if player_to_call_on_death:
+			player_to_call_on_death.is_alive=false
+			
 func take_a_step(taken_attack:Attack,delta:float):
 	var expulsion_direction:Vector3=Vector3.ZERO
 	if Bearable_power<=taken_attack.Strength:

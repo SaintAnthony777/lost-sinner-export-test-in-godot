@@ -8,6 +8,7 @@ func enter() -> void:
 	
 func physics_update(_delta) -> void:
 	state_logics(_delta)
+	if !character.is_alive:state_machine.change_state("Dying")
 	if Input.is_action_just_released("Aiming") : state_machine.change_state("normal");character.crosshair_layer.hide()
 	if Input.is_action_just_pressed("locking") and player.current_target!=null : state_machine.change_state("locking")
 	if Input.is_action_pressed("Blocks") : state_machine.change_state("shield_strafe")

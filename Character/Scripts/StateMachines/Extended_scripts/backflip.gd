@@ -8,6 +8,8 @@ var dash_speed := 6.0
 func physics_update(_delta) -> void:
 	player.gravity_applying(_delta)
 	state_logic(_delta)
+	if !character.is_alive:state_machine.change_state("Dying")
+
 func state_logic(delta):
 	if character.pick_back_hammer and character.equipped_hammer.visible:
 		character.has_got_hammer_back()
