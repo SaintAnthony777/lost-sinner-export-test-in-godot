@@ -14,6 +14,10 @@ func state_logic(delta)->void:
 	player.camera_rotation_logic(delta)
 	if character.pick_back_hammer and character.equipped_hammer.visible:
 		character.has_got_hammer_back()
+	if character.is_taking_damage:
+		character.landed=true
+		state_machine.change_state("taking_damage")
+
 func input_check()->void:
 	if player.player_direction!=Vector3.ZERO:
 		character.landed=true

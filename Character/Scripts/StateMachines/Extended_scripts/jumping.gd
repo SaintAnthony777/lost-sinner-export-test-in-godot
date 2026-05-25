@@ -13,6 +13,7 @@ func state_logic(delta):
 	if character.pick_back_hammer and character.equipped_hammer.visible:
 		character.has_got_hammer_back()
 	if character.is_taking_damage:
+		player.velocity=Vector3.ZERO
 		state_machine.change_state("air taking damage")
 	player.move_and_slide()
 	player.camera_rotation_logic(delta)

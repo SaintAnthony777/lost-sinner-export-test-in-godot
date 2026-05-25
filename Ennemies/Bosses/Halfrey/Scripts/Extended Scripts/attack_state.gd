@@ -23,7 +23,7 @@ func physics_update(_delta) -> void:
 		state_machine.change_state("Dying")
 func attack_picker() -> void:
 	attack_picked=randi_range(0,4)
-	halfrey.Boss_motion("Attack",ATTACK_LIST[attack_picked])
+	halfrey.Boss_motion("Attack","Special Attack")
 	
 func attack_check()->void:
 	if !halfrey.isattacking:

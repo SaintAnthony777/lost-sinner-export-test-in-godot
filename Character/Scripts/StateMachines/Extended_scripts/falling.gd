@@ -13,6 +13,7 @@ func state_logic(delta)->void:
 		character.has_got_hammer_back()
 	player.camera.fov=lerp(player.camera.fov,75.0,.1)
 	if character.is_taking_damage:
+		player.velocity=Vector3.ZERO
 		state_machine.change_state("air taking damage")
 	ground_check(delta)
 	player.character_moving(player.player_direction)

@@ -33,9 +33,6 @@ metadata/_custom_type_script = "uid://cugap2g484shs"
 
 [node name="Halfrey" parent="." instance=ExtResource("2_l6s3y")]
 
-[node name="Skeleton3D" parent="Halfrey/Armature" index="0"]
-bones/163/rotation = Quaternion(0.021748787, 6.0077237e-09, 0.9997635, 4.3177095e-10)
-
 [node name="HurtBoxComponent" parent="Halfrey" index="4" node_paths=PackedStringArray("health_comp")]
 health_comp = NodePath("../../HealthComponent")
 

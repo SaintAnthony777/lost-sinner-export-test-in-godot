@@ -21,7 +21,7 @@ class_name player_character
 var camera_input_direction := Vector2.ZERO
 var last_movement_direction := Vector3.BACK
 var rotation_speed := 6.0
-var gravity := -19.0
+var gravity := -25.0
 
 var camera_position:String="right"
 
@@ -158,7 +158,7 @@ func get_target_point()->Vector3:
 	else : return to
 
 func jumping()->void:
-	velocity.y += 50.0
+	velocity.y += 0.0
 	move_and_slide()
 
 func switch_special(special_to_be_switched_list:Array)->void:

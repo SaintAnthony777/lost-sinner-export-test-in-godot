@@ -19,10 +19,6 @@ tonemap_mode = 2
 
 [node name="Prison cells pre-test" type="Node3D"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_wl87o")
 
@@ -105,12 +101,23 @@ collision_mask = 5
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.83540773, 4.347625, -24.500048)
 light_color = Color(0.5924481, 0.34102613, 0.12346517, 1)
+light_energy = 15.0
+shadow_enabled = true
 omni_range = 15.0
 
-[node name="OmniLight3D3" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.83540773, 4.347625, -4.1488247)
+[node name="OmniLight3D4" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.330311, 4.347625, -14.969687)
 light_color = Color(0.5924481, 0.34102613, 0.12346517, 1)
-omni_range = 15.0
+light_energy = 16.0
+shadow_enabled = true
+omni_range = 4096.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4129891, 4.347625, -1.280467)
+light_color = Color(0.5924481, 0.34102613, 0.12346517, 1)
+light_energy = 3.575
+shadow_enabled = true
+omni_range = 148.8
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6150656, 4.347625, -8.625179)
