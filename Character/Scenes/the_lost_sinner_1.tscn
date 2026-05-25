@@ -39,8 +39,7 @@ shader_parameter/chromatic_power = 0.02
 shader_parameter/center = Vector2(0.5, 0.7)
 shader_parameter/samples = 20
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_48fqy"]
-albedo_color = Color(0, 0, 0, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w728p"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0i3i2"]
 radius = 0.9838867
@@ -15586,7 +15585,7 @@ bones/167/position = Vector3(-0.41105086, -0.3113503, 0.5198434)
 bones/167/rotation = Quaternion(-0.7071065, 3.840728e-07, -1.7643333e-07, 0.7071072)
 
 [node name="Jacket_001" parent="Armature/Skeleton3D" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_48fqy")
+surface_material_override/2 = SubResource("StandardMaterial3D_w728p")
 
 [node name="Wings_Attachement" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
 transform = Transform3D(0.94567937, 0.25336146, 0.20371175, 0.24032459, -0.122819394, -0.9628912, -0.21893983, 0.9595432, -0.17703675, -0.26805446, 0.17178172, 1.1262801)

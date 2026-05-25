@@ -4,6 +4,7 @@ extends State
 @onready var player: player_character = $"../.."
 var camera_offset_no_offense_here:float=1.0
 func enter() -> void:
+	character.slow_mo.stops_slow_motion()
 	taking_damage_tricks()
 func physics_update(_delta) -> void:
 	player.gravity_applying(_delta)
