@@ -10,6 +10,8 @@ func physics_update(_delta) -> void:
 	if !character.is_alive:state_machine.change_state("Dying")
 
 func state_logic(delta)->void:
+	if character.pick_back_hammer and character.equipped_hammer.visible:
+		character.has_got_hammer_back()
 	character.shield_motion("idle",Vector2.ZERO)
 	player.gravity_applying(delta)
 	player.camera_rotation_logic(delta)

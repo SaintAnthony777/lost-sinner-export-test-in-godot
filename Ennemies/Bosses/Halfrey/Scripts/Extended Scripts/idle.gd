@@ -16,7 +16,7 @@ func status_check()->void:
 		(halfrey_root.global_position.distance_to(halfrey_root.target.global_position) < 10)
 	 	):
 			state_machine.change_state("Slow Chase")
-		elif halfrey_root.global_position.distance_to(halfrey_root.target.global_position)>=15:
+		elif halfrey_root.global_position.distance_to(halfrey_root.target.global_position)>=10:
 			state_machine.change_state("Chasing fierce")
 		else:
 			state_machine.change_state("Attack state")

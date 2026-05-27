@@ -21,13 +21,15 @@ func state_logic(delta)->void:
 	character.shield_motion("strafe",input_dir)
 	if character.is_taking_damage:
 		state_machine.change_state("blocked_successfully")
-		
+	if character.pick_back_hammer and character.equipped_hammer.visible:
+		character.has_got_hammer_back()
 func input_logic()->void:
 	if !Input.is_action_pressed("Blocks"):
 		character.is_blocking=false
 		state_machine.change_state("idle")
 		
-	if Input.is_action_just_released("Aiming"):
+	if !Input.is_action_pressed("Aiming"):
+		character.crosshair_layer.hide()
 		state_machine.change_state("shield_idle")
 	
 	if Input.is_action_just_pressed("sprinting"):

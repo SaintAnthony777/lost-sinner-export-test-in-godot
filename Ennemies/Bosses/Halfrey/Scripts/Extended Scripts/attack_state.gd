@@ -11,6 +11,7 @@ var Attack_4=Attack.new()
 var Attack_5=Attack.new()
 var Attack_array:=[]
 var attack_picked:int
+var previous_attack:=0
 func enter() -> void:
 	halfrey.isattacking=true
 	init_attacks()
@@ -23,7 +24,9 @@ func physics_update(_delta) -> void:
 		state_machine.change_state("Dying")
 func attack_picker() -> void:
 	attack_picked=randi_range(0,4)
-	halfrey.Boss_motion("Attack","Special Attack")
+	if attack_picked==previous_attack:
+		attack_picked=randi_range(0,4)
+	halfrey.Boss_motion("Attack",ATTACK_LIST[attack_picked])
 	
 func attack_check()->void:
 	if !halfrey.isattacking:

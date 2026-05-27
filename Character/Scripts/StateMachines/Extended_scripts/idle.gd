@@ -14,7 +14,11 @@ func physics_update(_delta) -> void:
 func state_logic(delta)->void:
 	if character.pick_back_hammer :
 		state_machine.change_state("hammer_take_back")
-	character.normal_motion("Idle_unarmed")
+	if !player.current_target:
+		character.normal_motion("Idle_unarmed")
+	else:
+		character.normal_motion("Idle_warned")
+
 	player.gravity_applying(delta)
 	player.camera_rotation_logic(delta)
 	if !player.is_on_floor():
