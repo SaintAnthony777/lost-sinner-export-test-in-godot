@@ -219,7 +219,7 @@ transform = Transform3D(1, 0, 0, 0, 0.938746, 0.34461, 0, -0.34461, 0.938746, 0,
 
 [node name="SpringArm3D" type="SpringArm3D" parent="Camera_pivot"]
 transform = Transform3D(-0.9951677, -0.024405831, -0.09510949, 0.014037089, 0.9233085, -0.3838034, 0.097182415, -0.38328394, -0.91850376, 0, 0.135, 0)
-collision_mask = 3
+collision_mask = 2
 shape = SubResource("SphereShape3D_ov8r6")
 spring_length = 3.0
 

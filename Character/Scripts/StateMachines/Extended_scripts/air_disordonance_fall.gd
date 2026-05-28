@@ -11,7 +11,7 @@ func physics_update(_delta) -> void:
 	velocity_check(_delta)
 	player.camera_rotation_logic(_delta)
 	state_logic(_delta)
-func state_logic(delta)->void:
+func state_logic(_delta)->void:
 	if player.is_on_floor():
 		state_machine.change_state("Air_Disordonance_lands")
 func velocity_check(delta)->void:

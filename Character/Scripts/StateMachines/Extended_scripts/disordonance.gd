@@ -11,8 +11,7 @@ func physics_update(_delta) -> void:
 	player.camera_rotation_logic(_delta)
 	state_logic(_delta)
 	
-func state_logic(delta)->void:
-	
+func state_logic(_delta)->void:
 	if !character.is_making_grace:
 		state_machine.change_state("idle")
 func disordoncance_tricks()->void:

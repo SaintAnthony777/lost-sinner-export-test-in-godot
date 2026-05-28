@@ -8,7 +8,7 @@ func physics_update(_delta) -> void:
 	attack_stuff()
 	attack_check()
 	state_logic(_delta)
-	character.check_attack_lunge(6.5)
+	character.check_attack_lunge(6.5,_delta)
 func attack_stuff()->void:
 	character.special_attacks("Specials","Dropkick")
 func attack_check()->void:

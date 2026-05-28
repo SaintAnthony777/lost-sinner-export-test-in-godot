@@ -153,13 +153,14 @@ func start_lunging()->void:
 func stops_lunging()->void:
 	attack_lunge_boolean=false
 
-func check_attack_lunge(lunge_speed:float)->void:
+func check_attack_lunge(lunge_speed:float,delta:float)->void:
 	if attack_lunge_boolean:
 		var dashdirection=self.transform.basis.z.normalized()
-		player.velocity=dashdirection*lunge_speed
-		player.velocity.y=0
+		player.velocity.x=dashdirection.x*lunge_speed
+		player.velocity.z=dashdirection.z*lunge_speed
+		player.gravity_applying(delta)
 		player.move_and_slide()
-
+		
 func force_character_rotation():
 	self.look_at(Vector3(player.looking_at_node.global_position.x,
 	player.global_position.y,

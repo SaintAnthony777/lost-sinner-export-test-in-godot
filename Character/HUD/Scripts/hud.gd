@@ -10,7 +10,7 @@ extends Control
 
 func _ready() -> void:
 	pass
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if player.current_divine_divider:
 		var divine_divider_texture:=load("res://Character/HUD/assets/Icones equipement/Divines dividers/"+player.current_divine_divider+".PNG")
 		divine_divider.texture=divine_divider_texture

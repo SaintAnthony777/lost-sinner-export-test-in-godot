@@ -10,7 +10,7 @@ func physics_update(_delta) -> void:
 	
 	attack_check()
 	state_logic(_delta)
-	character.check_attack_lunge(3.5)
+	character.check_attack_lunge(3.5,_delta)
 func attack_stuff()->void:
 	var atk:=Attack.new()
 	atk.create_attack(

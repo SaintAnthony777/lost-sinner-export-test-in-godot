@@ -74,6 +74,24 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/floor/Meshes/floor 8*8.res",
 "save_to_file/path": "uid://dfvofpufsnrwg"
+},
+"Floor_Plane_004": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/floor/Meshes/roof 2*8.res",
+"save_to_file/path": "uid://bk6fny2mqnvbw"
+},
+"Floor_Plane_005": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/floor/Meshes/roof 16 *16.res",
+"save_to_file/path": "uid://38hxe34sdexb"
 }
 }
 }

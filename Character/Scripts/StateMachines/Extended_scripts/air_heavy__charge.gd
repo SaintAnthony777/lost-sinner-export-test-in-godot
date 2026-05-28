@@ -12,7 +12,7 @@ func physics_update(_delta) -> void:
 	player.camera.fov=lerp(player.camera.fov,95.0,.1)
 	state_logic(_delta)
 
-func state_logic(delta)->void:
+func state_logic(_delta)->void:
 	if character.can_unleash_heavy_charge:
 		state_machine.change_state("Air Heavy Charge Unleash")
 

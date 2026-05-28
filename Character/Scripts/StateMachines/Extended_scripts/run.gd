@@ -29,7 +29,7 @@ func state_logic(delta)->void:
 		state_machine.change_state("taking_damage")
 		
 func Player_Input_events() -> void:
-	if player.velocity==Vector3.ZERO:
+	if player.velocity==Vector3.ZERO and player.player_direction==Vector3.ZERO:
 		state_machine.change_state("idle")
 
 	if Input.is_action_pressed("sprinting"):

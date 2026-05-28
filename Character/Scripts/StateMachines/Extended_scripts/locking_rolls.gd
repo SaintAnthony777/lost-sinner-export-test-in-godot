@@ -15,7 +15,7 @@ func enter() -> void:
 	rolling_tricks()
 	roll_checks()
 func physics_update(_delta) -> void:
-	
+	player.gravity_applying(_delta)
 	camera_offset_no_offense_here=player.global_position.distance_to(player.current_target.global_position)
 	camera_offset_no_offense_here=clamp(camera_offset_no_offense_here,0.0,2.0)
 	if !character.is_alive:state_machine.change_state("Dying")
@@ -50,7 +50,8 @@ func check_damage()->void:
 		state_machine.change_state("taking_damage")
 		
 func rollmoves(delta)->void:
-	player.velocity=roll_direction*roll_speed
+	player.velocity.x=roll_direction.x*roll_speed
+	player.velocity.z=roll_direction.z*roll_speed
 	player.move_and_slide()
 	player.camera_force_rotation(camera_offset_no_offense_here)
 	player.character_rotation(player.player_move_direction,player.last_movement_direction,delta)

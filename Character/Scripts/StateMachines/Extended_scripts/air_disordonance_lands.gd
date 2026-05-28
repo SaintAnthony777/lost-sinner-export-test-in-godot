@@ -10,7 +10,7 @@ func enter() -> void:
 func physics_update(_delta) -> void:
 	state_logic(_delta)
 	player.camera_rotation_logic(_delta)
-func state_logic(delta)->void:
+func state_logic(_delta)->void:
 	if !character.is_making_grace:
 		state_machine.change_state("idle")
 	

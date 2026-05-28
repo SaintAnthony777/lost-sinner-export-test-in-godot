@@ -7,7 +7,7 @@ var charge_dir:=Vector3.ZERO
 func enter() -> void:
 	unleash_trick()
 	
-func state_logic(delta)->void:
+func state_logic(_delta)->void:
 	if Input.is_action_just_pressed("Grace") or character.heavy_charge_ray_cast.is_colliding():
 		state_machine.change_state("Heavy Charge Stop")
 

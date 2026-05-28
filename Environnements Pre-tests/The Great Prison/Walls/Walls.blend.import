@@ -39,6 +39,15 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "meshes": {
+"Walls_Cube": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Wall 8*8 with arch opening.res",
+"save_to_file/path": "uid://bjcjtvo5wod6v"
+},
 "Walls_Cube_001": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
@@ -56,6 +65,24 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Walls/Meshes/cylindar pillar.res",
 "save_to_file/path": "uid://52tlobshded8"
+},
+"Walls_Cylinder_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Walls/Meshes/cylinder roof.res",
+"save_to_file/path": "uid://dkvpyagmncmxi"
+},
+"Walls_Cylinder_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Walls/Meshes/cylinder roof piece.res",
+"save_to_file/path": "uid://bl7iw7hxwqcq"
 },
 "Walls_Plane": {
 "generate/lightmap_uv": 0,
@@ -93,6 +120,42 @@ _subresources={
 "save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Wall 8*4.res",
 "save_to_file/path": "uid://blu5uwqjrquma"
 },
+"Walls_Plane_004": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Wall with bars.res",
+"save_to_file/path": "uid://ddqh258g1g3th"
+},
+"Walls_Plane_005": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Wall with bars large.res",
+"save_to_file/path": "uid://gncp4coemm67"
+},
+"Walls_Sphere": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Walls/Meshes/circular roof.res",
+"save_to_file/path": "uid://wwv5gssipqcx"
+},
+"Walls_Sphere_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Walls/Meshes/circular roof 16*10.res",
+"save_to_file/path": "uid://dq01pqj5xniar"
+},
 "Walls_Stairs": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
@@ -119,6 +182,15 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Stairs sm.res",
 "save_to_file/path": "uid://bcea842tuj8l0"
+},
+"Walls_Stairs_003": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Stairs 8 meters.res",
+"save_to_file/path": "uid://d03lm7eh6ey1h"
 }
 }
 }

@@ -7,10 +7,9 @@ func enter() -> void:
 	character.requested_dash=false
 	attack_stuff()
 func physics_update(_delta) -> void:
-	
 	attack_check()
 	state_logic(_delta)
-	character.check_attack_lunge(4.5)
+	character.check_attack_lunge(4.5,_delta)
 func attack_stuff()->void:
 	var atk:=Attack.new()
 	atk.create_attack(

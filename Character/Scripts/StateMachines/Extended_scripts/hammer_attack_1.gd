@@ -43,6 +43,7 @@ func state_logic(delta)->void:
 	if Input.is_action_just_pressed("sprinting"):character.requested_dash=true
 	if Input.is_action_just_pressed("Attack_trigger") and !character.requested_next_attack:character.requested_next_attack = true
 	player.camera_rotation_logic(delta)
+	character.check_attack_lunge(1.0,delta)
 	if !player.is_locking:
 		character.adjust_character_rotation(delta)
 	if character.is_taking_damage:

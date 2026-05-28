@@ -11,7 +11,7 @@ func enter() -> void:
 func physics_update(_delta) -> void:
 	velocity_check(_delta)
 	state_logic(_delta)
-func state_logic(delta):
+func state_logic(_delta):
 	if Input.is_action_just_pressed("Grace") or character.heavy_charge_ray_cast.is_colliding():
 		state_machine.change_state("heavy charge stop")
 
