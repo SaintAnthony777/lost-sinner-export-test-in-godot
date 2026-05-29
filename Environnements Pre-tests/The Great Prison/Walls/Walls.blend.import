@@ -57,6 +57,15 @@ _subresources={
 "save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Walls/Meshes/pillar rectangular.res",
 "save_to_file/path": "uid://bcxakcc7o7et3"
 },
+"Walls_Cube_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Wall 16*16 with arch opening.res",
+"save_to_file/path": "uid://c7b76pd12ju2x"
+},
 "Walls_Cylinder": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
@@ -137,6 +146,33 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Wall with bars large.res",
 "save_to_file/path": "uid://gncp4coemm67"
+},
+"Walls_Plane_006": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Wall for filling cylinder.res",
+"save_to_file/path": "uid://bl1qvrpfdlgr2"
+},
+"Walls_Plane_007": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Wall 2*4 sm.res",
+"save_to_file/path": "uid://buwlrpo6r0jcm"
+},
+"Walls_Plane_008": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Wall 8*4 sm.res",
+"save_to_file/path": "uid://b8n27wr8eiyo3"
 },
 "Walls_Sphere": {
 "generate/lightmap_uv": 0,
