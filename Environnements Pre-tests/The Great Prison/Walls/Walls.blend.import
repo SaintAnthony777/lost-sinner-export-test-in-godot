@@ -93,6 +93,15 @@ _subresources={
 "save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Walls/Meshes/cylinder roof piece.res",
 "save_to_file/path": "uid://bl7iw7hxwqcq"
 },
+"Walls_Cylinder_003": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Walls/Meshes/cylinder roof 16.res",
+"save_to_file/path": "uid://bu40fflh8lccp"
+},
 "Walls_Plane": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
