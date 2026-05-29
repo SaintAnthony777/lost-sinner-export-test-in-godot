@@ -183,6 +183,24 @@ _subresources={
 "save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Wall 8*4 sm.res",
 "save_to_file/path": "uid://b8n27wr8eiyo3"
 },
+"Walls_Plane_009": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Wall 4*4 for verticals.res",
+"save_to_file/path": "uid://di0aqaajy7d36"
+},
+"Walls_Plane_010": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Wall 2*8 for verticals.res",
+"save_to_file/path": "uid://c52u6wv417snf"
+},
 "Walls_Sphere": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,

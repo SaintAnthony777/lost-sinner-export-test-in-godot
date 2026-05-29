@@ -31,8 +31,7 @@ window/stretch/aspect="expand"
 
 [editor]
 
-movie_writer/movie_file="/home/saint_anthony/DATA/Idees de jeux/Brand new presets/The Lost Sinner Test In Godot/lost-sinner-test-export/test_recording/Recording.avi"
-movie_writer/disable_vsync=true
+movie_writer/movie_file="/home/saint_anthony/DATA/Idees de jeux/Brand new presets/The Lost Sinner Test In Godot/lost-sinner-test-export/records/Recording textured.avi"
 
 [editor_plugins]
 
