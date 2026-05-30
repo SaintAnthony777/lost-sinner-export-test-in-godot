@@ -63,8 +63,6 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ov8r6"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ov8r6"]
-margin = 0.01
-radius = 1.0
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_itldn"]
 points = PackedVector3Array(0, 0, 0, 10, 5, -20, 10, -5, -20, -10, -5, -20, -10, 5, -20)
@@ -222,6 +220,7 @@ transform = Transform3D(-0.9951677, -0.024405831, -0.09510949, 0.014037089, 0.92
 collision_mask = 2
 shape = SubResource("SphereShape3D_ov8r6")
 spring_length = 3.0
+margin = 1.0
 
 [node name="Camera3D" type="Camera3D" parent="Camera_pivot/SpringArm3D"]
 unique_name_in_owner = true

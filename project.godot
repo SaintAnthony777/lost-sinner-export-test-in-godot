@@ -12,7 +12,7 @@ config_version=5
 
 config/name="A soaring Silence"
 config/tags=PackedStringArray("character+codes", "gotta_keep_it_on", "prototype", "to_be_used_for_a_silent_chaos")
-run/main_scene="uid://d2vjed12ol1jh"
+run/main_scene="uid://bhgrj3gfn5q2o"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="uid://flvau0snwba7"
 
