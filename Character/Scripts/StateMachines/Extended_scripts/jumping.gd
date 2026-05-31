@@ -15,7 +15,6 @@ func state_logic(delta):
 	if character.is_taking_damage:
 		player.velocity=Vector3.ZERO
 		state_machine.change_state("air taking damage")
-	player.move_and_slide()
 	player.camera_rotation_logic(delta)
 	player.gravity_applying(delta)
 	player.camera_rotation_logic(delta)
@@ -38,5 +37,5 @@ func velocity_check()->void:
 		state_machine.change_state("falling")
 	
 func jump_tricks():
-	player.velocity.y+=10.0
+	player.velocity.y+=12.0
 	character.jump_logics("Normal","Start_jumping")

@@ -22,7 +22,6 @@ func state_logic(delta)->void:
 	input_check()
 func ground_check(delta)->void:
 	player.gravity_applying(delta)
-	player.move_and_slide()
 	if player.is_on_floor():
 		state_machine.change_state("lands")
 func input_check()->void:
