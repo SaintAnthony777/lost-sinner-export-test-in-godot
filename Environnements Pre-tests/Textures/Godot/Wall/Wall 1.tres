@@ -12,5 +12,6 @@ normal_texture = ExtResource("4_tn7kg")
 bent_normal_enabled = true
 ao_enabled = true
 ao_texture = ExtResource("2_arxgv")
+ao_on_uv2 = true
 heightmap_enabled = true
 heightmap_texture = ExtResource("3_y2av0")

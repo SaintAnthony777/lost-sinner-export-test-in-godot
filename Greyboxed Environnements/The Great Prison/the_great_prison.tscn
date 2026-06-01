@@ -1,4 +1,4 @@
-[gd_scene load_steps=800 format=3 uid="uid://bhgrj3gfn5q2o"]
+[gd_scene load_steps=802 format=4 uid="uid://bhgrj3gfn5q2o"]
 
 [ext_resource type="PackedScene" uid="uid://srgn3wkeivsn" path="res://Character/Scenes/personnage.tscn" id="2_f3rgr"]
 [ext_resource type="ArrayMesh" uid="uid://dfvofpufsnrwg" path="res://Environnements Pre-tests/The Great Prison/floor/Meshes/floor 8*8.res" id="2_vf86y"]
@@ -29,7 +29,6 @@
 [ext_resource type="ArrayMesh" uid="uid://di0aqaajy7d36" path="res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Wall 4*4 for verticals.res" id="27_wdssa"]
 [ext_resource type="ArrayMesh" uid="uid://c52u6wv417snf" path="res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Wall 2*8 for verticals.res" id="28_r8a06"]
 [ext_resource type="ArrayMesh" uid="uid://dyebligey8jo2" path="res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Wall with bars sm.res" id="28_wdssa"]
-[ext_resource type="ArrayMesh" uid="uid://88tpvc27cq1m" path="res://Environnements Pre-tests/The Great Prison/Props/Meshes/Bar For chains.res" id="31_dysd0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3j4bf"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -41,9 +40,10 @@ sky_material = SubResource("ProceduralSkyMaterial_3j4bf")
 [sub_resource type="Environment" id="Environment_dysd0"]
 background_mode = 2
 sky = SubResource("Sky_scgjq")
+ambient_light_source = 3
+ambient_light_sky_contribution = 0.15
 tonemap_mode = 2
 glow_enabled = true
-fog_enabled = true
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_15vn2"]
 data = PackedVector3Array(-4, 0, 4, 4, 0, -4, 4, 0, 4, -4, 0, 4, -4, 0, -4, 4, 0, -4, -4, -1, 4, 4, -1, -4, -4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, 0, 4, -4, -1, -4, -4, 0, -4, -4, 0, 4, -4, -1, 4, -4, -1, -4, 4, 0, 4, -4, -1, 4, -4, 0, 4, 4, 0, 4, 4, -1, 4, -4, -1, 4, 4, 0, -4, 4, -1, 4, 4, 0, 4, 4, 0, -4, 4, -1, -4, 4, -1, 4, -4, 0, -4, 4, -1, -4, 4, 0, -4, -4, 0, -4, -4, -1, -4, 4, -1, -4)
@@ -2343,22 +2343,526 @@ data = PackedVector3Array(-8, 0, 4, 8, 0, -4, 8, 0, 4, -8, 0, 4, -8, 0, -4, 8, 0
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rys8h"]
 data = PackedVector3Array(-8, 0, 4, 8, 0, -4, 8, 0, 4, -8, 0, 4, -8, 0, -4, 8, 0, -4, -8, -1, 4, 8, -1, -4, -8, -1, -4, -8, -1, 4, 8, -1, 4, 8, -1, -4, -8, 0, 4, -8, -1, -4, -8, 0, -4, -8, 0, 4, -8, -1, 4, -8, -1, -4, 8, 0, 4, -8, -1, 4, -8, 0, 4, 8, 0, 4, 8, -1, 4, -8, -1, 4, 8, 0, -4, 8, -1, 4, 8, 0, 4, 8, 0, -4, 8, -1, -4, 8, -1, 4, -8, 0, -4, 8, -1, -4, 8, 0, -4, -8, 0, -4, -8, -1, -4, 8, -1, -4)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1op1g"]
+resource_name = "Material"
+cull_mode = 2
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_0cexj"]
+_surfaces = [{
+"aabb": AABB(-2, -0.125, -0.125, 4, 0.25, 0.25),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAAAEAAEAAwAFAAIABQAAAAIABgAEAAAABQAGAAAABwABAAQABwADAAEABgAHAAQABQADAAcABQAHAAYA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAAAAP////8AAAAA//8AAAAAAAAAAP//AAD///////8AAAAAAAAAAAAA//8AAAAAAAD//wAA//8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_r8a06"]
+resource_name = "props 2_Cube"
+lightmap_size_hint = Vector2i(82, 38)
+_surfaces = [{
+"aabb": AABB(-2, -0.125, -0.125, 4, 0.25, 0.25),
+"attribute_data": PackedByteArray("oP8fPwD//z4Mzsc7eQ0lP+D/Xz8A/X8+ZHB+P6K8Rj/g/18/AP//PmRwfj95DSU/oP8fPwD9fz4Mzsc7orxGP8D+vz4A/X8+DM7HOzaUVzyg/x8/AAAAAGRwfj/lNRQ+oP8fPwD9fz4Mzsc75TUUPsD+vz4AAAAAZHB+PzaUVzzA/r8+AACAP9uVKD6voXw/oP8fP8D/Pz/tStQ9h/JaP6D/Hz8AAIA/25UoPofyWj/A/r8+wP8/P+1K1D2voXw/APn/PQD//z5kcH4/eQ1lPsD+vz4A/X8+DM7HOw3ltT7A/r8+AP//PgzOxzt5DWU+APn/PQD9fz5kcH4/DeW1PsD+vz4A//8+qV2JPYfyWj+g/x8/AP1/PgzOxzuvoXw/oP8fPwD//z4Mzsc7h/JaP8D+vz4A/X8+qV2JPa+hfD/A/r8+wP8/PwzOxzvYUN4+oP8fPwD//z5kcH4/lNcQP6D/Hz/A/z8/DM7HO5TXED/A/r8+AP//PmRwfj/YUN4+"),
+"format": 34359742519,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_1op1g"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAQAAAAD4AAAC+AAAAwAAAAD4AAAA+AAAAwAAAAD4AAAC+AAAAQAAAAD4AAAA+AAAAQAAAAL4AAAA+AAAAwAAAAD4AAAA+AAAAQAAAAD4AAAA+AAAAwAAAAL4AAAA+AAAAwAAAAL4AAAA+AAAAwAAAAD4AAAC+AAAAwAAAAD4AAAA+AAAAwAAAAL4AAAC+AAAAwAAAAL4AAAC+AAAAQAAAAL4AAAA+AAAAQAAAAL4AAAC+AAAAwAAAAL4AAAA+AAAAQAAAAL4AAAC+AAAAQAAAAD4AAAA+AAAAQAAAAD4AAAC+AAAAQAAAAL4AAAA+AAAAwAAAAL4AAAC+AAAAQAAAAD4AAAC+AAAAwAAAAD4AAAC+AAAAQAAAAL4AAAC+/n/+/wAAAMD+f/7/AAAAwP5//v8AAADA/n/+/wAAAMD/f/9/AID+//9//38AgP7//3//fwCA/v//f/9/AID+/wEABIABgPz/AQAEgAGA/P8BAASAAYD8/wEABIABgPz/AIAAAP7//78AgAAA/v//vwCAAAD+//+/AIAAAP7//7/6/wCA/n/+//r/AID+f/7/+v8AgP5//v/6/wCA/n/+//7//v//f/7//v/+//9//v/+//7//3/+//7//v//f/7/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_0cexj")
+
 [node name="The Great Prison" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_dysd0")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.4330126, -0.6495191, -0.6250001, 0.05801258, -0.71201915, 0.69975954, -0.899519, 0.2667468, 0.34599364, 0, 0, 0)
-light_bake_mode = 1
-shadow_enabled = true
-shadow_normal_bias = 0.0
-shadow_opacity = 0.69
-
 [node name="Personnage" parent="." instance=ExtResource("2_f3rgr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66, -7, 45)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
 
 [node name="Lightings" type="Node" parent="."]
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 4, 3)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 6.661
+
+[node name="OmniLight3D61" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 4, 3)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 6.661
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 4, 27)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 6.661
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 4, 28)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 6.661
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 4, 27)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 6.661
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 4, 28)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 6.661
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 4, 3)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 6.661
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 4, 4)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 6.661
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 4, 15)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 6.661
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 4, 16)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 6.661
+
+[node name="OmniLight3D12" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 3, 15)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 10.0
+
+[node name="OmniLight3D13" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 10, 15)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 10.0
+
+[node name="OmniLight3D14" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47, 9, 13)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 6.661
+
+[node name="OmniLight3D15" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57, 9, 14)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 6.661
+
+[node name="OmniLight3D17" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 9, 26)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 12.389
+
+[node name="OmniLight3D18" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 9, 37)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 10.0
+
+[node name="OmniLight3D19" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 9, 55)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 6.661
+
+[node name="OmniLight3D20" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 10, 64)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 12.389
+
+[node name="OmniLight3D21" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 10, 47)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 12.389
+
+[node name="OmniLight3D22" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 9, 75)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 7.0
+
+[node name="OmniLight3D23" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55, 9, 77)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 10.0
+
+[node name="OmniLight3D24" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72, 9, 77)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 7.0
+
+[node name="OmniLight3D25" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97, 9, 77)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 7.0
+
+[node name="OmniLight3D26" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98, 9, 60)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 7.0
+
+[node name="OmniLight3D27" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98, 9, 44)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 7.0
+
+[node name="OmniLight3D28" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104, 9, 35)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 7.0
+
+[node name="OmniLight3D29" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96, 9, 26)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 7.0
+
+[node name="OmniLight3D60" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79, 9, 26)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 10.0
+
+[node name="OmniLight3D30" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89, 9, 16)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 10.0
+
+[node name="OmniLight3D31" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108, 6, 78.2)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 10.0
+
+[node name="OmniLight3D32" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119, 5, 75.2)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 7.0
+
+[node name="OmniLight3D33" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -113, 1, 66.2)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 7.0
+
+[node name="OmniLight3D34" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119, -2, 55.199997)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 7.0
+
+[node name="OmniLight3D35" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116, -2, 46.199997)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 7.0
+
+[node name="OmniLight3D36" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103, -2, 46.199997)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 8.0
+
+[node name="OmniLight3D37" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85, -2, 35.199997)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 8.0
+
+[node name="OmniLight3D38" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61, -2, 35.199997)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 8.0
+
+[node name="OmniLight3D39" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61, -2, 66.2)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 8.0
+
+[node name="OmniLight3D48" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, -3, 84.2)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 8.0
+
+[node name="OmniLight3D49" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, -3, 98.2)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 8.0
+
+[node name="OmniLight3D50" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, -3, 111.2)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 8.0
+
+[node name="OmniLight3D51" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66, -3, 125.2)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 8.0
+
+[node name="OmniLight3D52" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, -3, 141.2)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 8.0
+
+[node name="OmniLight3D53" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89, -3, 154.2)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 8.0
+
+[node name="OmniLight3D56" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57, -3, 154.2)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 8.0
+
+[node name="OmniLight3D57" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49, -1, 172.2)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 8.0
+
+[node name="OmniLight3D59" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68, -1, 172.2)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 4.494
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 30.0
+omni_attenuation = 1.095
+
+[node name="OmniLight3D58" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47, -3, 194.2)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 8.0
+
+[node name="OmniLight3D54" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88, -3, 193.2)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 8.0
+
+[node name="OmniLight3D55" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92, -3, 172.2)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 8.0
+
+[node name="OmniLight3D40" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55, -2, 51.199997)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 8.0
+
+[node name="OmniLight3D41" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -87, -2, 66.2)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 8.0
+
+[node name="OmniLight3D42" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.9, -2, 52.199997)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 35.0
+
+[node name="OmniLight3D43" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.9, -2, 27.199997)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 7.0
+
+[node name="OmniLight3D44" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.9, -7, 12.199997)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 7.0
+
+[node name="OmniLight3D45" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.9, -13, 4.199997)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 7.0
+
+[node name="OmniLight3D46" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.9, -16, -4.800003)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 7.0
+
+[node name="OmniLight3D47" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.6, -19, -18.600002)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 13.0
+
+[node name="OmniLight3D16" type="OmniLight3D" parent="Lightings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 9, 22)
+light_color = Color(1, 0.8011966, 0.5531766, 1)
+light_energy = 1.552
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 10.0
 
 [node name="World" type="Node3D" parent="."]
 
@@ -5099,7 +5603,6 @@ shape = SubResource("ConcavePolygonShape3D_urv2s")
 [node name="WallWithBarsLarge" type="MeshInstance3D" parent="World"]
 transform = Transform3D(-4.371139e-08, -1, 0, -4.371139e-08, 1.9106855e-15, -1, 1, -4.371139e-08, -4.371139e-08, -52, 9, 43)
 mesh = ExtResource("15_0dnud")
-surface_material_override/0 = ExtResource("8_scgjq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/WallWithBarsLarge"]
 collision_layer = 2
@@ -5111,7 +5614,6 @@ shape = SubResource("ConcavePolygonShape3D_pc32s")
 [node name="WallWithBarsLarge3" type="MeshInstance3D" parent="World"]
 transform = Transform3D(-4.371139e-08, -1, 0, -4.371139e-08, 1.9106855e-15, -1, 1, -4.371139e-08, -4.371139e-08, -52, 9, 51)
 mesh = ExtResource("15_0dnud")
-surface_material_override/0 = ExtResource("8_scgjq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/WallWithBarsLarge3"]
 collision_layer = 2
@@ -5123,7 +5625,6 @@ shape = SubResource("ConcavePolygonShape3D_ba0d3")
 [node name="WallWithBarsLarge4" type="MeshInstance3D" parent="World"]
 transform = Transform3D(1, 0, -4.371139e-08, -4.371139e-08, 1.9106855e-15, -1, 0, 1, 1.9106855e-15, -56, 9, 71)
 mesh = ExtResource("15_0dnud")
-surface_material_override/0 = ExtResource("8_scgjq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/WallWithBarsLarge4"]
 collision_layer = 2
@@ -5135,7 +5636,6 @@ shape = SubResource("ConcavePolygonShape3D_s5etw")
 [node name="WallWithBarsLarge2" type="MeshInstance3D" parent="World"]
 transform = Transform3D(-4.371139e-08, -1, 0, -4.371139e-08, 1.9106855e-15, -1, 1, -4.371139e-08, -4.371139e-08, -52, 9, 35)
 mesh = ExtResource("15_0dnud")
-surface_material_override/0 = ExtResource("8_scgjq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/WallWithBarsLarge2"]
 collision_layer = 2
@@ -5171,7 +5671,6 @@ shape = SubResource("ConcavePolygonShape3D_ni1p0")
 [node name="WallWithBarsLarge9" type="MeshInstance3D" parent="World"]
 transform = Transform3D(-4.371139e-08, -1, 0, -4.371139e-08, 1.9106855e-15, -1, 1, -4.371139e-08, -4.371139e-08, -52, 9, 51)
 mesh = ExtResource("15_0dnud")
-surface_material_override/0 = ExtResource("8_scgjq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/WallWithBarsLarge9"]
 collision_layer = 2
@@ -5183,7 +5682,6 @@ shape = SubResource("ConcavePolygonShape3D_c0npc")
 [node name="WallWithBarsLarge10" type="MeshInstance3D" parent="World"]
 transform = Transform3D(-4.371139e-08, -1, 0, -4.371139e-08, 1.9106855e-15, -1, 1, -4.371139e-08, -4.371139e-08, -52, 9, 59)
 mesh = ExtResource("15_0dnud")
-surface_material_override/0 = ExtResource("8_scgjq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/WallWithBarsLarge10"]
 collision_layer = 2
@@ -5229,7 +5727,6 @@ shape = SubResource("ConcavePolygonShape3D_bucx1")
 [node name="WallWithBarsLarge5" type="MeshInstance3D" parent="World"]
 transform = Transform3D(1, 0, -4.371139e-08, -4.371139e-08, 1.9106855e-15, -1, 0, 1, 1.9106855e-15, -64, 9, 71)
 mesh = ExtResource("15_0dnud")
-surface_material_override/0 = ExtResource("8_scgjq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/WallWithBarsLarge5"]
 collision_layer = 2
@@ -5252,7 +5749,6 @@ shape = SubResource("ConcavePolygonShape3D_c0jvc")
 [node name="WallWithBarsLarge6" type="MeshInstance3D" parent="World"]
 transform = Transform3D(1, 0, -4.371139e-08, -4.371139e-08, 1.9106855e-15, -1, 0, 1, 1.9106855e-15, -72, 9, 71)
 mesh = ExtResource("15_0dnud")
-surface_material_override/0 = ExtResource("8_scgjq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/WallWithBarsLarge6"]
 collision_layer = 2
@@ -5275,7 +5771,6 @@ shape = SubResource("ConcavePolygonShape3D_q1v7m")
 [node name="WallWithBarsLarge7" type="MeshInstance3D" parent="World"]
 transform = Transform3D(1, 0, -4.371139e-08, -4.371139e-08, 1.9106855e-15, -1, 0, 1, 1.9106855e-15, -80, 9, 71)
 mesh = ExtResource("15_0dnud")
-surface_material_override/0 = ExtResource("8_scgjq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/WallWithBarsLarge7"]
 collision_layer = 2
@@ -5298,7 +5793,6 @@ shape = SubResource("ConcavePolygonShape3D_2vksy")
 [node name="WallWithBarsLarge8" type="MeshInstance3D" parent="World"]
 transform = Transform3D(1, 0, -4.371139e-08, -4.371139e-08, 1.9106855e-15, -1, 0, 1, 1.9106855e-15, -88, 9, 71)
 mesh = ExtResource("15_0dnud")
-surface_material_override/0 = ExtResource("8_scgjq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/WallWithBarsLarge8"]
 collision_layer = 2
@@ -5310,7 +5804,6 @@ shape = SubResource("ConcavePolygonShape3D_6bo7j")
 [node name="WallWithBarsLarge12" type="MeshInstance3D" parent="World"]
 transform = Transform3D(-4.371139e-08, 1, 3.821371e-15, -4.371139e-08, 1.9106855e-15, -1, -1, -4.371139e-08, 4.371139e-08, -92, 9, 35)
 mesh = ExtResource("15_0dnud")
-surface_material_override/0 = ExtResource("8_scgjq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/WallWithBarsLarge12"]
 collision_layer = 2
@@ -5322,7 +5815,6 @@ shape = SubResource("ConcavePolygonShape3D_pnn3e")
 [node name="WallWithBarsLarge17" type="MeshInstance3D" parent="World"]
 transform = Transform3D(1, 0, -4.371139e-08, -4.371139e-08, 1.9106855e-15, -1, 0, 1, 1.9106855e-15, -88, 9, 31)
 mesh = ExtResource("15_0dnud")
-surface_material_override/0 = ExtResource("8_scgjq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/WallWithBarsLarge17"]
 collision_layer = 2
@@ -5334,7 +5826,6 @@ shape = SubResource("ConcavePolygonShape3D_b6idp")
 [node name="WallWithBarsLarge18" type="MeshInstance3D" parent="World"]
 transform = Transform3D(1, 0, -4.371139e-08, -4.371139e-08, 1.9106855e-15, -1, 0, 1, 1.9106855e-15, -80, 9, 31)
 mesh = ExtResource("15_0dnud")
-surface_material_override/0 = ExtResource("8_scgjq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/WallWithBarsLarge18"]
 collision_layer = 2
@@ -5423,7 +5914,6 @@ shape = SubResource("ConcavePolygonShape3D_iyyg3")
 [node name="WallWithBarsLarge13" type="MeshInstance3D" parent="World"]
 transform = Transform3D(-4.371139e-08, 1, 3.821371e-15, -4.371139e-08, 1.9106855e-15, -1, -1, -4.371139e-08, 4.371139e-08, -92, 9, 43)
 mesh = ExtResource("15_0dnud")
-surface_material_override/0 = ExtResource("8_scgjq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/WallWithBarsLarge13"]
 collision_layer = 2
@@ -5446,7 +5936,6 @@ shape = SubResource("ConcavePolygonShape3D_q866f")
 [node name="WallWithBarsLarge14" type="MeshInstance3D" parent="World"]
 transform = Transform3D(-4.371139e-08, 1, 3.821371e-15, -4.371139e-08, 1.9106855e-15, -1, -1, -4.371139e-08, 4.371139e-08, -92, 9, 51)
 mesh = ExtResource("15_0dnud")
-surface_material_override/0 = ExtResource("8_scgjq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/WallWithBarsLarge14"]
 collision_layer = 2
@@ -5469,7 +5958,6 @@ shape = SubResource("ConcavePolygonShape3D_1rhfb")
 [node name="WallWithBarsLarge15" type="MeshInstance3D" parent="World"]
 transform = Transform3D(-4.371139e-08, 1, 3.821371e-15, -4.371139e-08, 1.9106855e-15, -1, -1, -4.371139e-08, 4.371139e-08, -92, 9, 59)
 mesh = ExtResource("15_0dnud")
-surface_material_override/0 = ExtResource("8_scgjq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/WallWithBarsLarge15"]
 collision_layer = 2
@@ -5492,7 +5980,6 @@ shape = SubResource("ConcavePolygonShape3D_2xlk4")
 [node name="WallWithBarsLarge16" type="MeshInstance3D" parent="World"]
 transform = Transform3D(-4.371139e-08, 1, 3.821371e-15, -4.371139e-08, 1.9106855e-15, -1, -1, -4.371139e-08, 4.371139e-08, -92, 9, 67)
 mesh = ExtResource("15_0dnud")
-surface_material_override/0 = ExtResource("8_scgjq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/WallWithBarsLarge16"]
 collision_layer = 2
@@ -5741,7 +6228,6 @@ shape = SubResource("ConcavePolygonShape3D_c2qgy")
 [node name="WallWithBarsLarge11" type="MeshInstance3D" parent="World"]
 transform = Transform3D(-4.371139e-08, -1, 0, -4.371139e-08, 1.9106855e-15, -1, 1, -4.371139e-08, -4.371139e-08, -52, 9, 67)
 mesh = ExtResource("15_0dnud")
-surface_material_override/0 = ExtResource("8_scgjq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/WallWithBarsLarge11"]
 collision_layer = 2
@@ -7459,7 +7945,6 @@ shape = SubResource("ConcavePolygonShape3D_ner35")
 [node name="WallWithBarsLarge19" type="MeshInstance3D" parent="World"]
 transform = Transform3D(1.9106855e-15, 1, -4.371139e-08, 4.371139e-08, -4.371139e-08, -1, -1, 0, -4.371139e-08, -44, 9, 71)
 mesh = ExtResource("15_0dnud")
-surface_material_override/0 = ExtResource("8_scgjq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/WallWithBarsLarge19"]
 collision_layer = 2
@@ -7565,7 +8050,6 @@ shape = SubResource("ConcavePolygonShape3D_8wq2i")
 [node name="WallWithBarsLarge20" type="MeshInstance3D" parent="World"]
 transform = Transform3D(1.9106855e-15, 1, -4.371139e-08, 4.371139e-08, -4.371139e-08, -1, -1, 0, -4.371139e-08, -44, 9, 55)
 mesh = ExtResource("15_0dnud")
-surface_material_override/0 = ExtResource("8_scgjq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/WallWithBarsLarge20"]
 collision_layer = 2
@@ -7671,7 +8155,6 @@ shape = SubResource("ConcavePolygonShape3D_g4ewh")
 [node name="WallWithBarsLarge21" type="MeshInstance3D" parent="World"]
 transform = Transform3D(1.9106855e-15, 1, -4.371139e-08, 4.371139e-08, -4.371139e-08, -1, -1, 0, -4.371139e-08, -44, 9, 36)
 mesh = ExtResource("15_0dnud")
-surface_material_override/0 = ExtResource("8_scgjq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/WallWithBarsLarge21"]
 collision_layer = 2
@@ -7789,7 +8272,6 @@ shape = SubResource("ConcavePolygonShape3D_j1yv2")
 [node name="WallWithBarsLarge22" type="MeshInstance3D" parent="World"]
 transform = Transform3D(8.742278e-08, -1, 4.3711392e-08, 4.371139e-08, -4.371139e-08, -1, 1, 8.742278e-08, 4.3711385e-08, -100.36363, 9, 35)
 mesh = ExtResource("15_0dnud")
-surface_material_override/0 = ExtResource("8_scgjq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/WallWithBarsLarge22"]
 collision_layer = 2
@@ -7801,7 +8283,6 @@ shape = SubResource("ConcavePolygonShape3D_n1d3w")
 [node name="WallWithBarsLarge23" type="MeshInstance3D" parent="World"]
 transform = Transform3D(-1, -4.3711392e-08, -4.371139e-08, 4.371139e-08, -4.371139e-08, -1, 4.3711385e-08, -1, 4.371139e-08, -83.36363, 9, 23)
 mesh = ExtResource("15_0dnud")
-surface_material_override/0 = ExtResource("8_scgjq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/WallWithBarsLarge23"]
 collision_layer = 2
@@ -11218,7 +11699,6 @@ shape = SubResource("ConcavePolygonShape3D_2xgdg")
 [node name="WallWithBarsSm" type="MeshInstance3D" parent="World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 3)
 mesh = ExtResource("28_wdssa")
-surface_material_override/0 = ExtResource("8_scgjq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/WallWithBarsSm"]
 collision_layer = 2
@@ -11230,7 +11710,6 @@ shape = SubResource("ConcavePolygonShape3D_bf8x0")
 [node name="WallWithBarsSm2" type="MeshInstance3D" parent="World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 9, 3)
 mesh = ExtResource("28_wdssa")
-surface_material_override/0 = ExtResource("8_scgjq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/WallWithBarsSm2"]
 collision_layer = 2
@@ -11242,7 +11721,6 @@ shape = SubResource("ConcavePolygonShape3D_iymbd")
 [node name="WallWithBarsSm3" type="MeshInstance3D" parent="World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 27)
 mesh = ExtResource("28_wdssa")
-surface_material_override/0 = ExtResource("8_scgjq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/WallWithBarsSm3"]
 collision_layer = 2
@@ -11254,7 +11732,6 @@ shape = SubResource("ConcavePolygonShape3D_nhd01")
 [node name="WallWithBarsSm4" type="MeshInstance3D" parent="World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 8, 27)
 mesh = ExtResource("28_wdssa")
-surface_material_override/0 = ExtResource("8_scgjq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/WallWithBarsSm4"]
 collision_layer = 2
@@ -11352,4 +11829,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
 [node name="ChainsWithBars" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -3)
-mesh = ExtResource("31_dysd0")
+mesh = SubResource("ArrayMesh_r8a06")

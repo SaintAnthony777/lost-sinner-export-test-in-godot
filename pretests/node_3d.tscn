@@ -1,11 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://bpxtfqc8ycvxe"]
+[gd_scene load_steps=18 format=3 uid="uid://bpxtfqc8ycvxe"]
 
 [ext_resource type="PackedScene" uid="uid://srgn3wkeivsn" path="res://Character/Scenes/personnage.tscn" id="1_vrmkh"]
-[ext_resource type="Material" uid="uid://26nlage771nc" path="res://Environnements Pre-tests/Textures/Godot/Paved 1/Paved 1.tres" id="2_71jbn"]
 [ext_resource type="LightmapGIData" uid="uid://byfcyiobe3xwt" path="res://pretests/node_3d.lmbake" id="2_jqxyx"]
 [ext_resource type="Material" uid="uid://cojvmgwt12fxv" path="res://Environnements Pre-tests/Textures/Godot/Wall/Wall 1.tres" id="3_jg08x"]
 [ext_resource type="ArrayMesh" uid="uid://dlvfqwl58u8d0" path="res://Environnements Pre-tests/The Great Prison/floor/Meshes/Floor 2*2.res" id="4_tnp1t"]
 [ext_resource type="ArrayMesh" uid="uid://dmi0vnqk765nx" path="res://Environnements Pre-tests/The Great Prison/floor/Meshes/roof 32 * 32.res" id="5_jg08x"]
+[ext_resource type="ArrayMesh" uid="uid://fsoowfbuuf58" path="res://Environnements Pre-tests/The Great Prison/floor/Meshes/roof 32 * 8.res" id="7_52lw0"]
+[ext_resource type="ArrayMesh" uid="uid://38hxe34sdexb" path="res://Environnements Pre-tests/The Great Prison/floor/Meshes/roof 16 *16.res" id="7_cct8r"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jqxyx"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -18,15 +19,6 @@ sky_material = SubResource("ProceduralSkyMaterial_jqxyx")
 background_mode = 2
 sky = SubResource("Sky_71jbn")
 tonemap_mode = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jqxyx"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_71jbn"]
-material = SubResource("StandardMaterial3D_jqxyx")
-size = Vector2(55, 55)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_71jbn"]
-data = PackedVector3Array(27.5, 0, 27.5, -27.5, 0, 27.5, 27.5, 0, -27.5, -27.5, 0, 27.5, -27.5, 0, -27.5, 27.5, 0, -27.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_3p18b"]
 lightmap_size_hint = Vector2i(14, 61)
@@ -58,25 +50,16 @@ data = PackedVector3Array(-5, 0.5, 5, 5, 0.5, 5, -5, -0.5, 5, 5, 0.5, 5, 5, -0.5
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3p18b")
 
+[node name="LightmapGI" type="LightmapGI" parent="."]
+light_data = ExtResource("2_jqxyx")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-light_energy = 0.5
 light_bake_mode = 1
 shadow_enabled = true
 
 [node name="Personnage" parent="." instance=ExtResource("1_vrmkh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_71jbn")
-surface_material_override/0 = ExtResource("2_71jbn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
-collision_layer = 2
-collision_mask = 5
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_71jbn")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
@@ -167,9 +150,6 @@ collision_mask = 5
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D6/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_cct8r")
 
-[node name="LightmapGI" type="LightmapGI" parent="."]
-light_data = ExtResource("2_jqxyx")
-
 [node name="Floor2*2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, 8)
 mesh = ExtResource("4_tnp1t")
@@ -181,3 +161,11 @@ mesh = ExtResource("5_jg08x")
 [node name="Roof32*33" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 8, -21)
 mesh = ExtResource("5_jg08x")
+
+[node name="Roof16*16" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 5, -3)
+mesh = ExtResource("7_cct8r")
+
+[node name="Roof32*8" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
+mesh = ExtResource("7_52lw0")

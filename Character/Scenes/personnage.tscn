@@ -225,7 +225,6 @@ margin = 1.0
 [node name="Camera3D" type="Camera3D" parent="Camera_pivot/SpringArm3D"]
 unique_name_in_owner = true
 keep_aspect = 0
-doppler_tracking = 1
 
 [node name="Camera_area_of_sight" type="Area3D" parent="Camera_pivot/SpringArm3D"]
 collision_layer = 4
