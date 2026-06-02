@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://wy0eefl4xmxd"]
+
+[ext_resource type="PackedScene" uid="uid://b4uw8bgm64usb" path="res://Environnements Pre-tests/The Great Prison/Props/Flowers/Flower 1.blend" id="1_xov4k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xov4k"]
+shading_mode = 0
+albedo_color = Color(0.22672042, 0.581757, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_srerf"]
+shading_mode = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hbf8x"]
+shading_mode = 0
+diffuse_mode = 3
+albedo_color = Color(0.92021066, 0.8499613, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r3663"]
+shading_mode = 0
+albedo_color = Color(0.13564852, 0.31298387, 9.62615e-08, 1)
+
+[node name="Flower 1" instance=ExtResource("1_xov4k")]
+
+[node name="Flower Stash" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_xov4k")
+surface_material_override/1 = SubResource("StandardMaterial3D_srerf")
+surface_material_override/2 = SubResource("StandardMaterial3D_hbf8x")
+surface_material_override/3 = SubResource("StandardMaterial3D_r3663")

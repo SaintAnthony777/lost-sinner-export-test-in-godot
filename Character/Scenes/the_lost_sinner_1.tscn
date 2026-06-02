@@ -15815,5 +15815,10 @@ metadata/_custom_type_script = "uid://dflwyxok3081k"
 shape = SubResource("SphereShape3D_0i3i2")
 disabled = true
 
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 1.5)
+light_color = Color(0.7604075, 1.306858, 1.306858, 1)
+omni_range = 3.0
+
 [editable path="Special effects layer/Radial Blur + Chromatic aberration"]
 [editable path="Hud canvas layer/HUD"]

@@ -1,0 +1,92 @@
+[gd_scene load_steps=14 format=3 uid="uid://b0nfpw83y1n3x"]
+
+[ext_resource type="Texture2D" uid="uid://nil5pp7cgle1" path="res://particles for fun/assets/alpha/spotlight_6.png" id="1_77gyk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_77gyk"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_kdkmr"]
+sky_material = SubResource("ProceduralSkyMaterial_77gyk")
+
+[sub_resource type="Environment" id="Environment_3b8tr"]
+background_mode = 2
+sky = SubResource("Sky_kdkmr")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Curve" id="Curve_8s4jf"]
+_data = [Vector2(0.00390625, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_v5d2d"]
+curve = SubResource("Curve_8s4jf")
+
+[sub_resource type="Gradient" id="Gradient_kdkmr"]
+colors = PackedColorArray(0.9821244, 0.45457596, 0.2509171, 1, 1, 1, 0.23921569, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3b8tr"]
+gradient = SubResource("Gradient_kdkmr")
+
+[sub_resource type="Curve" id="Curve_4j3vt"]
+_data = [Vector2(0.07421875, 0), 0.0, 0.0, 0, 0, Vector2(0.27734375, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2kc78"]
+curve = SubResource("Curve_4j3vt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8s4jf"]
+lifetime_randomness = 0.9
+emission_shape = 1
+emission_sphere_radius = 15.0
+direction = Vector3(0, 0, 0)
+initial_velocity_max = 54.55
+angular_velocity_min = -78.55001
+angular_velocity_max = 95.999985
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 1.9999776
+gravity = Vector3(0, 5, 0)
+scale_max = 3.0
+scale_over_velocity_max = 963.63995
+color = Color(1.7086349, 1.2619969, 0.47436133, 1)
+color_ramp = SubResource("GradientTexture1D_3b8tr")
+alpha_curve = SubResource("CurveTexture_v5d2d")
+emission_curve = SubResource("CurveTexture_2kc78")
+turbulence_enabled = true
+turbulence_initial_displacement_min = 1.490116e-06
+turbulence_initial_displacement_max = 36.800003
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5d2d"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+diffuse_mode = 3
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.6745098, 0.57254905, 0, 1)
+albedo_texture = ExtResource("1_77gyk")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_u8nmf"]
+material = SubResource("StandardMaterial3D_v5d2d")
+
+[node name="Particle scene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3b8tr")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="floating particles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+amount = 1000
+lifetime = 10.0
+randomness = 0.1
+use_fixed_seed = true
+seed = 3515861882
+process_material = SubResource("ParticleProcessMaterial_8s4jf")
+draw_pass_1 = SubResource("QuadMesh_u8nmf")
+
+[node name="Camera3D" type="Camera3D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://srgn3wkeivsn"]
+[gd_scene load_steps=73 format=3 uid="uid://srgn3wkeivsn"]
 
 [ext_resource type="Script" uid="uid://bhjwagrue8av5" path="res://Character/Scripts/Player/personnage.gd" id="1_ov8r6"]
 [ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="2_ov8r6"]
@@ -196,7 +196,10 @@ _data = {
 &"camera_up_then_down": SubResource("Animation_e8vxi")
 }
 
+[sub_resource type="SphereMesh" id="SphereMesh_r2hrc"]
+
 [node name="Personnage" type="CharacterBody3D" groups=["Personnage", "Player"]]
+collision_layer = 65537
 collision_mask = 6
 floor_max_angle = 1.0471976
 script = ExtResource("1_ov8r6")
@@ -225,6 +228,7 @@ margin = 1.0
 [node name="Camera3D" type="Camera3D" parent="Camera_pivot/SpringArm3D"]
 unique_name_in_owner = true
 keep_aspect = 0
+cull_mask = 983039
 
 [node name="Camera_area_of_sight" type="Area3D" parent="Camera_pivot/SpringArm3D"]
 collision_layer = 4
@@ -486,3 +490,8 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 [node name="Air Taking Damage Landing" type="Node" parent="StateMachine"]
 script = ExtResource("59_jkg5d")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.255404, 0)
+layers = 65536
+mesh = SubResource("SphereMesh_r2hrc")

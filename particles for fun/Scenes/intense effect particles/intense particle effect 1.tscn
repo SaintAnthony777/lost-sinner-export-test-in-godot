@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckpwdv46ugwne"]
+
+[ext_resource type="Texture2D" uid="uid://nil5pp7cgle1" path="res://particles for fun/assets/alpha/spotlight_6.png" id="1_uthpv"]
+
+[sub_resource type="Gradient" id="Gradient_uxmon"]
+colors = PackedColorArray(0, 0, 2.2764256, 1, 0.5267093, 0.95569545, 0.9061971, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lb52g"]
+gradient = SubResource("Gradient_uxmon")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8cdpu"]
+lifetime_randomness = 0.03
+emission_shape = 1
+emission_sphere_radius = 2.62
+gravity = Vector3(0, 25, 0)
+color = Color(0.6803998, 0.915184, 1.6071796, 1)
+color_ramp = SubResource("GradientTexture1D_lb52g")
+turbulence_influence_min = 0.029000001
+turbulence_influence_max = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uthpv"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_uthpv")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_uxmon"]
+material = SubResource("StandardMaterial3D_uthpv")
+
+[node name="intense particle effects" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 200
+lifetime = 0.3
+randomness = 0.6
+process_material = SubResource("ParticleProcessMaterial_8cdpu")
+draw_pass_1 = SubResource("QuadMesh_uxmon")

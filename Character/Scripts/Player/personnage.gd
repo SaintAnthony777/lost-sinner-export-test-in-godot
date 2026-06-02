@@ -75,6 +75,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 		
 func _physics_process(_delta: float) -> void:
+	SimpleGrass.set_player_position(global_position)
 	current_divine_divider = divine_divider_list[current_divine_divider_index]
 	current_grace = grace_list[current_grace_index]
 	if !current_target or !is_locking:

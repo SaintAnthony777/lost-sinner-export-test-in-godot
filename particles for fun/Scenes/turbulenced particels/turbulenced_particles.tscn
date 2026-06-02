@@ -1,0 +1,101 @@
+[gd_scene load_steps=15 format=3 uid="uid://cjoedkw8b7sly"]
+
+[ext_resource type="Texture2D" uid="uid://djnvrw1yp0swb" path="res://particles for fun/assets/alpha/spotlight_1.png" id="1_i4s7u"]
+[ext_resource type="Shader" uid="uid://bvcr3em1blvns" path="res://particles for fun/Shaders/Darksphere2.tres" id="2_i4s7u"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i4s7u"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_wb5nc"]
+sky_material = SubResource("ProceduralSkyMaterial_i4s7u")
+
+[sub_resource type="Environment" id="Environment_1crik"]
+background_mode = 2
+sky = SubResource("Sky_wb5nc")
+tonemap_mode = 2
+glow_enabled = true
+glow_intensity = 3.8
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.0023445897, 0.00234459, 0.00234459, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ab3yd"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(2.5930002, 2.5930002, 2.5930002, 1)
+albedo_texture = ExtResource("1_i4s7u")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = true
+use_particle_trails = true
+
+[sub_resource type="Gradient" id="Gradient_i4s7u"]
+colors = PackedColorArray(0.36699334, 2.522306, 9.310425, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wb5nc"]
+gradient = SubResource("Gradient_i4s7u")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1crik"]
+emission_shape_scale = Vector3(1, 0, 1)
+emission_shape = 2
+emission_sphere_radius = 15.0
+inherit_velocity_ratio = 0.245
+initial_velocity_max = 25.0
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 413.78998
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -40.0
+radial_accel_max = -20.000002
+tangential_accel_min = 49.999996
+tangential_accel_max = 74.99999
+damping_min = 10.0
+damping_max = 20.0
+color = Color(0.11800038, 0.8027208, 0.8541091, 1)
+color_ramp = SubResource("GradientTexture1D_wb5nc")
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_acilo"]
+size = 2.0
+sections = 4
+section_segments = 2
+
+[sub_resource type="Gradient" id="Gradient_wb5nc"]
+offsets = PackedFloat32Array(0, 0.13953489, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.4528935, 0.7041575, 1.353256, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1crik"]
+gradient = SubResource("Gradient_wb5nc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_acilo"]
+render_priority = 0
+shader = ExtResource("2_i4s7u")
+shader_parameter/Texture2DParameter = SubResource("GradientTexture1D_1crik")
+
+[sub_resource type="SphereMesh" id="SphereMesh_e1w5p"]
+material = SubResource("ShaderMaterial_acilo")
+radius = 5.0
+height = 10.0
+
+[node name="Turbulenced particles" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1crik")
+
+[node name="Spining particles" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_ab3yd")
+amount = 1000
+lifetime = 5.0
+trail_enabled = true
+trail_lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_1crik")
+draw_pass_1 = SubResource("RibbonTrailMesh_acilo")
+
+[node name="DarkSphere" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_e1w5p")
