@@ -48,6 +48,15 @@ _subresources={
 "save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Props/Meshes/Bar For chains.res",
 "save_to_file/path": "uid://88tpvc27cq1m"
 },
+"props 2_Cube_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Props/Meshes/brick piece 1.res",
+"save_to_file/path": "uid://mb0rgmg3wjti"
+},
 "props 2_Cube_002": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
@@ -56,6 +65,24 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Props/Meshes/Table sm.res",
 "save_to_file/path": "uid://dw5cngp838x80"
+},
+"props 2_Plane_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Props/Meshes/Straight chains.res",
+"save_to_file/path": "uid://b7s7i1btx8085"
+},
+"props 2_Plane_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Props/Meshes/Chains With Braces.res",
+"save_to_file/path": "uid://bkqwdf6ct17uj"
 }
 }
 }

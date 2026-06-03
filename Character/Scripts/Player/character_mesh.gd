@@ -55,14 +55,14 @@ var is_alive:bool=true
 @onready var AOE_Collision:CollisionShape3D=$"AOE_Hitboxes/HitBoxComponent/CollisionShape3D"
 @onready var health_component: HealthComponent = $"Hud canvas layer/HUD/Health and equip/HealthComponent"
 @onready var dealt_attack:Attack
-@onready var character_omni_light:OmniLight3D=$"OmniLight3D"
+@onready var Shield_Light:SpotLight3D=$"Shield Light"
 func _ready() -> void:
 	health_component.Moveable_Player=player
 	health_component.Armor_value=50
-	character_omni_light.hide()
+	Shield_Light.hide()
 func _process(delta: float) -> void:
-	if is_blocking : character_omni_light.show()
-	else : character_omni_light.hide()
+	if is_blocking : Shield_Light.show()
+	else : Shield_Light.hide()
 func normal_motion(current_action:String)->void:
 	grounding("Normal")
 	animation_tree.set("parameters/Normal_Transition/transition_request",current_action)
