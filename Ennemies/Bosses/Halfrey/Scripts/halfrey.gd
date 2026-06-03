@@ -17,5 +17,6 @@ func Boss_motion(current_state:String,current_action:String)->void:
 
 func is_ready_function():
 	is_ready=true
+	
 func done_attacking()->void:
 	isattacking=false

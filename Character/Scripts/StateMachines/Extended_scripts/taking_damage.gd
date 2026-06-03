@@ -4,9 +4,9 @@ extends State
 @onready var player: player_character = $"../.."
 var camera_offset_no_offense_here:float=1.0
 func enter() -> void:
-	character.slow_mo.stops_slow_motion()
 	taking_damage_tricks()
 func physics_update(_delta) -> void:
+	if !character.is_alive:state_machine.change_state("Dying");player.is_locking=false
 	player.gravity_applying(_delta)
 	if player.current_target:
 		camera_offset_no_offense_here=player.global_position.distance_to(player.current_target.global_position)

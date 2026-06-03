@@ -1,6 +1,6 @@
 class_name HealthComponent extends Node
 
-var Current_health:float
+@onready var Current_health:float
 var Damage_Factor:float
 
 var Moveable_Player:player_character
@@ -18,32 +18,44 @@ var dealt_thrown_time:float=.0
 @export var Armor_value:float
 @export var Node_to_call_on_death:enemy_root
 @export var player_to_call_on_death:character_mesh
+@export var random_node_to_call_on_death:fracturable_static
 
 func _ready() -> void:
-	Health_gauge.max_value=Max_health
 	Current_health=Max_health
-	
+	if Health_gauge:
+		Health_gauge.max_value=Max_health
+	print(Immunity)
 func _process(_delta: float) -> void:
 	if Health_gauge:
 		Health_gauge.value=lerp(Health_gauge.value,Current_health,.5)
 	if received_attack:
 		take_a_step(received_attack,_delta)
-
 func taking_damage(taken_attack:Attack):
+	
+	HitStopManager.hit_stop_function(.1)
+	print(Current_health)
+	
 	if Moveable_Player:Moveable_Player.character.is_taking_damage=true
 	if Moveable_Body:Moveable_Body.visuals.is_taking_damage=true
+	if random_node_to_call_on_death : 
+		Current_health-=taken_attack.Base_damage+Damage_Factor
+		if Current_health<=0:Current_health=0
 	if taken_attack.Nature in Vulnerability:
 		Damage_Factor=taken_attack.Base_damage*25/100
+		Current_health-=(taken_attack.Base_damage+Damage_Factor)
 	elif taken_attack.Nature in Resistance:
 		Damage_Factor=-taken_attack.Base_damage*5/100
+		Current_health-=(taken_attack.Base_damage+Damage_Factor)
 	elif taken_attack.Nature in Immunity :
 		Damage_Factor=-taken_attack.Base_damage
-		
+		Current_health-=(taken_attack.Base_damage+Damage_Factor)
+	else : Damage_Factor = 0;Current_health-=(taken_attack.Base_damage+Damage_Factor)
 	if Moveable_Player and Moveable_Player.character.is_blocking :
 		var dealt_dmg=(taken_attack.Base_damage+Damage_Factor)-Armor_value
 		if dealt_dmg<=0:dealt_dmg=0
 		Current_health-=dealt_dmg
-	else : Current_health-=taken_attack.Base_damage+Damage_Factor
+	print(Current_health)
+	
 	dealt_thrown_time=taken_attack.Stun_time
 	if Current_health<0:Current_health=0
 	if Current_health==0:
@@ -51,6 +63,8 @@ func taking_damage(taken_attack:Attack):
 			Node_to_call_on_death.is_alive=false
 		if player_to_call_on_death:
 			player_to_call_on_death.is_alive=false
+		if random_node_to_call_on_death:
+			random_node_to_call_on_death.is_alive=false
 			
 func take_a_step(taken_attack:Attack,delta:float):
 	var expulsion_direction:Vector3=Vector3.ZERO
@@ -70,15 +84,16 @@ func take_a_step(taken_attack:Attack,delta:float):
 					attack_sender.global_position.z
 				))
 				Node_to_be_rotated.owner.rotate_y(PI)
-			else:
+			elif Moveable_Player:
 				Node_to_be_rotated.look_at(Vector3(
 					attack_sender.global_position.x,
 					Node_to_be_rotated.global_position.y,
 					attack_sender.global_position.z
 				))
 				Node_to_be_rotated.rotate_y(PI)
-			expulsion_direction=Node_to_be_rotated.transform.basis.z.normalized()
-			Node_to_be_rotated.owner.velocity =-(expulsion_direction*taken_attack.Strength)
-			Node_to_be_rotated.owner.move_and_slide()
+			if Node_to_be_rotated:
+				expulsion_direction=Node_to_be_rotated.transform.basis.z.normalized()
+				Node_to_be_rotated.owner.velocity =-(expulsion_direction*taken_attack.Strength)
+				Node_to_be_rotated.owner.move_and_slide()
 		else:
 			received_attack=null

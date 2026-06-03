@@ -12,16 +12,20 @@ var Attack_5=Attack.new()
 var Attack_array:=[]
 var attack_picked:int
 var previous_attack:=0
+
 func enter() -> void:
 	halfrey.isattacking=true
 	init_attacks()
 	attack_picker()
 	halfrey.dealt_attack=Attack_array[attack_picked]
 	halfrey_root.aiming_at_player()
+
 func physics_update(_delta) -> void:
 	attack_check()
+	print(halfrey.isattacking)
 	if !halfrey_root.is_alive:
 		state_machine.change_state("Dying")
+
 func attack_picker() -> void:
 	attack_picked=randi_range(0,4)
 	if attack_picked==previous_attack:
@@ -31,7 +35,9 @@ func attack_picker() -> void:
 func attack_check()->void:
 	if !halfrey.isattacking:
 		state_machine.change_state("idle")
+
 func init_attacks()->void:
+	Attack_array.clear()
 	Attack_1.create_attack(15.0,25.0,"Physical",3.0,0.0)
 	Attack_array.append(Attack_1)
 	Attack_2.create_attack(16.0,25.0,"Physical",3.0,0.0)
