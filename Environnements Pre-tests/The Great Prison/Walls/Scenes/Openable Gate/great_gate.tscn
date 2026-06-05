@@ -63,6 +63,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector3(0, 0, -1), Vector3(0, 0, 3)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Player_look_at:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 2, 3), Vector3(0, 2, 7)]
+}
 
 [sub_resource type="Animation" id="Animation_ype2d"]
 resource_name = "Open Front"
@@ -117,6 +129,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 1), Vector3(0, 0, -3)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Player_look_at:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 2, -3), Vector3(0, 2, -6)]
+}
 
 [sub_resource type="Animation" id="Animation_0piym"]
 length = 0.001
@@ -155,6 +179,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player_look_at:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2, 3)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2wjdu"]
@@ -198,13 +234,14 @@ libraries = {
 &"": SubResource("AnimationLibrary_2wjdu")
 }
 
-[node name="Gate Front Interaction area" type="Area3D" parent="." node_paths=PackedStringArray("gate_owner", "player_marker")]
+[node name="Gate Front Interaction area" type="Area3D" parent="." node_paths=PackedStringArray("gate_owner", "player_marker", "player_look_at")]
 script = ExtResource("3_0piym")
 side_for_doors = "Front"
 gate_owner = NodePath("..")
 interaction_type = "Opens gate"
-current_interaction = "Open The Gate"
+current_interaction = "Open The Gate From Front"
 player_marker = NodePath("../Playerposition")
+player_look_at = NodePath("../Player_look_at")
 metadata/_custom_type_script = "uid://dbye3ep2uh4xp"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Gate Front Interaction area"]
@@ -219,14 +256,15 @@ billboard = 1
 text = "Press E to Interact
 "
 
-[node name="Gate Back Interaction area2" type="Area3D" parent="." node_paths=PackedStringArray("gate_owner", "player_marker")]
+[node name="Gate Back Interaction area2" type="Area3D" parent="." node_paths=PackedStringArray("gate_owner", "player_marker", "player_look_at")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6)
 script = ExtResource("3_0piym")
 side_for_doors = "Back"
 gate_owner = NodePath("..")
 interaction_type = "Opens gate"
-current_interaction = "Open The Gate"
+current_interaction = "Open The Gate From The Back"
 player_marker = NodePath("../Playerposition")
+player_look_at = NodePath("../Player_look_at")
 metadata/_custom_type_script = "uid://dbye3ep2uh4xp"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Gate Back Interaction area2"]
@@ -242,3 +280,6 @@ text = "Press E to Interact
 "
 
 [node name="Playerposition" type="Marker3D" parent="."]
+
+[node name="Player_look_at" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3)

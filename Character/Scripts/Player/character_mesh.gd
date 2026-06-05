@@ -234,6 +234,8 @@ func done_taking_damage()->void:
 
 func done_opening_door()->void:
 	opening_door=false
+func done_interacting()->void:
+	interacts=false
 func can_unleash_divine_divider_now():
 	can_unleash_divine_divider=true
 

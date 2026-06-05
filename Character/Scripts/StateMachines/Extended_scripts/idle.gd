@@ -63,6 +63,7 @@ func input_logic()->void:
 	if Input.is_action_just_pressed("Jump trigger"):
 		character.landed=false
 		state_machine.change_state("Jumping")
+		
 	if Input.is_action_just_pressed("Action trigger") and player.can_interact:
 		character.interacts=true
 		state_machine.change_state(player.interaction_type)

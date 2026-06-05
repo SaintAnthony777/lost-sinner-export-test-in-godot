@@ -4,7 +4,10 @@ class_name interaction_area extends Area3D
 @export var gate_owner : Openable_Gate
 @export var interaction_type : String
 @export var current_interaction : String
+
 @export var player_marker : Marker3D 
+@export var player_look_at : Marker3D
+
 @onready var interaction_text : Label3D = $"Interaction Text"
 @onready var collsion_shape : CollisionShape3D = get_node("CollisionShape3D")
 @onready var player_is_in_area : bool = false
@@ -20,17 +23,22 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	interaction_text.text = current_interaction
+	
 	if player_is_in_area:
 		if player.is_busy:
 			player.can_interact=false
-		else :player.can_interact=true
-
+			interaction_text.hide()
+		else :
+			player.can_interact=true
+			interaction_text.show()
+			
 func _on_body_entered(body: Node3D) -> void:
 	if body is player_character :
 		player_is_in_area=true
 		player_marker.global_position=self.global_position
 		player.interaction_type=interaction_type
 		player.marker_forced_pos=player_marker
+		player.player_look_node=player_look_at
 		player.can_interact=true
 		body.Interaction_side=side_for_doors
 		interaction_text.show()
