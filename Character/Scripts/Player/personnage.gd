@@ -50,6 +50,7 @@ var can_interact:bool=false
 var interaction_type:String=""
 var marker_forced_pos:Marker3D=null
 var Interaction_side:String=""
+var is_busy:bool=false
 
 func _ready() -> void:
 	camera.h_offset=.7
@@ -94,7 +95,9 @@ func _physics_process(_delta: float) -> void:
 	direction.y=0
 	if direction.length() > 0.001: direction.normalized()
 	player_direction=direction
-## Fonction permettant de déplacer le personnage
+	if is_busy:can_interact=false
+	print(can_interact)
+	## Fonction permettant de déplacer le personnage
 func character_moving(dir:Vector3):
 	dir.y=0
 	dir=dir.normalized()

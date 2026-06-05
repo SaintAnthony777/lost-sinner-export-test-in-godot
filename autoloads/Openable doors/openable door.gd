@@ -7,7 +7,7 @@ class_name Openable_Gate extends Node3D
 @onready var player_pos:Marker3D=$Playerposition
 
 func _process(delta: float) -> void:
-	if opening_side!="" and !opened and Input.is_action_just_pressed("Action trigger") and personnage.can_interact:
+	if opening_side!="" and !opened and Input.is_action_just_pressed("Action trigger") and !personnage.is_busy:
 		opened=true
 		for area in self.get_children():
 			if area is interaction_area:

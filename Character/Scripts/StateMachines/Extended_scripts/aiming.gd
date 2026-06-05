@@ -28,10 +28,7 @@ func physics_update(_delta) -> void:
 		character.crosshair_layer.hide()
 		state_machine.change_state(player.current_divine_divider)
 		
-	if Input.is_action_just_pressed("Action trigger") and player.can_interact:
-		character.crosshair_layer.hide()
-		character.interacts=true
-		state_machine.change_state(player.interaction_type)
+	
 func state_logics (delta:float) -> void :
 	Crosshair_tricks()
 	aiming_angle_correct()

@@ -9,6 +9,7 @@ class_name interaction_area extends Area3D
 @onready var collsion_shape : CollisionShape3D = get_node("CollisionShape3D")
 @onready var player_is_in_area : bool = false
 @onready var player:player_character=get_tree().get_first_node_in_group("Personnage")
+
 func _init() -> void:
 	collision_layer=7
 	collision_mask=1
@@ -19,9 +20,14 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	interaction_text.text = current_interaction
-	
+	if player_is_in_area:
+		if player.is_busy:
+			player.can_interact=false
+		else :player.can_interact=true
+
 func _on_body_entered(body: Node3D) -> void:
 	if body is player_character :
+		player_is_in_area=true
 		player_marker.global_position=self.global_position
 		player.interaction_type=interaction_type
 		player.marker_forced_pos=player_marker
@@ -33,6 +39,7 @@ func _on_body_entered(body: Node3D) -> void:
 
 func _on_body_exited(body: Node3D) -> void:
 	if body is player_character :
+		player_is_in_area=false
 		player.can_interact=false
 		interaction_text.hide()
 		

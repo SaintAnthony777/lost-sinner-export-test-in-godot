@@ -5,6 +5,7 @@ extends State
 
 func enter() -> void:
 	gate_opens_trick()
+	player.is_busy=false
 	character.look_at(player.marker_forced_pos.transform.basis.z)
 	if player.Interaction_side=="Back":
 		character.rotate_y(PI)

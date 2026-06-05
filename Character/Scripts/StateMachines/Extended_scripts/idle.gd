@@ -5,7 +5,7 @@ extends State
 func enter() -> void:
 	character.is_blocking=false
 	character.crosshair_layer.hide()
-	
+	player.is_busy=false
 func physics_update(_delta) -> void:
 	player.camera.fov=lerp(player.camera.fov,75.0,.1)
 	state_logic(_delta)
@@ -66,3 +66,5 @@ func input_logic()->void:
 	if Input.is_action_just_pressed("Action trigger") and player.can_interact:
 		character.interacts=true
 		state_machine.change_state(player.interaction_type)
+func exit() -> void:
+	player.is_busy=true
