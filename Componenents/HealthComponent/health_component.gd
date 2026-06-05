@@ -24,7 +24,6 @@ func _ready() -> void:
 	Current_health=Max_health
 	if Health_gauge:
 		Health_gauge.max_value=Max_health
-	print(Immunity)
 func _process(_delta: float) -> void:
 	if Health_gauge:
 		Health_gauge.value=lerp(Health_gauge.value,Current_health,.5)
@@ -33,8 +32,6 @@ func _process(_delta: float) -> void:
 func taking_damage(taken_attack:Attack):
 	
 	HitStopManager.hit_stop_function(.1)
-	print(Current_health)
-	
 	if Moveable_Player:Moveable_Player.character.is_taking_damage=true
 	if Moveable_Body:Moveable_Body.visuals.is_taking_damage=true
 	if random_node_to_call_on_death : 
@@ -54,7 +51,6 @@ func taking_damage(taken_attack:Attack):
 		var dealt_dmg=(taken_attack.Base_damage+Damage_Factor)-Armor_value
 		if dealt_dmg<=0:dealt_dmg=0
 		Current_health-=dealt_dmg
-	print(Current_health)
 	
 	dealt_thrown_time=taken_attack.Stun_time
 	if Current_health<0:Current_health=0

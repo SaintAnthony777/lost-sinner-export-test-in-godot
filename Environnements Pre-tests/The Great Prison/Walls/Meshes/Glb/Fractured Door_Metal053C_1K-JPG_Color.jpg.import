@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu0u38nmrgy6c"
-path.s3tc="res://.godot/imported/Fractured Door_Metal053C_1K-JPG_Metalness-Metal053C_1K-JPG_Roughness.png-9f77bbc356c3aa9b1adde075a625400a.s3tc.ctex"
+uid="uid://bxgbefh0a0t5p"
+path.s3tc="res://.godot/imported/Fractured Door_Metal053C_1K-JPG_Color.jpg-f254cd5b815e9356d3b14955c8cc9ff2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "7fdca7648002262be5183854a43d7f37"
+"md5": "43efe15f0b313ccbfc7fd837f5d8338a"
 }
 
 [deps]
 
-source_file="res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Fractured Door_Metal053C_1K-JPG_Metalness-Metal053C_1K-JPG_Roughness.png"
-dest_files=["res://.godot/imported/Fractured Door_Metal053C_1K-JPG_Metalness-Metal053C_1K-JPG_Roughness.png-9f77bbc356c3aa9b1adde075a625400a.s3tc.ctex"]
+source_file="res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Glb/Fractured Door_Metal053C_1K-JPG_Color.jpg"
+dest_files=["res://.godot/imported/Fractured Door_Metal053C_1K-JPG_Color.jpg-f254cd5b815e9356d3b14955c8cc9ff2.s3tc.ctex"]
 
 [params]
 

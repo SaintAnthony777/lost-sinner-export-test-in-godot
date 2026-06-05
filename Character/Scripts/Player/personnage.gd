@@ -45,7 +45,11 @@ var current_divine_divider:=""
 var current_grace:=""
 var can_switch_special:=true
 
-
+#Doors and all that
+var can_interact:bool=false
+var interaction_type:String=""
+var marker_forced_pos:Marker3D=null
+var Interaction_side:String=""
 
 func _ready() -> void:
 	camera.h_offset=.7
@@ -64,7 +68,6 @@ func _input(_event: InputEvent) -> void:
 		switch_special(grace_list)
 	if Input.is_action_just_pressed("Divine Divider switch") and can_switch_special:
 		switch_special(divine_divider_list)
-
 func _unhandled_input(event: InputEvent) -> void:
 	var camera_is_in_motion:=(
 		event is InputEventMouseMotion and 

@@ -2,11 +2,14 @@ class_name HurtBoxComponent extends Area3D
 
 @export var health_comp:HealthComponent
 @onready var collision_shape:CollisionShape3D=get_node("CollisionShape3D")
+
 func _init() -> void:
 	collision_layer=5
 	collision_mask=4
+
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)
+	
 func _on_area_entered(area: Area3D) -> void:
 	if area is HitBoxComponent and self.owner!=area.owner and area.untouchable_owner!=owner:
 		#print("attack from ",area.owner,"received by ",owner," message from ",area)

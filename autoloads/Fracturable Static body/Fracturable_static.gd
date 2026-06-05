@@ -15,6 +15,7 @@ func break_everything()->void:
 	var broken_instance: fracturable = packed_breakable.instantiate()
 	owner.add_child(broken_instance)
 	if health_comp.attack_sender:
+		print(health_comp.attack_sender)
 		broken_instance.Thrower_position=health_comp.attack_sender.global_position
 	broken_instance.global_position=spawn_point.global_position
 	broken_instance.breaker_baby()

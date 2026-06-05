@@ -27,7 +27,8 @@ func state_logic(delta)->void:
 		state_machine.change_state("falling")
 	if character.is_taking_damage:
 		state_machine.change_state("taking_damage")
-		
+
+
 func Player_Input_events() -> void:
 	if player.velocity==Vector3.ZERO and player.player_direction==Vector3.ZERO:
 		state_machine.change_state("idle")
@@ -63,3 +64,6 @@ func Player_Input_events() -> void:
 	if Input.is_action_just_pressed("Jump trigger"):
 		character.landed=false
 		state_machine.change_state("Jumping")
+	if Input.is_action_just_pressed("Action trigger") and player.can_interact:
+		character.interacts=true
+		state_machine.change_state(player.interaction_type)

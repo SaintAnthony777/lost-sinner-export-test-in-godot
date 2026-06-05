@@ -1,0 +1,244 @@
+[gd_scene load_steps=11 format=3 uid="uid://c8kbotbxu514o"]
+
+[ext_resource type="Script" uid="uid://1vqvcfwpk0yj" path="res://autoloads/Openable doors/openable door.gd" id="1_ype2d"]
+[ext_resource type="ArrayMesh" uid="uid://djigav72jh8ff" path="res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Great Gate for 16 * 16 openings.res" id="2_0piym"]
+[ext_resource type="Script" uid="uid://dbye3ep2uh4xp" path="res://autoloads/Interactable Areas/Interaction Area.gd" id="3_0piym"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ype2d"]
+points = PackedVector3Array(-6.2562714, 10.730146, -4.87864e-05, -6.0005217, 10.517748, 0.24995145, -4.8295565, 10.4312935, 0.24995145, -5.390166, 10.666105, -4.87864e-05, -4.8295565, 10.4312935, -0.2500001, -6.0005217, 10.517748, -0.2500001, -6.24798, 5.1757493, -4.87864e-05, -5.983939, 0.017332584, 0.2500004, -0.0002837181, 0.017332584, 0.2500004, -4.1924143, 10.4867935, -4.87864e-05, -4.77981, 10.620211, -4.87864e-05, -3.7038743, 10.175133, 0.24995145, -3.6056561, 10.353378, -4.87864e-05, -3.7038743, 10.175133, -0.2500001, -5.983939, 0.017332584, -0.2500001, -6.2390513, -0.17371988, 1.4901161e-07, -6.2422404, 1.7368048, 1.4901161e-07, 0.25865507, -0.17371988, 1.4901161e-07, 0.22676611, 1.7400068, 1.4901161e-07, 0.19806576, 3.459479, 1.4901161e-07, -0.057683945, 3.4562771, 0.24995145, -0.11572218, 6.895221, 0.24995145, -0.2860093, 7.317885, 0.24995145, -0.45693445, 7.7394814, 0.24995145, -0.7343693, 8.129057, 0.24995145, -1.0111656, 8.517567, 0.24995145, -1.3842673, 8.859112, 0.24995145, -1.7573686, 9.199593, 0.24995145, -2.6668437, 9.758873, 0.24995145, -2.5239809, 9.92004, -4.87864e-05, -2.6668437, 9.758873, -0.2500001, -0.0002837181, 0.017332584, -0.2500001, 0.16936588, 5.1789513, -4.87864e-05, 0.140028, 6.9251065, -4.87864e-05, -0.041101933, 7.3733864, -4.87864e-05, -0.21904278, 7.813127, -4.87864e-05, -0.508595, 8.21978, -4.87864e-05, -0.7975092, 8.625366, -4.87864e-05, -1.5756016, 9.33621, -4.87864e-05, -1.7573686, 9.199593, -0.2500001, -0.057683945, 3.4562771, -0.2500001, -0.11572218, 6.895221, -0.2500001, -0.2860093, 7.317885, -0.2500001, -0.45693445, 7.7394814, -0.2500001, -0.7343693, 8.129057, -0.2500001, -1.0111656, 8.517567, -0.2500001, -1.3842673, 8.859112, -0.2500001)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0piym"]
+points = PackedVector3Array(-6.2562714, 10.730146, -4.87864e-05, -6.0005217, 10.517748, 0.24995145, -4.8295565, 10.4312935, 0.24995145, -5.390166, 10.666105, -4.87864e-05, -4.8295565, 10.4312935, -0.2500001, -6.0005217, 10.517748, -0.2500001, -6.24798, 5.1757493, -4.87864e-05, -5.983939, 0.017332584, 0.2500004, -0.0002837181, 0.017332584, 0.2500004, -4.1924143, 10.4867935, -4.87864e-05, -4.77981, 10.620211, -4.87864e-05, -3.7038743, 10.175133, 0.24995145, -3.6056561, 10.353378, -4.87864e-05, -3.7038743, 10.175133, -0.2500001, -5.983939, 0.017332584, -0.2500001, -6.2390513, -0.17371988, 1.4901161e-07, -6.2422404, 1.7368048, 1.4901161e-07, 0.25865507, -0.17371988, 1.4901161e-07, 0.22676611, 1.7400068, 1.4901161e-07, 0.19806576, 3.459479, 1.4901161e-07, -0.057683945, 3.4562771, 0.24995145, -0.11572218, 6.895221, 0.24995145, -0.2860093, 7.317885, 0.24995145, -0.45693445, 7.7394814, 0.24995145, -0.7343693, 8.129057, 0.24995145, -1.0111656, 8.517567, 0.24995145, -1.3842673, 8.859112, 0.24995145, -1.7573686, 9.199593, 0.24995145, -2.6668437, 9.758873, 0.24995145, -2.5239809, 9.92004, -4.87864e-05, -2.6668437, 9.758873, -0.2500001, -0.0002837181, 0.017332584, -0.2500001, 0.16936588, 5.1789513, -4.87864e-05, 0.140028, 6.9251065, -4.87864e-05, -0.041101933, 7.3733864, -4.87864e-05, -0.21904278, 7.813127, -4.87864e-05, -0.508595, 8.21978, -4.87864e-05, -0.7975092, 8.625366, -4.87864e-05, -1.5756016, 9.33621, -4.87864e-05, -1.7573686, 9.199593, -0.2500001, -0.057683945, 3.4562771, -0.2500001, -0.11572218, 6.895221, -0.2500001, -0.2860093, 7.317885, -0.2500001, -0.45693445, 7.7394814, -0.2500001, -0.7343693, 8.129057, -0.2500001, -1.0111656, 8.517567, -0.2500001, -1.3842673, 8.859112, -0.2500001)
+
+[sub_resource type="Animation" id="Animation_2wjdu"]
+resource_name = "Open From Back"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door left:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 3.1415927, 0), Vector3(0, 2.5307274, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door Right:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.7853982, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"opened_door"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Playerposition:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -1), Vector3(0, 0, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_ype2d"]
+resource_name = "Open Front"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door left:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -3.1415927, 0), Vector3(0, -2.494425, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door Right:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.6471681, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"opened_door"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Playerposition:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 1), Vector3(0, 0, -3)]
+}
+
+[sub_resource type="Animation" id="Animation_0piym"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door left:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.1415927, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door Right:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Playerposition:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2wjdu"]
+_data = {
+&"Open from Back": SubResource("Animation_2wjdu"),
+&"Open from Front": SubResource("Animation_ype2d"),
+&"RESET": SubResource("Animation_0piym")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ype2d"]
+size = Vector3(2, 3.3, 1)
+
+[node name="Great Gate" type="Node3D"]
+script = ExtResource("1_ype2d")
+metadata/_custom_type_script = "uid://1vqvcfwpk0yj"
+
+[node name="Door left" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.99999964, 0, -8.742275e-08, 0, 1, 0, 8.742275e-08, 0, -0.99999964, -6, 0, -5.2453663e-07)
+mesh = ExtResource("2_0piym")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Door left"]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door left/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_ype2d")
+
+[node name="Door Right" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.99999964, 0, 0, 0, 1, 0, 0, 0, 0.99999964, 6, 0, 0)
+mesh = ExtResource("2_0piym")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Door Right"]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door Right/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_0piym")
+
+[node name="Door animation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2wjdu")
+}
+
+[node name="Gate Front Interaction area" type="Area3D" parent="." node_paths=PackedStringArray("gate_owner", "player_marker")]
+script = ExtResource("3_0piym")
+side_for_doors = "Front"
+gate_owner = NodePath("..")
+interaction_type = "Opens gate"
+current_interaction = "Open The Gate"
+player_marker = NodePath("../Playerposition")
+metadata/_custom_type_script = "uid://dbye3ep2uh4xp"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Gate Front Interaction area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85, 0.8)
+shape = SubResource("BoxShape3D_ype2d")
+
+[node name="Interaction Text" type="Label3D" parent="Gate Front Interaction area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.6)
+visible = false
+pixel_size = 0.007
+billboard = 1
+text = "Press E to Interact
+"
+
+[node name="Gate Back Interaction area2" type="Area3D" parent="." node_paths=PackedStringArray("gate_owner", "player_marker")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6)
+script = ExtResource("3_0piym")
+side_for_doors = "Back"
+gate_owner = NodePath("..")
+interaction_type = "Opens gate"
+current_interaction = "Open The Gate"
+player_marker = NodePath("../Playerposition")
+metadata/_custom_type_script = "uid://dbye3ep2uh4xp"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Gate Back Interaction area2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85, 0.8)
+shape = SubResource("BoxShape3D_ype2d")
+
+[node name="Interaction Text" type="Label3D" parent="Gate Back Interaction area2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8832049, 0.6)
+visible = false
+pixel_size = 0.007
+billboard = 1
+text = "Press E to Interact
+"
+
+[node name="Playerposition" type="Marker3D" parent="."]

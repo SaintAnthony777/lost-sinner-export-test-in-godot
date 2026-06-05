@@ -5,12 +5,13 @@ extends State
 func enter() -> void:
 	character.is_blocking=false
 	character.crosshair_layer.hide()
-
+	
 func physics_update(_delta) -> void:
 	player.camera.fov=lerp(player.camera.fov,75.0,.1)
 	state_logic(_delta)
 	input_logic()
 	if !character.is_alive:state_machine.change_state("Dying")
+	
 func state_logic(delta)->void:
 	if character.pick_back_hammer :
 		state_machine.change_state("hammer_take_back")
@@ -62,3 +63,6 @@ func input_logic()->void:
 	if Input.is_action_just_pressed("Jump trigger"):
 		character.landed=false
 		state_machine.change_state("Jumping")
+	if Input.is_action_just_pressed("Action trigger") and player.can_interact:
+		character.interacts=true
+		state_machine.change_state(player.interaction_type)

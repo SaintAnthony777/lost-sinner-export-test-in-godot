@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://srgn3wkeivsn"]
+[gd_scene load_steps=75 format=3 uid="uid://srgn3wkeivsn"]
 
 [ext_resource type="Script" uid="uid://bhjwagrue8av5" path="res://Character/Scripts/Player/personnage.gd" id="1_ov8r6"]
 [ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="2_ov8r6"]
@@ -59,6 +59,8 @@
 [ext_resource type="Script" uid="uid://dg4uwqirgf7wm" path="res://Character/Scripts/StateMachines/Extended_scripts/dying.gd" id="57_0nhk7"]
 [ext_resource type="Script" uid="uid://l3uaexxmx1jy" path="res://Character/Scripts/StateMachines/Extended_scripts/air_taking_damage.gd" id="58_r2hrc"]
 [ext_resource type="Script" uid="uid://cfb2yeieyb585" path="res://Character/Scripts/StateMachines/Extended_scripts/air_taking_damage_landing.gd" id="59_jkg5d"]
+[ext_resource type="Script" uid="uid://5gqkl387hfgo" path="res://Character/Scripts/StateMachines/Extended_scripts/opens_door.gd" id="60_jkg5d"]
+[ext_resource type="Script" uid="uid://cs2xhocbe54wi" path="res://Character/Scripts/StateMachines/Extended_scripts/opens_gate.gd" id="61_fbtuu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ov8r6"]
 
@@ -489,6 +491,14 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="Air Taking Damage Landing" type="Node" parent="StateMachine"]
 script = ExtResource("59_jkg5d")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Opens door" type="Node" parent="StateMachine"]
+script = ExtResource("60_jkg5d")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Opens gate" type="Node" parent="StateMachine"]
+script = ExtResource("61_fbtuu")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

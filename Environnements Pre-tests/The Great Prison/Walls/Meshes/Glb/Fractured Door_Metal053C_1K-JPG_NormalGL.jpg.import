@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dsbhw6aks4pvs"
-path.s3tc="res://.godot/imported/Fractured Door_Metal053C_1K-JPG_NormalGL.jpg-74878c0cc458bb00e74ea1eb8a6cc49f.s3tc.ctex"
+path.s3tc="res://.godot/imported/Fractured Door_Metal053C_1K-JPG_NormalGL.jpg-38c24c9fc3306ebbb954de1480c443fc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Fractured Door_Metal053C_1K-JPG_NormalGL.jpg"
-dest_files=["res://.godot/imported/Fractured Door_Metal053C_1K-JPG_NormalGL.jpg-74878c0cc458bb00e74ea1eb8a6cc49f.s3tc.ctex"]
+source_file="res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Glb/Fractured Door_Metal053C_1K-JPG_NormalGL.jpg"
+dest_files=["res://.godot/imported/Fractured Door_Metal053C_1K-JPG_NormalGL.jpg-38c24c9fc3306ebbb954de1480c443fc.s3tc.ctex"]
 
 [params]
 

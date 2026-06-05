@@ -40,3 +40,8 @@ func state_logic(_delta:float):
 	if Input.is_action_pressed("Blocks"):
 		character.is_blocking=true
 		state_machine.change_state("shield_locking")
+		
+	if Input.is_action_just_pressed("Action trigger") and player.can_interact:
+		character.crosshair_layer.hide()
+		character.interacts=true
+		state_machine.change_state(player.interaction_type)

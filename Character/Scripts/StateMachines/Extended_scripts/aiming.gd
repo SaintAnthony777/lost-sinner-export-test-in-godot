@@ -5,24 +5,33 @@ extends State
 func enter() -> void:
 	character.look_at(Vector3(player.get_target_point().x,player.global_position.y,player.get_target_point().z))
 	character.rotate_y(PI)
-	
 func physics_update(_delta) -> void:
 	state_logics(_delta)
 	if !character.is_alive:state_machine.change_state("Dying")
+
 	if Input.is_action_just_released("Aiming") : state_machine.change_state("normal");character.crosshair_layer.hide()
+
 	if Input.is_action_just_pressed("locking") and player.current_target!=null : state_machine.change_state("locking")
+
 	if Input.is_action_pressed("Blocks") : state_machine.change_state("shield_strafe")
+
 	if Input.is_action_just_pressed("Attack_trigger") and character.can_throw_hammer:
 		character.is_attacking=true
 		state_machine.change_state("hammer_throwing")
+
 	if Input.is_action_just_pressed("sprinting"):  
 		character.isrolling=true
 		state_machine.change_state("aiming_rolls")
+
 	if Input.is_action_just_pressed("Special"):
 		character.is_divine_dividing=true
 		character.crosshair_layer.hide()
 		state_machine.change_state(player.current_divine_divider)
 		
+	if Input.is_action_just_pressed("Action trigger") and player.can_interact:
+		character.crosshair_layer.hide()
+		character.interacts=true
+		state_machine.change_state(player.interaction_type)
 func state_logics (delta:float) -> void :
 	Crosshair_tricks()
 	aiming_angle_correct()

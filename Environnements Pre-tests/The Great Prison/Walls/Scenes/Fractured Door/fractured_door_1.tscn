@@ -550,7 +550,7 @@ points = PackedVector3Array(-0.14689931, -0.18311891, 0.06688977, -0.14668679, -
 script = ExtResource("1_4l77u")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
-collision_layer = 2
+collision_layer = 32
 collision_mask = 7
 
 [node name="Barred Door_cell" type="MeshInstance3D" parent="RigidBody3D"]
@@ -563,7 +563,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3407631, 0.9748603, 0.00016
 shape = SubResource("ConvexPolygonShape3D_6t2mk")
 
 [node name="RigidBody3D2" type="RigidBody3D" parent="."]
-collision_layer = 2
+collision_layer = 32
 collision_mask = 7
 
 [node name="Barred Door_cell_001" type="MeshInstance3D" parent="RigidBody3D2"]
@@ -576,7 +576,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8633957, 1.6789279, -0.0030
 shape = SubResource("ConvexPolygonShape3D_qcowg")
 
 [node name="RigidBody3D3" type="RigidBody3D" parent="."]
-collision_layer = 2
+collision_layer = 32
 collision_mask = 7
 
 [node name="Barred Door_cell_002" type="MeshInstance3D" parent="RigidBody3D3"]
@@ -589,7 +589,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2023735, 2.526429, 0.00030
 shape = SubResource("ConvexPolygonShape3D_mu06a")
 
 [node name="RigidBody3D4" type="RigidBody3D" parent="."]
-collision_layer = 2
+collision_layer = 32
 collision_mask = 7
 
 [node name="Barred Door_cell_003" type="MeshInstance3D" parent="RigidBody3D4"]
@@ -602,7 +602,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50323105, 3.3243225, 0.0015
 shape = SubResource("ConvexPolygonShape3D_xftiu")
 
 [node name="RigidBody3D5" type="RigidBody3D" parent="."]
-collision_layer = 2
+collision_layer = 32
 collision_mask = 7
 
 [node name="Barred Door_cell_004" type="MeshInstance3D" parent="RigidBody3D5"]
@@ -615,7 +615,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.69462967, 2.6913502, 0.0018
 shape = SubResource("ConvexPolygonShape3D_kajqi")
 
 [node name="RigidBody3D6" type="RigidBody3D" parent="."]
-collision_layer = 2
+collision_layer = 32
 collision_mask = 7
 
 [node name="Barred Door_cell_005" type="MeshInstance3D" parent="RigidBody3D6"]
@@ -628,7 +628,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.070201874, 3.7650135, -0.00
 shape = SubResource("ConvexPolygonShape3D_u6rc7")
 
 [node name="RigidBody3D7" type="RigidBody3D" parent="."]
-collision_layer = 2
+collision_layer = 32
 collision_mask = 7
 
 [node name="Barred Door_cell_006" type="MeshInstance3D" parent="RigidBody3D7"]
@@ -641,7 +641,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2815361, 0.6086719, -7.695
 shape = SubResource("ConvexPolygonShape3D_sh010")
 
 [node name="RigidBody3D8" type="RigidBody3D" parent="."]
-collision_layer = 2
+collision_layer = 32
 collision_mask = 7
 
 [node name="Barred Door_cell_007" type="MeshInstance3D" parent="RigidBody3D8"]
@@ -654,7 +654,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5401306, 3.697674, -0.00318
 shape = SubResource("ConvexPolygonShape3D_a822l")
 
 [node name="RigidBody3D9" type="RigidBody3D" parent="."]
-collision_layer = 2
+collision_layer = 32
 collision_mask = 7
 
 [node name="Barred Door_cell_008" type="MeshInstance3D" parent="RigidBody3D9"]
@@ -667,7 +667,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9213829, 0.18540287, -0.009
 shape = SubResource("ConvexPolygonShape3D_jalwe")
 
 [node name="RigidBody3D10" type="RigidBody3D" parent="."]
-collision_layer = 2
+collision_layer = 32
 collision_mask = 7
 
 [node name="Barred Door_cell_009" type="MeshInstance3D" parent="RigidBody3D10"]
@@ -680,7 +680,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7046013, 2.2515943, 0.0023
 shape = SubResource("ConvexPolygonShape3D_yt134")
 
 [node name="RigidBody3D11" type="RigidBody3D" parent="."]
-collision_layer = 2
+collision_layer = 32
 collision_mask = 7
 
 [node name="Barred Door_cell_010" type="MeshInstance3D" parent="RigidBody3D11"]
@@ -693,7 +693,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6901283, 0.3084055, -0.0040
 shape = SubResource("ConvexPolygonShape3D_dgk6o")
 
 [node name="RigidBody3D12" type="RigidBody3D" parent="."]
-collision_layer = 2
+collision_layer = 32
 collision_mask = 7
 
 [node name="Barred Door_cell_011" type="MeshInstance3D" parent="RigidBody3D12"]
@@ -706,7 +706,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5342026, 3.368922, -0.0023
 shape = SubResource("ConvexPolygonShape3D_8bvcg")
 
 [node name="RigidBody3D13" type="RigidBody3D" parent="."]
-collision_layer = 2
+collision_layer = 32
 collision_mask = 7
 
 [node name="Barred Door_cell_012" type="MeshInstance3D" parent="RigidBody3D13"]
@@ -719,7 +719,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5589752, 1.4037185, 0.0030
 shape = SubResource("ConvexPolygonShape3D_cw10l")
 
 [node name="RigidBody3D14" type="RigidBody3D" parent="."]
-collision_layer = 2
+collision_layer = 32
 collision_mask = 7
 
 [node name="Barred Door_cell_013" type="MeshInstance3D" parent="RigidBody3D14"]
@@ -732,7 +732,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2702675, 1.6992524, 0.00222
 shape = SubResource("ConvexPolygonShape3D_i3qss")
 
 [node name="RigidBody3D15" type="RigidBody3D" parent="."]
-collision_layer = 2
+collision_layer = 32
 collision_mask = 7
 
 [node name="Barred Door_cell_014 " type="MeshInstance3D" parent="RigidBody3D15"]

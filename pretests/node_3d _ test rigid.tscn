@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bd1ch8en721nh"]
+[gd_scene load_steps=8 format=3 uid="uid://bd1ch8en721nh"]
 
 [ext_resource type="PackedScene" uid="uid://hgvgd0yi6vhs" path="res://Environnements Pre-tests/The Great Prison/Walls/Scenes/Fractured Door/fractured_door_1.tscn" id="1_qxxry"]
+[ext_resource type="ArrayMesh" uid="uid://djigav72jh8ff" path="res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Great Gate for 16 * 16 openings.res" id="2_hga1e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hga1e"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -44,3 +45,7 @@ shape = SubResource("ConcavePolygonShape3D_qxxry")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0, 3, 5)
 keep_aspect = 0
+
+[node name="GreatGateFor16*16Openings" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 6, 0.4000001, 0)
+mesh = ExtResource("2_hga1e")

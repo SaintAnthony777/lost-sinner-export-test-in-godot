@@ -36,6 +36,9 @@ var can_unleash_divine_divider:=false
 var is_taking_damage:bool=false
 var is_alive:bool=true
 
+var opening_door:bool=false
+var interacts:bool=false
+
 @onready var player: player_character = $".."
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var slow_mo:slow_mo_node=$"slow_mo_node"
@@ -76,7 +79,9 @@ func shield_motion(current_action:String,input_dir:Vector2):
 	grounding("Ground shielding")
 	animation_tree.set("parameters/Ground shield transistion/transition_request",current_action)
 	animation_tree.set("parameters/Shield blendspace strafe/blend_position",input_dir)
-
+func interaction_motion(current_action)->void:
+	grounding("Interacts")
+	animation_tree.set("parameters/Interaction Transition/transition_request",current_action)
 func grounding(stance:String)->void:
 	animation_tree.set("parameters/State/transition_request","Grounded")
 	animation_tree.set("parameters/Ground_state/transition_request","Ground_Motion")
@@ -227,6 +232,8 @@ func stopped_heavy_charge():
 func done_taking_damage()->void:
 	is_taking_damage=false
 
+func done_opening_door()->void:
+	opening_door=false
 func can_unleash_divine_divider_now():
 	can_unleash_divine_divider=true
 

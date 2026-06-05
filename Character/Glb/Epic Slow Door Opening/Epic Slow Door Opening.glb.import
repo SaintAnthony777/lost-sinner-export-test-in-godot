@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cdac8f258cdrd"
-path="res://.godot/imported/Fractured Door.glb-8e36685a105605fbe875cbbc85d74dad.scn"
+uid="uid://bs0q245f3kj20"
+path="res://.godot/imported/Epic Slow Door Opening.glb-e286427229bdfaad3fa014dbe0832b28.scn"
 
 [deps]
 
-source_file="res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Fractured Door.glb"
-dest_files=["res://.godot/imported/Fractured Door.glb-8e36685a105605fbe875cbbc85d74dad.scn"]
+source_file="res://Character/Glb/Epic Slow Door Opening/Epic Slow Door Opening.glb"
+dest_files=["res://.godot/imported/Epic Slow Door Opening.glb-e286427229bdfaad3fa014dbe0832b28.scn"]
 
 [params]
 
