@@ -258,6 +258,13 @@ billboard = 1
 text = "Press E to Interact
 "
 
+[node name="Hint" type="Label3D" parent="Gate Front Interaction area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 1)
+pixel_size = 0.02
+billboard = 1
+outline_modulate = Color(1, 1, 1, 1)
+text = "."
+
 [node name="Gate Back Interaction area2" type="Area3D" parent="." node_paths=PackedStringArray("gate_owner", "player_marker", "player_look_at")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6)
 script = ExtResource("3_0piym")
@@ -274,12 +281,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85, 0.8)
 shape = SubResource("BoxShape3D_ype2d")
 
 [node name="Interaction Text" type="Label3D" parent="Gate Back Interaction area2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8832049, 0.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.083205, 0.6)
 visible = false
 pixel_size = 0.007
 billboard = 1
 text = "Press E to Interact
 "
+
+[node name="Hint" type="Label3D" parent="Gate Back Interaction area2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 1)
+pixel_size = 0.02
+billboard = 1
+outline_modulate = Color(1, 1, 1, 1)
+text = "."
 
 [node name="Playerposition" type="Marker3D" parent="."]
 

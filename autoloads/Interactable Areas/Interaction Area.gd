@@ -7,7 +7,7 @@ class_name interaction_area extends Area3D
 
 @export var player_marker : Marker3D 
 @export var player_look_at : Marker3D
-
+@onready var Hint:Label3D=$Hint
 @onready var interaction_text : Label3D = $"Interaction Text"
 @onready var collsion_shape : CollisionShape3D = get_node("CollisionShape3D")
 @onready var player_is_in_area : bool = false
@@ -23,7 +23,6 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	interaction_text.text = current_interaction
-	
 	if player_is_in_area:
 		if player.is_busy:
 			player.can_interact=false
@@ -31,7 +30,8 @@ func _process(delta: float) -> void:
 		else :
 			player.can_interact=true
 			interaction_text.show()
-			
+	else : Hint.visible=!owner.interacted
+
 func _on_body_entered(body: Node3D) -> void:
 	if body is player_character :
 		player_is_in_area=true
@@ -42,6 +42,7 @@ func _on_body_entered(body: Node3D) -> void:
 		player.can_interact=true
 		body.Interaction_side=side_for_doors
 		interaction_text.show()
+		Hint.hide()
 	if gate_owner :
 		gate_owner.opening_side=side_for_doors
 
@@ -50,6 +51,7 @@ func _on_body_exited(body: Node3D) -> void:
 		player_is_in_area=false
 		player.can_interact=false
 		interaction_text.hide()
-		
+		if !owner.interacted:
+			Hint.show()
 func disable_all_collsion()->void:
 	collsion_shape.disabled = true

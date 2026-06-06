@@ -286,9 +286,9 @@ libraries = {
 [node name="Gate Front Interaction area" type="Area3D" parent="." node_paths=PackedStringArray("gate_owner", "player_marker", "player_look_at")]
 script = ExtResource("3_fnr2p")
 side_for_doors = "Front"
-gate_owner = NodePath("..")
 interaction_type = "Opens gate"
 current_interaction = "Open The Gate"
+gate_owner = NodePath("..")
 player_marker = NodePath("../Playerposition")
 player_look_at = NodePath("../Player_look_at")
 metadata/_custom_type_script = "uid://dbye3ep2uh4xp"
@@ -305,13 +305,20 @@ billboard = 1
 text = "Press E to Interact
 "
 
+[node name="Hint" type="Label3D" parent="Gate Front Interaction area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 1)
+pixel_size = 0.02
+billboard = 1
+outline_modulate = Color(1, 1, 1, 1)
+text = "."
+
 [node name="Gate Back Interaction area2" type="Area3D" parent="." node_paths=PackedStringArray("gate_owner", "player_marker", "player_look_at")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6)
 script = ExtResource("3_fnr2p")
 side_for_doors = "Back"
-gate_owner = NodePath("..")
 interaction_type = "Opens gate"
 current_interaction = "Open The Gate "
+gate_owner = NodePath("..")
 player_marker = NodePath("../Playerposition")
 player_look_at = NodePath("../Player_look_at")
 metadata/_custom_type_script = "uid://dbye3ep2uh4xp"
@@ -321,12 +328,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85, 0.8)
 shape = SubResource("BoxShape3D_r7aut")
 
 [node name="Interaction Text" type="Label3D" parent="Gate Back Interaction area2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8832049, 0.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.983205, 0.6)
 visible = false
 pixel_size = 0.007
 billboard = 1
 text = "Press E to Interact
 "
+
+[node name="Hint" type="Label3D" parent="Gate Back Interaction area2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 1)
+pixel_size = 0.02
+billboard = 1
+outline_modulate = Color(1, 1, 1, 1)
+text = "."
 
 [node name="Playerposition" type="Marker3D" parent="."]
 
