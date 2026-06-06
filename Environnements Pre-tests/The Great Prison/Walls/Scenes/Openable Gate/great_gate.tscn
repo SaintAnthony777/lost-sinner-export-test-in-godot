@@ -209,6 +209,7 @@ metadata/_custom_type_script = "uid://1vqvcfwpk0yj"
 
 [node name="Door left" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.99999964, 0, -8.742275e-08, 0, 1, 0, 8.742275e-08, 0, -0.99999964, -6, 0, -5.2453663e-07)
+gi_mode = 2
 mesh = ExtResource("2_0piym")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Door left"]
@@ -220,6 +221,7 @@ shape = SubResource("ConvexPolygonShape3D_ype2d")
 
 [node name="Door Right" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.99999964, 0, 0, 0, 1, 0, 0, 0, 0.99999964, 6, 0, 0)
+gi_mode = 2
 mesh = ExtResource("2_0piym")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Door Right"]

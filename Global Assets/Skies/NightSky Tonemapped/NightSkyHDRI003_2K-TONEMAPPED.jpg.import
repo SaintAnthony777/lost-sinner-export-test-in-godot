@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdve0fd1y1e46"
-path.s3tc="res://.godot/imported/NightSkyHDRI004.png-e584af8c56487195dd56d51f896c7c44.s3tc.ctex"
+uid="uid://px1nn8y8qcim"
+path.s3tc="res://.godot/imported/NightSkyHDRI003_2K-TONEMAPPED.jpg-e38b3cb8871ed37a176e91bce321540d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Global Assets/Skies/NightSkyHDRI004_2K/NightSkyHDRI004.png"
-dest_files=["res://.godot/imported/NightSkyHDRI004.png-e584af8c56487195dd56d51f896c7c44.s3tc.ctex"]
+source_file="res://Global Assets/Skies/NightSky Tonemapped/NightSkyHDRI003_2K-TONEMAPPED.jpg"
+dest_files=["res://.godot/imported/NightSkyHDRI003_2K-TONEMAPPED.jpg-e38b3cb8871ed37a176e91bce321540d.s3tc.ctex"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="2d_array_texture"
 type="CompressedTexture2DArray"
-uid="uid://c5823j36jwdmh"
-path.bptc="res://.godot/imported/the_great_prison.exr-f78a6190321f02b774b0c2596b4bbb00.bptc.ctexarray"
+uid="uid://d0b35i653ju0l"
+path.bptc="res://.godot/imported/the_great_prison.exr-c077a497425846263a137a26c46785ab.bptc.ctexarray"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Greyboxed Environnements/Static GIS/The Great Prison With all Lights/the_great_prison.exr"
-dest_files=["res://.godot/imported/the_great_prison.exr-f78a6190321f02b774b0c2596b4bbb00.bptc.ctexarray"]
+source_file="res://Greyboxed Environnements/The Great Prison/the_great_prison.exr"
+dest_files=["res://.godot/imported/the_great_prison.exr-c077a497425846263a137a26c46785ab.bptc.ctexarray"]
 
 [params]
 
