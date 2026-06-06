@@ -1,0 +1,61 @@
+[gd_scene load_steps=13 format=3 uid="uid://bjaowe7hpsw8l"]
+
+[ext_resource type="Texture2D" uid="uid://bcfvxddmp0gce" path="res://textures/Flame01.png" id="1_vyi7g"]
+[ext_resource type="Shader" uid="uid://dx87l5h5yrd81" path="res://Shaders/MainFlame.tres" id="2_0ycmg"]
+[ext_resource type="Texture2D" uid="uid://145cp67ihk52" path="res://textures/Voronoi01.png" id="3_0ycmg"]
+
+[sub_resource type="Gradient" id="Gradient_0ycmg"]
+offsets = PackedFloat32Array(0, 0.55376345, 1)
+colors = PackedColorArray(1.7039847, 0.5532318, 0.22631335, 1, 6.5898685, 1.3357303, 2.3581316, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fn7u6"]
+gradient = SubResource("Gradient_0ycmg")
+
+[sub_resource type="Curve" id="Curve_mdh1m"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.44416243, 0.99999994), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_fxp3n"]
+curve = SubResource("Curve_mdh1m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fn7u6"]
+emission_shape = 1
+emission_sphere_radius = 0.5
+gravity = Vector3(0, 3, 0)
+scale_curve = SubResource("CurveTexture_fxp3n")
+color_ramp = SubResource("GradientTexture1D_fn7u6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mdh1m"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1.5479882, 0.6471712, 0, 1)
+albedo_texture = ExtResource("1_vyi7g")
+billboard_mode = 1
+grow = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_fxp3n"]
+material = SubResource("StandardMaterial3D_mdh1m")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3py3m"]
+render_priority = 0
+shader = ExtResource("2_0ycmg")
+shader_parameter/Main_Color = Color(4.5575657, 0.91546446, 0, 1)
+shader_parameter/Dissolve_Tiler = Vector2(0.395, 0.355)
+shader_parameter/Dissolve_Speed = 0.3
+shader_parameter/Dissolve_Texture = ExtResource("3_0ycmg")
+shader_parameter/Maintexture = ExtResource("1_vyi7g")
+shader_parameter/Emission_intensity = 0.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_cfh62"]
+material = SubResource("ShaderMaterial_3py3m")
+
+[node name="Fieric Fire" type="Node3D"]
+
+[node name="Flames Particles" type="GPUParticles3D" parent="."]
+amount = 25
+process_material = SubResource("ParticleProcessMaterial_fn7u6")
+draw_pass_1 = SubResource("QuadMesh_fxp3n")
+
+[node name="Static Flame" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_cfh62")

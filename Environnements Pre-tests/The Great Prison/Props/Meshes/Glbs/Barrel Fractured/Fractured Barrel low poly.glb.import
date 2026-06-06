@@ -3,12 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cq34yvp75gou4"
-valid=false
+uid="uid://doabddh4vqich"
+path="res://.godot/imported/Fractured Barrel low poly.glb-339baf9a6352ba9b99850ca493a4f952.scn"
 
 [deps]
 
-source_file="res://Environnements Pre-tests/The Great Prison/Props/props.blend"
+source_file="res://Environnements Pre-tests/The Great Prison/Props/Meshes/Glbs/Barrel Fractured/Fractured Barrel low poly.glb"
+dest_files=["res://.godot/imported/Fractured Barrel low poly.glb-339baf9a6352ba9b99850ca493a4f952.scn"]
 
 [params]
 
@@ -37,22 +38,5 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-blender/nodes/visible=0
-blender/nodes/active_collection_only=false
-blender/nodes/punctual_lights=true
-blender/nodes/cameras=true
-blender/nodes/custom_properties=true
-blender/nodes/modifiers=1
-blender/meshes/colors=false
-blender/meshes/uvs=true
-blender/meshes/normals=true
-blender/meshes/export_geometry_nodes_instances=false
-blender/meshes/tangents=true
-blender/meshes/skins=2
-blender/meshes/export_bones_deforming_mesh_only=false
-blender/materials/unpack_enabled=true
-blender/materials/export_materials=1
-blender/animation/limit_playback=true
-blender/animation/always_sample=true
-blender/animation/group_tracks=true
 gltf/naming_version=2
+gltf/embedded_image_handling=1

@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxgbefh0a0t5p"
-path.s3tc="res://.godot/imported/Fractured Door_Metal053C_1K-JPG_Color.jpg-f254cd5b815e9356d3b14955c8cc9ff2.s3tc.ctex"
+uid="uid://b4thfw21vcku4"
+path.s3tc="res://.godot/imported/Metal055A_1K-JPG_Displacement.jpg-4b0f48af779b55d02f836ed77fa38419.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "43efe15f0b313ccbfc7fd837f5d8338a"
-}
 
 [deps]
 
-source_file="res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Glb/Fractured Door_Metal053C_1K-JPG_Color.jpg"
-dest_files=["res://.godot/imported/Fractured Door_Metal053C_1K-JPG_Color.jpg-f254cd5b815e9356d3b14955c8cc9ff2.s3tc.ctex"]
+source_file="res://Environnements Pre-tests/Textures/Smooth Iron/Metal055A_1K-JPG_Displacement.jpg"
+dest_files=["res://.godot/imported/Metal055A_1K-JPG_Displacement.jpg-4b0f48af779b55d02f836ed77fa38419.s3tc.ctex"]
 
 [params]
 

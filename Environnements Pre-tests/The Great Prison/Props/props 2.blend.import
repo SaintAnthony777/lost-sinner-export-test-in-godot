@@ -39,6 +39,24 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "meshes": {
+"props 2_Circle": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Props/Meshes/Barrel.res",
+"save_to_file/path": "uid://p5wvhicu0cwi"
+},
+"props 2_Circle_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Props/Meshes/Bucket.res",
+"save_to_file/path": "uid://bykf8dk04grh5"
+},
 "props 2_Cube": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
@@ -65,6 +83,15 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Props/Meshes/Table sm.res",
 "save_to_file/path": "uid://dw5cngp838x80"
+},
+"props 2_Cylinder_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Props/Meshes/Torch Holder.res",
+"save_to_file/path": "uid://ft0ylugtsyyh"
 },
 "props 2_Plane_001": {
 "generate/lightmap_uv": 0,

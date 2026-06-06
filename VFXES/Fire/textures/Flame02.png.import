@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsbhw6aks4pvs"
-path.s3tc="res://.godot/imported/Fractured Door_Metal053C_1K-JPG_NormalGL.jpg-38c24c9fc3306ebbb954de1480c443fc.s3tc.ctex"
+uid="uid://cfnv0rrs3jy8m"
+path.s3tc="res://.godot/imported/Flame02.png-c4b8db681210ba39365137e040c9ead9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "9ffbece3279afa24b64ed3b54113c797"
-}
 
 [deps]
 
-source_file="res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Glb/Fractured Door_Metal053C_1K-JPG_NormalGL.jpg"
-dest_files=["res://.godot/imported/Fractured Door_Metal053C_1K-JPG_NormalGL.jpg-38c24c9fc3306ebbb954de1480c443fc.s3tc.ctex"]
+source_file="res://VFXES/Fire/textures/Flame02.png"
+dest_files=["res://.godot/imported/Flame02.png-c4b8db681210ba39365137e040c9ead9.s3tc.ctex"]
 
 [params]
 
@@ -25,12 +22,12 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Fractured Door_Metal053C_1K-JPG_NormalGL.jpg"
+roughness/mode=0
+roughness/src_normal=""
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

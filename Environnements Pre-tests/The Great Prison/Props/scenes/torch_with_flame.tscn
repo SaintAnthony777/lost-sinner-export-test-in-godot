@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://duutc67qimm4q"]
+
+[ext_resource type="ArrayMesh" uid="uid://ft0ylugtsyyh" path="res://Environnements Pre-tests/The Great Prison/Props/Meshes/Torch Holder.res" id="1_0yr71"]
+[ext_resource type="PackedScene" uid="uid://bjaowe7hpsw8l" path="res://VFXES/Fire/scenes/fieric_fire.tscn" id="2_24sng"]
+
+[node name="Torch With Flame" type="Node3D"]
+
+[node name="TorchHolder" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_0yr71")
+
+[node name="Fieric Fire" parent="." instance=ExtResource("2_24sng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.80690515, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7462797, 0)
+light_color = Color(1.4589671, 1.0227278, 0.41055363, 1)
+omni_range = 3.0
