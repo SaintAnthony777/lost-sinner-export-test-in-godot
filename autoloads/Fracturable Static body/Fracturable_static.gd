@@ -12,7 +12,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if !is_alive:
 		break_everything()
-
+	
 func break_everything()->void:
 	var broken_instance: fracturable = packed_breakable.instantiate()
 	owner.add_child(broken_instance)

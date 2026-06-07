@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://srgn3wkeivsn"]
+[gd_scene load_steps=78 format=3 uid="uid://srgn3wkeivsn"]
 
 [ext_resource type="Script" uid="uid://bhjwagrue8av5" path="res://Character/Scripts/Player/personnage.gd" id="1_ov8r6"]
 [ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="2_ov8r6"]
@@ -61,6 +61,9 @@
 [ext_resource type="Script" uid="uid://cfb2yeieyb585" path="res://Character/Scripts/StateMachines/Extended_scripts/air_taking_damage_landing.gd" id="59_jkg5d"]
 [ext_resource type="Script" uid="uid://5gqkl387hfgo" path="res://Character/Scripts/StateMachines/Extended_scripts/opens_door.gd" id="60_jkg5d"]
 [ext_resource type="Script" uid="uid://cs2xhocbe54wi" path="res://Character/Scripts/StateMachines/Extended_scripts/opens_gate.gd" id="61_fbtuu"]
+[ext_resource type="Script" uid="uid://b041h7rg70i31" path="res://Character/Scripts/StateMachines/Extended_scripts/save_game.gd" id="62_1na5d"]
+[ext_resource type="Script" uid="uid://pn2c3v11703d" path="res://Character/Scripts/StateMachines/Extended_scripts/sitting_idle.gd" id="63_k4wqs"]
+[ext_resource type="Script" uid="uid://2qqy3cwjhjkl" path="res://Character/Scripts/StateMachines/Extended_scripts/done_sitting.gd" id="64_k4wqs"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ov8r6"]
 
@@ -202,7 +205,7 @@ _data = {
 
 [node name="Personnage" type="CharacterBody3D" groups=["Personnage", "Player"]]
 collision_layer = 65537
-collision_mask = 6
+collision_mask = 134
 floor_max_angle = 1.0471976
 script = ExtResource("1_ov8r6")
 mouse_sensitivity = 0.05
@@ -499,6 +502,18 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="Opens gate" type="Node" parent="StateMachine"]
 script = ExtResource("61_fbtuu")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Save Game" type="Node" parent="StateMachine"]
+script = ExtResource("62_1na5d")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Sitting idle" type="Node" parent="StateMachine"]
+script = ExtResource("63_k4wqs")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Done Sitting" type="Node" parent="StateMachine"]
+script = ExtResource("64_k4wqs")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

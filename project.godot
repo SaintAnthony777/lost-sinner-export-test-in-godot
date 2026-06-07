@@ -46,6 +46,7 @@ Materialspreload="*res://autoloads/Meshmaterial_preloads/3d/materialspreload.gd"
 SpecialAttacksList="*res://autoloads/Special_attacks/Special_attacks_list.gd"
 SimpleGrass="*res://addons/simplegrasstextured/singleton.tscn"
 HitStopManager="*res://autoloads/Hitstop Functions/HitStopManager.gd"
+SaveManager="*res://autoloads/Save Manager/SaveManager.gd"
 
 [display]
 
@@ -184,6 +185,7 @@ Blocks={
 3d_physics/layer_5="HurtBox"
 3d_physics/layer_6="Breakables"
 3d_physics/layer_7="Interaction area"
+3d_physics/layer_8="Evergreen Shards"
 
 [physics]
 

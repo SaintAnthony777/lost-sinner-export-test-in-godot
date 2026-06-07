@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2r2jcuagye5b"]
+[gd_scene load_steps=8 format=3 uid="uid://d2r2jcuagye5b"]
 
 [ext_resource type="ArrayMesh" uid="uid://ba1vouggws51v" path="res://Environnements Pre-tests/The Great Prison/Save Points/meshes/evergreen tree.res" id="1_5tncv"]
+[ext_resource type="Script" uid="uid://c6wqiyhdl46jj" path="res://Componenents/Save Point/scene/save_point.gd" id="1_pjy48"]
 [ext_resource type="ArrayMesh" uid="uid://gjrpfe2nw4cx" path="res://Environnements Pre-tests/The Great Prison/Save Points/meshes/evergreen_leaves.res" id="2_vml1j"]
+[ext_resource type="Script" uid="uid://dbye3ep2uh4xp" path="res://autoloads/Interactable Areas/Interaction Area.gd" id="3_vml1j"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pjy48"]
 transparency = 1
@@ -10,7 +12,15 @@ emission_enabled = true
 emission = Color(0, 0.9280188, 0, 1)
 emission_energy_multiplier = 16.0
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_pjy48"]
+radius = 0.74459517
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sedxv"]
+radius = 2.0
+
 [node name="Save Point" type="Node3D"]
+script = ExtResource("1_pjy48")
+metadata/_custom_type_script = "uid://c6wqiyhdl46jj"
 
 [node name="EvergreenTree" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_5tncv")
@@ -25,3 +35,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 light_color = Color(0, 1, 0, 1)
 light_bake_mode = 1
 omni_range = 2.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 128
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6324308, 0)
+shape = SubResource("SphereShape3D_pjy48")
+
+[node name="interaction_area" type="Area3D" parent="." node_paths=PackedStringArray("player_look_at")]
+script = ExtResource("3_vml1j")
+interaction_type = "Save Game"
+current_interaction = "Rest At Evergreen Shard"
+player_look_at = NodePath("player_lookat")
+metadata/_custom_type_script = "uid://dbye3ep2uh4xp"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="interaction_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+shape = SubResource("SphereShape3D_sedxv")
+
+[node name="Interaction Text" type="Label3D" parent="interaction_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, -0.099999964)
+visible = false
+pixel_size = 0.007
+billboard = 1
+text = "Press E to rest
+"
+
+[node name="Hint" type="Label3D" parent="interaction_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, -0.1)
+pixel_size = 0.02
+billboard = 1
+outline_modulate = Color(1, 1, 1, 1)
+text = "."
+
+[node name="player_lookat" type="Marker3D" parent="interaction_area"]

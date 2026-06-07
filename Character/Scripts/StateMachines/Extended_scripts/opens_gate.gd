@@ -8,7 +8,6 @@ func enter() -> void:
 	player.is_busy=false
 		
 func physics_update(_delta) -> void:
-	
 	player.camera_rotation_logic(_delta)
 	player.camera.fov=95.0
 	if player.marker_forced_pos:

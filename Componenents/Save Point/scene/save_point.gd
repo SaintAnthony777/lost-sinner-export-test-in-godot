@@ -1,0 +1,17 @@
+class_name SavePoint
+extends Node3D
+
+@onready var interacted:bool=false
+@onready var personnage:player_character=get_tree().get_first_node_in_group("Personnage")
+
+func _process(delta: float) -> void:
+	if !interacted and Input.is_action_just_pressed("Action trigger") and !personnage.is_busy:
+		interacted=true
+		for area in self.get_children():
+			if area is interaction_area:
+				area.disable_all_collsion()
+	if !personnage.is_busy:
+		interacted=false
+		for area in self.get_children():
+			if area is interaction_area:
+				area.enable_all_collision()

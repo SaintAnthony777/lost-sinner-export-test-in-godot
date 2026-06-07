@@ -79,9 +79,11 @@ func shield_motion(current_action:String,input_dir:Vector2):
 	grounding("Ground shielding")
 	animation_tree.set("parameters/Ground shield transistion/transition_request",current_action)
 	animation_tree.set("parameters/Shield blendspace strafe/blend_position",input_dir)
+
 func interaction_motion(current_action)->void:
 	grounding("Interacts")
 	animation_tree.set("parameters/Interaction Transition/transition_request",current_action)
+
 func grounding(stance:String)->void:
 	animation_tree.set("parameters/State/transition_request","Grounded")
 	animation_tree.set("parameters/Ground_state/transition_request","Ground_Motion")

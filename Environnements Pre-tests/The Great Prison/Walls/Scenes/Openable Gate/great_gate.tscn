@@ -205,6 +205,10 @@ size = Vector3(2, 3.3, 1)
 
 [node name="Great Gate" type="Node3D"]
 script = ExtResource("1_ype2d")
+opened_angles = {
+"Back": [145.0, 45.0],
+"Front": [-142.9, -37.1, null, null]
+}
 metadata/_custom_type_script = "uid://1vqvcfwpk0yj"
 
 [node name="Door left" type="MeshInstance3D" parent="."]

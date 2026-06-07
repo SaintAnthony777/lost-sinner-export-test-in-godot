@@ -33,11 +33,12 @@ func _process(delta: float) -> void:
 	else : Hint.visible=!owner.interacted
 
 func _on_body_entered(body: Node3D) -> void:
-	if body is player_character :
+	if body is player_character and !owner.interacted:
 		player_is_in_area=true
-		player_marker.global_position=self.global_position
+		if player_marker:
+			player_marker.global_position=self.global_position
+			player.marker_forced_pos=player_marker
 		player.interaction_type=interaction_type
-		player.marker_forced_pos=player_marker
 		player.player_look_node=player_look_at
 		player.can_interact=true
 		body.Interaction_side=side_for_doors
@@ -55,3 +56,5 @@ func _on_body_exited(body: Node3D) -> void:
 			Hint.show()
 func disable_all_collsion()->void:
 	collsion_shape.disabled = true
+func enable_all_collision()->void:
+	collsion_shape.disabled=false

@@ -252,6 +252,10 @@ size = Vector3(2, 3.3, 1)
 
 [node name="Mid Gate" type="Node3D"]
 script = ExtResource("1_kjrxe")
+opened_angles = {
+"Back": [130.0, 60.0],
+"Front": [-127.9, -52.1]
+}
 metadata/_custom_type_script = "uid://1vqvcfwpk0yj"
 
 [node name="Door Right" type="MeshInstance3D" parent="."]
@@ -286,9 +290,9 @@ libraries = {
 [node name="Gate Front Interaction area" type="Area3D" parent="." node_paths=PackedStringArray("gate_owner", "player_marker", "player_look_at")]
 script = ExtResource("3_fnr2p")
 side_for_doors = "Front"
+gate_owner = NodePath("..")
 interaction_type = "Opens gate"
 current_interaction = "Open The Gate"
-gate_owner = NodePath("..")
 player_marker = NodePath("../Playerposition")
 player_look_at = NodePath("../Player_look_at")
 metadata/_custom_type_script = "uid://dbye3ep2uh4xp"
@@ -316,9 +320,9 @@ text = "."
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6)
 script = ExtResource("3_fnr2p")
 side_for_doors = "Back"
+gate_owner = NodePath("..")
 interaction_type = "Opens gate"
 current_interaction = "Open The Gate "
-gate_owner = NodePath("..")
 player_marker = NodePath("../Playerposition")
 player_look_at = NodePath("../Player_look_at")
 metadata/_custom_type_script = "uid://dbye3ep2uh4xp"
