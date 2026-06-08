@@ -1281,7 +1281,7 @@ script = ExtResource("1_ioly3")
 metadata/_custom_type_script = "uid://7sw7kr3fbgn8"
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell" type="MeshInstance3D" parent="RigidBody3D"]
@@ -1294,7 +1294,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_ioly3")
 
 [node name="RigidBody3D2" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_001" type="MeshInstance3D" parent="RigidBody3D2"]
@@ -1307,7 +1307,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_egyej")
 
 [node name="RigidBody3D3" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel Metal part_003" type="MeshInstance3D" parent="RigidBody3D3"]
@@ -1323,7 +1323,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_f3s6u")
 
 [node name="RigidBody3D4" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel Metal part_001" type="MeshInstance3D" parent="RigidBody3D4"]
@@ -1339,7 +1339,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_j7rfn")
 
 [node name="RigidBody3D5" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel Metal part_002" type="MeshInstance3D" parent="RigidBody3D5"]
@@ -1355,7 +1355,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_l3h25")
 
 [node name="RigidBody3D6" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_031" type="MeshInstance3D" parent="RigidBody3D6"]
@@ -1368,7 +1368,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_wtmry")
 
 [node name="RigidBody3D7" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_030" type="MeshInstance3D" parent="RigidBody3D7"]
@@ -1384,7 +1384,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_78ppd")
 
 [node name="RigidBody3D8" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_029" type="MeshInstance3D" parent="RigidBody3D8"]
@@ -1397,7 +1397,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_26tba")
 
 [node name="RigidBody3D9" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_002" type="MeshInstance3D" parent="RigidBody3D9"]
@@ -1410,7 +1410,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_4at11")
 
 [node name="RigidBody3D10" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_003" type="MeshInstance3D" parent="RigidBody3D10"]
@@ -1423,7 +1423,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_5ljj0")
 
 [node name="RigidBody3D11" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_004" type="MeshInstance3D" parent="RigidBody3D11"]
@@ -1436,7 +1436,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_wuk7j")
 
 [node name="RigidBody3D12" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_005" type="MeshInstance3D" parent="RigidBody3D12"]
@@ -1449,7 +1449,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_w5top")
 
 [node name="RigidBody3D13" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_006" type="MeshInstance3D" parent="RigidBody3D13"]
@@ -1462,7 +1462,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_lioil")
 
 [node name="RigidBody3D14" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_007" type="MeshInstance3D" parent="RigidBody3D14"]
@@ -1475,7 +1475,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_2w3pe")
 
 [node name="RigidBody3D15" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_008" type="MeshInstance3D" parent="RigidBody3D15"]
@@ -1488,7 +1488,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_uu4ps")
 
 [node name="RigidBody3D16" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_009" type="MeshInstance3D" parent="RigidBody3D16"]
@@ -1501,7 +1501,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_h6tcc")
 
 [node name="RigidBody3D17" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_010" type="MeshInstance3D" parent="RigidBody3D17"]
@@ -1514,7 +1514,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_hqcxv")
 
 [node name="RigidBody3D18" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_011" type="MeshInstance3D" parent="RigidBody3D18"]
@@ -1527,7 +1527,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_vikpv")
 
 [node name="RigidBody3D19" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_012" type="MeshInstance3D" parent="RigidBody3D19"]
@@ -1540,7 +1540,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_hq11p")
 
 [node name="RigidBody3D20" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_013" type="MeshInstance3D" parent="RigidBody3D20"]
@@ -1553,7 +1553,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_goden")
 
 [node name="RigidBody3D21" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_014" type="MeshInstance3D" parent="RigidBody3D21"]
@@ -1566,7 +1566,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_312gm")
 
 [node name="RigidBody3D22" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_017" type="MeshInstance3D" parent="RigidBody3D22"]
@@ -1582,7 +1582,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_uwokg")
 
 [node name="RigidBody3D23" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_018" type="MeshInstance3D" parent="RigidBody3D23"]
@@ -1595,7 +1595,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_0e6ht")
 
 [node name="RigidBody3D24" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_019" type="MeshInstance3D" parent="RigidBody3D24"]
@@ -1608,7 +1608,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_f0eha")
 
 [node name="RigidBody3D25" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_020" type="MeshInstance3D" parent="RigidBody3D25"]
@@ -1621,7 +1621,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_ps2o3")
 
 [node name="RigidBody3D26" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_021" type="MeshInstance3D" parent="RigidBody3D26"]
@@ -1634,7 +1634,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_op4b6")
 
 [node name="RigidBody3D27" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_022" type="MeshInstance3D" parent="RigidBody3D27"]
@@ -1647,7 +1647,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_1iwct")
 
 [node name="RigidBody3D28" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_023" type="MeshInstance3D" parent="RigidBody3D28"]
@@ -1660,7 +1660,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_8bqgg")
 
 [node name="RigidBody3D29" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_024" type="MeshInstance3D" parent="RigidBody3D29"]
@@ -1673,7 +1673,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_f1xma")
 
 [node name="RigidBody3D30" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_025" type="MeshInstance3D" parent="RigidBody3D30"]
@@ -1686,7 +1686,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_javl4")
 
 [node name="RigidBody3D31" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_026" type="MeshInstance3D" parent="RigidBody3D31"]
@@ -1699,7 +1699,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_mh2it")
 
 [node name="RigidBody3D32" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_027" type="MeshInstance3D" parent="RigidBody3D32"]
@@ -1712,7 +1712,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_j63pj")
 
 [node name="RigidBody3D33" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_028" type="MeshInstance3D" parent="RigidBody3D33"]
@@ -1725,7 +1725,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_d1mnj")
 
 [node name="RigidBody3D35" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_016" type="MeshInstance3D" parent="RigidBody3D35"]
@@ -1738,7 +1738,7 @@ transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_7fk2t")
 
 [node name="RigidBody3D36" type="RigidBody3D" parent="."]
-collision_layer = 32
+collision_layer = 33
 collision_mask = 7
 
 [node name="Barrel_cell_015" type="MeshInstance3D" parent="RigidBody3D36"]

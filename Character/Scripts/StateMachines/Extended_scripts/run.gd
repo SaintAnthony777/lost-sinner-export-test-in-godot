@@ -53,11 +53,11 @@ func Player_Input_events() -> void:
 			character.is_attacking=true
 			state_machine.change_state("hammer_attack_1")
 			
-	if Input.is_action_just_pressed("Special"):
+	if Input.is_action_just_pressed("Special") and player.divine_divider_list:
 		character.is_divine_dividing=true
 		state_machine.change_state(player.current_divine_divider)
 		
-	if Input.is_action_just_pressed("Grace"):
+	if Input.is_action_just_pressed("Grace") and player.grace_list:
 		character.is_making_grace=true
 		state_machine.change_state(player.current_grace)
 	

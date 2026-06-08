@@ -5,12 +5,15 @@ class_name fracturable_static extends StaticBody3D
 
 @onready var health_comp:HealthComponent=$"HealthComponent"
 @onready var spawn_point:Marker3D=$"Spawn Point"
-
+@onready var breakable_id:String=String(get_path())
 func _ready() -> void:
 	health_comp.random_node_to_call_on_death=self
-	
+	if breakable_id in SaveManager.current_save.props_id_list:
+		queue_free()
 func _physics_process(delta: float) -> void:
 	if !is_alive:
+		if not breakable_id in SaveManager.current_save.props_id_list:
+			SaveManager.current_save.props_id_list.append(breakable_id)
 		break_everything()
 	
 func break_everything()->void:

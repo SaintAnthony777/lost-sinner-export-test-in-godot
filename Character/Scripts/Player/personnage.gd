@@ -37,8 +37,8 @@ var current_target : enemy_root
 var self_delta=.01
 
 ## Grace and Divine Dividers
-var divine_divider_list:Array[String]=["Sundown","Screaming Silence","World Strongest Man"]
-var grace_list:Array[String]=["Disordonance","Heavy Charge","Disaster"]
+var divine_divider_list : Array[String] = ["Sundown","Screaming Silence","World Strongest Man"]
+var grace_list : Array[String] = ["Disordonance","Heavy Charge","Disaster"]
 var current_grace_index:=0
 var current_divine_divider_index:=0
 var current_divine_divider:=""
@@ -55,12 +55,17 @@ var is_busy:bool=false
 
 #var for save place locations
 var save_location:String
+# var for inventory
+var player_inventory:Inventory
+
 
 func _ready() -> void:
 	camera.h_offset=.7
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
-	current_divine_divider = divine_divider_list[current_divine_divider_index]
-	current_grace = grace_list[current_grace_index]
+	if divine_divider_list:
+		current_divine_divider = divine_divider_list[current_divine_divider_index]
+	if grace_list : 
+		current_grace = grace_list[current_grace_index]
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_pressed("Pause"):
@@ -84,8 +89,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 func _physics_process(_delta: float) -> void:
 	SimpleGrass.set_player_position(global_position)
-	current_divine_divider = divine_divider_list[current_divine_divider_index]
-	current_grace = grace_list[current_grace_index]
+	if divine_divider_list :
+		current_divine_divider = divine_divider_list[current_divine_divider_index]
+	if grace_list :
+		current_grace = grace_list[current_grace_index]
 	if !current_target or !is_locking:
 		current_target=get_best_target()
 	var input_dir := Input.get_vector("Droite", "Gauche", "Bas", "Haut").normalized()
