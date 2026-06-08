@@ -1,11 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://4y8dawkwukrf"]
+[gd_scene load_steps=11 format=3 uid="uid://4y8dawkwukrf"]
 
 [ext_resource type="Script" uid="uid://cpkqa4muvsuos" path="res://Character/HUD/Scripts/hud.gd" id="1_0t85m"]
 [ext_resource type="Texture2D" uid="uid://eu25ybyhi0g3" path="res://Character/HUD/assets/Barres 2/Fond .PNG" id="2_0t85m"]
 [ext_resource type="Texture2D" uid="uid://busnvhvb8lcsp" path="res://Character/HUD/assets/Icones equipement/Equippement Diamond.png" id="3_0t85m"]
 [ext_resource type="Texture2D" uid="uid://blmh707jhdbwp" path="res://Character/HUD/assets/Barres 2/Remplissage.PNG" id="3_t4jti"]
-[ext_resource type="Texture2D" uid="uid://x3jq8xm761wq" path="res://Character/HUD/assets/Icones equipement/Divines dividers/Sundown.PNG" id="5_t4jti"]
-[ext_resource type="Texture2D" uid="uid://bvrva1hdrwjmq" path="res://Character/HUD/assets/Icones equipement/Graces/Disaster.PNG" id="6_8ydmn"]
 [ext_resource type="Script" uid="uid://bki642kkfwyem" path="res://Componenents/ArcaneComponent/ArcaneComponent.gd" id="7_di408"]
 [ext_resource type="Script" uid="uid://bibpdrfengocv" path="res://Componenents/HealthComponent/health_component.gd" id="8_hnjob"]
 
@@ -237,7 +235,6 @@ offset_right = -35.111206
 offset_bottom = -95.70367
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_t4jti")
 expand_mode = 1
 
 [node name="Grace" type="TextureRect" parent="Health and equip"]
@@ -252,7 +249,6 @@ offset_right = 58.222076
 offset_bottom = -96.81482
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_8ydmn")
 expand_mode = 1
 
 [node name="arcane_component" type="Node" parent="Health and equip" node_paths=PackedStringArray("Arcane_Gauge")]

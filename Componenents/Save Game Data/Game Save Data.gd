@@ -7,6 +7,7 @@ extends Resource
 @export var player_position:Vector3
 @export var player_rotation_degrees:Vector3
 @export var player_inventory:Inventory
+
 ###Scene Status
 @export var current_scene:String
 @export var current_save_place:String

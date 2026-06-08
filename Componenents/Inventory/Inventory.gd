@@ -1,17 +1,17 @@
 class_name Inventory
 extends Resource
 
-@export var Inventory_list : Array[Inventory_Item]
+@export var Inventory_list : Array[Inventory_Item]=[]
 
 signal inventory_updated
 
 func add_item(item:Inventory_Item, quantity : int) -> void:
-	var item_entered = find_item_by_name(item.item_name)
+	var item_entered:Inventory_Item= find_item_by_name(item.item_name)
 	if item_entered and item_entered.is_stackable:
 		item_entered.item_number+=quantity
 	else:
-		var duplicated_item :=item.duplicate()
-		duplicated_item.item_number=quantity
+		var duplicated_item := item
+		duplicated_item.item_number+=quantity
 		Inventory_list.append(duplicated_item)
 	Inventory_list.append(item)
 	inventory_updated.emit()

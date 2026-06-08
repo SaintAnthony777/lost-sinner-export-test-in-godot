@@ -30,7 +30,10 @@ func load_game() -> void:
 			player.rotation_degrees = current_save.player_rotation_degrees
 			player.player_inventory = current_save.player_inventory
 			player.divine_divider_list.clear()
+			player.grace_list.clear()
 			if current_save.player_inventory:
 				for element:Inventory_Item in current_save.player_inventory:
-					if element.category == " divine divider ":
+					if element.category == "divine divider":
 						player.divine_divider_list.append(element)
+					if element.category == "grace":
+						player.grace_list.append(element)

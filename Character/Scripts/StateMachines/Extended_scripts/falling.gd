@@ -25,10 +25,10 @@ func ground_check(delta)->void:
 	if player.is_on_floor():
 		state_machine.change_state("lands")
 func input_check()->void:
-	if Input.is_action_just_pressed("Special"):
+	if Input.is_action_just_pressed("Special") and player.divine_divider_list:
 		character.is_divine_dividing=true
 		state_machine.change_state("Air_"+player.current_divine_divider)
-	if Input.is_action_just_pressed("Grace"):
+	if Input.is_action_just_pressed("Grace") and player.grace_list:
 		character.is_making_grace=true
 		state_machine.change_state("Air_"+player.current_grace)
 func falling_process()->void:

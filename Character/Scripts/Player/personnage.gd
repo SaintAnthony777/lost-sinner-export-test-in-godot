@@ -37,8 +37,11 @@ var current_target : enemy_root
 var self_delta=.01
 
 ## Grace and Divine Dividers
-var divine_divider_list : Array[String] = ["Sundown","Screaming Silence","World Strongest Man"]
-var grace_list : Array[String] = ["Disordonance","Heavy Charge","Disaster"]
+var divine_divider_list : Array[String] = []
+var grace_list : Array[String] = []
+# var divine_divider_list : Array[String] = ["Sundown","Screaming Silence","World Strongest Man"]
+# var grace_list : Array[String] = ["Disordonance","Heavy Charge","Disaster"]
+
 var current_grace_index:=0
 var current_divine_divider_index:=0
 var current_divine_divider:=""
@@ -56,7 +59,7 @@ var is_busy:bool=false
 #var for save place locations
 var save_location:String
 # var for inventory
-var player_inventory:Inventory
+@onready var player_inventory:Inventory=Inventory.new()
 
 
 func _ready() -> void:
@@ -78,6 +81,23 @@ func _input(_event: InputEvent) -> void:
 		switch_special(grace_list)
 	if Input.is_action_just_pressed("Divine Divider switch") and can_switch_special:
 		switch_special(divine_divider_list)
+	if Input.is_action_just_pressed("ui_text_backspace"):
+		var item:Inventory_Item=Inventory_Item.new(
+			"Screaming Silence",
+			1,
+			"Most powerful scream of all time, too bad only discovered when humans would not speak any longer",
+			false,
+			"divine divider"
+		)
+		player_inventory.add_item(item,1)
+		print(player_inventory)
+		for element in player_inventory.Inventory_list:
+			if element and element is Inventory_Item:
+				if element.category == "divine divider":
+					divine_divider_list.append(element.item_name)
+				if element.category == "grace":
+					grace_list.append(element.item_name)
+			print(current_divine_divider)
 func _unhandled_input(event: InputEvent) -> void:
 	var camera_is_in_motion:=(
 		event is InputEventMouseMotion and 
@@ -86,7 +106,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if camera_is_in_motion:
 		camera_input_direction=event.screen_relative*mouse_sensitivity
 	
-		
 func _physics_process(_delta: float) -> void:
 	SimpleGrass.set_player_position(global_position)
 	if divine_divider_list :
