@@ -11720,12 +11720,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, -7, 199)
 
 [node name="Save Point" parent="Save points" instance=ExtResource("58_bqrf2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 3)
+save_place_name = "Prison cell"
 
 [node name="Save Point2" parent="Save points" instance=ExtResource("58_bqrf2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 5, 74)
+save_place_name = "Hallway "
 
 [node name="Save Point3" parent="Save points" instance=ExtResource("58_bqrf2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.9, -6, 48.5)
+save_place_name = "staircases"
 
 [node name="Save Point4" parent="Save points" instance=ExtResource("58_bqrf2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.9, -7, 146.5)
+save_place_name = "Halfrey's passage"

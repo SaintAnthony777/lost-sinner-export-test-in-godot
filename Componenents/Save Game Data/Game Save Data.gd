@@ -2,10 +2,16 @@ class_name GameSaveData
 extends Resource
 
 ##Player status
-var max_health:float
-var current_health:float
-var player_position:Vector3
-
+@export var max_health:float
+@export var current_health:float
+@export var player_position:Vector3
+ 
 ###Scene Status
-var current_scene:String
-var opened_doors:Array[String]
+@export var current_scene:String
+@export var current_save_place:String
+ 
+### Var for opened doors
+@export var opened_doors_list:Dictionary
+ 
+## var for destructed props
+@export var props_id_list:Array

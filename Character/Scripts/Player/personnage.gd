@@ -53,6 +53,9 @@ var player_look_node:Marker3D=null
 var Interaction_side:String=""
 var is_busy:bool=false
 
+#var for save place locations
+var save_location:String
+
 func _ready() -> void:
 	camera.h_offset=.7
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED

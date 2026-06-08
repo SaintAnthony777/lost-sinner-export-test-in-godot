@@ -4,9 +4,10 @@ class_name interaction_area extends Area3D
 @export var gate_owner : Openable_Gate
 @export var interaction_type : String
 @export var current_interaction : String
-
+@export var saveplace:SavePoint
 @export var player_marker : Marker3D 
 @export var player_look_at : Marker3D
+
 @onready var Hint:Label3D=$Hint
 @onready var interaction_text : Label3D = $"Interaction Text"
 @onready var collsion_shape : CollisionShape3D = get_node("CollisionShape3D")
@@ -44,9 +45,11 @@ func _on_body_entered(body: Node3D) -> void:
 		body.Interaction_side=side_for_doors
 		interaction_text.show()
 		Hint.hide()
+	if saveplace:
+		player.save_location=saveplace.save_place_name
 	if gate_owner :
 		gate_owner.opening_side=side_for_doors
-
+		
 func _on_body_exited(body: Node3D) -> void:
 	if body is player_character :
 		player_is_in_area=false

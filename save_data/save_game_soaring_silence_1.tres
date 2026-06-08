@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="GameSaveData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Componenents/Save Game Data/Game Save Data.gd" id="1_22br8"]
+
+[resource]
+script = ExtResource("1_22br8")

@@ -1,6 +1,8 @@
 class_name SavePoint
 extends Node3D
 
+@export var save_place_name:String
+
 @onready var interacted:bool=false
 @onready var personnage:player_character=get_tree().get_first_node_in_group("Personnage")
 

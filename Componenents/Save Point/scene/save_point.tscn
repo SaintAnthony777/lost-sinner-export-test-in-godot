@@ -44,10 +44,11 @@ collision_mask = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6324308, 0)
 shape = SubResource("SphereShape3D_pjy48")
 
-[node name="interaction_area" type="Area3D" parent="." node_paths=PackedStringArray("player_look_at")]
+[node name="interaction_area" type="Area3D" parent="." node_paths=PackedStringArray("saveplace", "player_look_at")]
 script = ExtResource("3_vml1j")
 interaction_type = "Save Game"
 current_interaction = "Rest At Evergreen Shard"
+saveplace = NodePath("..")
 player_look_at = NodePath("player_lookat")
 metadata/_custom_type_script = "uid://dbye3ep2uh4xp"
 

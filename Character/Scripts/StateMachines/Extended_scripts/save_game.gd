@@ -9,6 +9,7 @@ func enter() -> void:
 	player.camera.fov=85.0
 	character.look_at(player.player_look_node.global_position)
 	character.rotate_y(PI)
+	SaveManager.save_game(player)
 	sitting_ready_logics()
 	
 func physics_update(_delta) -> void:
