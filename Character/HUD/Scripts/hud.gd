@@ -14,8 +14,10 @@ func _process(_delta: float) -> void:
 					player.divine_divider_list.append(element.item_name)
 				if element.category == "grace" and !(player.grace_list.has(element.item_name)):
 					player.grace_list.append(element.item_name)
+					
 	if player.divine_divider_list.size() > 0 or player.grace_list.size() > 0:
 		arcane_comp.Arcane_Gauge.show()
+	
 	else : arcane_comp.Arcane_Gauge.hide()
 	if player.current_divine_divider:
 		var divine_divider_texture:=load("res://Character/HUD/assets/Icones equipement/Divines dividers/"+player.current_divine_divider+".PNG")

@@ -23,7 +23,6 @@ func load_game() -> void:
 		return
 	current_save = ResourceLoader.load(SAVE_PATH)
 	if current_save : 
-		print(current_save.player_inventory.Inventory_list)
 		get_tree().change_scene_to_file(current_save.current_scene)
 		await get_tree().node_added
 		var player : player_character = get_tree().current_scene.find_child("Personnage")

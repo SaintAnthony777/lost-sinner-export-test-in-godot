@@ -17,6 +17,7 @@ class_name player_character
 @onready var hammer_starting_point:Node3D=$"Camera_pivot/Hammer_throw_starter_point"
 @onready var aiming_node:Node3D=$"Camera_pivot/Aiming"
 @onready var state_mach:StateMachine=$"StateMachine"
+@onready var Inventory_UI:inventory_UI=$"Inventory"
 ###Camera Vars
 var camera_input_direction := Vector2.ZERO
 var last_movement_direction := Vector3.BACK
@@ -61,11 +62,31 @@ var save_location:String
 
 # var for inventory
 var player_inventory:Inventory=Inventory.new()
-
+var hammer:Inventory_Item=Inventory_Item.new()
+var shield:Inventory_Item=Inventory_Item.new()
 
 func _ready() -> void:
 	camera.h_offset=.7
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+	Inventory_UI.given_inventory=player_inventory
+	hammer.create_item(
+		"Justicière des abysses",
+		1,
+		"The weapon wield by Maerlyn, the mother of all humans, said to be unbreakable, needs a godly amount of strength to be used effectively.
+		 This hammer was said to choose a sinner as its new wielder once Maerlyn falls",
+		true,
+		"weapon"
+	)
+	shield.create_item(
+		"L'egide de Jack",
+		1,
+		"This shield once belonged to the one they call the world's strongest man, it has the power to protext the one who uses it 
+		against everything that exists, a gift from Jack once he died, said to choose a sinner among the ones that remains",
+		true,
+		"weapon"
+	)
+	player_inventory.add_item(shield,1)
+	player_inventory.add_item(hammer,1)
 	if divine_divider_list:
 		current_divine_divider = divine_divider_list[current_divine_divider_index]
 	if grace_list : 
@@ -76,6 +97,7 @@ func _ready() -> void:
 					divine_divider_list.append(element.item_name)
 				if element.category == "grace":
 					grace_list.append(element.item_name)
+		
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_pressed("Pause"):
 		if Input.mouse_mode==Input.MOUSE_MODE_VISIBLE:
@@ -87,23 +109,10 @@ func _input(_event: InputEvent) -> void:
 		switch_special(grace_list)
 	if Input.is_action_just_pressed("Divine Divider switch") and can_switch_special:
 		switch_special(divine_divider_list)
-	if Input.is_action_just_pressed("ui_text_backspace"):
-		var item:Inventory_Item=Inventory_Item.new()
-		item.create_item(
-			"Screaming Silence",
-			1,
-			"Most powerful scream of all time, too bad only discovered when humans would not speak any longer",
-			true,
-			"divine divider"
-		)
-		player_inventory.add_item(item,1)
-		for element in player_inventory.Inventory_list:
-			if element and element is Inventory_Item :
-				if element.category == "divine divider" and !(divine_divider_list.has(element.item_name)):
-					divine_divider_list.append(element.item_name)
-				if element.category == "grace" and !(grace_list.has(element.item_name)):
-					grace_list.append(element.item_name)
-		
+	if Input.is_action_just_pressed("inventory"):
+		Inventory_UI.show()
+		Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	var camera_is_in_motion:=(

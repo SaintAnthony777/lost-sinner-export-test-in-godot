@@ -1,0 +1,116 @@
+[gd_scene load_steps=3 format=3 uid="uid://cktsm7c5nwsvg"]
+
+[ext_resource type="Script" uid="uid://bturlus46enlt" path="res://Componenents/Inventory UI/inventory.gd" id="1_8xos3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_urthe"]
+font_size = 45
+
+[node name="Inventory" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8xos3")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -37.5
+offset_right = 37.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Inventory"
+label_settings = SubResource("LabelSettings_urthe")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menus" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 117.0
+offset_right = 20.0
+offset_bottom = 157.0
+grow_horizontal = 2
+theme_override_constants/separation = 45
+
+[node name="Weapons" type="Button" parent="Menus"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Weapons"
+
+[node name="Divine dividers" type="Button" parent="Menus"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Divine dividers"
+
+[node name="Graces" type="Button" parent="Menus"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Graces"
+
+[node name="objects" type="Button" parent="Menus"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Objects"
+
+[node name="Keys" type="Button" parent="Menus"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Keys"
+
+[node name="item list" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -148.0
+offset_right = 717.0
+offset_bottom = 203.0
+grow_vertical = 2
+
+[node name="Item container" type="VBoxContainer" parent="item list"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+
+[node name="Item_texture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -644.0
+offset_top = -148.0
+offset_bottom = 206.0
+grow_horizontal = 0
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Item description" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -179.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 2
+
+[connection signal="pressed" from="Menus/Weapons" to="." method="_on_weapons_pressed"]
+[connection signal="pressed" from="Menus/Divine dividers" to="." method="_on_divine_dividers_pressed"]
+[connection signal="pressed" from="Menus/Graces" to="." method="_on_graces_pressed"]
+[connection signal="pressed" from="Menus/objects" to="." method="_on_objects_pressed"]
+[connection signal="pressed" from="Menus/Keys" to="." method="_on_keys_pressed"]
