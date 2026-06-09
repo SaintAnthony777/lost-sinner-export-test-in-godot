@@ -13,7 +13,6 @@ func add_item(item:Inventory_Item, quantity : int) -> void:
 		var duplicated_item := item
 		duplicated_item.item_number+=quantity
 		Inventory_list.append(duplicated_item)
-	Inventory_list.append(item)
 	inventory_updated.emit()
 
 func substract_item(item:Inventory_Item,number:int)->void:

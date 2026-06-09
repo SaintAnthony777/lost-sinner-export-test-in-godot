@@ -40,7 +40,7 @@ func _on_body_entered(body: Node3D) -> void:
 			player_marker.global_position=self.global_position
 			player.marker_forced_pos=player_marker
 		player.interaction_type=interaction_type
-		player.player_look_node=player_look_at
+		if player_look_at : player.player_look_node=player_look_at
 		player.can_interact=true
 		body.Interaction_side=side_for_doors
 		interaction_text.show()
@@ -55,7 +55,7 @@ func _on_body_exited(body: Node3D) -> void:
 		player_is_in_area=false
 		player.can_interact=false
 		interaction_text.hide()
-		if !owner.interacted:
+		if owner and !owner.interacted:
 			Hint.show()
 func disable_all_collsion()->void:
 	collsion_shape.disabled = true

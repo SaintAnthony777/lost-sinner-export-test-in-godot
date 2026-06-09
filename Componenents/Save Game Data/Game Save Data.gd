@@ -6,12 +6,13 @@ extends Resource
 @export var current_health:float
 @export var player_position:Vector3
 @export var player_rotation_degrees:Vector3
-@export var player_inventory:Inventory
+@export var player_inventory : Inventory
 
 ###Scene Status
-@export var current_scene:String
-@export var current_save_place:String
+@export var current_scene : String
+@export var current_save_place : String
 ### Var for opened doors
-@export var opened_doors_list:Dictionary
+@export var opened_doors_list : Dictionary
 ## var for destructed props
-@export var props_id_list:Array
+@export var props_id_list : Array
+@export var picked_items : Array

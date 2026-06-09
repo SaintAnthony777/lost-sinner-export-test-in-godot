@@ -13,7 +13,6 @@ class_name Openable_Gate extends Node3D
 
 func _ready() -> void:
 	if door_id in SaveManager.current_save.opened_doors_list.keys():
-		print("should open")
 		Opened_door_state(SaveManager.current_save.opened_doors_list.get(self.door_id))
 		
 func _process(delta: float) -> void:

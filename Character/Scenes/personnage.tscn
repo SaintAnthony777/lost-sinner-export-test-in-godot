@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://srgn3wkeivsn"]
+[gd_scene load_steps=79 format=3 uid="uid://srgn3wkeivsn"]
 
 [ext_resource type="Script" uid="uid://bhjwagrue8av5" path="res://Character/Scripts/Player/personnage.gd" id="1_ov8r6"]
 [ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="2_ov8r6"]
@@ -64,6 +64,7 @@
 [ext_resource type="Script" uid="uid://b041h7rg70i31" path="res://Character/Scripts/StateMachines/Extended_scripts/save_game.gd" id="62_1na5d"]
 [ext_resource type="Script" uid="uid://pn2c3v11703d" path="res://Character/Scripts/StateMachines/Extended_scripts/sitting_idle.gd" id="63_k4wqs"]
 [ext_resource type="Script" uid="uid://2qqy3cwjhjkl" path="res://Character/Scripts/StateMachines/Extended_scripts/done_sitting.gd" id="64_k4wqs"]
+[ext_resource type="Script" uid="uid://df2a3vrsiom5a" path="res://Character/Scripts/StateMachines/Extended_scripts/pick_up.gd" id="65_n16ah"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ov8r6"]
 
@@ -514,6 +515,10 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="Done Sitting" type="Node" parent="StateMachine"]
 script = ExtResource("64_k4wqs")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Pick up" type="Node" parent="StateMachine"]
+script = ExtResource("65_n16ah")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

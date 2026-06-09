@@ -1,3 +1,78 @@
-[gd_scene format=3 uid="uid://c6bu4dsie04c0"]
+[gd_scene load_steps=12 format=3 uid="uid://c6bu4dsie04c0"]
+
+[ext_resource type="Script" uid="uid://cictxuotnqh0v" path="res://Componenents/pickable_items/pickable_item.gd" id="1_jghjk"]
+[ext_resource type="Texture2D" uid="uid://bcfvxddmp0gce" path="res://VFXES/Fire/textures/Flame01.png" id="3_ecn4h"]
+[ext_resource type="Script" uid="uid://dbye3ep2uh4xp" path="res://autoloads/Interactable Areas/Interaction Area.gd" id="3_ldcjs"]
+
+[sub_resource type="Gradient" id="Gradient_ldcjs"]
+offsets = PackedFloat32Array(0, 0.55376345, 1)
+colors = PackedColorArray(6.5898795, 6.5898795, 6.5898795, 1, 18.892157, 3.8798728, 6.827484, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ecn4h"]
+gradient = SubResource("Gradient_ldcjs")
+
+[sub_resource type="Curve" id="Curve_by0n2"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.44416243, 0.99999994), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ldcjs"]
+curve = SubResource("Curve_by0n2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7ombm"]
+emission_shape = 1
+emission_sphere_radius = 0.1
+gravity = Vector3(0, 3, 0)
+scale_curve = SubResource("CurveTexture_ldcjs")
+color_ramp = SubResource("GradientTexture1D_ecn4h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_by0n2"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(4.58967, 4.58967, 2.2598383, 1)
+albedo_texture = ExtResource("3_ecn4h")
+billboard_mode = 1
+grow = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_518om"]
+material = SubResource("StandardMaterial3D_by0n2")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7ombm"]
+radius = 1.0
+height = 3.0
 
 [node name="Pickable_item" type="Node3D"]
+script = ExtResource("1_jghjk")
+metadata/_custom_type_script = "uid://cictxuotnqh0v"
+
+[node name="Particles" type="GPUParticles3D" parent="."]
+lifetime = 0.6
+speed_scale = 0.5
+process_material = SubResource("ParticleProcessMaterial_7ombm")
+draw_pass_1 = SubResource("QuadMesh_518om")
+
+[node name="interaction_area" type="Area3D" parent="."]
+script = ExtResource("3_ldcjs")
+interaction_type = "Pick Up"
+current_interaction = "Pick up item"
+metadata/_custom_type_script = "uid://dbye3ep2uh4xp"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="interaction_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_7ombm")
+
+[node name="Hint" type="Label3D" parent="interaction_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2999997, 0)
+pixel_size = 0.0195
+billboard = 1
+outline_modulate = Color(1, 1, 1, 1)
+text = "."
+
+[node name="Interaction Text" type="Label3D" parent="interaction_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0999994, 0)
+visible = false
+pixel_size = 0.011
+billboard = 1
+text = "Pick up item"
+
+[node name="Marker3D" type="Marker3D" parent="."]

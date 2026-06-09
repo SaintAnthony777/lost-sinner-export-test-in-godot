@@ -12,6 +12,7 @@ func save_game(player_node:player_character)->void:
 	current_save.player_inventory = player_node.player_inventory
 	var error = ResourceSaver.save(current_save,SAVE_PATH)
 	if error == OK:
+		print(current_save.player_inventory.Inventory_list)
 		print("sauvegarde effectuée")
 	else : 
 		print("sauvegarde echouée")
@@ -22,6 +23,7 @@ func load_game() -> void:
 		return
 	current_save = ResourceLoader.load(SAVE_PATH)
 	if current_save : 
+		print(current_save.player_inventory.Inventory_list)
 		get_tree().change_scene_to_file(current_save.current_scene)
 		await get_tree().node_added
 		var player : player_character = get_tree().current_scene.find_child("Personnage")
@@ -29,11 +31,9 @@ func load_game() -> void:
 			player.global_position = current_save.player_position
 			player.rotation_degrees = current_save.player_rotation_degrees
 			player.player_inventory = current_save.player_inventory
-			player.divine_divider_list.clear()
-			player.grace_list.clear()
 			if current_save.player_inventory:
-				for element:Inventory_Item in current_save.player_inventory:
+				for element:Inventory_Item in current_save.player_inventory.Inventory_list:
 					if element.category == "divine divider":
-						player.divine_divider_list.append(element)
+						player.divine_divider_list.append(element.item_name)
 					if element.category == "grace":
-						player.grace_list.append(element)
+						player.grace_list.append(element.item_name)

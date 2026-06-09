@@ -58,8 +58,9 @@ var is_busy:bool=false
 
 #var for save place locations
 var save_location:String
+
 # var for inventory
-@onready var player_inventory:Inventory=Inventory.new()
+var player_inventory:Inventory=Inventory.new()
 
 
 func _ready() -> void:
@@ -69,7 +70,12 @@ func _ready() -> void:
 		current_divine_divider = divine_divider_list[current_divine_divider_index]
 	if grace_list : 
 		current_grace = grace_list[current_grace_index]
-
+	for element in player_inventory.Inventory_list:
+			if element and element is Inventory_Item:
+				if element.category == "divine divider":
+					divine_divider_list.append(element.item_name)
+				if element.category == "grace":
+					grace_list.append(element.item_name)
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_pressed("Pause"):
 		if Input.mouse_mode==Input.MOUSE_MODE_VISIBLE:
@@ -82,22 +88,23 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Divine Divider switch") and can_switch_special:
 		switch_special(divine_divider_list)
 	if Input.is_action_just_pressed("ui_text_backspace"):
-		var item:Inventory_Item=Inventory_Item.new(
+		var item:Inventory_Item=Inventory_Item.new()
+		item.create_item(
 			"Screaming Silence",
 			1,
 			"Most powerful scream of all time, too bad only discovered when humans would not speak any longer",
-			false,
+			true,
 			"divine divider"
 		)
 		player_inventory.add_item(item,1)
-		print(player_inventory)
 		for element in player_inventory.Inventory_list:
-			if element and element is Inventory_Item:
-				if element.category == "divine divider":
+			if element and element is Inventory_Item :
+				if element.category == "divine divider" and !(divine_divider_list.has(element.item_name)):
 					divine_divider_list.append(element.item_name)
-				if element.category == "grace":
+				if element.category == "grace" and !(grace_list.has(element.item_name)):
 					grace_list.append(element.item_name)
-			print(current_divine_divider)
+		
+
 func _unhandled_input(event: InputEvent) -> void:
 	var camera_is_in_motion:=(
 		event is InputEventMouseMotion and 
