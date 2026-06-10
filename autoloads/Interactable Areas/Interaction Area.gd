@@ -14,7 +14,7 @@ class_name interaction_area extends Area3D
 @onready var collsion_shape : CollisionShape3D = get_node("CollisionShape3D")
 @onready var player_is_in_area : bool = false
 @onready var player:player_character=get_tree().get_first_node_in_group("Personnage")
-@onready var interact=null
+@onready var interact
 func _init() -> void:
 	collision_layer=7
 	collision_mask=1
@@ -22,7 +22,6 @@ func _init() -> void:
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
-	
 func _process(delta: float) -> void:
 	interaction_text.text = current_interaction
 	if player_is_in_area:
@@ -39,12 +38,9 @@ func _process(delta: float) -> void:
 			Hint.visible=!owner.interacted
 
 func _on_body_entered(body: Node3D) -> void:
-	if body is player_character:
-		if pickable_owner: interact = pickable_owner
-		if saveplace : interact = saveplace 
-		if gate_owner : interact = gate_owner ; gate_owner.inter_area = self
-		else : interact = owner
+	if body is player_character : interact = $".."
 	if body is player_character and !interact.interacted:
+		interact.inter_area=self
 		player_is_in_area=true
 		if player_marker:
 			player_marker.global_position=self.global_position
@@ -64,10 +60,7 @@ func _on_body_exited(body: Node3D) -> void:
 	if pickable_owner: interact = pickable_owner
 	else : interact = owner
 	if body is player_character :
-		if pickable_owner: interact = pickable_owner
-		if saveplace : interact = saveplace
-		if gate_owner : interact = gate_owner ; gate_owner.inter_area = null
-		else : interact = owner
+		interact.inter_area=null
 		player_is_in_area=false
 		player.can_interact=false
 		interaction_text.hide()
