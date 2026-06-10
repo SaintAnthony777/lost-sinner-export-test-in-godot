@@ -59,6 +59,8 @@ var interacts:bool=false
 @onready var health_component: HealthComponent = $"Hud canvas layer/HUD/Health and equip/HealthComponent"
 @onready var dealt_attack:Attack
 @onready var Shield_Light:SpotLight3D=$"Shield Light"
+@onready var inv_UI:inventory_UI=$"Inventory layer/Inventory"
+
 func _ready() -> void:
 	health_component.Moveable_Player=player
 	health_component.Armor_value=50

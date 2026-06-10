@@ -1,4 +1,4 @@
-[gd_scene load_steps=179 format=3 uid="uid://xumlackoysv2"]
+[gd_scene load_steps=180 format=3 uid="uid://xumlackoysv2"]
 
 [ext_resource type="PackedScene" uid="uid://dshsna3bwyfl7" path="res://Character/Glb/lost sinner 1/The Lost Sinner1.glb" id="1_ag85x"]
 [ext_resource type="Script" uid="uid://dijb6jh7etgx0" path="res://Character/Scripts/Player/character_mesh.gd" id="2_ukanm"]
@@ -42,6 +42,7 @@
 [ext_resource type="Script" uid="uid://4i450if78qh1" path="res://Componenents/Hitbox and HurtBox/hurt_box_component.gd" id="26_0i3i2"]
 [ext_resource type="AnimationLibrary" uid="uid://no2uoyq1j4be" path="res://Character/Imported Animations/pick up/pick up.res" id="37_1x2dm"]
 [ext_resource type="AnimationLibrary" uid="uid://h2vb47lrmixf" path="res://Character/Imported Animations/Sitting idle and all that/sitting idle and all that.res" id="37_xhq4a"]
+[ext_resource type="PackedScene" uid="uid://cktsm7c5nwsvg" path="res://Componenents/Inventory UI/inventory.tscn" id="43_ktiam"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_11fhr"]
 shader = ExtResource("4_86lmc")
@@ -15930,6 +15931,11 @@ light_color = Color(6.256998e-07, 0.4968124, 0.49929118, 1)
 light_energy = 2.0
 spot_range = 11.079
 spot_angle = 54.33
+
+[node name="Inventory layer" type="CanvasLayer" parent="." index="14"]
+
+[node name="Inventory" parent="Inventory layer" index="0" instance=ExtResource("43_ktiam")]
+visible = false
 
 [editable path="Special effects layer/Radial Blur + Chromatic aberration"]
 [editable path="Armature/Skeleton3D/Shield_Attachement/Shield"]

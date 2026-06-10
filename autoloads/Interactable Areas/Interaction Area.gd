@@ -7,13 +7,14 @@ class_name interaction_area extends Area3D
 @export var saveplace:SavePoint
 @export var player_marker : Marker3D 
 @export var player_look_at : Marker3D
+@export var pickable_owner : pickable
 
 @onready var Hint:Label3D=$Hint
 @onready var interaction_text : Label3D = $"Interaction Text"
 @onready var collsion_shape : CollisionShape3D = get_node("CollisionShape3D")
 @onready var player_is_in_area : bool = false
 @onready var player:player_character=get_tree().get_first_node_in_group("Personnage")
-
+@onready var interact=null
 func _init() -> void:
 	collision_layer=7
 	collision_mask=1
@@ -31,10 +32,19 @@ func _process(delta: float) -> void:
 		else :
 			player.can_interact=true
 			interaction_text.show()
-	else : Hint.visible=!owner.interacted
+	else : 
+		if pickable_owner:
+			Hint.visible=pickable_owner.interacted
+		else:
+			Hint.visible=!owner.interacted
 
 func _on_body_entered(body: Node3D) -> void:
-	if body is player_character and !owner.interacted:
+	if body is player_character:
+		if pickable_owner: interact = pickable_owner
+		if saveplace : interact = saveplace 
+		if gate_owner : interact = gate_owner ; gate_owner.inter_area = self
+		else : interact = owner
+	if body is player_character and !interact.interacted:
 		player_is_in_area=true
 		if player_marker:
 			player_marker.global_position=self.global_position
@@ -51,11 +61,17 @@ func _on_body_entered(body: Node3D) -> void:
 		gate_owner.opening_side=side_for_doors
 		
 func _on_body_exited(body: Node3D) -> void:
+	if pickable_owner: interact = pickable_owner
+	else : interact = owner
 	if body is player_character :
+		if pickable_owner: interact = pickable_owner
+		if saveplace : interact = saveplace
+		if gate_owner : interact = gate_owner ; gate_owner.inter_area = null
+		else : interact = owner
 		player_is_in_area=false
 		player.can_interact=false
 		interaction_text.hide()
-		if owner and !owner.interacted:
+		if interact and !interact.interacted:
 			Hint.show()
 func disable_all_collsion()->void:
 	collsion_shape.disabled = true

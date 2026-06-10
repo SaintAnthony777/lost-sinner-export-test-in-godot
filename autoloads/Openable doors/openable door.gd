@@ -10,13 +10,15 @@ class_name Openable_Gate extends Node3D
 @onready var gate_left:MeshInstance3D=$"Door left"
 @onready var gate_right:MeshInstance3D=$"Door Right"
 @onready var door_id:String=String(get_path())
+@onready var inter_area:interaction_area
 
 func _ready() -> void:
 	if door_id in SaveManager.current_save.opened_doors_list.keys():
 		Opened_door_state(SaveManager.current_save.opened_doors_list.get(self.door_id))
 		
 func _process(delta: float) -> void:
-	if opening_side!="" and !interacted and Input.is_action_just_pressed("Action trigger") and !personnage.is_busy:
+	if (opening_side!="" and !interacted and Input.is_action_just_pressed("Action trigger") and !personnage.is_busy and
+	 inter_area and inter_area.interact==self):
 		interacted=true
 		if not door_id in SaveManager.current_save.opened_doors_list.keys():
 			SaveManager.current_save.opened_doors_list.set(door_id,opening_side)

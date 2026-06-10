@@ -1,4 +1,4 @@
-[gd_scene load_steps=846 format=4 uid="uid://bhgrj3gfn5q2o"]
+[gd_scene load_steps=857 format=4 uid="uid://bhgrj3gfn5q2o"]
 
 [ext_resource type="Script" uid="uid://cettk4umshcmn" path="res://Greyboxed Environnements/The Great Prison/the_great_prison.gd" id="1_dstuq"]
 [ext_resource type="Texture2D" uid="uid://px1nn8y8qcim" path="res://Global Assets/Skies/NightSky Tonemapped/NightSkyHDRI003_2K-TONEMAPPED.jpg" id="2_bqrf2"]
@@ -59,8 +59,10 @@
 [ext_resource type="Script" uid="uid://4i450if78qh1" path="res://Componenents/Hitbox and HurtBox/hurt_box_component.gd" id="54_tcfie"]
 [ext_resource type="PackedScene" uid="uid://64gld7axu0df" path="res://Environnements Pre-tests/The Great Prison/Walls/Scenes/Openable Gate/mid_gate.tscn" id="55_tcfie"]
 [ext_resource type="PackedScene" uid="uid://d2r2jcuagye5b" path="res://Componenents/Save Point/scene/save_point.tscn" id="58_bqrf2"]
-[ext_resource type="PackedScene" uid="uid://c6bu4dsie04c0" path="res://Componenents/pickable_items/pickable_item.tscn" id="60_s5i8y"]
-[ext_resource type="Script" uid="uid://cksbl7u3uxuln" path="res://Componenents/Inventory/Inventory Item.gd" id="61_f6udf"]
+[ext_resource type="Script" uid="uid://cictxuotnqh0v" path="res://Componenents/pickable_items/pickable_item.gd" id="60_s5i8y"]
+[ext_resource type="Texture2D" uid="uid://bcfvxddmp0gce" path="res://VFXES/Fire/textures/Flame01.png" id="61_f6udf"]
+[ext_resource type="Script" uid="uid://cksbl7u3uxuln" path="res://Componenents/Inventory/Inventory Item.gd" id="61_y6tfb"]
+[ext_resource type="Script" uid="uid://dbye3ep2uh4xp" path="res://autoloads/Interactable Areas/Interaction Area.gd" id="62_y6tfb"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_cd5uo"]
 panorama = ExtResource("2_bqrf2")
@@ -2509,7 +2511,7 @@ ray_length = 5.0
 ray_offset = 5.0
 remove_points_on_miss = false
 
-[sub_resource type="Resource" id="Resource_7l6h1"]
+[sub_resource type="Resource" id="Resource_jya6s"]
 script = ExtResource("38_dstuq")
 stack = Array[ExtResource("39_yx2k7")]([SubResource("Resource_b48ks"), SubResource("Resource_2fegf"), SubResource("Resource_5bdvs"), SubResource("Resource_0184s")])
 
@@ -2524,11 +2526,55 @@ points = PackedVector3Array(1.0223706, -1.9550323e-05, 3.1765459, 0.9641267, 0.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_r4gaa"]
 size = Vector3(1.6, 1, 3.2)
 
-[sub_resource type="Resource" id="Resource_f6udf"]
-script = ExtResource("61_f6udf")
+[sub_resource type="Resource" id="Resource_7l6h1"]
+script = ExtResource("61_y6tfb")
 item_name = "Screaming Silence"
-item_description = "Such a power in a single shout"
+item_description = "such a shout"
 category = "divine divider"
+metadata/_custom_type_script = "uid://cksbl7u3uxuln"
+
+[sub_resource type="Gradient" id="Gradient_68ppx"]
+offsets = PackedFloat32Array(0, 0.55376345, 1)
+colors = PackedColorArray(6.5898795, 6.5898795, 6.5898795, 1, 18.892157, 3.8798728, 6.827484, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ecn4h"]
+gradient = SubResource("Gradient_68ppx")
+
+[sub_resource type="Curve" id="Curve_kjqfd"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.44416243, 0.99999994), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ldcjs"]
+curve = SubResource("Curve_kjqfd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u7b07"]
+emission_shape = 1
+emission_sphere_radius = 0.1
+gravity = Vector3(0, 3, 0)
+scale_curve = SubResource("CurveTexture_ldcjs")
+color_ramp = SubResource("GradientTexture1D_ecn4h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_by0n2"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(4.58967, 4.58967, 2.2598383, 1)
+albedo_texture = ExtResource("61_f6udf")
+billboard_mode = 1
+grow = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_m2xq6"]
+material = SubResource("StandardMaterial3D_by0n2")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b48ks"]
+radius = 1.0
+height = 3.0
+
+[sub_resource type="Resource" id="Resource_gsus2"]
+script = ExtResource("61_y6tfb")
+item_name = "Heavy Charge"
+item_description = "heavy charge"
+category = "grace"
 metadata/_custom_type_script = "uid://cksbl7u3uxuln"
 
 [node name="The Great Prison" type="Node3D"]
@@ -2548,6 +2594,7 @@ light_bake_mode = 1
 shadow_enabled = true
 
 [node name="Personnage" parent="." instance=ExtResource("2_f3rgr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68, -7, 51)
 collision_mask = 166
 
 [node name="Lights" type="Node3D" parent="."]
@@ -11304,7 +11351,7 @@ shape = SubResource("Resource_so2pr")
 [node name="ProtonScatter" type="Node3D" parent="Props/First Hallway bricks props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -2, 15)
 script = ExtResource("37_5ju85")
-modifier_stack = SubResource("Resource_7l6h1")
+modifier_stack = SubResource("Resource_jya6s")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://dinalhj81tlhv"
@@ -11744,7 +11791,82 @@ save_place_name = "Halfrey's passage"
 
 [node name="Pickables" type="Node3D" parent="."]
 
-[node name="Pickable_item" parent="Pickables" instance=ExtResource("60_s5i8y")]
+[node name="screaming silence" type="Node3D" parent="Pickables"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
-item_held = SubResource("Resource_f6udf")
+script = ExtResource("60_s5i8y")
+item_held = SubResource("Resource_7l6h1")
 item_number = 1
+metadata/_custom_type_script = "uid://cictxuotnqh0v"
+
+[node name="Particles" type="GPUParticles3D" parent="Pickables/screaming silence"]
+lifetime = 0.6
+speed_scale = 0.5
+process_material = SubResource("ParticleProcessMaterial_u7b07")
+draw_pass_1 = SubResource("QuadMesh_m2xq6")
+
+[node name="interaction_area" type="Area3D" parent="Pickables/screaming silence" node_paths=PackedStringArray("pickable_owner")]
+script = ExtResource("62_y6tfb")
+interaction_type = "Pick Up"
+current_interaction = "Pick up item"
+pickable_owner = NodePath("..")
+metadata/_custom_type_script = "uid://dbye3ep2uh4xp"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pickables/screaming silence/interaction_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_b48ks")
+
+[node name="Hint" type="Label3D" parent="Pickables/screaming silence/interaction_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2999997, 0)
+pixel_size = 0.0195
+billboard = 1
+outline_modulate = Color(1, 1, 1, 1)
+text = "."
+
+[node name="Interaction Text" type="Label3D" parent="Pickables/screaming silence/interaction_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0999994, 0)
+visible = false
+pixel_size = 0.011
+billboard = 1
+text = "Pick up item"
+
+[node name="Marker3D" type="Marker3D" parent="Pickables/screaming silence"]
+
+[node name="heavy charge" type="Node3D" parent="Pickables"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 4)
+script = ExtResource("60_s5i8y")
+item_held = SubResource("Resource_gsus2")
+item_number = 1
+metadata/_custom_type_script = "uid://cictxuotnqh0v"
+
+[node name="Particles" type="GPUParticles3D" parent="Pickables/heavy charge"]
+lifetime = 0.6
+speed_scale = 0.5
+process_material = SubResource("ParticleProcessMaterial_u7b07")
+draw_pass_1 = SubResource("QuadMesh_m2xq6")
+
+[node name="interaction_area" type="Area3D" parent="Pickables/heavy charge" node_paths=PackedStringArray("pickable_owner")]
+script = ExtResource("62_y6tfb")
+interaction_type = "Pick Up"
+current_interaction = "Pick up item"
+pickable_owner = NodePath("..")
+metadata/_custom_type_script = "uid://dbye3ep2uh4xp"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pickables/heavy charge/interaction_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_b48ks")
+
+[node name="Hint" type="Label3D" parent="Pickables/heavy charge/interaction_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2999997, 0)
+pixel_size = 0.0195
+billboard = 1
+outline_modulate = Color(1, 1, 1, 1)
+text = "."
+
+[node name="Interaction Text" type="Label3D" parent="Pickables/heavy charge/interaction_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0999994, 0)
+visible = false
+pixel_size = 0.011
+billboard = 1
+text = "Pick up item"
+
+[node name="Marker3D" type="Marker3D" parent="Pickables/heavy charge"]

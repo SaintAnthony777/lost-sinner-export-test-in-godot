@@ -17,7 +17,7 @@ class_name player_character
 @onready var hammer_starting_point:Node3D=$"Camera_pivot/Hammer_throw_starter_point"
 @onready var aiming_node:Node3D=$"Camera_pivot/Aiming"
 @onready var state_mach:StateMachine=$"StateMachine"
-@onready var Inventory_UI:inventory_UI=$"Inventory"
+
 ###Camera Vars
 var camera_input_direction := Vector2.ZERO
 var last_movement_direction := Vector3.BACK
@@ -68,7 +68,7 @@ var shield:Inventory_Item=Inventory_Item.new()
 func _ready() -> void:
 	camera.h_offset=.7
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
-	Inventory_UI.given_inventory=player_inventory
+	character.inv_UI.given_inventory=player_inventory
 	hammer.create_item(
 		"Justicière des abysses",
 		1,
@@ -109,9 +109,6 @@ func _input(_event: InputEvent) -> void:
 		switch_special(grace_list)
 	if Input.is_action_just_pressed("Divine Divider switch") and can_switch_special:
 		switch_special(divine_divider_list)
-	if Input.is_action_just_pressed("inventory"):
-		Inventory_UI.show()
-		Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
 
 
 func _unhandled_input(event: InputEvent) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://srgn3wkeivsn"]
+[gd_scene load_steps=79 format=3 uid="uid://srgn3wkeivsn"]
 
 [ext_resource type="Script" uid="uid://bhjwagrue8av5" path="res://Character/Scripts/Player/personnage.gd" id="1_ov8r6"]
 [ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="2_ov8r6"]
@@ -65,7 +65,6 @@
 [ext_resource type="Script" uid="uid://pn2c3v11703d" path="res://Character/Scripts/StateMachines/Extended_scripts/sitting_idle.gd" id="63_k4wqs"]
 [ext_resource type="Script" uid="uid://2qqy3cwjhjkl" path="res://Character/Scripts/StateMachines/Extended_scripts/done_sitting.gd" id="64_k4wqs"]
 [ext_resource type="Script" uid="uid://df2a3vrsiom5a" path="res://Character/Scripts/StateMachines/Extended_scripts/pick_up.gd" id="65_n16ah"]
-[ext_resource type="PackedScene" uid="uid://cktsm7c5nwsvg" path="res://Componenents/Inventory UI/inventory.tscn" id="66_rw8dl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ov8r6"]
 
@@ -526,6 +525,3 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.255404, 0)
 layers = 65536
 mesh = SubResource("SphereMesh_r2hrc")
-
-[node name="Inventory" parent="." instance=ExtResource("66_rw8dl")]
-visible = false
