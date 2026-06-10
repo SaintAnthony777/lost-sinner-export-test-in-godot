@@ -9,6 +9,15 @@ extends Control
 @onready var item_desc : Label =$"Item description"
 @onready var item_to_be_shown : Inventory_Item = null
 
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("inventory"):
+		show_and_hide_inventory()
+
+func show_and_hide_inventory()->void:
+	if self.visible : get_tree().paused = false ; Input.mouse_mode=Input.MOUSE_MODE_CAPTURED ; clear_items_list()
+	else : get_tree().paused = true ; Input.mouse_mode=Input.MOUSE_MODE_VISIBLE ; clear_items_list()
+	self.visible=!self.visible
+	
 func _process(delta: float) -> void:
 	if item_to_be_shown:
 		item_desc.text=item_to_be_shown.item_description
@@ -21,7 +30,6 @@ func fill_item_list()->void:
 		if element and element.category==category_to_be_shown:
 			array_of_items.append(element)
 	if !array_of_items.is_empty():
-		print(array_of_items)
 		for items : Inventory_Item in array_of_items :
 			if items : 
 				var item_to_be_added : inventory_ui_button=inventory_ui_button.new(items)
@@ -43,12 +51,17 @@ func _on_objects_pressed() -> void:
 	set_new_array_of_items("object")
 func _on_keys_pressed() -> void:
 	set_new_array_of_items("key")
-
+func item_desc_clean()->void:
+	item_desc.text=""
+	item_texture.texture=null
+	item_to_be_shown=null
 func clear_items_list()->void:
+	item_desc_clean()
 	for elements in item_container.get_children():
 		elements.queue_free()
 func set_new_array_of_items(given_category:String)->void:
 	array_of_items.clear()
 	clear_items_list()
+	item_desc_clean()
 	category_to_be_shown=given_category
 	fill_item_list()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3l324mit158p"
-path="res://.godot/imported/Screaming Silence.png-22ea70e2c7f6a7380440aa283b062875.ctex"
+uid="uid://v8orccl7u6b2"
+path="res://.godot/imported/Heavy Charge.png-ee561abb8a825572eb13c75cb88627a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Componenents/Inventory UI/Renders for equippement/Screaming Silence.png"
-dest_files=["res://.godot/imported/Screaming Silence.png-22ea70e2c7f6a7380440aa283b062875.ctex"]
+source_file="res://Componenents/Inventory UI/Renders for equippement/Heavy Charge.png"
+dest_files=["res://.godot/imported/Heavy Charge.png-ee561abb8a825572eb13c75cb88627a8.ctex"]
 
 [params]
 
