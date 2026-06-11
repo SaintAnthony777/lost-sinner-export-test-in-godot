@@ -6,25 +6,36 @@ extends Control
 @onready var item_container : VBoxContainer = $"item list/Item container"
 @onready var array_of_items : Array[Inventory_Item]
 @onready var item_texture : TextureRect=$"Item_texture"
-@onready var item_desc : Label =$"Item description"
+@onready var item_desc : Label =$"MarginContainer2/Item description"
 @onready var item_to_be_shown : Inventory_Item = null
+@onready var item_panel:Panel=$"Item Panel"
+@onready var desc_panel:Panel=$"Descripition panel"
+
+
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("inventory"):
 		show_and_hide_inventory()
 
 func show_and_hide_inventory()->void:
-	if self.visible : get_tree().paused = false ; Input.mouse_mode=Input.MOUSE_MODE_CAPTURED ; clear_items_list()
+	if self.visible : 
+		get_tree().paused = false ; Input.mouse_mode=Input.MOUSE_MODE_CAPTURED ; clear_items_list();
+		array_of_items.clear()
 	else : get_tree().paused = true ; Input.mouse_mode=Input.MOUSE_MODE_VISIBLE ; clear_items_list()
 	self.visible=!self.visible
 	
 func _process(delta: float) -> void:
+	if array_of_items : item_panel.show()
+	else : item_panel.hide()
 	if item_to_be_shown:
 		item_desc.text=item_to_be_shown.item_description
 		item_texture.texture = load("res://Componenents/Inventory UI/Renders for equippement/"+item_to_be_shown.item_name+".png")
+		desc_panel.show()
 	else :
+		desc_panel.hide()
 		item_desc.text=""
 		item_texture.texture=null
+		
 func fill_item_list()->void:
 	for element:Inventory_Item in given_inventory.Inventory_list:
 		if element and element.category==category_to_be_shown:
@@ -36,7 +47,7 @@ func fill_item_list()->void:
 				item_to_be_added.item=items
 				item_to_be_added.text = items.item_name
 				item_container.add_child(item_to_be_added)
-	else : item_to_be_shown = null
+	else : item_to_be_shown = null ; 
 	
 func _on_weapons_pressed() -> void:
 	set_new_array_of_items("weapon")

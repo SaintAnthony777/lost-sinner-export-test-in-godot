@@ -7,7 +7,7 @@ extends Node3D
 @onready var personnage:player_character=get_tree().get_first_node_in_group("Personnage")
 @onready var inter_area:interaction_area=$interaction_area
 func _process(delta: float) -> void:
-	if !interacted and Input.is_action_just_pressed("Action trigger") and !personnage.is_busy and inter_area.interact==self:
+	if !interacted and Input.is_action_just_pressed("Action trigger") and !personnage.is_busy and inter_area and inter_area.interact==self:
 		interacted=true
 		for area in self.get_children():
 			if area is interaction_area:

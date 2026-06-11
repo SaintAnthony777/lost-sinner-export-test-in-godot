@@ -85,8 +85,9 @@ func _ready() -> void:
 		true,
 		"weapon"
 	)
-	player_inventory.add_item(shield,1)
-	player_inventory.add_item(hammer,1)
+	if not shield in player_inventory.Inventory_list:
+		player_inventory.add_item(shield,1)
+		player_inventory.add_item(hammer,1)
 	if divine_divider_list:
 		current_divine_divider = divine_divider_list[current_divine_divider_index]
 	if grace_list : 
