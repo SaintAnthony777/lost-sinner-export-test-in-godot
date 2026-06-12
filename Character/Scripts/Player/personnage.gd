@@ -39,9 +39,19 @@ var self_delta=.01
 
 ## Grace and Divine Dividers
 var divine_divider_list : Array[String] = []
-var grace_list : Array[String] = []
+var grace_list : Array[String] = ["Heavy Charge"]
 # var divine_divider_list : Array[String] = ["Sundown","Screaming Silence","World Strongest Man"]
 # var grace_list : Array[String] = ["Disordonance","Heavy Charge","Disaster"]
+@onready var divine_dividers_consumption_dict:Dictionary ={
+	"Screaming Silence":45.0,
+	"Sundown":55.0,
+	"World Strongest Man":65.0
+}
+@onready var grace_consumption_dict:Dictionary ={
+	"Heavy Charge":1.0,
+	"Disordonance":35.0,
+	"Disaster":45.0
+}
 
 var current_grace_index:=0
 var current_divine_divider_index:=0
@@ -70,18 +80,16 @@ func _ready() -> void:
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 	character.inv_UI.given_inventory=player_inventory
 	hammer.create_item(
-		"Justicière des abysses",
+		"The Hand of the Maestria",
 		1,
-		"The weapon wield by Maerlyn, the mother of all humans, said to be unbreakable, needs a godly amount of strength to be used effectively.
-		 This hammer was said to choose a sinner as its new wielder once Maerlyn falls",
+		"The weapon wield by Maerlyn, the mother of all humans, said to be unbreakable, needs a godly amount of strength to be used at its peak. This hammer was said to choose a sinner as its new wielder once Maerlyn falls. The Story goes that this Hammer has no real magic despite its durability the only one who can say if it's true is no longer able to tell anything about it",
 		true,
 		"weapon"
 	)
 	shield.create_item(
-		"L'egide de Jack",
+		"Jack's Aegis",
 		1,
-		"This shield once belonged to the one they call the world's strongest man, it has the power to protext the one who uses it 
-		against everything that exists, a gift from Jack once he died, said to choose a sinner among the ones that remains",
+		"This shield once belonged to the one they call the world's strongest man, it has the power to protect the one who uses it against everything that exists, a gift from Jack once he died, said to choose a sinner among the ones that remains. Jack made this shield by using his pure strength. in fact, it is said that Jack did never need to use a shield as he would bear with his body alone any hit that would land on him, the shield was meant to be a weapon to protect all of the humans, not him",
 		true,
 		"weapon"
 	)
@@ -140,7 +148,8 @@ func _physics_process(_delta: float) -> void:
 	if direction.length() > 0.001: direction.normalized()
 	player_direction=direction
 	if is_busy:can_interact=false
-	## Fonction permettant de déplacer le personnage
+
+## Fonction permettant de déplacer le personnage
 func character_moving(dir:Vector3):
 	dir.y=0
 	dir=dir.normalized()
@@ -151,7 +160,11 @@ func character_moving(dir:Vector3):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	move_and_slide()
-	
+	push_rigids()
+func push_rigids()->void:
+	for i in get_slide_collision_count():
+		if get_slide_collision(i).get_collider() is RigidBody3D:
+			get_slide_collision(i).get_collider().apply_central_impulse(-get_slide_collision(i).get_normal()*5.0)
 func camera_rotation_logic(delta:float):
 	camera_controller.rotation.x+=camera_input_direction.y*delta
 	camera_controller.rotation.x=clamp(camera_controller.rotation.x, -PI/6.0 , PI/3.0)

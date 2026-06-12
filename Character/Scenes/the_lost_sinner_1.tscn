@@ -1,4 +1,4 @@
-[gd_scene load_steps=180 format=3 uid="uid://xumlackoysv2"]
+[gd_scene load_steps=181 format=3 uid="uid://xumlackoysv2"]
 
 [ext_resource type="PackedScene" uid="uid://dshsna3bwyfl7" path="res://Character/Glb/lost sinner 1/The Lost Sinner1.glb" id="1_ag85x"]
 [ext_resource type="Script" uid="uid://dijb6jh7etgx0" path="res://Character/Scripts/Player/character_mesh.gd" id="2_ukanm"]
@@ -4971,6 +4971,18 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [4.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Thrust Hitbox/HitBoxComponent/CollisionShape3D:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_eu336"]
@@ -15339,7 +15351,6 @@ animation = &"Quick roll"
 animation = &"Supplementary animation packs 2/Run slide"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_h8mx0"]
-graph_offset = Vector2(-1282.8698, -373.76822)
 nodes/output/position = Vector2(1680, 186.66667)
 nodes/State/node = SubResource("AnimationNodeTransition_rf1bm")
 nodes/State/position = Vector2(1440, 160)
@@ -15536,6 +15547,9 @@ node_connections = [&"output", 0, &"State", &"State", 0, &"Ground_state", &"Stat
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j1dr1"]
 radius = 0.7236328
 height = 2.465088
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ktiam"]
+radius = 3.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0i3i2"]
 radius = 8.008958
@@ -15895,7 +15909,7 @@ follow_viewport_enabled = true
 
 [node name="HUD" parent="Hud canvas layer" index="0" instance=ExtResource("23_14b8p")]
 
-[node name="HealthComponent" parent="Hud canvas layer/HUD/Health and equip" index="7" node_paths=PackedStringArray("player_to_call_on_death")]
+[node name="HealthComponent" parent="Hud canvas layer/HUD/Health and equip" index="1" node_paths=PackedStringArray("player_to_call_on_death")]
 player_to_call_on_death = NodePath("../../../..")
 
 [node name="Heavy Charge Ray cast" type="RayCast3D" parent="." index="10"]
@@ -15914,7 +15928,17 @@ metadata/_custom_type_script = "uid://4i450if78qh1"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.085700035, 1.0895452, 0)
 shape = SubResource("CapsuleShape3D_j1dr1")
 
-[node name="AOE_Hitboxes" type="Node3D" parent="." index="12"]
+[node name="Thrust Hitbox" type="Node3D" parent="." index="12"]
+
+[node name="HitBoxComponent" type="Area3D" parent="Thrust Hitbox" index="0"]
+script = ExtResource("10_tt1bb")
+metadata/_custom_type_script = "uid://dflwyxok3081k"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Thrust Hitbox/HitBoxComponent" index="0"]
+shape = SubResource("SphereShape3D_ktiam")
+disabled = true
+
+[node name="AOE_Hitboxes" type="Node3D" parent="." index="13"]
 
 [node name="HitBoxComponent" type="Area3D" parent="AOE_Hitboxes" index="0"]
 script = ExtResource("10_tt1bb")
@@ -15924,7 +15948,7 @@ metadata/_custom_type_script = "uid://dflwyxok3081k"
 shape = SubResource("SphereShape3D_0i3i2")
 disabled = true
 
-[node name="Shield Light" type="SpotLight3D" parent="." index="13"]
+[node name="Shield Light" type="SpotLight3D" parent="." index="14"]
 transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -1.8626451e-09, 1.2822505, 0.17228991)
 visible = false
 light_color = Color(6.256998e-07, 0.4968124, 0.49929118, 1)
@@ -15932,7 +15956,7 @@ light_energy = 2.0
 spot_range = 11.079
 spot_angle = 54.33
 
-[node name="Inventory layer" type="CanvasLayer" parent="." index="14"]
+[node name="Inventory layer" type="CanvasLayer" parent="." index="15"]
 
 [node name="Inventory" parent="Inventory layer" index="0" instance=ExtResource("43_ktiam")]
 visible = false

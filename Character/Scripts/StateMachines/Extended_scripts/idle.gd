@@ -52,11 +52,13 @@ func input_logic()->void:
 		character.is_attacking=true
 		state_machine.change_state("hammer_attack_1")
 	
-	if Input.is_action_just_pressed("Special") and player.divine_divider_list:
+	if (Input.is_action_just_pressed("Special") and player.divine_divider_list and
+	 character.arcane_component.current_arcane>=player.divine_dividers_consumption_dict[player.current_divine_divider]):
 		character.is_divine_dividing=true
 		state_machine.change_state(player.current_divine_divider)
 		
-	if Input.is_action_just_pressed("Grace") and player.grace_list:
+	if (Input.is_action_just_pressed("Grace") and player.grace_list and 
+		character.arcane_component.current_arcane>=player.grace_consumption_dict[player.current_grace]):
 		character.is_making_grace=true
 		state_machine.change_state(player.current_grace)
 		

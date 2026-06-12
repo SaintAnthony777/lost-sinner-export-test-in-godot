@@ -1,7 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bd1ch8en721nh"]
+[gd_scene load_steps=14 format=3 uid="uid://bd1ch8en721nh"]
 
-[ext_resource type="PackedScene" uid="uid://hgvgd0yi6vhs" path="res://Environnements Pre-tests/The Great Prison/Walls/Scenes/Fractured Door/fractured_door_1.tscn" id="1_qxxry"]
-[ext_resource type="PackedScene" uid="uid://dgbquu0vr68r6" path="res://Environnements Pre-tests/The Great Prison/Props/scenes/barrel_fractured.tscn" id="2_hga1e"]
+[ext_resource type="PackedScene" uid="uid://srgn3wkeivsn" path="res://Character/Scenes/personnage.tscn" id="1_qxxry"]
+[ext_resource type="Script" uid="uid://cakitfhm5emmo" path="res://autoloads/Fracturable Static body/Fracturable_static.gd" id="2_u66ag"]
+[ext_resource type="PackedScene" uid="uid://hgvgd0yi6vhs" path="res://Environnements Pre-tests/The Great Prison/Walls/Scenes/Fractured Door/fractured_door_1.tscn" id="3_14w0p"]
+[ext_resource type="ArrayMesh" uid="uid://n8jokjq88avn" path="res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Barred Door.res" id="4_0croh"]
+[ext_resource type="Script" uid="uid://bibpdrfengocv" path="res://Componenents/HealthComponent/health_component.gd" id="5_ycbvu"]
+[ext_resource type="Script" uid="uid://4i450if78qh1" path="res://Componenents/Hitbox and HurtBox/hurt_box_component.gd" id="6_2l7oj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hga1e"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -17,10 +21,16 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nphbl"]
-size = Vector2(15, 15)
+size = Vector2(45, 9000)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qxxry"]
-data = PackedVector3Array(7.5, 0, 7.5, -7.5, 0, 7.5, 7.5, 0, -7.5, -7.5, 0, 7.5, -7.5, 0, -7.5, 7.5, 0, -7.5)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_u66ag"]
+data = PackedVector3Array(22.5, 0, 4500, -22.5, 0, 4500, 22.5, 0, -4500, -22.5, 0, 4500, -22.5, 0, -4500, 22.5, 0, -4500)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_b4yx7"]
+points = PackedVector3Array(1.0223706, -1.9550323e-05, 3.1765459, 0.9641267, 0.09998046, 0.747415, 0.9879446, 0.09998046, 3.0747447, -1.0223701, -1.9550323e-05, 3.1765459, 0.9879446, -0.09999998, 3.0747447, 0.9641267, -0.09999998, 0.747415, 0.99695134, -1.9550323e-05, 0.7266633, 0.9687302, 0.10000004, 1.4001167, 0.92129445, 0.09998046, 0.42243463, -0.98814434, 0.09998046, 3.0747447, 0.97353375, 0.10000004, 1.9803829, -0.98814434, -0.09999998, 3.0747447, -0.9643264, 0.09998046, 0.747415, -0.9971511, -1.9550323e-05, 0.7266633, -0.9643264, -0.09999998, 0.747415, 0.92129445, -0.09999998, 0.42243463, 0.949916, -1.9550323e-05, 0.36996788, 0.86325073, 0.09998046, 0.20630306, 0.7913965, 0.09998046, 0.0070078373, 0.7069329, 0.09998046, -0.17310178, 0.61086047, 0.09998046, -0.3316766, 0.5045804, 0.09998046, -0.46636727, 0.3890934, 0.09998046, -0.5748246, 0.26560032, 0.09998046, -0.65509087, 0.13550234, 0.09998046, -0.70481676, 2.3841858e-07, 0.09998046, -0.72204465, -0.9689298, 0.10000004, 1.3997252, 0.8872688, -1.9550323e-05, 0.13582534, -0.5075822, 0.10000004, 1.9799914, -0.9737334, 0.10000004, 1.9796, -0.92149407, 0.09998046, 0.42243463, -0.9501157, -1.9550323e-05, 0.36996788, -0.92149407, -0.09999998, 0.42243463, 0.86325073, -0.09999998, 0.20630306, 0.8120121, -1.9550323e-05, -0.07286686, 0.7241459, -1.9550323e-05, -0.25963277, 0.62507117, -1.9550323e-05, -0.42329758, 0.51558876, -1.9550323e-05, -0.5619037, 0.39729965, -1.9550323e-05, -0.6731018, 0.2712046, -1.9550323e-05, -0.7553258, 0.13830447, -1.9550323e-05, -0.8062263, 2.3841858e-07, -1.9550323e-05, -0.8234542, -0.13850415, -1.9550323e-05, -0.8062263, -0.13570201, 0.09998046, -0.70481676, -0.26580006, 0.09998046, -0.65509087, -0.38929307, 0.09998046, -0.5748246, -0.5047801, 0.09998046, -0.46636727, -0.61106014, 0.09998046, -0.3316766, -0.7071326, 0.09998046, -0.17310178, -0.79159623, 0.09998046, 0.0070078373, -0.86345035, 0.09998046, 0.20630306, 0.7913965, -0.09999998, 0.0070078373, -0.88746846, -1.9550323e-05, 0.13582534, -0.86345035, -0.09999998, 0.20630306, 0.7069329, -0.09999998, -0.17310178, 0.5045804, -0.09999998, -0.46636727, 0.61086047, -0.09999998, -0.3316766, 0.3890934, -0.09999998, -0.5748246, 0.26560032, -0.09999998, -0.65509087, 0.13550234, -0.09999998, -0.70481676, 2.3841858e-07, -0.09999998, -0.72204465, -0.13570201, -0.09999998, -0.70481676, -0.26580006, -0.09999998, -0.65509087, -0.27140427, -1.9550323e-05, -0.7553258, -0.39749926, -1.9550323e-05, -0.6731018, -0.6252709, -1.9550323e-05, -0.42329758, -0.5157884, -1.9550323e-05, -0.5619037, -0.72434556, -1.9550323e-05, -0.25963277, -0.81221175, -1.9550323e-05, -0.07286686, -0.79159623, -0.09999998, 0.0070078373, -0.38929307, -0.09999998, -0.5748246, -0.5047801, -0.09999998, -0.46636727, -0.61106014, -0.09999998, -0.3316766, -0.7071326, -0.09999998, -0.17310178)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nypdq"]
+size = Vector3(1.6, 1, 3.2)
 
 [node name="Node3D" type="Node3D"]
 
@@ -36,15 +46,170 @@ shadow_enabled = true
 mesh = SubResource("PlaneMesh_nphbl")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+collision_layer = 2
+collision_mask = 37
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_qxxry")
+shape = SubResource("ConcavePolygonShape3D_u66ag")
 
-[node name="Fractured Door 1" parent="." instance=ExtResource("1_qxxry")]
+[node name="Personnage" parent="." instance=ExtResource("1_qxxry")]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0, 3, 5)
-keep_aspect = 0
+[node name="Destructible cell Door 1" type="StaticBody3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, -2.1855695e-07, -5, 0, 5, -2.1855695e-07, 0, 16.2, 11)
+collision_layer = 32
+collision_mask = 5
+script = ExtResource("2_u66ag")
+packed_breakable = ExtResource("3_14w0p")
+metadata/_custom_type_script = "uid://cakitfhm5emmo"
 
-[node name="Barrel Fractured" parent="." instance=ExtResource("2_hga1e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+[node name="BarredDoor" type="MeshInstance3D" parent="Destructible cell Door 1"]
+mesh = ExtResource("4_0croh")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Destructible cell Door 1"]
+shape = SubResource("ConvexPolygonShape3D_b4yx7")
+
+[node name="HealthComponent" type="Node" parent="Destructible cell Door 1"]
+script = ExtResource("5_ycbvu")
+Max_health = 35.0
+metadata/_custom_type_script = "uid://bibpdrfengocv"
+
+[node name="HurtBoxComponent" type="Area3D" parent="Destructible cell Door 1" node_paths=PackedStringArray("health_comp")]
+script = ExtResource("6_2l7oj")
+health_comp = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://4i450if78qh1"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Destructible cell Door 1/HurtBoxComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10000008, 0, 1.0999999)
+shape = SubResource("BoxShape3D_nypdq")
+
+[node name="Spawn Point" type="Marker3D" parent="Destructible cell Door 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.0018666)
+
+[node name="Destructible cell Door 2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 3.1999998, 49)
+collision_layer = 32
+collision_mask = 5
+script = ExtResource("2_u66ag")
+packed_breakable = ExtResource("3_14w0p")
+metadata/_custom_type_script = "uid://cakitfhm5emmo"
+
+[node name="BarredDoor" type="MeshInstance3D" parent="Destructible cell Door 2"]
+mesh = ExtResource("4_0croh")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Destructible cell Door 2"]
+shape = SubResource("ConvexPolygonShape3D_b4yx7")
+
+[node name="HealthComponent" type="Node" parent="Destructible cell Door 2"]
+script = ExtResource("5_ycbvu")
+Max_health = 35.0
+metadata/_custom_type_script = "uid://bibpdrfengocv"
+
+[node name="HurtBoxComponent" type="Area3D" parent="Destructible cell Door 2" node_paths=PackedStringArray("health_comp")]
+script = ExtResource("6_2l7oj")
+health_comp = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://4i450if78qh1"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Destructible cell Door 2/HurtBoxComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10000008, 0, 1.0999999)
+shape = SubResource("BoxShape3D_nypdq")
+
+[node name="Spawn Point" type="Marker3D" parent="Destructible cell Door 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.0018666)
+
+[node name="Destructible cell Door 3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 3.1999998, 88)
+collision_layer = 32
+collision_mask = 5
+script = ExtResource("2_u66ag")
+packed_breakable = ExtResource("3_14w0p")
+metadata/_custom_type_script = "uid://cakitfhm5emmo"
+
+[node name="BarredDoor" type="MeshInstance3D" parent="Destructible cell Door 3"]
+mesh = ExtResource("4_0croh")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Destructible cell Door 3"]
+shape = SubResource("ConvexPolygonShape3D_b4yx7")
+
+[node name="HealthComponent" type="Node" parent="Destructible cell Door 3"]
+script = ExtResource("5_ycbvu")
+Max_health = 35.0
+metadata/_custom_type_script = "uid://bibpdrfengocv"
+
+[node name="HurtBoxComponent" type="Area3D" parent="Destructible cell Door 3" node_paths=PackedStringArray("health_comp")]
+script = ExtResource("6_2l7oj")
+health_comp = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://4i450if78qh1"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Destructible cell Door 3/HurtBoxComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10000008, 0, 1.0999999)
+shape = SubResource("BoxShape3D_nypdq")
+
+[node name="Spawn Point" type="Marker3D" parent="Destructible cell Door 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.0018666)
+
+[node name="Destructible cell Door 4" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 3.1999998, 204)
+collision_layer = 32
+collision_mask = 5
+script = ExtResource("2_u66ag")
+packed_breakable = ExtResource("3_14w0p")
+metadata/_custom_type_script = "uid://cakitfhm5emmo"
+
+[node name="BarredDoor" type="MeshInstance3D" parent="Destructible cell Door 4"]
+mesh = ExtResource("4_0croh")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Destructible cell Door 4"]
+shape = SubResource("ConvexPolygonShape3D_b4yx7")
+
+[node name="HealthComponent" type="Node" parent="Destructible cell Door 4"]
+script = ExtResource("5_ycbvu")
+Max_health = 35.0
+metadata/_custom_type_script = "uid://bibpdrfengocv"
+
+[node name="HurtBoxComponent" type="Area3D" parent="Destructible cell Door 4" node_paths=PackedStringArray("health_comp")]
+script = ExtResource("6_2l7oj")
+health_comp = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://4i450if78qh1"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Destructible cell Door 4/HurtBoxComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10000008, 0, 1.0999999)
+shape = SubResource("BoxShape3D_nypdq")
+
+[node name="Spawn Point" type="Marker3D" parent="Destructible cell Door 4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.0018666)
+
+[node name="Destructible cell Door 5" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 3.1999998, 4060)
+collision_layer = 32
+collision_mask = 5
+script = ExtResource("2_u66ag")
+packed_breakable = ExtResource("3_14w0p")
+metadata/_custom_type_script = "uid://cakitfhm5emmo"
+
+[node name="BarredDoor" type="MeshInstance3D" parent="Destructible cell Door 5"]
+mesh = ExtResource("4_0croh")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Destructible cell Door 5"]
+shape = SubResource("ConvexPolygonShape3D_b4yx7")
+
+[node name="HealthComponent" type="Node" parent="Destructible cell Door 5"]
+script = ExtResource("5_ycbvu")
+Max_health = 35.0
+metadata/_custom_type_script = "uid://bibpdrfengocv"
+
+[node name="HurtBoxComponent" type="Area3D" parent="Destructible cell Door 5" node_paths=PackedStringArray("health_comp")]
+script = ExtResource("6_2l7oj")
+health_comp = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://4i450if78qh1"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Destructible cell Door 5/HurtBoxComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10000008, 0, 1.0999999)
+shape = SubResource("BoxShape3D_nypdq")
+
+[node name="Spawn Point" type="Marker3D" parent="Destructible cell Door 5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.0018666)

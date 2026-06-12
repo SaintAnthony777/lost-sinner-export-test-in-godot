@@ -1,6 +1,6 @@
 extends Boss_Root
 
-@onready var boss_name: Label = $"HealthBar canvas/Boss Hud/Control/Boss Name"
+@onready var boss_name: Label = $"HealthBar canvas/Boss Hud/MarginContainer2/Boss Name"
 @onready var Halfrey:Boss_Visuals=$"Halfrey"
 
 func _ready() -> void:

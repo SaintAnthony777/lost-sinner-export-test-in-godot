@@ -12,7 +12,7 @@ func physics_update(_delta) -> void:
 	
 func state_logic(delta)->void:
 	player.gravity_applying(delta)
-	player.move_and_slide()
+	if !character.is_taking_damage: player.move_and_slide()
 	if !character.is_making_grace:
 		state_machine.change_state("idle")
 		

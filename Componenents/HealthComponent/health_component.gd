@@ -1,7 +1,7 @@
 class_name HealthComponent extends Node
 
 @onready var Current_health:float
-var Damage_Factor:float
+var Damage_Factor:float=0.0
 
 var Moveable_Player:player_character
 var Moveable_Body:enemy_root
@@ -29,31 +29,30 @@ func _process(_delta: float) -> void:
 		Health_gauge.value=lerp(Health_gauge.value,Current_health,.5)
 	if received_attack:
 		take_a_step(received_attack,_delta)
+		
 func taking_damage(taken_attack:Attack):
+	HitStopManager.hit_stop_function(.5)
 	
-	HitStopManager.hit_stop_function(.1)
 	if Moveable_Player:Moveable_Player.character.is_taking_damage=true
 	if Moveable_Body:Moveable_Body.visuals.is_taking_damage=true
-	if random_node_to_call_on_death : 
-		Current_health-=taken_attack.Base_damage+Damage_Factor
-		if Current_health<=0:Current_health=0
-	if taken_attack.Nature in Vulnerability:
-		Damage_Factor=taken_attack.Base_damage*25/100
-		Current_health-=(taken_attack.Base_damage+Damage_Factor)
-	elif taken_attack.Nature in Resistance:
-		Damage_Factor=-taken_attack.Base_damage*5/100
-		Current_health-=(taken_attack.Base_damage+Damage_Factor)
-	elif taken_attack.Nature in Immunity :
-		Damage_Factor=-taken_attack.Base_damage
-		Current_health-=(taken_attack.Base_damage+Damage_Factor)
-	else : Damage_Factor = 0;Current_health-=(taken_attack.Base_damage+Damage_Factor)
 	if Moveable_Player and Moveable_Player.character.is_blocking :
 		var dealt_dmg=(taken_attack.Base_damage+Damage_Factor)-Armor_value
-		if dealt_dmg<=0:dealt_dmg=0
+		if dealt_dmg < 0 : dealt_dmg=0
 		Current_health-=dealt_dmg
-	
+		dealt_thrown_time=taken_attack.Stun_time
+		death_check()
+		return
+		
+	if taken_attack.Nature in Vulnerability:
+		Damage_Factor=taken_attack.Base_damage*25/100
+	elif taken_attack.Nature in Resistance:
+		Damage_Factor=-taken_attack.Base_damage*5/100
+	elif taken_attack.Nature in Immunity :
+		Damage_Factor=-taken_attack.Base_damage
+	else : Damage_Factor = 0;Current_health-=(taken_attack.Base_damage+Damage_Factor)
 	dealt_thrown_time=taken_attack.Stun_time
-	if Current_health<0:Current_health=0
+	Current_health-=(taken_attack.Base_damage+Damage_Factor)
+	death_check()
 	if Current_health==0:
 		if Node_to_call_on_death:
 			Node_to_call_on_death.is_alive=false
@@ -62,6 +61,8 @@ func taking_damage(taken_attack:Attack):
 		if random_node_to_call_on_death:
 			random_node_to_call_on_death.is_alive=false
 			
+func death_check()->void:
+	if Current_health<0:Current_health=0
 func take_a_step(taken_attack:Attack,delta:float):
 	var expulsion_direction:Vector3=Vector3.ZERO
 	if Bearable_power<=taken_attack.Strength:

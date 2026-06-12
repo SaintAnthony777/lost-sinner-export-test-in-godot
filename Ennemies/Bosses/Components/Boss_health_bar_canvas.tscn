@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7jx5iccg44ma"]
+[gd_scene load_steps=5 format=3 uid="uid://c7jx5iccg44ma"]
 
-[ext_resource type="Texture2D" uid="uid://blmh707jhdbwp" path="res://Character/HUD/assets/Barres 2/Remplissage.PNG" id="1_3mhe2"]
+[ext_resource type="Texture2D" uid="uid://clvbgyq7o1b3y" path="res://Ennemies/Bosses/Components/bars/Fond .PNG" id="1_cjhaw"]
+[ext_resource type="Texture2D" uid="uid://ba8i74obb4c6" path="res://Ennemies/Bosses/Components/bars/Remplissage.PNG" id="2_lu5pk"]
+[ext_resource type="FontFile" uid="uid://ffia62sdtc4k" path="res://Fonts/Cinzel,EB_Garamond/Cinzel/static/Cinzel-Medium.ttf" id="3_cjhaw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lu5pk"]
+font = ExtResource("3_cjhaw")
+font_size = 27
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
 
 [node name="HealthBar canvas" type="CanvasLayer"]
 
@@ -11,45 +19,52 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="Control" type="Control" parent="Boss Hud"]
+[node name="MarginContainer" type="MarginContainer" parent="Boss Hud"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.40885416
+anchor_top = 0.8472222
+anchor_right = 0.67932296
+anchor_bottom = 0.8663889
+offset_left = -29.0
+offset_top = -66.0
+offset_right = 267.69995
+offset_bottom = -47.700012
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Healthbar" type="TextureProgressBar" parent="Boss Hud/MarginContainer"]
+custom_minimum_size = Vector2(0.37, 0)
+layout_mode = 2
+value = 45.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_cjhaw")
+texture_progress = ExtResource("2_lu5pk")
+tint_under = Color(0.64557624, 0, 0, 1)
+tint_progress = Color(0.9099355, 3.970787e-06, 1.540184e-06, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="Boss Hud"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -85.0
-offset_right = 20.0
-offset_bottom = -45.0
+offset_left = -157.0
+offset_top = -290.0
+offset_right = 214.0
+offset_bottom = -225.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(0.6, 0.6)
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="Boss Hud/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.6505954, 0.36766726)
-mouse_filter = 2
-value = 50.0
-texture_under = ExtResource("1_3mhe2")
-texture_over = ExtResource("1_3mhe2")
-texture_progress = ExtResource("1_3mhe2")
-tint_under = Color(0.24840015, 0.24840015, 0.24840021, 0.5294118)
-tint_over = Color(1, 1, 1, 0)
-tint_progress = Color(1.0468559, 0.054842632, 0, 1)
-
-[node name="Boss Name" type="Label" parent="Boss Hud/Control"]
-layout_mode = 0
-offset_left = -206.66667
-offset_top = -81.666664
-offset_right = 67.33333
-offset_bottom = -32.666664
-theme_override_font_sizes/font_size = 35
+[node name="Boss Name" type="Label" parent="Boss Hud/MarginContainer2"]
+layout_mode = 2
 text = "Nom Du Boss Ici"
+label_settings = SubResource("LabelSettings_lu5pk")

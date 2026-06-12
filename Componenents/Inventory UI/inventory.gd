@@ -6,7 +6,7 @@ extends Control
 @onready var item_container : VBoxContainer = $"item list/Item container"
 @onready var array_of_items : Array[Inventory_Item]
 @onready var item_texture : TextureRect=$"Item_texture"
-@onready var item_desc : Label =$"MarginContainer2/Item description"
+@onready var item_desc : Label =$"ScrollContainer/MarginContainer2/Item description"
 @onready var item_to_be_shown : Inventory_Item = null
 @onready var item_panel:Panel=$"Item Panel"
 @onready var desc_panel:Panel=$"Descripition panel"

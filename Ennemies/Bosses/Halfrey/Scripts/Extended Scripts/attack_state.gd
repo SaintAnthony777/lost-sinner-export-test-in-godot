@@ -14,27 +14,28 @@ var attack_picked:int
 var previous_attack:=0
 
 func enter() -> void:
-	halfrey.isattacking=true
 	init_attacks()
 	attack_picker()
 	halfrey.dealt_attack=Attack_array[attack_picked]
 	halfrey_root.aiming_at_player()
 
 func physics_update(_delta) -> void:
-	attack_check()
-	print(halfrey.isattacking)
 	if !halfrey_root.is_alive:
 		state_machine.change_state("Dying")
-
+	state_logic()
+func state_logic()->void:
+	attack_check()
+	
 func attack_picker() -> void:
 	attack_picked=randi_range(0,4)
 	if attack_picked==previous_attack:
 		attack_picked=randi_range(0,4)
 	halfrey.Boss_motion("Attack",ATTACK_LIST[attack_picked])
-	
+	previous_attack=attack_picked
 func attack_check()->void:
-	if !halfrey.isattacking:
-		state_machine.change_state("idle")
+	await halfrey.animation_tree.animation_finished
+	halfrey.isattacking=false
+	state_machine.change_state("idle")
 
 func init_attacks()->void:
 	Attack_array.clear()
@@ -46,7 +47,7 @@ func init_attacks()->void:
 	Attack_array.append(Attack_3)
 	Attack_4.create_attack(17.0,25.0,"Physical",3.0,0.0)
 	Attack_array.append(Attack_4)
-	Attack_5.create_attack(35.0,35.0,"Divine Divider",3.0,0.0)
+	Attack_5.create_attack(25.0,35.0,"Divine Divider",3.0,0.0)
 	Attack_array.append(Attack_5)
 
 func is_player_alive_check()->void:

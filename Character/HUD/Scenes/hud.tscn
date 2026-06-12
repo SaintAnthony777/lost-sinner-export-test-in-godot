@@ -1,118 +1,22 @@
 [gd_scene load_steps=11 format=3 uid="uid://4y8dawkwukrf"]
 
 [ext_resource type="Script" uid="uid://cpkqa4muvsuos" path="res://Character/HUD/Scripts/hud.gd" id="1_0t85m"]
-[ext_resource type="Texture2D" uid="uid://eu25ybyhi0g3" path="res://Character/HUD/assets/Barres 2/Fond .PNG" id="2_0t85m"]
 [ext_resource type="Texture2D" uid="uid://busnvhvb8lcsp" path="res://Character/HUD/assets/Icones equipement/Equippement Diamond.png" id="3_0t85m"]
-[ext_resource type="Texture2D" uid="uid://blmh707jhdbwp" path="res://Character/HUD/assets/Barres 2/Remplissage.PNG" id="3_t4jti"]
+[ext_resource type="Texture2D" uid="uid://b6u5h50f62n56" path="res://Character/HUD/assets/barres fines/Fond .PNG" id="3_8ydmn"]
+[ext_resource type="Texture2D" uid="uid://fmwbal4nuw2p" path="res://Character/HUD/assets/barres fines/Remplissage.PNG" id="4_di408"]
 [ext_resource type="Script" uid="uid://bki642kkfwyem" path="res://Componenents/ArcaneComponent/ArcaneComponent.gd" id="7_di408"]
 [ext_resource type="Script" uid="uid://bibpdrfengocv" path="res://Componenents/HealthComponent/health_component.gd" id="8_hnjob"]
 
 [sub_resource type="Animation" id="Animation_hnjob"]
 resource_name = "Divine_divider_switch"
 length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Health and equip/Divine divider:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Health and equip/Divine divider:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.26, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(90, -71.48144), Vector2(80.00001, -85.92588), Vector2(90, -71.48144)]
-}
 
 [sub_resource type="Animation" id="Animation_8ydmn"]
 resource_name = "Grace Switch"
 length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Health and equip/Grace:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.02, 0.25, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Health and equip/Grace:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.26, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(183.33334, -72.59259), Vector2(173.33334, -84.81481), Vector2(183.33334, -72.59259)]
-}
 
 [sub_resource type="Animation" id="Animation_37fun"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Health and equip/Divine divider:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Health and equip/Divine divider:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(90, -71.48144)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Health and equip/Grace:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Health and equip/Grace:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(183.33334, -72.59259)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5hg1f"]
 _data = {
@@ -132,137 +36,136 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_0t85m")
 
-[node name="Health and equip" type="Control" parent="."]
+[node name="Maincontainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = -28.0
-offset_top = -46.0
-offset_right = 146.00012
-offset_bottom = 32.666687
-grow_vertical = 0
-scale = Vector2(0.7, 0.7)
-
-[node name="Health" type="TextureProgressBar" parent="Health and equip"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 126.888824
-offset_top = -160.03705
-offset_right = 638.88885
-offset_bottom = -32.03704
+anchors_preset = -1
+anchor_left = 0.018229166
+anchor_top = 0.7664815
+anchor_right = 0.21467015
+anchor_bottom = 0.9391667
+offset_left = 58.0
+offset_top = -46.80005
+offset_right = 732.49994
+offset_bottom = 263.36658
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.5, 0.3)
-value = 53.0
-texture_under = ExtResource("2_0t85m")
-texture_progress = ExtResource("3_t4jti")
-tint_under = Color(7.9897045e-06, 0.9359855, 0.6635596, 1)
-tint_progress = Color(0, 1.6833125, 0.18417412, 1)
+scale = Vector2(0.5, 0.5)
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
 
-[node name="Arcane" type="TextureProgressBar" parent="Health and equip"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 172.44437
-offset_top = -97.81491
-offset_right = 684.4444
-offset_bottom = 30.18509
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.3)
-value = 75.0
-texture_under = ExtResource("2_0t85m")
-texture_progress = ExtResource("3_t4jti")
-tint_under = Color(0, 1, 1, 1)
-tint_progress = Color(2.7097487e-06, 0.6654723, 0.9111079, 1)
+[node name="HBoxContainer" type="HBoxContainer" parent="Maincontainer"]
+layout_mode = 2
 
-[node name="Chaos" type="TextureProgressBar" parent="Health and equip"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 133.5555
-offset_top = -44.4815
-offset_right = 645.5555
-offset_bottom = 83.5185
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.3)
-value = 25.0
-texture_under = ExtResource("2_0t85m")
-texture_progress = ExtResource("3_t4jti")
-tint_under = Color(1, 1, 0.34117648, 1)
-tint_progress = Color(0.99224734, 0.89665794, 0, 1)
+[node name="Abilities and others" type="Control" parent="Maincontainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="Equipements" type="TextureRect" parent="Health and equip"]
-modulate = Color(1.353256, 1.353256, 1.353256, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -28.111176
-offset_top = -184.14812
-offset_right = 11.888824
-offset_bottom = -144.14812
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(5, 5)
+[node name="Equipements" type="TextureRect" parent="Maincontainer/HBoxContainer/Abilities and others"]
+modulate = Color(1, 1, 1, 0.596)
+layout_mode = 0
+offset_left = -3.3333282
+offset_top = -51.333435
+offset_right = 436.66663
+offset_bottom = 359.9997
 texture = ExtResource("3_0t85m")
-expand_mode = 1
-stretch_mode = 4
 
-[node name="Divine divider" type="TextureRect" parent="Health and equip"]
+[node name="Divine divider" type="TextureRect" parent="Maincontainer/HBoxContainer/Abilities and others"]
 modulate = Color(0.9005665, 0.091403626, 0.21483527, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 90.0
-offset_top = -71.48144
-offset_right = -35.111206
-offset_bottom = -95.70367
+offset_left = 90.00001
+offset_top = 133.33328
+offset_right = -319.0
+offset_bottom = -170.66669
 grow_horizontal = 2
 grow_vertical = 2
-expand_mode = 1
 
-[node name="Grace" type="TextureRect" parent="Health and equip"]
+[node name="Grace" type="TextureRect" parent="Maincontainer/HBoxContainer/Abilities and others"]
 modulate = Color(0.12941177, 1, 1, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 183.33334
-offset_top = -72.59259
-offset_right = 58.222076
-offset_bottom = -96.81482
+offset_left = 323.3333
+offset_top = 135.3332
+offset_right = -77.66669
+offset_bottom = -201.66681
 grow_horizontal = 2
 grow_vertical = 2
-expand_mode = 1
+
+[node name="Barcontainers" type="VBoxContainer" parent="Maincontainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Healthrow" type="MarginContainer" parent="Maincontainer/HBoxContainer/Barcontainers"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/margin_left = -70
+
+[node name="Health" type="TextureProgressBar" parent="Maincontainer/HBoxContainer/Barcontainers/Healthrow"]
+layout_mode = 2
+value = 53.0
+texture_under = ExtResource("3_8ydmn")
+texture_progress = ExtResource("4_di408")
+tint_under = Color(7.9897045e-06, 0.9359855, 0.6635596, 1)
+tint_progress = Color(0, 1.6833125, 0.18417412, 1)
+
+[node name="Arcane row" type="MarginContainer" parent="Maincontainer/HBoxContainer/Barcontainers"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 5
+
+[node name="Arcane" type="TextureProgressBar" parent="Maincontainer/HBoxContainer/Barcontainers/Arcane row"]
+layout_mode = 2
+value = 75.0
+texture_under = ExtResource("3_8ydmn")
+texture_progress = ExtResource("4_di408")
+tint_under = Color(0, 1, 1, 1)
+tint_progress = Color(2.7097487e-06, 0.6654723, 0.9111079, 1)
+
+[node name="Chaos Row" type="MarginContainer" parent="Maincontainer/HBoxContainer/Barcontainers"]
+layout_mode = 2
+theme_override_constants/margin_left = -70
+
+[node name="Chaos" type="TextureProgressBar" parent="Maincontainer/HBoxContainer/Barcontainers/Chaos Row"]
+layout_mode = 2
+value = 25.0
+texture_under = ExtResource("3_8ydmn")
+texture_progress = ExtResource("4_di408")
+tint_under = Color(1, 1, 0.34117648, 1)
+tint_progress = Color(0.99224734, 0.89665794, 0, 1)
+
+[node name="Health and equip" type="Control" parent="."]
+layout_mode = 1
+anchor_left = -0.014583333
+anchor_top = 0.9574074
+anchor_right = 0.048854213
+anchor_bottom = 1.0083952
+offset_right = 52.200035
+offset_bottom = 23.599976
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+metadata/_edit_use_anchors_ = true
 
 [node name="arcane_component" type="Node" parent="Health and equip" node_paths=PackedStringArray("Arcane_Gauge")]
 script = ExtResource("7_di408")
 Max_Arcane = 100.0
-Arcane_Gauge = NodePath("../Arcane")
+Arcane_Gauge = NodePath("../../Maincontainer/HBoxContainer/Barcontainers/Arcane row/Arcane")
 metadata/_custom_type_script = "uid://bki642kkfwyem"
 
 [node name="HealthComponent" type="Node" parent="Health and equip" node_paths=PackedStringArray("Health_gauge")]
 script = ExtResource("8_hnjob")
-Max_health = 500.0
+Max_health = 100.0
 Vulnerability = Array[String](["Physical"])
-Health_gauge = NodePath("../Health")
+Health_gauge = NodePath("../../Maincontainer/HBoxContainer/Barcontainers/Healthrow/Health")
 Bearable_power = 15.0
+Armor_value = 75.0
 metadata/_custom_type_script = "uid://bibpdrfengocv"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

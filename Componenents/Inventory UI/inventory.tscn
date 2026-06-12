@@ -1,7 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://cktsm7c5nwsvg"]
+[gd_scene load_steps=10 format=3 uid="uid://cktsm7c5nwsvg"]
 
 [ext_resource type="Script" uid="uid://bturlus46enlt" path="res://Componenents/Inventory UI/inventory.gd" id="1_8xos3"]
-[ext_resource type="Texture2D" uid="uid://biwlumayhawiy" path="res://Componenents/Inventory UI/Renders for equippement/Justicière des abysses.png" id="2_8xos3"]
+[ext_resource type="Texture2D" uid="uid://biwlumayhawiy" path="res://Componenents/Inventory UI/Renders for equippement/The Hand of the Maestria.png" id="2_8xos3"]
+[ext_resource type="FontFile" uid="uid://ffia62sdtc4k" path="res://Fonts/Cinzel,EB_Garamond/Cinzel/static/Cinzel-Medium.ttf" id="2_56r8e"]
+[ext_resource type="FontFile" uid="uid://b1bcl47vqg1rp" path="res://Fonts/Cinzel,EB_Garamond/Cinzel/static/Cinzel-Regular.ttf" id="3_b6vic"]
+[ext_resource type="FontFile" uid="uid://d0ug5noy0uhhl" path="res://Fonts/Cinzel,EB_Garamond/EB_Garamond/static/EBGaramond-Regular.ttf" id="6_dp3dx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_urthe"]
+font = ExtResource("3_b6vic")
+font_size = 45
+font_color = Color(1.306858, 1.306858, 0.68053734, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cx342"]
 content_margin_left = 0.0
@@ -20,9 +28,6 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 corner_detail = 5
-
-[sub_resource type="LabelSettings" id="LabelSettings_urthe"]
-font_size = 45
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cx342"]
 
@@ -53,102 +58,114 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.086104214, 0.086104214, 0.086104214, 0.684)
 
-[node name="MarginContainer3" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -291.0
-offset_bottom = -185.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="weapons panel" type="Panel" parent="MarginContainer3"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_cx342")
-
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -105.0
-offset_right = 105.0
+offset_left = -127.0
+offset_right = 127.0
 offset_bottom = 63.0
 grow_horizontal = 2
 
 [node name="Title" type="Label" parent="MarginContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_56r8e")
 text = "Inventory"
 label_settings = SubResource("LabelSettings_urthe")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Menus" type="HBoxContainer" parent="."]
+[node name="MarginContainer3" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_top = 117.0
-offset_right = 20.0
-offset_bottom = 157.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 78.0
+offset_bottom = 202.0
 grow_horizontal = 2
+
+[node name="weapons panel" type="Panel" parent="MarginContainer3"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cx342")
+
+[node name="Wepons margin container" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 147.0
+offset_top = 113.0
+offset_right = -84.0
+offset_bottom = 159.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="Menus" type="HBoxContainer" parent="Wepons margin container"]
+layout_mode = 2
 theme_override_constants/separation = 45
 
-[node name="Weapons" type="Button" parent="Menus"]
+[node name="Weapons" type="Button" parent="Wepons margin container/Menus"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 25
+theme_override_fonts/font = ExtResource("3_b6vic")
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_cx342")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8xos3")
 theme_override_styles/focus = SubResource("StyleBoxFlat_8xos3")
 text = "Weapons"
 
-[node name="Divine dividers" type="Button" parent="Menus"]
+[node name="Divine dividers" type="Button" parent="Wepons margin container/Menus"]
 layout_mode = 2
 size_flags_horizontal = 6
-theme_override_font_sizes/font_size = 25
+theme_override_fonts/font = ExtResource("3_b6vic")
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_cx342")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8xos3")
 theme_override_styles/focus = SubResource("StyleBoxFlat_8xos3")
 text = "Divine dividers"
 
-[node name="Graces" type="Button" parent="Menus"]
+[node name="Graces" type="Button" parent="Wepons margin container/Menus"]
 layout_mode = 2
 size_flags_horizontal = 6
-theme_override_font_sizes/font_size = 25
+theme_override_fonts/font = ExtResource("3_b6vic")
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_cx342")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8xos3")
 theme_override_styles/focus = SubResource("StyleBoxFlat_8xos3")
 text = "Graces"
 
-[node name="objects" type="Button" parent="Menus"]
+[node name="objects" type="Button" parent="Wepons margin container/Menus"]
 layout_mode = 2
 size_flags_horizontal = 6
-theme_override_font_sizes/font_size = 25
+theme_override_fonts/font = ExtResource("3_b6vic")
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_cx342")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8xos3")
 theme_override_styles/focus = SubResource("StyleBoxFlat_8xos3")
 text = "Objects"
 
-[node name="Keys" type="Button" parent="Menus"]
+[node name="Keys" type="Button" parent="Wepons margin container/Menus"]
 layout_mode = 2
 size_flags_horizontal = 6
-theme_override_font_sizes/font_size = 25
+theme_override_fonts/font = ExtResource("3_b6vic")
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_cx342")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8xos3")
 theme_override_styles/focus = SubResource("StyleBoxFlat_8xos3")
 text = "Keys"
 
 [node name="Item Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 229.0
-offset_right = 713.0
-offset_bottom = 596.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0046875
+anchor_top = 0.21296297
+anchor_right = 0.49010417
+anchor_bottom = 0.77685183
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cx342")
+metadata/_edit_use_anchors_ = true
 
 [node name="Descripition panel" type="Panel" parent="."]
 layout_mode = 1
@@ -156,94 +173,73 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -162.0
+offset_top = -232.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_cx342")
 
 [node name="item list" type="ScrollContainer" parent="."]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -148.0
-offset_right = 708.0
-offset_bottom = 203.0
+anchors_preset = -1
+anchor_top = 0.225
+anchor_right = 0.4890625
+anchor_bottom = 0.775
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Item container" type="VBoxContainer" parent="item list"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/separation = 15
-
-[node name="Button" type="Button" parent="item list/Item container"]
-layout_mode = 2
-text = "l'egide de Jack"
-
-[node name="Button2" type="Button" parent="item list/Item container"]
-layout_mode = 2
-text = "l'egide de Jack"
-
-[node name="Button3" type="Button" parent="item list/Item container"]
-layout_mode = 2
-text = "l'egide de Jack"
-
-[node name="Button4" type="Button" parent="item list/Item container"]
-layout_mode = 2
-text = "l'egide de Jack"
-
-[node name="Button5" type="Button" parent="item list/Item container"]
-layout_mode = 2
-text = "l'egide de Jack"
-
-[node name="Button6" type="Button" parent="item list/Item container"]
-layout_mode = 2
-text = "l'egide de Jack"
-
-[node name="Button7" type="Button" parent="item list/Item container"]
-layout_mode = 2
-text = "l'egide de Jack"
+theme_override_constants/separation = 18
 
 [node name="Item_texture" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
+anchors_preset = -1
+anchor_left = 0.49739584
+anchor_top = 0.27592593
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -638.0
-offset_top = -154.0
-offset_bottom = 213.0
+anchor_bottom = 0.7861111
 grow_horizontal = 0
 grow_vertical = 2
 texture = ExtResource("2_8xos3")
 expand_mode = 1
 stretch_mode = 5
+metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -174.0
+offset_top = -236.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Item description" type="Label" parent="MarginContainer2"]
+[node name="MarginContainer2" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Item description" type="Label" parent="ScrollContainer/MarginContainer2"]
 custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("6_dp3dx")
+theme_override_font_sizes/font_size = 30
 text = "desc"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[connection signal="pressed" from="Menus/Weapons" to="." method="_on_weapons_pressed"]
-[connection signal="pressed" from="Menus/Divine dividers" to="." method="_on_divine_dividers_pressed"]
-[connection signal="pressed" from="Menus/Graces" to="." method="_on_graces_pressed"]
-[connection signal="pressed" from="Menus/objects" to="." method="_on_objects_pressed"]
-[connection signal="pressed" from="Menus/Keys" to="." method="_on_keys_pressed"]
+[connection signal="pressed" from="Wepons margin container/Menus/Weapons" to="." method="_on_weapons_pressed"]
+[connection signal="pressed" from="Wepons margin container/Menus/Divine dividers" to="." method="_on_divine_dividers_pressed"]
+[connection signal="pressed" from="Wepons margin container/Menus/Graces" to="." method="_on_graces_pressed"]
+[connection signal="pressed" from="Wepons margin container/Menus/objects" to="." method="_on_objects_pressed"]
+[connection signal="pressed" from="Wepons margin container/Menus/Keys" to="." method="_on_keys_pressed"]

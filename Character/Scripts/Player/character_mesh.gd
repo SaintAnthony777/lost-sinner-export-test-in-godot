@@ -63,7 +63,6 @@ var interacts:bool=false
 
 func _ready() -> void:
 	health_component.Moveable_Player=player
-	health_component.Armor_value=50
 	Shield_Light.hide()
 func _process(delta: float) -> void:
 	if is_blocking : Shield_Light.show()

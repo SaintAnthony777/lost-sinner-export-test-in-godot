@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drlhwjukv0x6g"
-path="res://.godot/imported/L'egide de Jack.png-31f97fc1dd0a88ff2620c46350a232b3.ctex"
+uid="uid://uk833ko1bio2"
+path="res://.godot/imported/Item séléctioné.PNG-14d01c58a99911cb7d8c14aab8a01426.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Componenents/Inventory UI/Renders for equippement/L'egide de Jack.png"
-dest_files=["res://.godot/imported/L'egide de Jack.png-31f97fc1dd0a88ff2620c46350a232b3.ctex"]
+source_file="res://Character/HUD/assets/Icones equipement/Item séléctioné.PNG"
+dest_files=["res://.godot/imported/Item séléctioné.PNG-14d01c58a99911cb7d8c14aab8a01426.ctex"]
 
 [params]
 

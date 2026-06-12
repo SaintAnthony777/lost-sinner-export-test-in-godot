@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://biwlumayhawiy"
-path="res://.godot/imported/Justicière des abysses.png-9967acc219614bcf970729bd959e3010.ctex"
+uid="uid://clvbgyq7o1b3y"
+path="res://.godot/imported/Fond .PNG-969f8370d0154fca49e856d456b65bdb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Componenents/Inventory UI/Renders for equippement/Justicière des abysses.png"
-dest_files=["res://.godot/imported/Justicière des abysses.png-9967acc219614bcf970729bd959e3010.ctex"]
+source_file="res://Ennemies/Bosses/Components/bars/Fond .PNG"
+dest_files=["res://.godot/imported/Fond .PNG-969f8370d0154fca49e856d456b65bdb.ctex"]
 
 [params]
 
