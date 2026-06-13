@@ -31,7 +31,7 @@ func _process(_delta: float) -> void:
 		take_a_step(received_attack,_delta)
 		
 func taking_damage(taken_attack:Attack):
-	HitStopManager.hit_stop_function(.5)
+	HitStopManager.hit_stop_function(.1)
 	
 	if Moveable_Player:Moveable_Player.character.is_taking_damage=true
 	if Moveable_Body:Moveable_Body.visuals.is_taking_damage=true

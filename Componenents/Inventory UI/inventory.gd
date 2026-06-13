@@ -10,6 +10,8 @@ extends Control
 @onready var item_to_be_shown : Inventory_Item = null
 @onready var item_panel:Panel=$"Item Panel"
 @onready var desc_panel:Panel=$"Descripition panel"
+@onready var label: Label = $"Item title Text container/Label"
+@onready var item_title_panel: Panel = $"Item title panel"
 
 
 
@@ -29,10 +31,15 @@ func _process(delta: float) -> void:
 	else : item_panel.hide()
 	if item_to_be_shown:
 		item_desc.text=item_to_be_shown.item_description
+		label.show()
+		item_title_panel.show()
+		label.text=item_to_be_shown.item_name
 		item_texture.texture = load("res://Componenents/Inventory UI/Renders for equippement/"+item_to_be_shown.item_name+".png")
 		desc_panel.show()
 	else :
 		desc_panel.hide()
+		label.hide()
+		item_title_panel.hide()
 		item_desc.text=""
 		item_texture.texture=null
 		

@@ -8,5 +8,5 @@ func breaker_baby()->void:
 	for bodies:RigidBody3D in self.get_children():
 		#print(Thrower_position)
 		bodies.apply_impulse(destruction_dir.normalized(),bodies.get_child(0).global_position)
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(3.0).timeout
 	queue_free()

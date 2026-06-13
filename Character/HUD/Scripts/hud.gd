@@ -27,7 +27,6 @@ func _process(_delta: float) -> void:
 			divine_divider.modulate=Color.html("e61737")
 		else : divine_divider.modulate = Color.html("2b0104")
 	if player.current_grace:
-		print(player.grace_consumption_dict)
 		if player.character.arcane_component.current_arcane>=player.grace_consumption_dict.get(player.current_grace) : grace.modulate=Color.html("21ffff")
 		else : grace.modulate = Color.html("023636")
 		grace.texture=load("res://Character/HUD/assets/Icones equipement/Graces/"+player.current_grace+".PNG")

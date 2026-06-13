@@ -164,7 +164,7 @@ func character_moving(dir:Vector3):
 func push_rigids()->void:
 	for i in get_slide_collision_count():
 		if get_slide_collision(i).get_collider() is RigidBody3D:
-			get_slide_collision(i).get_collider().apply_central_impulse(-get_slide_collision(i).get_normal()*5.0)
+			get_slide_collision(i).get_collider().apply_central_impulse(-get_slide_collision(i).get_normal()*2.0)
 func camera_rotation_logic(delta:float):
 	camera_controller.rotation.x+=camera_input_direction.y*delta
 	camera_controller.rotation.x=clamp(camera_controller.rotation.x, -PI/6.0 , PI/3.0)
