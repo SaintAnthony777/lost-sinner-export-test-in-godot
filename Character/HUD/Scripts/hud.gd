@@ -22,9 +22,8 @@ func _process(_delta: float) -> void:
 	else : arcane_comp.Arcane_Gauge.modulate=Color(1,1,1,0.0)
 	if player.current_divine_divider:
 		var divine_divider_texture:=load("res://Character/HUD/assets/Icones equipement/Divines dividers/"+player.current_divine_divider+".PNG")
-		divine_divider.texture=divine_divider_texture
-		if player.character.arcane_component.current_arcane >= player.divine_dividers_consumption_dict.get(player.current_divine_divider) : 
-			divine_divider.modulate=Color.html("e61737")
+		divine_divider.texture = divine_divider_texture
+		if player.character.arcane_component.current_arcane >= player.divine_dividers_consumption_dict.get(player.current_divine_divider) : divine_divider.modulate=Color.html("e61737")
 		else : divine_divider.modulate = Color.html("2b0104")
 	if player.current_grace:
 		if player.character.arcane_component.current_arcane>=player.grace_consumption_dict.get(player.current_grace) : grace.modulate=Color.html("21ffff")

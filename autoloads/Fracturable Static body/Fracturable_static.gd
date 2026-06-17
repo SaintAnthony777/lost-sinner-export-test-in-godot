@@ -10,7 +10,7 @@ func _ready() -> void:
 	health_comp.random_node_to_call_on_death=self
 	if breakable_id in SaveManager.current_save.props_id_list:
 		queue_free()
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if !is_alive:
 		if not breakable_id in SaveManager.current_save.props_id_list:
 			SaveManager.current_save.props_id_list.append(breakable_id)
@@ -22,5 +22,6 @@ func break_everything()->void:
 	if health_comp.attack_sender:
 		broken_instance.Thrower_position=health_comp.attack_sender.global_position
 	broken_instance.global_position=spawn_point.global_position
+	broken_instance.scale=scale
 	broken_instance.breaker_baby()
 	queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=181 format=3 uid="uid://xumlackoysv2"]
+[gd_scene load_steps=183 format=3 uid="uid://xumlackoysv2"]
 
 [ext_resource type="PackedScene" uid="uid://dshsna3bwyfl7" path="res://Character/Glb/lost sinner 1/The Lost Sinner1.glb" id="1_ag85x"]
 [ext_resource type="Script" uid="uid://dijb6jh7etgx0" path="res://Character/Scripts/Player/character_mesh.gd" id="2_ukanm"]
@@ -43,13 +43,8 @@
 [ext_resource type="AnimationLibrary" uid="uid://no2uoyq1j4be" path="res://Character/Imported Animations/pick up/pick up.res" id="37_1x2dm"]
 [ext_resource type="AnimationLibrary" uid="uid://h2vb47lrmixf" path="res://Character/Imported Animations/Sitting idle and all that/sitting idle and all that.res" id="37_xhq4a"]
 [ext_resource type="PackedScene" uid="uid://cktsm7c5nwsvg" path="res://Componenents/Inventory UI/inventory.tscn" id="43_ktiam"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_11fhr"]
-shader = ExtResource("4_86lmc")
-shader_parameter/blur_power = 0.01
-shader_parameter/chromatic_power = 0.02
-shader_parameter/center = Vector2(0.5, 0.7)
-shader_parameter/samples = 20
+[ext_resource type="PackedScene" uid="uid://7v03c484qco3" path="res://Componenents/item picked panel show/item_picked_panel_shower.tscn" id="44_0acup"]
+[ext_resource type="PackedScene" uid="uid://cm8oki3o7molb" path="res://Componenents/Pause Menu/pause_menu.tscn" id="45_wjcrg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0acup"]
 albedo_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
@@ -15554,23 +15549,15 @@ radius = 3.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_0i3i2"]
 radius = 8.008958
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_11fhr"]
+shader = ExtResource("4_86lmc")
+shader_parameter/blur_power = 0.01
+shader_parameter/chromatic_power = 0.02
+shader_parameter/center = Vector2(0.5, 0.7)
+shader_parameter/samples = 20
+
 [node name="The Lost Sinner1" instance=ExtResource("1_ag85x")]
 script = ExtResource("2_ukanm")
-
-[node name="Special effects layer" type="CanvasLayer" parent="." index="0"]
-
-[node name="Radial Blur + Chromatic aberration" parent="Special effects layer" index="0" instance=ExtResource("3_hg5sy")]
-mouse_filter = 2
-
-[node name="ColorRect" parent="Special effects layer/Radial Blur + Chromatic aberration" index="0"]
-material = SubResource("ShaderMaterial_11fhr")
-mouse_filter = 2
-
-[node name="CrosshairLayer" type="CanvasLayer" parent="." index="1"]
-visible = false
-
-[node name="Crosshair" parent="CrosshairLayer" index="0" instance=ExtResource("5_11fhr")]
-mouse_filter = 2
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/position = Vector3(0, 0, 0)
@@ -15766,7 +15753,7 @@ transform = Transform3D(1, -2.6077032e-08, 2.7008355e-08, 1.8626451e-08, 0.99999
 shape = SubResource("CapsuleShape3D_0i3i2")
 disabled = true
 
-[node name="AnimationPlayer" parent="." index="3"]
+[node name="AnimationPlayer" parent="." index="1"]
 libraries = {
 &"": SubResource("AnimationLibrary_86lmc"),
 &"Additionnal Grace Packs (jack and heavy charge)": ExtResource("10_tstfb"),
@@ -15795,7 +15782,7 @@ libraries = {
 }
 movie_quit_on_finish = true
 
-[node name="AnimationTree" type="AnimationTree" parent="." index="4"]
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 tree_root = SubResource("AnimationNodeBlendTree_h8mx0")
 anim_player = NodePath("../AnimationPlayer")
 parameters/State/current_state = "Grounded"
@@ -15871,13 +15858,13 @@ parameters/Ground_Taking_Damage_transitions/current_index = 3
 "parameters/Interaction Transition/transition_request" = ""
 "parameters/Interaction Transition/current_index" = -1
 
-[node name="Particles bursts" type="Node3D" parent="." index="5"]
+[node name="Particles bursts" type="Node3D" parent="." index="3"]
 
 [node name="Lava particles bursts" type="Node3D" parent="Particles bursts" index="0"]
 
-[node name="Feet_bursts" type="Node3D" parent="." index="6"]
+[node name="Feet_bursts" type="Node3D" parent="." index="4"]
 
-[node name="Spike Bursts" type="Node3D" parent="." index="7"]
+[node name="Spike Bursts" type="Node3D" parent="." index="5"]
 
 [node name="lava spikes" type="Node3D" parent="Spike Bursts" index="0"]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
@@ -15900,24 +15887,16 @@ transform = Transform3D(-0.6405034, 0, 0.70290005, 0, 0.60965765, 0, -0.610199, 
 [node name="spike model 4" parent="Spike Bursts/lava spikes" index="5" instance=ExtResource("19_50exv")]
 transform = Transform3D(-0.7820019, 0, -0.47642747, 0, 0.60965765, 0, 0.41359454, 0, -0.9008032, -1.5682061, -4.7683713e-07, 1.7104793)
 
-[node name="slow_mo_node" type="Node" parent="." index="8"]
+[node name="slow_mo_node" type="Node" parent="." index="6"]
 script = ExtResource("20_50exv")
 metadata/_custom_type_script = "uid://b2q8xkjq2aytj"
 
-[node name="Hud canvas layer" type="CanvasLayer" parent="." index="9"]
-follow_viewport_enabled = true
-
-[node name="HUD" parent="Hud canvas layer" index="0" instance=ExtResource("23_14b8p")]
-
-[node name="HealthComponent" parent="Hud canvas layer/HUD/Health and equip" index="1" node_paths=PackedStringArray("player_to_call_on_death")]
-player_to_call_on_death = NodePath("../../../..")
-
-[node name="Heavy Charge Ray cast" type="RayCast3D" parent="." index="10"]
+[node name="Heavy Charge Ray cast" type="RayCast3D" parent="." index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2699435, 0.88781756)
 target_position = Vector3(0, 0, 1)
 collision_mask = 6
 
-[node name="HurtBoxComponent" type="Area3D" parent="." index="11" node_paths=PackedStringArray("health_comp")]
+[node name="HurtBoxComponent" type="Area3D" parent="." index="8" node_paths=PackedStringArray("health_comp")]
 collision_layer = 16
 collision_mask = 13
 script = ExtResource("26_0i3i2")
@@ -15928,7 +15907,7 @@ metadata/_custom_type_script = "uid://4i450if78qh1"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.085700035, 1.0895452, 0)
 shape = SubResource("CapsuleShape3D_j1dr1")
 
-[node name="Thrust Hitbox" type="Node3D" parent="." index="12"]
+[node name="Thrust Hitbox" type="Node3D" parent="." index="9"]
 
 [node name="HitBoxComponent" type="Area3D" parent="Thrust Hitbox" index="0"]
 script = ExtResource("10_tt1bb")
@@ -15938,7 +15917,7 @@ metadata/_custom_type_script = "uid://dflwyxok3081k"
 shape = SubResource("SphereShape3D_ktiam")
 disabled = true
 
-[node name="AOE_Hitboxes" type="Node3D" parent="." index="13"]
+[node name="AOE_Hitboxes" type="Node3D" parent="." index="10"]
 
 [node name="HitBoxComponent" type="Area3D" parent="AOE_Hitboxes" index="0"]
 script = ExtResource("10_tt1bb")
@@ -15948,7 +15927,7 @@ metadata/_custom_type_script = "uid://dflwyxok3081k"
 shape = SubResource("SphereShape3D_0i3i2")
 disabled = true
 
-[node name="Shield Light" type="SpotLight3D" parent="." index="14"]
+[node name="Shield Light" type="SpotLight3D" parent="." index="11"]
 transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -1.8626451e-09, 1.2822505, 0.17228991)
 visible = false
 light_color = Color(6.256998e-07, 0.4968124, 0.49929118, 1)
@@ -15956,11 +15935,47 @@ light_energy = 2.0
 spot_range = 11.079
 spot_angle = 54.33
 
-[node name="Inventory layer" type="CanvasLayer" parent="." index="15"]
+[node name="Special effects layer" type="CanvasLayer" parent="." index="12"]
+
+[node name="Radial Blur + Chromatic aberration" parent="Special effects layer" index="0" instance=ExtResource("3_hg5sy")]
+mouse_filter = 2
+
+[node name="ColorRect" parent="Special effects layer/Radial Blur + Chromatic aberration" index="0"]
+material = SubResource("ShaderMaterial_11fhr")
+mouse_filter = 2
+
+[node name="CrosshairLayer" type="CanvasLayer" parent="." index="13"]
+visible = false
+
+[node name="Crosshair" parent="CrosshairLayer" index="0" instance=ExtResource("5_11fhr")]
+mouse_filter = 2
+
+[node name="Hud canvas layer" type="CanvasLayer" parent="." index="14"]
+follow_viewport_enabled = true
+
+[node name="HUD" parent="Hud canvas layer" index="0" instance=ExtResource("23_14b8p")]
+
+[node name="HealthComponent" parent="Hud canvas layer/HUD/Health and equip" index="1" node_paths=PackedStringArray("player_to_call_on_death")]
+player_to_call_on_death = NodePath("../../../..")
+
+[node name="Item_picked cavans layer" type="CanvasLayer" parent="." index="15"]
+follow_viewport_enabled = true
+
+[node name="Item_picked panel shower" parent="Item_picked cavans layer" index="0" instance=ExtResource("44_0acup")]
+
+[node name="Inventory layer" type="CanvasLayer" parent="." index="16"]
+follow_viewport_enabled = true
 
 [node name="Inventory" parent="Inventory layer" index="0" instance=ExtResource("43_ktiam")]
 visible = false
 
-[editable path="Special effects layer/Radial Blur + Chromatic aberration"]
+[node name="Pause Menu canvas" type="CanvasLayer" parent="." index="17"]
+
+[node name="Pause Menu" parent="Pause Menu canvas" index="0" instance=ExtResource("45_wjcrg")]
+process_mode = 3
+visible = false
+
 [editable path="Armature/Skeleton3D/Shield_Attachement/Shield"]
+[editable path="Special effects layer/Radial Blur + Chromatic aberration"]
 [editable path="Hud canvas layer/HUD"]
+[editable path="Item_picked cavans layer/Item_picked panel shower"]

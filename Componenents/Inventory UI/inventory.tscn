@@ -43,7 +43,7 @@ corner_radius_bottom_left = 5
 font = ExtResource("3_b6vic")
 font_size = 40
 
-[node name="Inventory" type="Control"]
+[node name="Inventory" type="Control" groups=["Inventory UI"]]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -92,25 +92,29 @@ grow_horizontal = 2
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cx342")
 
-[node name="Wepons margin container" type="MarginContainer" parent="."]
+[node name="Wepons margin container" type="MarginContainer" parent="MarginContainer3/weapons panel"]
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 147.0
-offset_top = 113.0
-offset_right = -84.0
-offset_bottom = 159.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -437.0
+offset_top = -24.0
+offset_right = 437.0
+offset_bottom = 24.0
 grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 3
 theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="Menus" type="HBoxContainer" parent="Wepons margin container"]
+[node name="Menus" type="HBoxContainer" parent="MarginContainer3/weapons panel/Wepons margin container"]
 layout_mode = 2
-theme_override_constants/separation = 45
+theme_override_constants/separation = 215
 
-[node name="Weapons" type="Button" parent="Wepons margin container/Menus"]
+[node name="Weapons" type="Button" parent="MarginContainer3/weapons panel/Wepons margin container/Menus"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_b6vic")
@@ -120,7 +124,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_8xos3")
 theme_override_styles/focus = SubResource("StyleBoxFlat_8xos3")
 text = "Weapons"
 
-[node name="Divine dividers" type="Button" parent="Wepons margin container/Menus"]
+[node name="Divine dividers" type="Button" parent="MarginContainer3/weapons panel/Wepons margin container/Menus"]
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_fonts/font = ExtResource("3_b6vic")
@@ -130,7 +134,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_8xos3")
 theme_override_styles/focus = SubResource("StyleBoxFlat_8xos3")
 text = "Divine dividers"
 
-[node name="Graces" type="Button" parent="Wepons margin container/Menus"]
+[node name="Graces" type="Button" parent="MarginContainer3/weapons panel/Wepons margin container/Menus"]
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_fonts/font = ExtResource("3_b6vic")
@@ -140,7 +144,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_8xos3")
 theme_override_styles/focus = SubResource("StyleBoxFlat_8xos3")
 text = "Graces"
 
-[node name="objects" type="Button" parent="Wepons margin container/Menus"]
+[node name="objects" type="Button" parent="MarginContainer3/weapons panel/Wepons margin container/Menus"]
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_fonts/font = ExtResource("3_b6vic")
@@ -150,7 +154,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_8xos3")
 theme_override_styles/focus = SubResource("StyleBoxFlat_8xos3")
 text = "Objects"
 
-[node name="Keys" type="Button" parent="Wepons margin container/Menus"]
+[node name="Keys" type="Button" parent="MarginContainer3/weapons panel/Wepons margin container/Menus"]
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_fonts/font = ExtResource("3_b6vic")
@@ -171,6 +175,20 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cx342")
 metadata/_edit_use_anchors_ = true
 
+[node name="item list" type="ScrollContainer" parent="Item Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Item container" type="VBoxContainer" parent="Item Panel/item list"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 18
+
 [node name="Descripition panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 12
@@ -181,6 +199,37 @@ offset_top = -232.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_cx342")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Descripition panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -236.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="Descripition panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Item description" type="Label" parent="Descripition panel/ScrollContainer/MarginContainer2"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("6_dp3dx")
+theme_override_font_sizes/font_size = 35
+text = "desc"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Item title panel" type="Panel" parent="."]
 layout_mode = 1
@@ -194,20 +243,15 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cx342")
 metadata/_edit_use_anchors_ = true
 
-[node name="Item title Text container" type="MarginContainer" parent="."]
+[node name="Item title Text container" type="MarginContainer" parent="Item title panel"]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -970.0
-offset_top = -306.0
-offset_bottom = -214.0
-grow_horizontal = 0
+anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Item title Text container"]
+[node name="Label" type="Label" parent="Item title panel/Item title Text container"]
 custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 text = "jack's aegis"
@@ -215,22 +259,6 @@ label_settings = SubResource("LabelSettings_b6vic")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
-
-[node name="item list" type="ScrollContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.008333334
-anchor_top = 0.2175926
-anchor_right = 0.4890625
-anchor_bottom = 0.775
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="Item container" type="VBoxContainer" parent="item list"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 18
 
 [node name="Item_texture" type="TextureRect" parent="."]
 layout_mode = 1
@@ -246,39 +274,8 @@ expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -236.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="MarginContainer2" type="MarginContainer" parent="ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 2
-
-[node name="Item description" type="Label" parent="ScrollContainer/MarginContainer2"]
-custom_minimum_size = Vector2(450, 0)
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_fonts/font = ExtResource("6_dp3dx")
-theme_override_font_sizes/font_size = 35
-text = "desc"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[connection signal="pressed" from="Wepons margin container/Menus/Weapons" to="." method="_on_weapons_pressed"]
-[connection signal="pressed" from="Wepons margin container/Menus/Divine dividers" to="." method="_on_divine_dividers_pressed"]
-[connection signal="pressed" from="Wepons margin container/Menus/Graces" to="." method="_on_graces_pressed"]
-[connection signal="pressed" from="Wepons margin container/Menus/objects" to="." method="_on_objects_pressed"]
-[connection signal="pressed" from="Wepons margin container/Menus/Keys" to="." method="_on_keys_pressed"]
+[connection signal="pressed" from="MarginContainer3/weapons panel/Wepons margin container/Menus/Weapons" to="." method="_on_weapons_pressed"]
+[connection signal="pressed" from="MarginContainer3/weapons panel/Wepons margin container/Menus/Divine dividers" to="." method="_on_divine_dividers_pressed"]
+[connection signal="pressed" from="MarginContainer3/weapons panel/Wepons margin container/Menus/Graces" to="." method="_on_graces_pressed"]
+[connection signal="pressed" from="MarginContainer3/weapons panel/Wepons margin container/Menus/objects" to="." method="_on_objects_pressed"]
+[connection signal="pressed" from="MarginContainer3/weapons panel/Wepons margin container/Menus/Keys" to="." method="_on_keys_pressed"]

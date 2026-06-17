@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://fh4qyl3x6wlk"]
+
+[ext_resource type="PackedScene" uid="uid://xdjxfdex4ih1" path="res://Environnements Pre-tests/The Great Prison/Props/Meshes/Glbs/Crate fractured/crate fractured.blend" id="1_t7t36"]
+[ext_resource type="Script" uid="uid://7sw7kr3fbgn8" path="res://Environnements Pre-tests/The Great Prison/Walls/Scenes/Fractured Door/fractured_door_1.gd" id="2_1wwog"]
+
+[node name="crate fractured" instance=ExtResource("1_t7t36")]
+script = ExtResource("2_1wwog")

@@ -31,8 +31,6 @@ func _process(_delta: float) -> void:
 		take_a_step(received_attack,_delta)
 		
 func taking_damage(taken_attack:Attack):
-	HitStopManager.hit_stop_function(.1)
-	
 	if Moveable_Player:Moveable_Player.character.is_taking_damage=true
 	if Moveable_Body:Moveable_Body.visuals.is_taking_damage=true
 	if Moveable_Player and Moveable_Player.character.is_blocking :
@@ -53,6 +51,7 @@ func taking_damage(taken_attack:Attack):
 	dealt_thrown_time=taken_attack.Stun_time
 	Current_health-=(taken_attack.Base_damage+Damage_Factor)
 	death_check()
+	
 	if Current_health==0:
 		if Node_to_call_on_death:
 			Node_to_call_on_death.is_alive=false
@@ -60,7 +59,7 @@ func taking_damage(taken_attack:Attack):
 			player_to_call_on_death.is_alive=false
 		if random_node_to_call_on_death:
 			random_node_to_call_on_death.is_alive=false
-			
+	else : HitStopManager.hit_stop_function(.001,.1)
 func death_check()->void:
 	if Current_health<0:Current_health=0
 func take_a_step(taken_attack:Attack,delta:float):

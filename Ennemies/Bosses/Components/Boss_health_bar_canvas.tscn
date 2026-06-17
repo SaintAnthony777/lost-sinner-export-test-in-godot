@@ -1,8 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7jx5iccg44ma"]
+[gd_scene load_steps=7 format=3 uid="uid://c7jx5iccg44ma"]
 
-[ext_resource type="Texture2D" uid="uid://clvbgyq7o1b3y" path="res://Ennemies/Bosses/Components/bars/Fond .PNG" id="1_cjhaw"]
-[ext_resource type="Texture2D" uid="uid://ba8i74obb4c6" path="res://Ennemies/Bosses/Components/bars/Remplissage.PNG" id="2_lu5pk"]
-[ext_resource type="FontFile" uid="uid://ffia62sdtc4k" path="res://Fonts/Cinzel,EB_Garamond/Cinzel/static/Cinzel-Medium.ttf" id="3_cjhaw"]
+[ext_resource type="Texture2D" uid="uid://eu25ybyhi0g3" path="res://Character/HUD/assets/Barres 2/Fond .PNG" id="1_10w6u"]
+[ext_resource type="Texture2D" uid="uid://bc6pcnxi0fmev" path="res://Componenents/Hud Assets/Fond biseauté.PNG" id="1_cjhaw"]
+[ext_resource type="FontFile" uid="uid://d0ug5noy0uhhl" path="res://Fonts/Cinzel,EB_Garamond/EB_Garamond/static/EBGaramond-Regular.ttf" id="3_cjhaw"]
+
+[sub_resource type="Gradient" id="Gradient_cjhaw"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lu5pk"]
+gradient = SubResource("Gradient_cjhaw")
+fill_from = Vector2(0.14814815, 0.07692308)
+fill_to = Vector2(1, 0.97720796)
 
 [sub_resource type="LabelSettings" id="LabelSettings_lu5pk"]
 font = ExtResource("3_cjhaw")
@@ -23,46 +30,55 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 
+[node name="TextureRect" type="TextureRect" parent="Boss Hud"]
+modulate = Color(0.21556407, 0.050862998, 0.017054174, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.375
+anchor_top = 0.7749999
+anchor_right = 0.83385414
+anchor_bottom = 0.84166664
+offset_top = 6.1035156e-05
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_cjhaw")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="MarginContainer" type="MarginContainer" parent="Boss Hud"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.40885416
-anchor_top = 0.8472222
-anchor_right = 0.67932296
-anchor_bottom = 0.8663889
-offset_left = -29.0
-offset_top = -66.0
-offset_right = 267.69995
-offset_bottom = -47.700012
+anchor_left = 0.39375
+anchor_top = 0.7861111
+anchor_right = 0.81875
+anchor_bottom = 0.82222223
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="Healthbar" type="TextureProgressBar" parent="Boss Hud/MarginContainer"]
 custom_minimum_size = Vector2(0.37, 0)
 layout_mode = 2
 value = 45.0
 nine_patch_stretch = true
-texture_under = ExtResource("1_cjhaw")
-texture_progress = ExtResource("2_lu5pk")
+texture_under = ExtResource("1_10w6u")
+texture_progress = SubResource("GradientTexture2D_lu5pk")
 tint_under = Color(0.64557624, 0, 0, 1)
 tint_progress = Color(0.9099355, 3.970787e-06, 1.540184e-06, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer2" type="MarginContainer" parent="Boss Hud"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -157.0
-offset_top = -290.0
-offset_right = 214.0
-offset_bottom = -225.0
+anchors_preset = -1
+anchor_left = 0.39739582
+anchor_top = 0.7407407
+anchor_right = 0.61145836
+anchor_bottom = 0.775
 grow_horizontal = 2
 grow_vertical = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="Boss Name" type="Label" parent="Boss Hud/MarginContainer2"]
 layout_mode = 2

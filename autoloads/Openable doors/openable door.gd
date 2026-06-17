@@ -18,7 +18,7 @@ func _ready() -> void:
 		
 func _process(delta: float) -> void:
 	if (opening_side!="" and !interacted and Input.is_action_just_pressed("Action trigger") and !personnage.is_busy and
-	 inter_area and inter_area.interact==self):
+	 inter_area and inter_area.interact==self and personnage.character.interacts):
 		interacted=true
 		if not door_id in SaveManager.current_save.opened_doors_list.keys():
 			SaveManager.current_save.opened_doors_list.set(door_id,opening_side)

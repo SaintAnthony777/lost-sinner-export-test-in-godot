@@ -1,10 +1,11 @@
-[gd_scene load_steps=115 format=4 uid="uid://dgbquu0vr68r6"]
+[gd_scene load_steps=116 format=4 uid="uid://dgbquu0vr68r6"]
 
 [ext_resource type="Script" uid="uid://7sw7kr3fbgn8" path="res://Environnements Pre-tests/The Great Prison/Walls/Scenes/Fractured Door/fractured_door_1.gd" id="1_ioly3"]
 [ext_resource type="Texture2D" uid="uid://c21k80s5a0sos" path="res://Environnements Pre-tests/The Great Prison/Props/Meshes/Glbs/Barrel Fractured/textures/Wood062_1K-JPG_Color.jpg" id="1_vgklw"]
 [ext_resource type="Texture2D" uid="uid://bqb1pjqx1baaw" path="res://Environnements Pre-tests/The Great Prison/Props/Meshes/Glbs/Barrel Fractured/textures/Wood062_1K-JPG_Roughness.png" id="2_ioly3"]
 [ext_resource type="Texture2D" uid="uid://cedpwme8xxkd0" path="res://Environnements Pre-tests/The Great Prison/Props/Meshes/Glbs/Barrel Fractured/textures/Wood062_1K-JPG_NormalGL.jpg" id="3_egyej"]
 [ext_resource type="Texture2D" uid="uid://b57yp4skvdmtf" path="res://Environnements Pre-tests/The Great Prison/Props/Meshes/Glbs/Barrel Fractured/textures/Metal056C_1K-JPG_Color.jpg" id="4_f3s6u"]
+[ext_resource type="Material" uid="uid://do80hv38jk7q5" path="res://Environnements Pre-tests/The Great Prison/Ending Boat/textures/planches claires 1/WoodFloor062_1K-JPG.tres" id="5_egyej"]
 [ext_resource type="Texture2D" uid="uid://bsy43ixs246wx" path="res://Environnements Pre-tests/The Great Prison/Props/Meshes/Glbs/Barrel Fractured/textures/Metal056C_1K-JPG_Metalness.jpg-Metal056C_1K-JPG_Roughness.png" id="5_j7rfn"]
 [ext_resource type="Texture2D" uid="uid://btfokts3djxf2" path="res://Environnements Pre-tests/The Great Prison/Props/Meshes/Glbs/Barrel Fractured/textures/Metal056C_1K-JPG_NormalGL.jpg" id="6_l3h25"]
 
@@ -1283,11 +1284,14 @@ metadata/_custom_type_script = "uid://7sw7kr3fbgn8"
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell" type="MeshInstance3D" parent="RigidBody3D"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_gqxtp")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1296,11 +1300,14 @@ shape = SubResource("ConvexPolygonShape3D_ioly3")
 [node name="RigidBody3D2" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_001" type="MeshInstance3D" parent="RigidBody3D2"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_7jahi")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1309,6 +1316,8 @@ shape = SubResource("ConvexPolygonShape3D_egyej")
 [node name="RigidBody3D3" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel Metal part_003" type="MeshInstance3D" parent="RigidBody3D3"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1325,6 +1334,8 @@ shape = SubResource("ConvexPolygonShape3D_f3s6u")
 [node name="RigidBody3D4" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel Metal part_001" type="MeshInstance3D" parent="RigidBody3D4"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1341,6 +1352,8 @@ shape = SubResource("ConvexPolygonShape3D_j7rfn")
 [node name="RigidBody3D5" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel Metal part_002" type="MeshInstance3D" parent="RigidBody3D5"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1357,11 +1370,14 @@ shape = SubResource("ConvexPolygonShape3D_l3h25")
 [node name="RigidBody3D6" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_031" type="MeshInstance3D" parent="RigidBody3D6"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_8o378")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D6"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1370,11 +1386,14 @@ shape = SubResource("ConvexPolygonShape3D_wtmry")
 [node name="RigidBody3D7" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_030" type="MeshInstance3D" parent="RigidBody3D7"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_l4jk7")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 metadata/extras = {
 "ant_landscape": {}
 }
@@ -1386,11 +1405,14 @@ shape = SubResource("ConvexPolygonShape3D_78ppd")
 [node name="RigidBody3D8" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_029" type="MeshInstance3D" parent="RigidBody3D8"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_whcam")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D8"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1399,11 +1421,14 @@ shape = SubResource("ConvexPolygonShape3D_26tba")
 [node name="RigidBody3D9" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_002" type="MeshInstance3D" parent="RigidBody3D9"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_25fcr")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D9"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1412,11 +1437,14 @@ shape = SubResource("ConvexPolygonShape3D_4at11")
 [node name="RigidBody3D10" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_003" type="MeshInstance3D" parent="RigidBody3D10"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_oglo1")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D10"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1425,11 +1453,14 @@ shape = SubResource("ConvexPolygonShape3D_5ljj0")
 [node name="RigidBody3D11" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_004" type="MeshInstance3D" parent="RigidBody3D11"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_tixu8")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D11"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1438,11 +1469,14 @@ shape = SubResource("ConvexPolygonShape3D_wuk7j")
 [node name="RigidBody3D12" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_005" type="MeshInstance3D" parent="RigidBody3D12"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_28i72")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D12"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1451,11 +1485,14 @@ shape = SubResource("ConvexPolygonShape3D_w5top")
 [node name="RigidBody3D13" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_006" type="MeshInstance3D" parent="RigidBody3D13"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_n1kg8")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D13"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1464,11 +1501,14 @@ shape = SubResource("ConvexPolygonShape3D_lioil")
 [node name="RigidBody3D14" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_007" type="MeshInstance3D" parent="RigidBody3D14"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ogl03")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D14"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1477,11 +1517,14 @@ shape = SubResource("ConvexPolygonShape3D_2w3pe")
 [node name="RigidBody3D15" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_008" type="MeshInstance3D" parent="RigidBody3D15"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_g155v")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D15"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1490,11 +1533,14 @@ shape = SubResource("ConvexPolygonShape3D_uu4ps")
 [node name="RigidBody3D16" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_009" type="MeshInstance3D" parent="RigidBody3D16"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_cb4ly")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D16"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1503,11 +1549,14 @@ shape = SubResource("ConvexPolygonShape3D_h6tcc")
 [node name="RigidBody3D17" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_010" type="MeshInstance3D" parent="RigidBody3D17"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_mbg2k")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D17"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1516,11 +1565,14 @@ shape = SubResource("ConvexPolygonShape3D_hqcxv")
 [node name="RigidBody3D18" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_011" type="MeshInstance3D" parent="RigidBody3D18"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_e8p71")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D18"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1529,11 +1581,14 @@ shape = SubResource("ConvexPolygonShape3D_vikpv")
 [node name="RigidBody3D19" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_012" type="MeshInstance3D" parent="RigidBody3D19"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_da14r")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D19"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1542,11 +1597,14 @@ shape = SubResource("ConvexPolygonShape3D_hq11p")
 [node name="RigidBody3D20" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_013" type="MeshInstance3D" parent="RigidBody3D20"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_qiptm")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D20"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1555,11 +1613,14 @@ shape = SubResource("ConvexPolygonShape3D_goden")
 [node name="RigidBody3D21" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_014" type="MeshInstance3D" parent="RigidBody3D21"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_fmiv5")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D21"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1568,11 +1629,14 @@ shape = SubResource("ConvexPolygonShape3D_312gm")
 [node name="RigidBody3D22" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_017" type="MeshInstance3D" parent="RigidBody3D22"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_kdmc4")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 metadata/extras = {
 "ant_landscape": {}
 }
@@ -1584,11 +1648,14 @@ shape = SubResource("ConvexPolygonShape3D_uwokg")
 [node name="RigidBody3D23" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_018" type="MeshInstance3D" parent="RigidBody3D23"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_0sya1")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D23"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1597,11 +1664,14 @@ shape = SubResource("ConvexPolygonShape3D_0e6ht")
 [node name="RigidBody3D24" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_019" type="MeshInstance3D" parent="RigidBody3D24"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_80w0j")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D24"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1610,11 +1680,14 @@ shape = SubResource("ConvexPolygonShape3D_f0eha")
 [node name="RigidBody3D25" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_020" type="MeshInstance3D" parent="RigidBody3D25"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_p021l")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D25"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1623,11 +1696,14 @@ shape = SubResource("ConvexPolygonShape3D_ps2o3")
 [node name="RigidBody3D26" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_021" type="MeshInstance3D" parent="RigidBody3D26"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ccbsu")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D26"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1636,11 +1712,14 @@ shape = SubResource("ConvexPolygonShape3D_op4b6")
 [node name="RigidBody3D27" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_022" type="MeshInstance3D" parent="RigidBody3D27"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_aihsq")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D27"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1649,11 +1728,14 @@ shape = SubResource("ConvexPolygonShape3D_1iwct")
 [node name="RigidBody3D28" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_023" type="MeshInstance3D" parent="RigidBody3D28"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_jcd80")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D28"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1662,11 +1744,14 @@ shape = SubResource("ConvexPolygonShape3D_8bqgg")
 [node name="RigidBody3D29" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_024" type="MeshInstance3D" parent="RigidBody3D29"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_dwmph")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D29"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1675,11 +1760,14 @@ shape = SubResource("ConvexPolygonShape3D_f1xma")
 [node name="RigidBody3D30" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_025" type="MeshInstance3D" parent="RigidBody3D30"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_jfp6d")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D30"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1688,11 +1776,14 @@ shape = SubResource("ConvexPolygonShape3D_javl4")
 [node name="RigidBody3D31" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_026" type="MeshInstance3D" parent="RigidBody3D31"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_m5go7")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D31"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1701,11 +1792,14 @@ shape = SubResource("ConvexPolygonShape3D_mh2it")
 [node name="RigidBody3D32" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_027" type="MeshInstance3D" parent="RigidBody3D32"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_bg4cd")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D32"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1714,11 +1808,14 @@ shape = SubResource("ConvexPolygonShape3D_j63pj")
 [node name="RigidBody3D33" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_028" type="MeshInstance3D" parent="RigidBody3D33"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_8ggqs")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D33"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1727,11 +1824,14 @@ shape = SubResource("ConvexPolygonShape3D_d1mnj")
 [node name="RigidBody3D35" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_016" type="MeshInstance3D" parent="RigidBody3D35"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_pbjfy")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D35"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
@@ -1740,11 +1840,14 @@ shape = SubResource("ConvexPolygonShape3D_7fk2t")
 [node name="RigidBody3D36" type="RigidBody3D" parent="."]
 collision_layer = 33
 collision_mask = 7
+mass = 0.3
+sleeping = true
 
 [node name="Barrel_cell_015" type="MeshInstance3D" parent="RigidBody3D36"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)
 mesh = SubResource("ArrayMesh_vmf5l")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_egyej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D36"]
 transform = Transform3D(0.601914, 0, 0, 0, 0.601914, 0, 0, 0, 0.601914, 0, 0, 0)

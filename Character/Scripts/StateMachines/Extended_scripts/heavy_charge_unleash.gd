@@ -11,7 +11,7 @@ func enter() -> void:
 		200,
 		"grace",
 		5.0,
-		.0001
+		.5
 	)
 	character.dealt_attack=Heavy_Strike
 	unleash_trick()
@@ -19,7 +19,7 @@ func enter() -> void:
 func state_logic(_delta)->void:
 	character.arcane_component.arcane_consumption(Heavy_Strike)
 	if( Input.is_action_just_pressed("Grace") or character.heavy_charge_ray_cast.is_colliding() or 
-	character.arcane_component.current_arcane <= 1.0):
+	character.arcane_component.current_arcane < Heavy_Strike.arcane_consumption):
 		state_machine.change_state("Heavy Charge Stop")
 func physics_update(_delta) -> void:
 	state_logic(_delta)

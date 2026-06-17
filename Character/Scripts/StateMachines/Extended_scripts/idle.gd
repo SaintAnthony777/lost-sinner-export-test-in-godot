@@ -16,10 +16,11 @@ func state_logic(delta)->void:
 	if character.pick_back_hammer :
 		state_machine.change_state("hammer_take_back")
 	if !player.current_target:
+		character.hide_equipped_weapon()
 		character.normal_motion("Idle_unarmed")
 	else:
 		character.normal_motion("Idle_warned")
-
+		character.show_equipped_weapon()
 	player.gravity_applying(delta)
 	player.camera_rotation_logic(delta)
 	if !player.is_on_floor():
@@ -48,8 +49,9 @@ func input_logic()->void:
 	if Input.is_action_pressed("Blocks"):
 		state_machine.change_state("shield_idle")
 		
-	if Input.is_action_just_pressed("Attack_trigger") and character.equipped_hammer.visible:
+	if Input.is_action_just_pressed("Attack_trigger") and character.can_throw_hammer:
 		character.is_attacking=true
+		character.show_equipped_weapon()
 		state_machine.change_state("hammer_attack_1")
 	
 	if (Input.is_action_just_pressed("Special") and player.divine_divider_list and

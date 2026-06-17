@@ -60,6 +60,13 @@ var interacts:bool=false
 @onready var dealt_attack:Attack
 @onready var Shield_Light:SpotLight3D=$"Shield Light"
 @onready var inv_UI:inventory_UI=$"Inventory layer/Inventory"
+@onready var unused_weapon_attachment: BoneAttachment3D = $Armature/Skeleton3D/Unused_weapon_attachment
+@onready var right_hand_weapon_attachment: BoneAttachment3D = $Armature/Skeleton3D/Right_hand_weapon_attachment
+@onready var item_picked_panel_shower: Control = $"Item_picked cavans layer/Item_picked panel shower"
+@onready var Container_for_the_items: VBoxContainer = $"Item_picked cavans layer/Item_picked panel shower/Container/VBoxContainer"
+
+
+
 
 func _ready() -> void:
 	health_component.Moveable_Player=player
@@ -67,6 +74,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if is_blocking : Shield_Light.show()
 	else : Shield_Light.hide()
+	
+func show_equipped_weapon()->void:
+	right_hand_weapon_attachment.show()
+	unused_weapon_attachment.hide()
+
+func hide_equipped_weapon()->void:
+	right_hand_weapon_attachment.hide()
+	unused_weapon_attachment.show()
 func normal_motion(current_action:String)->void:
 	grounding("Normal")
 	animation_tree.set("parameters/Normal_Transition/transition_request",current_action)
@@ -202,6 +217,7 @@ func stopped_dash_attack()->void:
 	is_making_dash_attack=false
 
 func has_thrown_hammer():
+	hide_equipped_weapon()
 	can_throw_hammer=false
 	thrown_hammer=true
 
@@ -211,7 +227,7 @@ func show_hammer():
 func has_got_hammer_back():
 	can_throw_hammer=true
 	pick_back_hammer=false
-
+	
 func done_landing()->void:
 	landed=true
 func done_aerial_dash()->void:

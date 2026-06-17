@@ -7,9 +7,12 @@ var camera_offset_no_offense_here:float=1.0
 
 func enter() -> void:
 	player.is_locking=true
+	character.show_equipped_weapon()
+	
 func physics_update(_delta) -> void:
 	state_logic(_delta)
 	if !character.is_alive:state_machine.change_state("Dying")
+	
 func state_logic(_delta:float):
 	if player.current_target:
 		camera_offset_no_offense_here=player.global_position.distance_to(player.current_target.global_position)

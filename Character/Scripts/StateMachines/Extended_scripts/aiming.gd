@@ -5,6 +5,7 @@ extends State
 func enter() -> void:
 	character.look_at(Vector3(player.get_target_point().x,player.global_position.y,player.get_target_point().z))
 	character.rotate_y(PI)
+	
 func physics_update(_delta) -> void:
 	state_logics(_delta)
 	if !character.is_alive:state_machine.change_state("Dying")
@@ -31,6 +32,8 @@ func physics_update(_delta) -> void:
 	
 func state_logics (delta:float) -> void :
 	Crosshair_tricks()
+	if character.can_throw_hammer:
+		character.show_equipped_weapon()
 	aiming_angle_correct()
 	character.crosshair_layer.show()
 	if character.pick_back_hammer:state_machine.change_state("hammer_take_back")

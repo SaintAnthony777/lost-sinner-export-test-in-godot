@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2r2jcuagye5b"]
+[gd_scene load_steps=9 format=3 uid="uid://d2r2jcuagye5b"]
 
 [ext_resource type="ArrayMesh" uid="uid://ba1vouggws51v" path="res://Environnements Pre-tests/The Great Prison/Save Points/meshes/evergreen tree.res" id="1_5tncv"]
 [ext_resource type="Script" uid="uid://c6wqiyhdl46jj" path="res://Componenents/Save Point/scene/save_point.gd" id="1_pjy48"]
 [ext_resource type="ArrayMesh" uid="uid://gjrpfe2nw4cx" path="res://Environnements Pre-tests/The Great Prison/Save Points/meshes/evergreen_leaves.res" id="2_vml1j"]
 [ext_resource type="Script" uid="uid://dbye3ep2uh4xp" path="res://autoloads/Interactable Areas/Interaction Area.gd" id="3_vml1j"]
+[ext_resource type="FontFile" uid="uid://d0ug5noy0uhhl" path="res://Fonts/Cinzel,EB_Garamond/EB_Garamond/static/EBGaramond-Regular.ttf" id="5_sedxv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pjy48"]
 transparency = 1
@@ -63,6 +64,7 @@ pixel_size = 0.007
 billboard = 1
 text = "Press E to rest
 "
+font = ExtResource("5_sedxv")
 
 [node name="Hint" type="Label3D" parent="interaction_area"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, -0.1)

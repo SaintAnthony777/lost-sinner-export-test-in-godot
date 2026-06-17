@@ -6,7 +6,6 @@ extends State
 func enter() -> void:
 	gate_opens_trick()
 	player.is_busy=false
-		
 func physics_update(_delta) -> void:
 	player.camera_rotation_logic(_delta)
 	player.camera.fov=95.0

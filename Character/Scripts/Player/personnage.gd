@@ -39,9 +39,11 @@ var self_delta=.01
 
 ## Grace and Divine Dividers
 var divine_divider_list : Array[String] = []
-var grace_list : Array[String] = ["Heavy Charge"]
+var grace_list : Array[String] = []
+
 # var divine_divider_list : Array[String] = ["Sundown","Screaming Silence","World Strongest Man"]
 # var grace_list : Array[String] = ["Disordonance","Heavy Charge","Disaster"]
+
 @onready var divine_dividers_consumption_dict:Dictionary ={
 	"Screaming Silence":45.0,
 	"Sundown":55.0,
@@ -74,6 +76,7 @@ var save_location:String
 var player_inventory:Inventory=Inventory.new()
 var hammer:Inventory_Item=Inventory_Item.new()
 var shield:Inventory_Item=Inventory_Item.new()
+var last_picked_item:Inventory_Item=null
 
 func _ready() -> void:
 	camera.h_offset=.7
@@ -108,10 +111,6 @@ func _ready() -> void:
 					grace_list.append(element.item_name)
 		
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_pressed("Pause"):
-		if Input.mouse_mode==Input.MOUSE_MODE_VISIBLE:
-			Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
-		else : Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
 	if Input.is_action_just_pressed("Camera Switching") and can_switch_camera:
 		camera_switch_logic()
 	if Input.is_action_just_pressed("Grace switch") and can_switch_special:
@@ -129,6 +128,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera_input_direction=event.screen_relative*mouse_sensitivity
 	
 func _physics_process(_delta: float) -> void:
+	
 	SimpleGrass.set_player_position(global_position)
 	if divine_divider_list :
 		current_divine_divider = divine_divider_list[current_divine_divider_index]

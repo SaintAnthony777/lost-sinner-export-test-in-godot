@@ -1,7 +1,7 @@
 class_name inventory_ui_button
 extends Button
 
-@onready var Inventory_UI : inventory_UI = get_parent().get_parent().get_parent()
+@onready var Inventory_UI : inventory_UI = get_parent().get_parent().get_parent().get_parent()
 @onready var item : Inventory_Item
 
 @onready var style_box_predefined : StyleBoxEmpty = StyleBoxEmpty.new()

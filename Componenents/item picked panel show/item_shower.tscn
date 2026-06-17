@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=3 uid="uid://bq5w22tdeuxl8"]
+
+[ext_resource type="FontFile" uid="uid://d0ug5noy0uhhl" path="res://Fonts/Cinzel,EB_Garamond/EB_Garamond/static/EBGaramond-Regular.ttf" id="1_6u4f3"]
+[ext_resource type="Script" uid="uid://m7aql0886hvy" path="res://Componenents/item picked panel show/item_shower.gd" id="1_fpofr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fpofr"]
+content_margin_left = 25.0
+content_margin_top = 25.0
+content_margin_right = 25.0
+content_margin_bottom = 25.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_blend = true
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+corner_detail = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_yxgc4"]
+font = ExtResource("1_6u4f3")
+font_size = 40
+
+[sub_resource type="Animation" id="Animation_fpofr"]
+resource_name = "Fade Away"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.9666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yxgc4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yxgc4"]
+_data = {
+&"Fade Away": SubResource("Animation_fpofr"),
+&"RESET": SubResource("Animation_yxgc4")
+}
+
+[node name="Item shower" type="PanelContainer"]
+anchors_preset = -1
+anchor_left = 0.684375
+anchor_top = 0.7583333
+anchor_right = 1.0
+anchor_bottom = 0.84537035
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fpofr")
+script = ExtResource("1_fpofr")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+text = "You got the divine divider Screaming Silence"
+label_settings = SubResource("LabelSettings_yxgc4")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_yxgc4")
+}

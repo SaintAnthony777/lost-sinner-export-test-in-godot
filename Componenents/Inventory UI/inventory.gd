@@ -3,27 +3,35 @@ extends Control
 
 @onready var given_inventory : Inventory
 @onready var category_to_be_shown : String =""
-@onready var item_container : VBoxContainer = $"item list/Item container"
+@onready var item_container : VBoxContainer = $"Item Panel/item list/Item container"
 @onready var array_of_items : Array[Inventory_Item]
 @onready var item_texture : TextureRect=$"Item_texture"
-@onready var item_desc : Label =$"ScrollContainer/MarginContainer2/Item description"
+@onready var item_desc : Label =$"Descripition panel/ScrollContainer/MarginContainer2/Item description"
 @onready var item_to_be_shown : Inventory_Item = null
 @onready var item_panel:Panel=$"Item Panel"
 @onready var desc_panel:Panel=$"Descripition panel"
-@onready var label: Label = $"Item title Text container/Label"
+@onready var label: Label = $"Item title panel/Item title Text container/Label"
 @onready var item_title_panel: Panel = $"Item title panel"
+@onready var Pause_UI:PauseMenu=get_tree().get_first_node_in_group("Pause UI")
 
 
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("inventory"):
+	if Input.is_action_just_pressed("inventory") and !Pause_UI.visible:
 		show_and_hide_inventory()
-
-func show_and_hide_inventory()->void:
-	if self.visible : 
-		get_tree().paused = false ; Input.mouse_mode=Input.MOUSE_MODE_CAPTURED ; clear_items_list();
+	if Input.is_action_just_pressed("Pause") and self.visible:
+		get_tree().paused = false ; Input.mouse_mode=Input.MOUSE_MODE_CAPTURED ; 
+		clear_items_list();
 		array_of_items.clear()
-	else : get_tree().paused = true ; Input.mouse_mode=Input.MOUSE_MODE_VISIBLE ; clear_items_list()
+		self.hide()
+func show_and_hide_inventory()->void:
+	if self.visible :
+		get_tree().paused = false ; Input.mouse_mode=Input.MOUSE_MODE_CAPTURED ; 
+		clear_items_list();
+		array_of_items.clear()
+	else : 
+		get_tree().paused = true ; Input.mouse_mode=Input.MOUSE_MODE_VISIBLE ; 
+		clear_items_list()
 	self.visible=!self.visible
 	
 func _process(delta: float) -> void:

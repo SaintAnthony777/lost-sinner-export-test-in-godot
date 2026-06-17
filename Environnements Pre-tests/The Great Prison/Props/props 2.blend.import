@@ -84,6 +84,15 @@ _subresources={
 "save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Props/Meshes/Table sm.res",
 "save_to_file/path": "uid://dw5cngp838x80"
 },
+"props 2_Cube_003": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Props/Meshes/Crate.res",
+"save_to_file/path": "uid://fllc3ft8407d"
+},
 "props 2_Cylinder_002": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
@@ -110,6 +119,15 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Props/Meshes/Chains With Braces.res",
 "save_to_file/path": "uid://bkqwdf6ct17uj"
+},
+"props 2_Plane_003": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/The Great Prison/Props/Meshes/Chains With Braces distorted.res",
+"save_to_file/path": "uid://crx35b0gcd4bi"
 }
 }
 }

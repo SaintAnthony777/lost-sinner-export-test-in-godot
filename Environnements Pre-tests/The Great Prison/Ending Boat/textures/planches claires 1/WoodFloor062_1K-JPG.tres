@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://do80hv38jk7q5"]
+
+[ext_resource type="Texture2D" uid="uid://b8al3ao6ubcy4" path="res://Environnements Pre-tests/The Great Prison/Ending Boat/textures/planches claires 1/WoodFloor062_1K-JPG_Color.jpg" id="Color"]
+[ext_resource type="Texture2D" uid="uid://d0mbce3ay5b" path="res://Environnements Pre-tests/The Great Prison/Ending Boat/textures/planches claires 1/WoodFloor062_1K-JPG_Displacement.jpg" id="Displacement"]
+[ext_resource type="Texture2D" uid="uid://daocxq6b0hne8" path="res://Environnements Pre-tests/The Great Prison/Ending Boat/textures/planches claires 1/WoodFloor062_1K-JPG_NormalGL.jpg" id="NormalGL"]
+[ext_resource type="Texture2D" uid="uid://8p0tb31n3sh5" path="res://Environnements Pre-tests/The Great Prison/Ending Boat/textures/planches claires 1/WoodFloor062_1K-JPG_Roughness.jpg" id="Roughness"]
+
+[resource]
+cull_mode = 2
+albedo_texture = ExtResource("Color")
+roughness_texture = ExtResource("Roughness")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("NormalGL")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("Displacement")

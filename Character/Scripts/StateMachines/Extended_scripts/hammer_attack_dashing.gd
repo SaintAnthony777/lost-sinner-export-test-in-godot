@@ -3,6 +3,7 @@ extends State
 @onready var player: player_character = $"../.."
 
 func enter() -> void:
+	character.show_equipped_weapon()
 	character.can_advance_to_next_atack_pattern=false
 func physics_update(_delta) -> void:
 	attack_stuff()

@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=3 uid="uid://cm8oki3o7molb"]
+
+[ext_resource type="Script" uid="uid://dwoxux04hb3a4" path="res://Componenents/Pause Menu/pause_menu.gd" id="1_vxjle"]
+[ext_resource type="FontFile" uid="uid://d0ug5noy0uhhl" path="res://Fonts/Cinzel,EB_Garamond/EB_Garamond/static/EBGaramond-Regular.ttf" id="1_ypo1s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ypo1s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_03cnr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ypo1s"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 2
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vxjle"]
+
+[node name="Pause Menu" type="Control" groups=["Pause UI"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vxjle")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 0.65882355)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+
+[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ypo1s")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ypo1s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_03cnr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ypo1s")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vxjle")
+text = "Resume game"
+expand_icon = true
+
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ypo1s")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ypo1s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_03cnr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ypo1s")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vxjle")
+text = "Options"
+
+[node name="Quit to main menu" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ypo1s")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ypo1s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_03cnr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ypo1s")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vxjle")
+text = "Quit to main menu"
+
+[node name="Quit to desktop" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ypo1s")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ypo1s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_03cnr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ypo1s")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vxjle")
+text = "Quit to desktop"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
