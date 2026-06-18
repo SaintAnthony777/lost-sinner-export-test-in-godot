@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cm8oki3o7molb"]
+[gd_scene load_steps=11 format=3 uid="uid://cm8oki3o7molb"]
 
 [ext_resource type="Script" uid="uid://dwoxux04hb3a4" path="res://Componenents/Pause Menu/pause_menu.gd" id="1_vxjle"]
 [ext_resource type="FontFile" uid="uid://d0ug5noy0uhhl" path="res://Fonts/Cinzel,EB_Garamond/EB_Garamond/static/EBGaramond-Regular.ttf" id="1_ypo1s"]
@@ -16,6 +16,23 @@ shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vxjle"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_vxjle"]
+font = ExtResource("1_ypo1s")
+font_size = 45
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wf1mu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e5y72"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xbqh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_right = 3
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
 [node name="Pause Menu" type="Control" groups=["Pause UI"]]
 layout_mode = 3
 anchors_preset = 15
@@ -25,7 +42,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vxjle")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.65882355)
+
+[node name="Buttons container" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,17 +59,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
-layout_mode = 2
-color = Color(0, 0, 0, 0.65882355)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Buttons container"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 15
 
-[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Resume" type="Button" parent="Buttons container/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ypo1s")
 theme_override_font_sizes/font_size = 35
@@ -54,7 +76,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_vxjle")
 text = "Resume game"
 expand_icon = true
 
-[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Options" type="Button" parent="Buttons container/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ypo1s")
 theme_override_font_sizes/font_size = 35
@@ -64,7 +86,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ypo1s")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vxjle")
 text = "Options"
 
-[node name="Quit to main menu" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Quit to main menu" type="Button" parent="Buttons container/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ypo1s")
 theme_override_font_sizes/font_size = 35
@@ -74,7 +96,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ypo1s")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vxjle")
 text = "Quit to main menu"
 
-[node name="Quit to desktop" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Quit to desktop" type="Button" parent="Buttons container/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ypo1s")
 theme_override_font_sizes/font_size = 35
@@ -84,4 +106,112 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ypo1s")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vxjle")
 text = "Quit to desktop"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[node name="Confirm_quit_desktop" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4221354
+anchor_top = 0.42962962
+anchor_right = 0.5778646
+anchor_bottom = 0.5703704
+offset_left = 129.5
+offset_top = 56.0
+offset_right = -129.5
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 45
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Confirm_quit_desktop"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Confirm_quit_desktop/MarginContainer"]
+layout_mode = 2
+text = "Quit to desktop ?"
+label_settings = SubResource("LabelSettings_vxjle")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Confirm_quit_desktop"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="Yes" type="Button" parent="Confirm_quit_desktop/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_ypo1s")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wf1mu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_e5y72")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5xbqh")
+text = "Yes"
+
+[node name="No" type="Button" parent="Confirm_quit_desktop/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_ypo1s")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wf1mu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_e5y72")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5xbqh")
+text = "No"
+
+[node name="Confirm_quit_to_main_menu" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4221354
+anchor_top = 0.42962962
+anchor_right = 0.5778646
+anchor_bottom = 0.5703704
+offset_left = 129.5
+offset_top = 56.0
+offset_right = -129.5
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 45
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Confirm_quit_to_main_menu"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Confirm_quit_to_main_menu/MarginContainer"]
+layout_mode = 2
+text = "Quit to Main Menu and Save game ?"
+label_settings = SubResource("LabelSettings_vxjle")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Confirm_quit_to_main_menu"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="Yes" type="Button" parent="Confirm_quit_to_main_menu/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_ypo1s")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wf1mu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_e5y72")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5xbqh")
+text = "Yes"
+
+[node name="No" type="Button" parent="Confirm_quit_to_main_menu/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_ypo1s")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wf1mu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_e5y72")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5xbqh")
+text = "No"
+
+[connection signal="pressed" from="Buttons container/VBoxContainer/Resume" to="." method="_on_resume_pressed"]

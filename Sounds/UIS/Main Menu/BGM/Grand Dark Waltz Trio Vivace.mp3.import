@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cjwo6578rkn10"
+path="res://.godot/imported/Grand Dark Waltz Trio Vivace.mp3-610c520c3a2a2f3ed0c095263d44898b.mp3str"
+
+[deps]
+
+source_file="res://Sounds/UIS/Main Menu/BGM/Grand Dark Waltz Trio Vivace.mp3"
+dest_files=["res://.godot/imported/Grand Dark Waltz Trio Vivace.mp3-610c520c3a2a2f3ed0c095263d44898b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

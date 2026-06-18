@@ -1,0 +1,144 @@
+[gd_scene load_steps=13 format=3 uid="uid://cgvga6qg326mi"]
+
+[ext_resource type="Script" uid="uid://cpt6fnr5jddjs" path="res://Componenents/Existing Data/existing_data.gd" id="1_gcmqq"]
+[ext_resource type="Texture2D" uid="uid://6kp5srdfbad2" path="res://Componenents/Save Point/Snaps for save points/Staircase.png" id="1_xxpfn"]
+[ext_resource type="FontFile" uid="uid://d0ug5noy0uhhl" path="res://Fonts/Cinzel,EB_Garamond/EB_Garamond/static/EBGaramond-Regular.ttf" id="2_gcmqq"]
+[ext_resource type="Script" uid="uid://djps7agvr2m3n" path="res://Componenents/Menu buttons/menu_button.gd" id="3_nutbm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dy0y5"]
+content_margin_left = 45.0
+content_margin_top = 45.0
+content_margin_right = 45.0
+content_margin_bottom = 45.0
+bg_color = Color(0.6, 0.6, 0.6, 0.13333334)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_aahuf"]
+font = ExtResource("2_gcmqq")
+font_size = 45
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y1sgi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bmqki"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ug2fr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0lp2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_xxpfn"]
+font = ExtResource("2_gcmqq")
+font_size = 35
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gcmqq"]
+
+[node name="Existing Data" type="PanelContainer"]
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_dy0y5")
+script = ExtResource("1_gcmqq")
+
+[node name="Descripiton and screenshot2" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="Container" type="MarginContainer" parent="Descripiton and screenshot2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 35
+
+[node name="Snaps for save" type="TextureRect" parent="Descripiton and screenshot2/Container"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_xxpfn")
+expand_mode = 3
+
+[node name="Container2" type="VBoxContainer" parent="Descripiton and screenshot2"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 35
+alignment = 1
+
+[node name="Saveplace" type="Label" parent="Descripiton and screenshot2/Container2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Hallway To halfrey"
+label_settings = SubResource("LabelSettings_aahuf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Load or delete" type="HBoxContainer" parent="Descripiton and screenshot2/Container2"]
+layout_mode = 2
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="Load" type="Button" parent="Descripiton and screenshot2/Container2/Load or delete"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_gcmqq")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y1sgi")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bmqki")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ug2fr")
+theme_override_styles/focus = SubResource("StyleBoxFlat_p0lp2")
+text = "Load"
+script = ExtResource("3_nutbm")
+metadata/_custom_type_script = "uid://djps7agvr2m3n"
+
+[node name="Delete" type="Button" parent="Descripiton and screenshot2/Container2/Load or delete"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_gcmqq")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y1sgi")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bmqki")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ug2fr")
+theme_override_styles/focus = SubResource("StyleBoxFlat_p0lp2")
+text = "Delete"
+script = ExtResource("3_nutbm")
+metadata/_custom_type_script = "uid://djps7agvr2m3n"
+
+[node name="Confirm delete" type="VBoxContainer" parent="Descripiton and screenshot2/Container2"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Descripiton and screenshot2/Container2/Confirm delete"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Delete this save ?"
+label_settings = SubResource("LabelSettings_xxpfn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Descripiton and screenshot2/Container2/Confirm delete"]
+layout_mode = 2
+theme_override_constants/separation = 35
+alignment = 1
+
+[node name="Confirm" type="Button" parent="Descripiton and screenshot2/Container2/Confirm delete/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_gcmqq")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gcmqq")
+text = "Yes"
+script = ExtResource("3_nutbm")
+metadata/_custom_type_script = "uid://djps7agvr2m3n"
+
+[node name="revoke" type="Button" parent="Descripiton and screenshot2/Container2/Confirm delete/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_gcmqq")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gcmqq")
+text = "No"
+script = ExtResource("3_nutbm")
+metadata/_custom_type_script = "uid://djps7agvr2m3n"

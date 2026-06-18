@@ -1,10 +1,12 @@
 extends Node
 
-const SAVE_PATH:="user://save_game_soaring_silence_1.res"
+var SAVE_PATH:="user://save_game_soaring_silence_1.res"
 var current_save:GameSaveData=GameSaveData.new()
 
 func save_game(player_node:player_character)->void:
+	player_node.character.health_component.Current_health=player_node.character.health_component.Max_health
 	current_save.current_health = player_node.character.health_component.Current_health
+	player_node.character.arcane_component.current_arcane=player_node.character.arcane_component.Max_Arcane
 	current_save.player_position = player_node.global_position
 	current_save.player_rotation_degrees = player_node.rotation_degrees
 	current_save.current_scene = get_tree().current_scene.scene_file_path

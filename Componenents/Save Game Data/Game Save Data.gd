@@ -4,6 +4,7 @@ extends Resource
 ##Player status
 @export var max_health:float
 @export var current_health:float
+@export var max_arcane:float
 @export var player_position:Vector3
 @export var player_rotation_degrees:Vector3
 @export var player_inventory : Inventory

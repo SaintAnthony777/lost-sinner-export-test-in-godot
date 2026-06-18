@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b354na8morie3"
+path="res://.godot/imported/Sad Sax Guy - Regular Show (soundtrack_theme song) - Diego Galhardo.mp3-9b5e84fed3c65a0ba07ff788c6d77374.mp3str"
+
+[deps]
+
+source_file="res://Sounds/UIS/Main Menu/BGM/Sad Sax Guy - Regular Show (soundtrack_theme song) - Diego Galhardo.mp3"
+dest_files=["res://.godot/imported/Sad Sax Guy - Regular Show (soundtrack_theme song) - Diego Galhardo.mp3-9b5e84fed3c65a0ba07ff788c6d77374.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,243 @@
+[gd_scene load_steps=22 format=3 uid="uid://dd5ructcpr0n4"]
+
+[ext_resource type="Script" uid="uid://4vlywipfnjm5" path="res://Componenents/MainScreenUI/main_screen_ui.gd" id="1_0jlm1"]
+[ext_resource type="FontFile" uid="uid://b1bcl47vqg1rp" path="res://Fonts/Cinzel,EB_Garamond/Cinzel/static/Cinzel-Regular.ttf" id="1_1mf0q"]
+[ext_resource type="Texture2D" uid="uid://cogtcj7u06w03" path="res://VFXES/Fire/textures/Flare00.PNG" id="1_njqjx"]
+[ext_resource type="FontFile" uid="uid://d0ug5noy0uhhl" path="res://Fonts/Cinzel,EB_Garamond/EB_Garamond/static/EBGaramond-Regular.ttf" id="2_c1quh"]
+[ext_resource type="FontFile" uid="uid://lueccsurms" path="res://Fonts/Cinzel,EB_Garamond/EB_Garamond/EBGaramond-Italic-VariableFont_wght.ttf" id="3_yhmxc"]
+[ext_resource type="Script" uid="uid://djps7agvr2m3n" path="res://Componenents/Menu buttons/menu_button.gd" id="4_ygjyg"]
+
+[sub_resource type="Gradient" id="Gradient_0jlm1"]
+colors = PackedColorArray(0, 0, 0, 1, 5.541082, 4.783123, 2.241729, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_an3fb"]
+gradient = SubResource("Gradient_0jlm1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ygjyg"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1000, 694.54, 1)
+gravity = Vector3(0, -500, 0)
+scale_min = 0.099999994
+color_ramp = SubResource("GradientTexture1D_an3fb")
+turbulence_enabled = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_c1quh"]
+font = ExtResource("1_1mf0q")
+font_size = 125
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0jlm1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f7xns"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3lt6h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gib2m"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_right = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ax2sd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_right = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_njqjx"]
+font = ExtResource("3_yhmxc")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_an3fb"]
+font = ExtResource("2_c1quh")
+font_size = 75
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gib2m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ax2sd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gi8h3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_muwak"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 2
+
+[node name="MainScreenUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0jlm1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(949, 600)
+amount = 50
+texture = ExtResource("1_njqjx")
+lifetime = 20.0
+process_material = SubResource("ParticleProcessMaterial_ygjyg")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 45
+
+[node name="Main buttons" type="VBoxContainer" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Main buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer/Main buttons/MarginContainer"]
+layout_mode = 2
+text = "A Soaring Silence "
+label_settings = SubResource("LabelSettings_c1quh")
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/Main buttons"]
+layout_mode = 2
+theme_override_constants/separation = 50
+theme_override_styles/separator = SubResource("StyleBoxEmpty_0jlm1")
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/Main buttons"]
+layout_mode = 2
+theme_override_constants/separation = 50
+theme_override_styles/separator = SubResource("StyleBoxEmpty_0jlm1")
+
+[node name="Buttons container" type="VBoxContainer" parent="MarginContainer/Main buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Start Game" type="Button" parent="MarginContainer/Main buttons/Buttons container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_c1quh")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_f7xns")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3lt6h")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gib2m")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ax2sd")
+text = "Play"
+script = ExtResource("4_ygjyg")
+metadata/_custom_type_script = "uid://djps7agvr2m3n"
+
+[node name="Options" type="Button" parent="MarginContainer/Main buttons/Buttons container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_c1quh")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_f7xns")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3lt6h")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gib2m")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ax2sd")
+text = "Options"
+script = ExtResource("4_ygjyg")
+metadata/_custom_type_script = "uid://djps7agvr2m3n"
+
+[node name="Credits" type="Button" parent="MarginContainer/Main buttons/Buttons container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_c1quh")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_f7xns")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3lt6h")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gib2m")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ax2sd")
+text = "Credits"
+script = ExtResource("4_ygjyg")
+metadata/_custom_type_script = "uid://djps7agvr2m3n"
+
+[node name="Quit To desktop" type="Button" parent="MarginContainer/Main buttons/Buttons container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_c1quh")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_f7xns")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3lt6h")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gib2m")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ax2sd")
+text = "Quit To Desktop"
+script = ExtResource("4_ygjyg")
+metadata/_custom_type_script = "uid://djps7agvr2m3n"
+
+[node name="Copyrights Margin Container" type="MarginContainer" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 15
+
+[node name="Copyright texts" type="Label" parent="MarginContainer/Copyrights Margin Container"]
+layout_mode = 2
+text = "Project Soaring Silence by RADAHY Anthony all rights reserved
+"
+label_settings = SubResource("LabelSettings_njqjx")
+
+[node name="Save slots and descriptions" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 125
+alignment = 1
+
+[node name="Select save Slot Title" type="MarginContainer" parent="MarginContainer/Save slots and descriptions"]
+layout_mode = 2
+theme_override_constants/margin_top = 45
+
+[node name="Label" type="Label" parent="MarginContainer/Save slots and descriptions/Select save Slot Title"]
+layout_mode = 2
+text = "Choose A Save Slot"
+label_settings = SubResource("LabelSettings_an3fb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Save scrolls" type="ScrollContainer" parent="MarginContainer/Save slots and descriptions"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Save Slots Row" type="VBoxContainer" parent="MarginContainer/Save slots and descriptions/Save scrolls"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="BackButtons" type="HBoxContainer" parent="MarginContainer/Save slots and descriptions"]
+layout_mode = 2
+alignment = 1
+
+[node name="Back" type="Button" parent="MarginContainer/Save slots and descriptions/BackButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_c1quh")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gib2m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ax2sd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gi8h3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_muwak")
+text = "Back"
+script = ExtResource("4_ygjyg")
+metadata/_custom_type_script = "uid://djps7agvr2m3n"

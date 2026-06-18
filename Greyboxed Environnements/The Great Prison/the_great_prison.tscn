@@ -2582,7 +2582,7 @@ metadata/_custom_type_script = "uid://cksbl7u3uxuln"
 script = ExtResource("1_dstuq")
 level_name = "The LowLands Great Prison"
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." groups=["World Environnements", "World_Environnements"]]
 environment = SubResource("Environment_dysd0")
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
@@ -2597,6 +2597,7 @@ light_bake_mode = 1
 shadow_enabled = true
 
 [node name="Personnage" parent="." instance=ExtResource("2_f3rgr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 0)
 collision_mask = 166
 
 [node name="Lights" type="Node3D" parent="."]
@@ -12112,7 +12113,7 @@ save_place_name = "staircases"
 
 [node name="Save Point4" parent="Save points" instance=ExtResource("58_bqrf2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.9, -7, 146.5)
-save_place_name = "Halfrey's passage"
+save_place_name = "Hallway to the Garden"
 
 [node name="Pickables" type="Node3D" parent="."]
 
