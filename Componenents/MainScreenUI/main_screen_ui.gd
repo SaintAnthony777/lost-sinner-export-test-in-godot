@@ -5,12 +5,17 @@ class_name MainscreenUI extends Control
 
 @onready var empty_data:=preload("res://Componenents/Empty Data/empty_data.tscn")
 @onready var existing_data:=preload("res://Componenents/Existing Data/existing_data.tscn")
-var data
+const SAVE_GAME_SOARING_SILENCE_1 = preload("res://save_data/save_game_soaring_silence_1.tres")
+
 func _ready() -> void: 
 	for i in range(1,5):
-		if ResourceLoader.exists("res://save_game_soaring_silence_"+str(i)+".res"):
-			data=existing_data.instantiate()
-			
+		if ResourceLoader.exists("res://save_data/save_game_soaring_silence_"+str(i)+".tres"):
+			var data : ExistingData = existing_data.instantiate()
+			data.current_save=ResourceLoader.load("res://save_data/save_game_soaring_silence_"+str(i)+".tres")
+			data.save_Id=i
+			print("res://save_game_soaring_silence_"+str(i)+".res")
+			save_slots_row.add_child(data)
 		else : 
-			data=empty_data.instantiate()
-		save_slots_row.add_child(data)
+			var data:EmptyData=empty_data.instantiate()
+			data.save_id=i
+			save_slots_row.add_child(data)

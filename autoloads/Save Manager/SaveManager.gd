@@ -1,6 +1,6 @@
 extends Node
 
-var SAVE_PATH:="user://save_game_soaring_silence_1.res"
+var SAVE_PATH:=""
 var current_save:GameSaveData=GameSaveData.new()
 
 func save_game(player_node:player_character)->void:

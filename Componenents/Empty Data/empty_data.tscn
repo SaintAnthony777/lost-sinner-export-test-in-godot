@@ -52,3 +52,5 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_1nreg")
 text = "Create a new save Game"
 script = ExtResource("2_gkvk1")
 metadata/_custom_type_script = "uid://djps7agvr2m3n"
+
+[connection signal="pressed" from="Save Slot 2/HBoxContainer/menu_button" to="." method="_on_menu_button_pressed"]

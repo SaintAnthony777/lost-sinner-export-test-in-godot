@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://cgvga6qg326mi"]
 
 [ext_resource type="Script" uid="uid://cpt6fnr5jddjs" path="res://Componenents/Existing Data/existing_data.gd" id="1_gcmqq"]
-[ext_resource type="Texture2D" uid="uid://6kp5srdfbad2" path="res://Componenents/Save Point/Snaps for save points/Staircase.png" id="1_xxpfn"]
+[ext_resource type="Texture2D" uid="uid://6kp5srdfbad2" path="res://Componenents/Save Point/Snaps for save points/staircases.png" id="1_xxpfn"]
 [ext_resource type="FontFile" uid="uid://d0ug5noy0uhhl" path="res://Fonts/Cinzel,EB_Garamond/EB_Garamond/static/EBGaramond-Regular.ttf" id="2_gcmqq"]
 [ext_resource type="Script" uid="uid://djps7agvr2m3n" path="res://Componenents/Menu buttons/menu_button.gd" id="3_nutbm"]
 
@@ -142,3 +142,5 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_gcmqq")
 text = "No"
 script = ExtResource("3_nutbm")
 metadata/_custom_type_script = "uid://djps7agvr2m3n"
+
+[connection signal="pressed" from="Descripiton and screenshot2/Container2/Load or delete/Load" to="." method="_on_load_pressed"]
