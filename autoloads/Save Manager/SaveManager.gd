@@ -2,7 +2,7 @@ extends Node
 
 var SAVE_PATH:=""
 var current_save:GameSaveData=GameSaveData.new()
-
+const FOLDER_PATH:String="user://save_data"
 func save_game(player_node:player_character)->void:
 	player_node.character.health_component.Current_health=player_node.character.health_component.Max_health
 	current_save.current_health = player_node.character.health_component.Current_health
@@ -12,9 +12,10 @@ func save_game(player_node:player_character)->void:
 	current_save.current_scene = get_tree().current_scene.scene_file_path
 	current_save.current_save_place = player_node.save_location
 	current_save.player_inventory = player_node.player_inventory
+	if not DirAccess.dir_exists_absolute(FOLDER_PATH):
+		DirAccess.make_dir_absolute(FOLDER_PATH)
 	var error = ResourceSaver.save(current_save,SAVE_PATH)
 	if error == OK:
-		print(current_save.player_inventory.Inventory_list)
 		print("sauvegarde effectuée")
 	else : 
 		print("sauvegarde echouée")
@@ -22,7 +23,6 @@ func save_game(player_node:player_character)->void:
 func load_game() -> void:
 	if not ResourceLoader.exists(SAVE_PATH):
 		print('sauvegarde introuvable')
-		return
 	current_save = ResourceLoader.load(SAVE_PATH)
 	if current_save : 
 		get_tree().change_scene_to_file(current_save.current_scene)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dovghdrex0xgd"]
+[gd_scene load_steps=9 format=3 uid="uid://dovghdrex0xgd"]
 
 [ext_resource type="Script" uid="uid://cp636073ui1pv" path="res://Componenents/Empty Data/empty_data.gd" id="1_gkvk1"]
 [ext_resource type="FontFile" uid="uid://d0ug5noy0uhhl" path="res://Fonts/Cinzel,EB_Garamond/EB_Garamond/static/EBGaramond-Regular.ttf" id="1_m7yx3"]
@@ -19,6 +19,10 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
+[sub_resource type="LabelSettings" id="LabelSettings_gkvk1"]
+font = ExtResource("1_m7yx3")
+font_size = 35
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j1yrv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_87osp"]
@@ -28,6 +32,10 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_bottom = 2
 
 [node name="EmptyData" type="PanelContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 137.0
+grow_horizontal = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_336n8")
 script = ExtResource("1_gkvk1")
@@ -35,11 +43,16 @@ script = ExtResource("1_gkvk1")
 [node name="Save Slot 2" type="VBoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
-alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Save Slot 2"]
 layout_mode = 2
+size_flags_horizontal = 0
 alignment = 1
+
+[node name="Label" type="Label" parent="Save Slot 2/HBoxContainer"]
+layout_mode = 2
+text = "1."
+label_settings = SubResource("LabelSettings_gkvk1")
 
 [node name="menu_button" type="Button" parent="Save Slot 2/HBoxContainer"]
 layout_mode = 2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cgvga6qg326mi"]
+[gd_scene load_steps=16 format=3 uid="uid://cgvga6qg326mi"]
 
 [ext_resource type="Script" uid="uid://cpt6fnr5jddjs" path="res://Componenents/Existing Data/existing_data.gd" id="1_gcmqq"]
 [ext_resource type="Texture2D" uid="uid://6kp5srdfbad2" path="res://Componenents/Save Point/Snaps for save points/staircases.png" id="1_xxpfn"]
@@ -6,10 +6,10 @@
 [ext_resource type="Script" uid="uid://djps7agvr2m3n" path="res://Componenents/Menu buttons/menu_button.gd" id="3_nutbm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dy0y5"]
-content_margin_left = 45.0
-content_margin_top = 45.0
-content_margin_right = 45.0
-content_margin_bottom = 45.0
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
 bg_color = Color(0.6, 0.6, 0.6, 0.13333334)
 border_width_left = 3
 border_width_top = 3
@@ -36,13 +36,28 @@ border_width_bottom = 2
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_bottom = 2
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gcmqq"]
+bg_color = Color(0.050510757, 0.050510764, 0.050510712, 0.39607844)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
 [sub_resource type="LabelSettings" id="LabelSettings_xxpfn"]
 font = ExtResource("2_gcmqq")
 font_size = 35
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gcmqq"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nutbm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dy0y5"]
+
 [node name="Existing Data" type="PanelContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 346.0
+grow_horizontal = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_dy0y5")
 script = ExtResource("1_gcmqq")
@@ -51,18 +66,13 @@ script = ExtResource("1_gcmqq")
 layout_mode = 2
 alignment = 1
 
-[node name="Container" type="MarginContainer" parent="Descripiton and screenshot2"]
+[node name="Snaps for save" type="TextureRect" parent="Descripiton and screenshot2"]
+custom_minimum_size = Vector2(512, 128)
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 35
-
-[node name="Snaps for save" type="TextureRect" parent="Descripiton and screenshot2/Container"]
-layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 2
 texture = ExtResource("1_xxpfn")
-expand_mode = 3
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Container2" type="VBoxContainer" parent="Descripiton and screenshot2"]
 layout_mode = 2
@@ -107,40 +117,62 @@ text = "Delete"
 script = ExtResource("3_nutbm")
 metadata/_custom_type_script = "uid://djps7agvr2m3n"
 
-[node name="Confirm delete" type="VBoxContainer" parent="Descripiton and screenshot2/Container2"]
+[node name="Confirm delete panel" type="PanelContainer" parent="."]
 visible = false
 layout_mode = 2
-size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_gcmqq")
 
-[node name="Label" type="Label" parent="Descripiton and screenshot2/Container2/Confirm delete"]
+[node name="Confirm delete" type="VBoxContainer" parent="Confirm delete panel"]
+z_index = 45
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 6
+theme_override_constants/separation = 45
+
+[node name="Label" type="Label" parent="Confirm delete panel/Confirm delete"]
+z_index = 45
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
 text = "Delete this save ?"
 label_settings = SubResource("LabelSettings_xxpfn")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Descripiton and screenshot2/Container2/Confirm delete"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Confirm delete panel/Confirm delete"]
+z_index = 45
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/separation = 35
 alignment = 1
 
-[node name="Confirm" type="Button" parent="Descripiton and screenshot2/Container2/Confirm delete/HBoxContainer"]
+[node name="Confirm" type="Button" parent="Confirm delete panel/Confirm delete/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_gcmqq")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxEmpty_gcmqq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nutbm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ug2fr")
+theme_override_styles/focus = SubResource("StyleBoxFlat_p0lp2")
 text = "Yes"
 script = ExtResource("3_nutbm")
 metadata/_custom_type_script = "uid://djps7agvr2m3n"
 
-[node name="revoke" type="Button" parent="Descripiton and screenshot2/Container2/Confirm delete/HBoxContainer"]
+[node name="revoke" type="Button" parent="Confirm delete panel/Confirm delete/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_gcmqq")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxEmpty_gcmqq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dy0y5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ug2fr")
+theme_override_styles/focus = SubResource("StyleBoxFlat_p0lp2")
 text = "No"
 script = ExtResource("3_nutbm")
 metadata/_custom_type_script = "uid://djps7agvr2m3n"
 
 [connection signal="pressed" from="Descripiton and screenshot2/Container2/Load or delete/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="Descripiton and screenshot2/Container2/Load or delete/Delete" to="." method="_on_delete_pressed"]
+[connection signal="pressed" from="Confirm delete panel/Confirm delete/HBoxContainer/Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="Confirm delete panel/Confirm delete/HBoxContainer/revoke" to="." method="_on_revoke_pressed"]
