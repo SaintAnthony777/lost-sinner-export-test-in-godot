@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dd5ructcpr0n4"]
+[gd_scene load_steps=27 format=3 uid="uid://dd5ructcpr0n4"]
 
 [ext_resource type="Script" uid="uid://4vlywipfnjm5" path="res://Componenents/MainScreenUI/main_screen_ui.gd" id="1_0jlm1"]
 [ext_resource type="FontFile" uid="uid://b1bcl47vqg1rp" path="res://Fonts/Cinzel,EB_Garamond/Cinzel/static/Cinzel-Regular.ttf" id="1_1mf0q"]
@@ -72,6 +72,22 @@ border_width_bottom = 2
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_bottom = 2
 
+[sub_resource type="LabelSettings" id="LabelSettings_ygjyg"]
+font = ExtResource("2_c1quh")
+font_size = 75
+
+[sub_resource type="LabelSettings" id="LabelSettings_f7xns"]
+font = ExtResource("2_c1quh")
+font_size = 35
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_an3fb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ygjyg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f7xns"]
+bg_color = Color(0.09019608, 0.09019608, 0.09019608, 0)
+border_width_bottom = 3
+
 [node name="MainScreenUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -104,7 +120,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_bottom = 45
 
 [node name="Main buttons" type="VBoxContainer" parent="MarginContainer"]
 visible = false
@@ -226,12 +241,15 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 45
 alignment = 1
 
-[node name="BackButtons" type="HBoxContainer" parent="MarginContainer/Save slots and descriptions"]
+[node name="BackButtons" type="MarginContainer" parent="MarginContainer/Save slots and descriptions"]
 layout_mode = 2
-alignment = 1
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 45
 
 [node name="Back" type="Button" parent="MarginContainer/Save slots and descriptions/BackButtons"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("2_c1quh")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxEmpty_gib2m")
@@ -241,3 +259,75 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_muwak")
 text = "Back"
 script = ExtResource("4_ygjyg")
 metadata/_custom_type_script = "uid://djps7agvr2m3n"
+
+[node name="Options" type="MarginContainer" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Options"]
+layout_mode = 2
+theme_override_constants/separation = 75
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Options/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Title" type="Label" parent="MarginContainer/Options/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Options"
+label_settings = SubResource("LabelSettings_ygjyg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Options" type="VBoxContainer" parent="MarginContainer/Options/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 45
+
+[node name="Brightness" type="VBoxContainer" parent="MarginContainer/Options/VBoxContainer/Options"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="MarginContainer/Options/VBoxContainer/Options/Brightness"]
+layout_mode = 2
+text = "Brightness"
+label_settings = SubResource("LabelSettings_f7xns")
+
+[node name="brightness_slider" type="HSlider" parent="MarginContainer/Options/VBoxContainer/Options/Brightness"]
+custom_minimum_size = Vector2(512, 15)
+layout_mode = 2
+ticks_on_borders = true
+
+[node name="Main Volume" type="VBoxContainer" parent="MarginContainer/Options/VBoxContainer/Options"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="MarginContainer/Options/VBoxContainer/Options/Main Volume"]
+layout_mode = 2
+text = "Main Volume"
+label_settings = SubResource("LabelSettings_f7xns")
+
+[node name="Volume Slider" type="HSlider" parent="MarginContainer/Options/VBoxContainer/Options/Main Volume"]
+custom_minimum_size = Vector2(512, 15)
+layout_mode = 2
+
+[node name="back from options" type="Button" parent="MarginContainer/Options/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_c1quh")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_an3fb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ygjyg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f7xns")
+theme_override_styles/focus = SubResource("StyleBoxFlat_f7xns")
+text = "Back"
+script = ExtResource("4_ygjyg")
+metadata/_custom_type_script = "uid://djps7agvr2m3n"
+
+[connection signal="pressed" from="MarginContainer/Main buttons/Buttons container/Start Game" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="MarginContainer/Main buttons/Buttons container/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/Save slots and descriptions/BackButtons/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MarginContainer/Options/VBoxContainer/back from options" to="." method="_on_back_from_options_pressed"]
