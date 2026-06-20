@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dd5ructcpr0n4"]
+[gd_scene load_steps=26 format=3 uid="uid://dd5ructcpr0n4"]
 
 [ext_resource type="Script" uid="uid://4vlywipfnjm5" path="res://Componenents/MainScreenUI/main_screen_ui.gd" id="1_0jlm1"]
 [ext_resource type="FontFile" uid="uid://b1bcl47vqg1rp" path="res://Fonts/Cinzel,EB_Garamond/Cinzel/static/Cinzel-Regular.ttf" id="1_1mf0q"]
@@ -36,21 +36,7 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gib2m"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 2
-border_width_right = 2
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ax2sd"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 2
-border_width_right = 2
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
+border_width_bottom = 3
 
 [sub_resource type="LabelSettings" id="LabelSettings_njqjx"]
 font = ExtResource("3_yhmxc")
@@ -122,7 +108,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Main buttons" type="VBoxContainer" parent="MarginContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -156,54 +141,61 @@ alignment = 1
 
 [node name="Start Game" type="Button" parent="MarginContainer/Main buttons/Buttons container"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("2_c1quh")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxEmpty_f7xns")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_3lt6h")
 theme_override_styles/hover = SubResource("StyleBoxFlat_gib2m")
-theme_override_styles/focus = SubResource("StyleBoxFlat_ax2sd")
+theme_override_styles/focus = SubResource("StyleBoxFlat_gib2m")
 text = "Play"
 script = ExtResource("4_ygjyg")
 metadata/_custom_type_script = "uid://djps7agvr2m3n"
 
 [node name="Options" type="Button" parent="MarginContainer/Main buttons/Buttons container"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("2_c1quh")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxEmpty_f7xns")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_3lt6h")
 theme_override_styles/hover = SubResource("StyleBoxFlat_gib2m")
-theme_override_styles/focus = SubResource("StyleBoxFlat_ax2sd")
+theme_override_styles/focus = SubResource("StyleBoxFlat_gib2m")
 text = "Options"
 script = ExtResource("4_ygjyg")
 metadata/_custom_type_script = "uid://djps7agvr2m3n"
 
 [node name="Credits" type="Button" parent="MarginContainer/Main buttons/Buttons container"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("2_c1quh")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxEmpty_f7xns")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_3lt6h")
 theme_override_styles/hover = SubResource("StyleBoxFlat_gib2m")
-theme_override_styles/focus = SubResource("StyleBoxFlat_ax2sd")
+theme_override_styles/focus = SubResource("StyleBoxFlat_gib2m")
 text = "Credits"
 script = ExtResource("4_ygjyg")
 metadata/_custom_type_script = "uid://djps7agvr2m3n"
 
 [node name="Quit To desktop" type="Button" parent="MarginContainer/Main buttons/Buttons container"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("2_c1quh")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxEmpty_f7xns")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_3lt6h")
 theme_override_styles/hover = SubResource("StyleBoxFlat_gib2m")
-theme_override_styles/focus = SubResource("StyleBoxFlat_ax2sd")
+theme_override_styles/focus = SubResource("StyleBoxFlat_gib2m")
 text = "Quit To Desktop"
 script = ExtResource("4_ygjyg")
 metadata/_custom_type_script = "uid://djps7agvr2m3n"
 
 [node name="Copyrights Margin Container" type="MarginContainer" parent="MarginContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -216,6 +208,7 @@ text = "Project Soaring Silence by RADAHY Anthony all rights reserved
 label_settings = SubResource("LabelSettings_njqjx")
 
 [node name="Save slots and descriptions" type="VBoxContainer" parent="MarginContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 125
 alignment = 1

@@ -13,7 +13,7 @@ class_name ExistingData extends PanelContainer
 
 func _ready() -> void:
 	if current_save:
-		saveplace.text=current_save.current_save_place
+		saveplace.text=str(save_Id)+". "+current_save.current_save_place
 		snaps_for_save.texture=load("res://Componenents/Save Point/Snaps for save points/"+current_save.current_save_place+".png")
 	
 

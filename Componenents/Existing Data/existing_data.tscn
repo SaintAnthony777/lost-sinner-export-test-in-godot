@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://djps7agvr2m3n" path="res://Componenents/Menu buttons/menu_button.gd" id="3_nutbm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dy0y5"]
-content_margin_left = 15.0
+content_margin_left = 45.0
 content_margin_top = 15.0
 content_margin_right = 15.0
 content_margin_bottom = 15.0
@@ -66,17 +66,9 @@ script = ExtResource("1_gcmqq")
 layout_mode = 2
 alignment = 1
 
-[node name="Snaps for save" type="TextureRect" parent="Descripiton and screenshot2"]
-custom_minimum_size = Vector2(512, 128)
-layout_mode = 2
-size_flags_horizontal = 2
-texture = ExtResource("1_xxpfn")
-expand_mode = 1
-stretch_mode = 5
-
 [node name="Container2" type="VBoxContainer" parent="Descripiton and screenshot2"]
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 2
 theme_override_constants/separation = 35
 alignment = 1
 
@@ -116,6 +108,14 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_p0lp2")
 text = "Delete"
 script = ExtResource("3_nutbm")
 metadata/_custom_type_script = "uid://djps7agvr2m3n"
+
+[node name="Snaps for save" type="TextureRect" parent="Descripiton and screenshot2"]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 2
+size_flags_horizontal = 10
+texture = ExtResource("1_xxpfn")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Confirm delete panel" type="PanelContainer" parent="."]
 visible = false
