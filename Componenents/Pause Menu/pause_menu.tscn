@@ -140,7 +140,7 @@ size_flags_vertical = 3
 theme_override_constants/separation = 45
 alignment = 1
 
-[node name="Yes" type="Button" parent="Confirm_quit_desktop/HBoxContainer"]
+[node name="Yes desktop" type="Button" parent="Confirm_quit_desktop/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_ypo1s")
@@ -150,7 +150,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_e5y72")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5xbqh")
 text = "Yes"
 
-[node name="No" type="Button" parent="Confirm_quit_desktop/HBoxContainer"]
+[node name="No desktop" type="Button" parent="Confirm_quit_desktop/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_ypo1s")
@@ -194,7 +194,7 @@ size_flags_vertical = 3
 theme_override_constants/separation = 45
 alignment = 1
 
-[node name="Yes" type="Button" parent="Confirm_quit_to_main_menu/HBoxContainer"]
+[node name="Yes main menu" type="Button" parent="Confirm_quit_to_main_menu/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_ypo1s")
@@ -204,7 +204,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_e5y72")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5xbqh")
 text = "Yes"
 
-[node name="No" type="Button" parent="Confirm_quit_to_main_menu/HBoxContainer"]
+[node name="No main menu" type="Button" parent="Confirm_quit_to_main_menu/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_ypo1s")
@@ -215,3 +215,9 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5xbqh")
 text = "No"
 
 [connection signal="pressed" from="Buttons container/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Buttons container/VBoxContainer/Quit to main menu" to="." method="_on_quit_to_main_menu_pressed"]
+[connection signal="pressed" from="Buttons container/VBoxContainer/Quit to desktop" to="." method="_on_quit_to_desktop_pressed"]
+[connection signal="pressed" from="Confirm_quit_desktop/HBoxContainer/Yes desktop" to="." method="_on_yes_desktop_pressed"]
+[connection signal="pressed" from="Confirm_quit_desktop/HBoxContainer/No desktop" to="." method="_on_no_desktop_pressed"]
+[connection signal="pressed" from="Confirm_quit_to_main_menu/HBoxContainer/Yes main menu" to="." method="_on_yes_main_menu_pressed"]
+[connection signal="pressed" from="Confirm_quit_to_main_menu/HBoxContainer/No main menu" to="." method="_on_no_main_menu_pressed"]
