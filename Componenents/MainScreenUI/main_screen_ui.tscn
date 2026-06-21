@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dd5ructcpr0n4"]
+[gd_scene load_steps=30 format=3 uid="uid://dd5ructcpr0n4"]
 
 [ext_resource type="Script" uid="uid://4vlywipfnjm5" path="res://Componenents/MainScreenUI/main_screen_ui.gd" id="1_0jlm1"]
 [ext_resource type="FontFile" uid="uid://b1bcl47vqg1rp" path="res://Fonts/Cinzel,EB_Garamond/Cinzel/static/Cinzel-Regular.ttf" id="1_1mf0q"]
@@ -72,6 +72,18 @@ font_size = 35
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f7xns"]
 bg_color = Color(0.09019608, 0.09019608, 0.09019608, 0)
+border_width_bottom = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_3lt6h"]
+font = ExtResource("2_c1quh")
+font_size = 45
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gi8h3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_muwak"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0p7gi"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_bottom = 3
 
 [node name="MainScreenUI" type="Control"]
@@ -320,7 +332,55 @@ text = "Back"
 script = ExtResource("4_ygjyg")
 metadata/_custom_type_script = "uid://djps7agvr2m3n"
 
+[node name="Confirm_quit_desktop" type="VBoxContainer" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 45
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Confirm_quit_desktop"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/Confirm_quit_desktop/MarginContainer"]
+layout_mode = 2
+text = "Quit to desktop ?"
+label_settings = SubResource("LabelSettings_3lt6h")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Confirm_quit_desktop"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="Yes desktop" type="Button" parent="MarginContainer/Confirm_quit_desktop/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_c1quh")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi8h3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_muwak")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0p7gi")
+theme_override_styles/focus = SubResource("StyleBoxFlat_0p7gi")
+text = "Yes"
+
+[node name="No desktop" type="Button" parent="MarginContainer/Confirm_quit_desktop/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_c1quh")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gi8h3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_muwak")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0p7gi")
+theme_override_styles/focus = SubResource("StyleBoxFlat_0p7gi")
+text = "No"
+
 [connection signal="pressed" from="MarginContainer/Main buttons/Buttons container/Start Game" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="MarginContainer/Main buttons/Buttons container/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/Main buttons/Buttons container/Quit To desktop" to="." method="_on_quit_to_desktop_pressed"]
 [connection signal="pressed" from="MarginContainer/Save slots and descriptions/BackButtons/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="MarginContainer/Options/VBoxContainer/back from options" to="." method="_on_back_from_options_pressed"]
+[connection signal="pressed" from="MarginContainer/Confirm_quit_desktop/HBoxContainer/Yes desktop" to="." method="_on_yes_desktop_pressed"]
+[connection signal="pressed" from="MarginContainer/Confirm_quit_desktop/HBoxContainer/No desktop" to="." method="_on_no_desktop_pressed"]

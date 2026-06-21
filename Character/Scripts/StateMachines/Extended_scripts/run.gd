@@ -16,7 +16,10 @@ func physics_update(_delta) -> void:
 
 func state_logic(delta)->void:
 	if character.pick_back_hammer:state_machine.change_state("hammer_take_back")
-	if !player.current_target:character.hide_equipped_weapon()
+	if !player.current_target:
+		if character.can_throw_hammer:
+			character.hide_equipped_weapon()
+		else : character.unused_weapon_attachment.hide()
 	else : character.show_equipped_weapon()
 	player.SPEED=running_speed
 	player.gravity_applying(delta)

@@ -9,6 +9,7 @@ class_name MainscreenUI extends Control
 @onready var main_buttons: VBoxContainer = $"MarginContainer/Main buttons"
 @onready var save_slots_and_descriptions: VBoxContainer = $"MarginContainer/Save slots and descriptions"
 @onready var options: MarginContainer = $MarginContainer/Options
+@onready var confirm_quit_desktop: VBoxContainer = $MarginContainer/Confirm_quit_desktop
 
 func _ready() -> void:
 	init_slots() 
@@ -43,10 +44,29 @@ func reverse_from_options()->void:
 	options.visible=!options.visible
 	main_buttons.visible=!main_buttons.visible
 	copyrights_margin_container.visible=!copyrights_margin_container.visible
-
+func show_and_hide(show:Control,hide:Control)->void:
+	show.show()
+	hide.hide()
+	copyrights_margin_container.visible=!copyrights_margin_container.visible
 func _on_back_from_options_pressed() -> void:
-	reverse_from_options()
-
-
+	show_and_hide(
+		main_buttons,
+		options
+	)
 func _on_options_pressed() -> void:
-	reverse_from_options()
+	show_and_hide(
+		options,
+		main_buttons
+	)
+func _on_yes_desktop_pressed() -> void:
+	get_tree().quit()
+func _on_no_desktop_pressed() -> void:
+	show_and_hide(
+		main_buttons,
+		confirm_quit_desktop
+	)
+func _on_quit_to_desktop_pressed() -> void:
+	show_and_hide(
+		confirm_quit_desktop,
+		main_buttons
+	)

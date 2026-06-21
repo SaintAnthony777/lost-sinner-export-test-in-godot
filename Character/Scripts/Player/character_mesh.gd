@@ -71,6 +71,7 @@ var interacts:bool=false
 func _ready() -> void:
 	health_component.Moveable_Player=player
 	Shield_Light.hide()
+	
 func _process(delta: float) -> void:
 	if is_blocking : Shield_Light.show()
 	else : Shield_Light.hide()
@@ -82,6 +83,7 @@ func show_equipped_weapon()->void:
 func hide_equipped_weapon()->void:
 	right_hand_weapon_attachment.hide()
 	unused_weapon_attachment.show()
+
 func normal_motion(current_action:String)->void:
 	grounding("Normal")
 	animation_tree.set("parameters/Normal_Transition/transition_request",current_action)
@@ -217,7 +219,8 @@ func stopped_dash_attack()->void:
 	is_making_dash_attack=false
 
 func has_thrown_hammer():
-	hide_equipped_weapon()
+	#hide_equipped_weapon()
+	unused_weapon_attachment.hide()
 	can_throw_hammer=false
 	thrown_hammer=true
 

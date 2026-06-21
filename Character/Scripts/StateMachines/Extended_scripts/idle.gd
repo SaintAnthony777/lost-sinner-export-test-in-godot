@@ -16,7 +16,9 @@ func state_logic(delta)->void:
 	if character.pick_back_hammer :
 		state_machine.change_state("hammer_take_back")
 	if !player.current_target:
-		character.hide_equipped_weapon()
+		if character.can_throw_hammer:
+			character.hide_equipped_weapon()
+		else : character.unused_weapon_attachment.hide()
 		character.normal_motion("Idle_unarmed")
 	else:
 		character.normal_motion("Idle_warned")

@@ -44,5 +44,6 @@ func _on_no_desktop_pressed() -> void:
 
 
 func _on_yes_desktop_pressed() -> void:
+	get_tree().paused=false
 	SaveManager.save_game(playernode)
 	get_tree().quit()

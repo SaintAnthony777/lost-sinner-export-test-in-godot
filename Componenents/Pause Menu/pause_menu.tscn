@@ -96,16 +96,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ypo1s")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vxjle")
 text = "Quit to main menu"
 
-[node name="Quit to desktop" type="Button" parent="Buttons container/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_ypo1s")
-theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ypo1s")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_03cnr")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ypo1s")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_vxjle")
-text = "Quit to desktop"
-
 [node name="Confirm_quit_desktop" type="VBoxContainer" parent="."]
 visible = false
 layout_mode = 1
@@ -216,7 +206,6 @@ text = "No"
 
 [connection signal="pressed" from="Buttons container/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Buttons container/VBoxContainer/Quit to main menu" to="." method="_on_quit_to_main_menu_pressed"]
-[connection signal="pressed" from="Buttons container/VBoxContainer/Quit to desktop" to="." method="_on_quit_to_desktop_pressed"]
 [connection signal="pressed" from="Confirm_quit_desktop/HBoxContainer/Yes desktop" to="." method="_on_yes_desktop_pressed"]
 [connection signal="pressed" from="Confirm_quit_desktop/HBoxContainer/No desktop" to="." method="_on_no_desktop_pressed"]
 [connection signal="pressed" from="Confirm_quit_to_main_menu/HBoxContainer/Yes main menu" to="." method="_on_yes_main_menu_pressed"]

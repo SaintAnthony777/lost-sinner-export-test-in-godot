@@ -5,7 +5,7 @@ extends State
 
 
 func enter() -> void:
-	pass
+	character.unused_weapon_attachment.hide()
 func physics_update(_delta) -> void:
 	state_logic()
 
