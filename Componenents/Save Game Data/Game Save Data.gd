@@ -7,7 +7,7 @@ extends Resource
 @export var max_arcane:float
 @export var player_position:Vector3
 @export var player_rotation_degrees:Vector3
-@export var player_inventory : Inventory
+@export var player_inventory : Inventory = Inventory.new()
 
 ###Scene Status
 @export var current_scene : String

@@ -9,6 +9,7 @@ func enter() -> void:
 func physics_update(_delta) -> void:
 	state_logic(_delta)
 	input_logic()
+	
 func state_logic(delta)->void:
 	camera_offset_no_offense_here=player.global_position.distance_to(player.current_target.global_position)
 	camera_offset_no_offense_here=clamp(camera_offset_no_offense_here,0.0,2.0)
@@ -26,6 +27,7 @@ func state_logic(delta)->void:
 	character.shield_motion("strafe",input_dir)
 	if character.is_taking_damage:
 		state_machine.change_state("blocked_successfully")
+		
 func input_logic()->void:
 	if !Input.is_action_pressed("Blocks"):
 		character.is_blocking=false

@@ -16,7 +16,6 @@ var previous_attack:=0
 func enter() -> void:
 	init_attacks()
 	attack_picker()
-	halfrey.dealt_attack=Attack_array[attack_picked]
 	halfrey_root.aiming_at_player()
 
 func physics_update(_delta) -> void:
@@ -32,6 +31,7 @@ func attack_picker() -> void:
 		attack_picked=randi_range(0,4)
 	halfrey.Boss_motion("Attack",ATTACK_LIST[attack_picked])
 	previous_attack=attack_picked
+	halfrey.dealt_attack=Attack_array[attack_picked]
 func attack_check()->void:
 	await halfrey.animation_tree.animation_finished
 	halfrey.isattacking=false

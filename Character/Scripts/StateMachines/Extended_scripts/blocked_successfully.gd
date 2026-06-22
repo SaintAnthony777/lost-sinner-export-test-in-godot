@@ -3,9 +3,9 @@ extends State
 @onready var character: character_mesh = $"../../The Lost Sinner1"
 @onready var player: player_character = $"../.."
 var camera_offset_no_offense_here:float
-
-func physics_update(_delta) -> void:
+func enter() -> void:
 	blocking_damage_success()
+func physics_update(_delta) -> void:
 	if player.current_target:
 		camera_offset_no_offense_here=player.global_position.distance_to(player.current_target.global_position)
 		camera_offset_no_offense_here=clamp(camera_offset_no_offense_here,0.0,2.0)
@@ -14,6 +14,7 @@ func physics_update(_delta) -> void:
 		player.player_force_rotation()
 		player.camera_and_mesh_rotation()
 		character.shield_motion("Blocking impact",Vector2.ZERO)
+		
 	if !character.is_taking_damage:
 		player.velocity=Vector3.ZERO
 		if !player.is_locking:

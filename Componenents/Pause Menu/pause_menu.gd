@@ -28,7 +28,6 @@ func _on_quit_to_main_menu_pressed() -> void:
 	show_and_hide(buttons_Vbox_container,confirm_quit_to_main_menu)
 func _on_yes_main_menu_pressed() -> void:
 	get_tree().paused=false
-	SaveManager.save_game(playernode)
 	get_tree().change_scene_to_file("res://Componenents/MainScreenUI/main_screen_ui.tscn")
 func show_and_hide(box1:Control,box2:Control):
 	box1.hide()

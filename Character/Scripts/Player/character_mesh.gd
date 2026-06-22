@@ -71,7 +71,7 @@ var interacts:bool=false
 func _ready() -> void:
 	health_component.Moveable_Player=player
 	Shield_Light.hide()
-	
+	iframes_on()
 func _process(delta: float) -> void:
 	if is_blocking : Shield_Light.show()
 	else : Shield_Light.hide()
@@ -260,8 +260,7 @@ func done_interacting()->void:
 	interacts=false
 func can_unleash_divine_divider_now():
 	can_unleash_divine_divider=true
-
-func roll_hurt_box_disable()->void:
-	hurt_box_component.collision_shape.disabled=true
-func roll_hurtbox_enable()->void:
-	hurt_box_component.collision_shape.disabled=false
+func iframes_on()->void:
+	health_component.is_invulnerable=true
+func iframes_off()->void:
+	health_component.is_invulnerable=false

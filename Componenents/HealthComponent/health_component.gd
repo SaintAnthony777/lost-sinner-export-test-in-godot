@@ -1,6 +1,7 @@
 class_name HealthComponent extends Node
 
 @onready var Current_health:float
+@onready var is_invulnerable:bool=false
 var Damage_Factor:float=0.0
 
 var Moveable_Player:player_character
@@ -29,8 +30,15 @@ func _process(_delta: float) -> void:
 		Health_gauge.value=lerp(Health_gauge.value,Current_health,.5)
 	if received_attack:
 		take_a_step(received_attack,_delta)
-		
+
+func Iframes_on()->void:
+	is_invulnerable=true
+func Iframes_off()->void:
+	is_invulnerable=false
+	
 func taking_damage(taken_attack:Attack):
+	if is_invulnerable : return
+	HitStopManager.hit_stop_function(.001,.1)
 	if Moveable_Player:Moveable_Player.character.is_taking_damage=true
 	if Moveable_Body:Moveable_Body.visuals.is_taking_damage=true
 	if Moveable_Player and Moveable_Player.character.is_blocking :
@@ -40,7 +48,6 @@ func taking_damage(taken_attack:Attack):
 		dealt_thrown_time=taken_attack.Stun_time
 		death_check()
 		return
-		
 	if taken_attack.Nature in Vulnerability:
 		Damage_Factor=taken_attack.Base_damage*25/100
 	elif taken_attack.Nature in Resistance:
@@ -51,7 +58,6 @@ func taking_damage(taken_attack:Attack):
 	dealt_thrown_time=taken_attack.Stun_time
 	Current_health-=(taken_attack.Base_damage+Damage_Factor)
 	death_check()
-	
 	if Current_health==0:
 		if Node_to_call_on_death:
 			Node_to_call_on_death.is_alive=false
@@ -59,10 +65,11 @@ func taking_damage(taken_attack:Attack):
 			player_to_call_on_death.is_alive=false
 		if random_node_to_call_on_death:
 			random_node_to_call_on_death.is_alive=false
-	else : HitStopManager.hit_stop_function(.001,.1)
 func death_check()->void:
 	if Current_health<0:Current_health=0
+	
 func take_a_step(taken_attack:Attack,delta:float):
+	if is_invulnerable : return
 	var expulsion_direction:Vector3=Vector3.ZERO
 	if Bearable_power<=taken_attack.Strength:
 		dealt_thrown_time-=(delta+1)

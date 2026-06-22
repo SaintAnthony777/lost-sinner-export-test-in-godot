@@ -315,7 +315,7 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 visible = false
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." groups=["World Environnements"]]
 environment = SubResource("Environment_jxfub")
 
 [node name="Personnage" parent="." instance=ExtResource("2_8w7f1")]

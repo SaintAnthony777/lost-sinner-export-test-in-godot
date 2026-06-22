@@ -15,13 +15,9 @@ func _ready() -> void:
 	if current_save:
 		saveplace.text=str(save_Id)+". "+current_save.current_save_place
 		snaps_for_save.texture=load("res://Componenents/Save Point/Snaps for save points/"+current_save.current_save_place+".png")
-	
-
 func _on_load_pressed() -> void:
 	SaveManager.SAVE_PATH="user://save_data/save_game_soaring_silence_"+str(save_Id)+".res"
 	SaveManager.load_game()
-
-
 func _on_confirm_pressed() -> void: 
 	if DirAccess.open("user://").file_exists("user://save_data/save_game_soaring_silence_"+str(save_Id)+".res"):
 		var error = DirAccess.open("user://").remove("user://save_data/save_game_soaring_silence_"+str(save_Id)+".res")

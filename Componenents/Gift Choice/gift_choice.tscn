@@ -1,0 +1,220 @@
+[gd_scene load_steps=17 format=3 uid="uid://pjffgt2wk3uc"]
+
+[ext_resource type="Script" uid="uid://c6mh8887t7k72" path="res://Componenents/Gift Choice/gift_choice.gd" id="1_08jxx"]
+[ext_resource type="Texture2D" uid="uid://cogtcj7u06w03" path="res://VFXES/Fire/textures/Flare00.PNG" id="1_q2eby"]
+[ext_resource type="FontFile" uid="uid://d0ug5noy0uhhl" path="res://Fonts/Cinzel,EB_Garamond/EB_Garamond/static/EBGaramond-Regular.ttf" id="2_3kp5h"]
+[ext_resource type="Script" uid="uid://djps7agvr2m3n" path="res://Componenents/Menu buttons/menu_button.gd" id="3_08jxx"]
+
+[sub_resource type="Gradient" id="Gradient_ykuyb"]
+colors = PackedColorArray(0, 0, 0, 1, 5.541082, 4.783123, 2.241729, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3kp5h"]
+gradient = SubResource("Gradient_ykuyb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_08jxx"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1000, 694.54, 1)
+gravity = Vector3(0, -500, 0)
+scale_min = 0.099999994
+color_ramp = SubResource("GradientTexture1D_3kp5h")
+turbulence_enabled = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_e3oli"]
+font = ExtResource("2_3kp5h")
+font_size = 75
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pn3nx"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.8901961, 0.4509804, 0.42745098, 0.07450981)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jkuwk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5r8d5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4mspa"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ppq36"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_2y5xo"]
+font = ExtResource("2_3kp5h")
+font_size = 45
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mv868"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.10980392, 0.62352943, 1, 0.12156863)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_61byy"]
+
+[node name="Gift Choice" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_08jxx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(949, 600)
+amount = 50
+texture = ExtResource("1_q2eby")
+lifetime = 20.0
+process_material = SubResource("ParticleProcessMaterial_08jxx")
+
+[node name="Maincontainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Gift Choice" type="VBoxContainer" parent="Maincontainer"]
+layout_mode = 2
+theme_override_constants/separation = 215
+
+[node name="Title" type="MarginContainer" parent="Maincontainer/Gift Choice"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/margin_top = 115
+
+[node name="Label" type="Label" parent="Maincontainer/Gift Choice/Title"]
+layout_mode = 2
+text = "Choose Your Starting Gift"
+label_settings = SubResource("LabelSettings_e3oli")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Maincontainer/Gift Choice"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 45
+
+[node name="Divine divider container" type="PanelContainer" parent="Maincontainer/Gift Choice/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_pn3nx")
+
+[node name="Divine Dividers" type="VBoxContainer" parent="Maincontainer/Gift Choice/HBoxContainer/Divine divider container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Divine Divider Button" type="Button" parent="Maincontainer/Gift Choice/HBoxContainer/Divine divider container/Divine Dividers"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_3kp5h")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jkuwk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5r8d5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4mspa")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ppq36")
+text = "Divine Divider"
+script = ExtResource("3_08jxx")
+metadata/_custom_type_script = "uid://djps7agvr2m3n"
+
+[node name="MarginContainer" type="MarginContainer" parent="Maincontainer/Gift Choice/HBoxContainer/Divine divider container/Divine Dividers"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 45
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 45
+theme_override_constants/margin_bottom = 15
+
+[node name="Label2" type="Label" parent="Maincontainer/Gift Choice/HBoxContainer/Divine divider container/Divine Dividers/MarginContainer"]
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+size_flags_vertical = 6
+text = "Obtain a power that rivaled with the Giants and scream at the same level as them. With this gift comes the power of fire."
+label_settings = SubResource("LabelSettings_2y5xo")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Grace Container" type="PanelContainer" parent="Maincontainer/Gift Choice/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_mv868")
+
+[node name="Heavy Charge Container" type="VBoxContainer" parent="Maincontainer/Gift Choice/HBoxContainer/Grace Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Grace button" type="Button" parent="Maincontainer/Gift Choice/HBoxContainer/Grace Container/Heavy Charge Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_3kp5h")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = SubResource("StyleBoxEmpty_61byy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5r8d5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4mspa")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ppq36")
+text = "Grace"
+script = ExtResource("3_08jxx")
+metadata/_custom_type_script = "uid://djps7agvr2m3n"
+
+[node name="MarginContainer" type="MarginContainer" parent="Maincontainer/Gift Choice/HBoxContainer/Grace Container/Heavy Charge Container"]
+layout_mode = 2
+theme_override_constants/margin_left = 45
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 45
+theme_override_constants/margin_bottom = 15
+
+[node name="Label2" type="Label" parent="Maincontainer/Gift Choice/HBoxContainer/Grace Container/Heavy Charge Container/MarginContainer"]
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Embrace a gift from the gods to cross space at an incredible speed. With this gift comes the power of lightning."
+label_settings = SubResource("LabelSettings_2y5xo")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="Maincontainer/Gift Choice/HBoxContainer/Divine divider container/Divine Dividers/Divine Divider Button" to="." method="_on_divine_divider_button_pressed"]
+[connection signal="pressed" from="Maincontainer/Gift Choice/HBoxContainer/Grace Container/Heavy Charge Container/Grace button" to="." method="_on_grace_button_pressed"]
