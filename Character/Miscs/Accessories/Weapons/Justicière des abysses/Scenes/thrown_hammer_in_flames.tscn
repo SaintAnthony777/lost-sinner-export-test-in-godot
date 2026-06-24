@@ -1,0 +1,77 @@
+[gd_scene load_steps=13 format=3 uid="uid://jb82pd52q04s"]
+
+[ext_resource type="Script" uid="uid://b2pb1uhe2wsdr" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scripts/thrown_hammer.gd" id="1_0aapn"]
+[ext_resource type="PackedScene" uid="uid://coxrnqofsffsf" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scenes/Justicère des abysses.tscn" id="2_2xime"]
+[ext_resource type="Script" uid="uid://dflwyxok3081k" path="res://Componenents/Hitbox and HurtBox/hitbox_component.gd" id="3_8yafu"]
+[ext_resource type="Shader" uid="uid://c3tbdxh0xs1hs" path="res://VFXES/Aura/Weapon Auras/fire aura/shaders/Fieric aura.tres" id="3_k1yuo"]
+[ext_resource type="Texture2D" uid="uid://daakhy7kex2n5" path="res://VFXES/Aura/Weapon Auras/fire aura/textures/Super Perlin/SuperPerlin_03-512x512.png" id="4_7kiig"]
+[ext_resource type="Texture2D" uid="uid://coy5tr3cotur7" path="res://VFXES/Aura/Weapon Auras/fire aura/textures/particles/alpha/spotlight_5.png" id="5_dkd7a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k1yuo"]
+render_priority = 0
+shader = ExtResource("3_k1yuo")
+shader_parameter/Aura_color = Color(2.332, 0.915, 0.479, 1)
+shader_parameter/Speed_ = Vector2(0.3, 0.3)
+shader_parameter/Noise_texture = ExtResource("4_7kiig")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pd208"]
+emission_shape = 3
+emission_box_extents = Vector3(0.2, 0.2, 0.2)
+angle_min = -179.99998
+angle_max = 180.00002
+radial_velocity_min = 0.009977648
+radial_velocity_max = 0.09997764
+gravity = Vector3(0, 0, 0)
+scale_min = 0.39999998
+scale_max = 0.59999996
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lf8q1"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(5.3511176, 0.93318707, 0, 1)
+albedo_texture = ExtResource("5_dkd7a")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_f3frj"]
+material = SubResource("StandardMaterial3D_lf8q1")
+size = Vector2(0.4, 0.4)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_w5j4n"]
+radius = 0.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_r8oqg"]
+
+[node name="Thrown_hammer in flames" type="Node3D"]
+script = ExtResource("1_0aapn")
+
+[node name="Premier modèle" parent="." instance=ExtResource("2_2xime")]
+transform = Transform3D(-0.2, -1.7484556e-08, 7.6427423e-16, 0, -8.742278e-09, -0.20000002, 1.7484556e-08, -0.20000002, 8.742278e-09, 0, 0, 0)
+
+[node name="Cube" parent="Premier modèle" index="0"]
+material_overlay = SubResource("ShaderMaterial_k1yuo")
+
+[node name="Cylinder" parent="Premier modèle" index="1"]
+material_overlay = SubResource("ShaderMaterial_k1yuo")
+
+[node name="spark particles" type="GPUParticles3D" parent="Premier modèle"]
+transform = Transform3D(1, 0, -8.4703295e-22, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+amount = 45
+process_material = SubResource("ParticleProcessMaterial_pd208")
+draw_pass_1 = SubResource("QuadMesh_f3frj")
+
+[node name="Hammer_ray_cast" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03512913, 0)
+shape = SubResource("SphereShape3D_w5j4n")
+target_position = Vector3(0, 0, 0)
+collision_mask = 6
+
+[node name="Hammer_hitbox" type="Area3D" parent="."]
+script = ExtResource("3_8yafu")
+metadata/_custom_type_script = "uid://dflwyxok3081k"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hammer_hitbox"]
+shape = SubResource("SphereShape3D_r8oqg")
+
+[editable path="Premier modèle"]

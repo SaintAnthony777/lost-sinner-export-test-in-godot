@@ -1,0 +1,166 @@
+[gd_scene load_steps=17 format=3 uid="uid://fj6m1muvjuj1"]
+
+[ext_resource type="PackedScene" uid="uid://ko6mkcshgc14" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scenes/thrown_hammer.tscn" id="1_qwlse"]
+[ext_resource type="Texture2D" uid="uid://dxlfu4npl1n6t" path="res://VFXES/Aura/Weapon Auras/fire aura/textures/Marble/Marble_03-512x512.png" id="2_gt751"]
+[ext_resource type="Shader" uid="uid://dnkgskkb2t1ou" path="res://VFXES/Aura/Weapon Auras/Lightning/Shaders/lightning3d.gdshader" id="2_y1d5v"]
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_w6gpy"]
+parameter_name = "Noise_texture"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_po8lm"]
+expanded_output_ports = [0]
+source = 5
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_c7qie"]
+parameter_name = "Aura_color"
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_t6x6l"]
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_led6f"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_4vis6"]
+parameter_name = "Speed_"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_krycb"]
+input_name = "time"
+
+[sub_resource type="VisualShader" id="VisualShader_5jqi4"]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx, unshaded, shadows_disabled;
+
+uniform vec4 Aura_color : source_color;
+uniform vec2 Speed_;
+uniform sampler2D Noise_texture;
+
+
+
+void fragment() {
+// ColorParameter:4
+	vec4 n_out4p0 = Aura_color;
+
+
+// Input:9
+	float n_out9p0 = TIME;
+
+
+// Vector2Parameter:8
+	vec2 n_out8p0 = Speed_;
+
+
+// VectorOp:6
+	vec2 n_out6p0 = vec2(n_out9p0) * n_out8p0;
+
+
+// UVFunc:5
+	vec2 n_in5p1 = vec2(1.00000, 1.00000);
+	vec2 n_out5p0 = n_out6p0 * n_in5p1 + UV;
+
+
+	vec4 n_out3p0;
+// Texture2D:3
+	n_out3p0 = texture(Noise_texture, n_out5p0);
+
+
+// Output:0
+	ALBEDO = vec3(n_out4p0.xyz);
+	ALPHA = n_out3p0.x;
+
+
+}
+"
+flags/unshaded = true
+flags/shadows_disabled = true
+nodes/fragment/0/position = Vector2(680, 120)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture2DParameter_w6gpy")
+nodes/fragment/2/position = Vector2(-260, 400)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_po8lm")
+nodes/fragment/3/position = Vector2(200, 280)
+nodes/fragment/4/node = SubResource("VisualShaderNodeColorParameter_c7qie")
+nodes/fragment/4/position = Vector2(60, -200)
+nodes/fragment/5/node = SubResource("VisualShaderNodeUVFunc_t6x6l")
+nodes/fragment/5/position = Vector2(-220, 80)
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_led6f")
+nodes/fragment/6/position = Vector2(-540, 220)
+nodes/fragment/8/node = SubResource("VisualShaderNodeVec2Parameter_4vis6")
+nodes/fragment/8/position = Vector2(-900, 380)
+nodes/fragment/9/node = SubResource("VisualShaderNodeInput_krycb")
+nodes/fragment/9/position = Vector2(-900, 140)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 2, 3, 0, 0, 1, 5, 0, 3, 0, 4, 0, 0, 0, 8, 0, 6, 1, 9, 0, 6, 0, 6, 0, 5, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_as8yw"]
+render_priority = 0
+shader = SubResource("VisualShader_5jqi4")
+shader_parameter/Aura_color = Color(0.90876096, 2.2901063, 3.8532078, 1)
+shader_parameter/Speed_ = Vector2(-0.5, -0.3)
+shader_parameter/Noise_texture = ExtResource("2_gt751")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8iyi4"]
+render_priority = 0
+shader = SubResource("VisualShader_5jqi4")
+shader_parameter/Aura_color = Color(0.90876096, 2.2901063, 3.8532078, 1)
+shader_parameter/Speed_ = Vector2(-0.5, -0.3)
+shader_parameter/Noise_texture = ExtResource("2_gt751")
+
+[sub_resource type="SphereMesh" id="SphereMesh_gt751"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7q23v"]
+render_priority = 0
+shader = ExtResource("2_y1d5v")
+shader_parameter/Main_Color = Color(1, 1, 1, 1)
+shader_parameter/Effect_Color = Color(0.3019608, 0.7647059, 1, 1)
+shader_parameter/Octave_Count = 10
+shader_parameter/Amp_Start = 0.5
+shader_parameter/Amp_Coeff = 0.5
+shader_parameter/Freq_Coeff = 2.0
+shader_parameter/Speed = 1.0
+shader_parameter/Y_Size = 4.0
+shader_parameter/X_Size = 1.0
+shader_parameter/Emission_Power = 15.0
+shader_parameter/uv1_scale = Vector3(1, 0.3, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(0.785, 0.46, 1.52)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ymlmt"]
+render_priority = 0
+shader = ExtResource("2_y1d5v")
+shader_parameter/Main_Color = Color(1, 1, 1, 1)
+shader_parameter/Effect_Color = Color(0.3019608, 0.7647059, 1, 1)
+shader_parameter/Octave_Count = 10
+shader_parameter/Amp_Start = 1.0
+shader_parameter/Amp_Coeff = 0.5
+shader_parameter/Freq_Coeff = 2.0
+shader_parameter/Speed = 0.3
+shader_parameter/Y_Size = 4.0
+shader_parameter/X_Size = 1.0
+shader_parameter/Emission_Power = 15.0
+shader_parameter/uv1_scale = Vector3(1, 0.3, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(0.785, 0.46, 1.52)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+
+[node name="Thrown_hammer thunders" instance=ExtResource("1_qwlse")]
+
+[node name="Cube" parent="Premier modèle" index="0"]
+material_overlay = SubResource("ShaderMaterial_as8yw")
+
+[node name="Cylinder" parent="Premier modèle" index="1"]
+material_overlay = SubResource("ShaderMaterial_as8yw")
+
+[node name="Cylinder_001" parent="Premier modèle" index="2"]
+material_overlay = SubResource("ShaderMaterial_8iyi4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.062075675, 0)
+mesh = SubResource("SphereMesh_gt751")
+surface_material_override/0 = SubResource("ShaderMaterial_7q23v")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.062075675, 0)
+mesh = SubResource("SphereMesh_gt751")
+surface_material_override/0 = SubResource("ShaderMaterial_ymlmt")
+
+[editable path="Premier modèle"]

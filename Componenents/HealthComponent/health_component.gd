@@ -37,8 +37,7 @@ func Iframes_off()->void:
 	is_invulnerable=false
 	
 func taking_damage(taken_attack:Attack):
-	if is_invulnerable : return
-	HitStopManager.hit_stop_function(.001,.1)
+	if is_invulnerable : HitStopManager.hit_stop_function(.01,.1) ; return
 	if Moveable_Player:Moveable_Player.character.is_taking_damage=true
 	if Moveable_Body:Moveable_Body.visuals.is_taking_damage=true
 	if Moveable_Player and Moveable_Player.character.is_blocking :
@@ -65,6 +64,7 @@ func taking_damage(taken_attack:Attack):
 			player_to_call_on_death.is_alive=false
 		if random_node_to_call_on_death:
 			random_node_to_call_on_death.is_alive=false
+	else : 	HitStopManager.hit_stop_function(.01,.1)
 func death_check()->void:
 	if Current_health<0:Current_health=0
 	

@@ -8,7 +8,6 @@ func breaker_baby()->void:
 	for bodies:RigidBody3D in self.get_children():
 		#print(Thrower_position)
 		bodies.apply_impulse(destruction_dir.normalized(),bodies.get_child(0).global_position)
-	Engine.time_scale=1.0
 	HitStopManager.hit_stop_function(.1,.5)
 	await get_tree().create_timer(3.0).timeout
 	queue_free()

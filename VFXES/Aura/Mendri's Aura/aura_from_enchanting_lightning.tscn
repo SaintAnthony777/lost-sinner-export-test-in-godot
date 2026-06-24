@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://b5rpmsm27y6lp"]
+
+[ext_resource type="ArrayMesh" uid="uid://bbkoyh43k6mhk" path="res://VFXES/Aura/Mendri's Aura/Mesh/new cylinder.res" id="1_g6wxm"]
+[ext_resource type="Shader" uid="uid://uydo5f07tyu4" path="res://VFXES/Aura/Mendri's Aura/Shaders/aura_from_enchanting fire.tres" id="2_oosml"]
+[ext_resource type="Texture2D" uid="uid://q48sf0acqqg6" path="res://VFXES/Aura/Weapon Auras/fire aura/textures/Super Noise/SuperNoise_01-512x512.png" id="3_oosml"]
+
+[sub_resource type="Gradient" id="Gradient_oosml"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m5khj"]
+gradient = SubResource("Gradient_oosml")
+fill_from = Vector2(1, 1)
+fill_to = Vector2(1, 0.17948718)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kuqw8"]
+render_priority = 0
+shader = ExtResource("2_oosml")
+shader_parameter/Maincolor = Color(1.7770017, 4.1519117, 5.3594933, 1)
+shader_parameter/Speed = Vector2(0, 1)
+shader_parameter/Scale = Vector2(1, 0.2)
+shader_parameter/Noise_texture = ExtResource("3_oosml")
+shader_parameter/Dissolve_sampler = SubResource("GradientTexture2D_m5khj")
+
+[node name="Aura from Enchanting Lightning" type="Node3D"]
+
+[node name="NewCylinder" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_g6wxm")
+surface_material_override/0 = SubResource("ShaderMaterial_kuqw8")

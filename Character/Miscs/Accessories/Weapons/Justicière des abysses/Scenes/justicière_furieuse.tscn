@@ -1,0 +1,118 @@
+[gd_scene load_steps=21 format=3 uid="uid://yo3pdwrica36"]
+
+[ext_resource type="PackedScene" uid="uid://cwa8i2r6jicln" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scenes/justicière_enflammée.tscn" id="1_euvud"]
+[ext_resource type="Shader" uid="uid://c3tbdxh0xs1hs" path="res://VFXES/Aura/Weapon Auras/fire aura/shaders/Fieric aura.tres" id="2_v4b7f"]
+[ext_resource type="Texture2D" uid="uid://daakhy7kex2n5" path="res://VFXES/Aura/Weapon Auras/fire aura/textures/Super Perlin/SuperPerlin_03-512x512.png" id="3_a7u25"]
+[ext_resource type="Texture2D" uid="uid://coy5tr3cotur7" path="res://VFXES/Aura/Weapon Auras/fire aura/textures/particles/alpha/spotlight_5.png" id="4_a7u25"]
+[ext_resource type="Shader" uid="uid://56e3yuv4tx3k" path="res://addons/GPUTrail-main/shaders/trail.gdshader" id="5_hypr3"]
+[ext_resource type="Shader" uid="uid://bt33wee7shjtw" path="res://addons/GPUTrail-main/shaders/trail_draw_pass.gdshader" id="6_x1dme"]
+[ext_resource type="Script" uid="uid://qvvnasd4s6yy" path="res://addons/GPUTrail-main/GPUTrail3D.gd" id="7_le3lt"]
+[ext_resource type="Texture2D" uid="uid://145cp67ihk52" path="res://VFXES/Fire/textures/Voronoi01.png" id="7_x1dme"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e3bjf"]
+render_priority = 0
+shader = ExtResource("2_v4b7f")
+shader_parameter/Aura_color = Color(2.332, 0.915, 0.479, 1)
+shader_parameter/Speed_ = Vector2(0.3, 0.3)
+shader_parameter/Noise_texture = ExtResource("3_a7u25")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6pll3"]
+render_priority = 0
+shader = ExtResource("2_v4b7f")
+shader_parameter/Aura_color = Color(2.3319721, 0.9152097, 0.47928286, 1)
+shader_parameter/Speed_ = Vector2(1, 0.2)
+shader_parameter/Noise_texture = ExtResource("3_a7u25")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e3bjf"]
+emission_shape = 3
+emission_box_extents = Vector3(0.2, 0.2, 0.2)
+angle_min = -179.99998
+angle_max = 180.00002
+radial_velocity_min = 0.009977648
+radial_velocity_max = 0.09997764
+gravity = Vector3(0, 0, 0)
+scale_min = 0.39999998
+scale_max = 0.59999996
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x1dme"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(5.3511176, 0.93318707, 0, 1)
+albedo_texture = ExtResource("4_a7u25")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_6pll3"]
+material = SubResource("StandardMaterial3D_x1dme")
+size = Vector2(0.4, 0.4)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dohj5"]
+shader = ExtResource("5_hypr3")
+
+[sub_resource type="Gradient" id="Gradient_le3lt"]
+colors = PackedColorArray(5.35168, 0.5685191, 0, 1, 5.35168, 0.5685191, 0, 0.44313726)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_s2t1i"]
+gradient = SubResource("Gradient_le3lt")
+
+[sub_resource type="Curve" id="Curve_dohj5"]
+bake_resolution = 16
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2s2l6"]
+curve = SubResource("Curve_dohj5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rhnmn"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("6_x1dme")
+shader_parameter/tex = ExtResource("7_x1dme")
+shader_parameter/mask_strength = 1.0
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/color_ramp = SubResource("GradientTexture1D_s2t1i")
+shader_parameter/curve = SubResource("CurveTexture_2s2l6")
+shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/flags = 42
+
+[sub_resource type="QuadMesh" id="QuadMesh_7fnsx"]
+material = SubResource("ShaderMaterial_rhnmn")
+
+[node name="Justicière Furieuse" instance=ExtResource("1_euvud")]
+
+[node name="Cube" parent="." index="0"]
+material_overlay = SubResource("ShaderMaterial_e3bjf")
+
+[node name="Cylinder" parent="." index="1"]
+material_overlay = SubResource("ShaderMaterial_6pll3")
+
+[node name="spark particles" type="GPUParticles3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+amount = 45
+lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_e3bjf")
+draw_pass_1 = SubResource("QuadMesh_6pll3")
+
+[node name="GPUTrail3D" type="GPUParticles3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.33817884, 0)
+visible = false
+amount = 10
+lifetime = 10.0
+explosiveness = 1.0
+fixed_fps = 59
+process_material = SubResource("ShaderMaterial_dohj5")
+draw_pass_1 = SubResource("QuadMesh_7fnsx")
+script = ExtResource("7_le3lt")
+length = 10
+length_seconds = 0.1694915254237288
+texture = ExtResource("7_x1dme")
+color_ramp = SubResource("GradientTexture1D_s2t1i")
+curve = SubResource("CurveTexture_2s2l6")
+use_red_as_alpha = true
+_defaults_have_been_set = true
+metadata/_custom_type_script = "uid://qvvnasd4s6yy"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="5"]
+light_color = Color(2.332, 0.915, 0.479, 1)
+omni_range = 15.0
