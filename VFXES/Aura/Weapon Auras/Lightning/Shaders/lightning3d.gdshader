@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode cull_disabled;
+render_mode cull_disabled, blend_add,unshaded;
 
 uniform vec3 Main_Color : source_color = vec3(1.0);
 uniform vec3 Effect_Color : source_color = vec3(0.3, 0.3, 1.0);
@@ -76,10 +76,11 @@ void fragment()
 	Modified_UV += FBM(Modified_UV + TIME * Speed);
 	Modified_UV.x += 0.5 - Amp_Coeff;
 
-	float Dist = abs(Modified_UV.x);
-
+	float Dist = max(abs(Modified_UV.x),0.01);
+	float intensity=mix(0.01,0.05,Hash12(vec2(TIME)))/Dist;
+	intensity=clamp(intensity,0.0,10.0);
 	vec3 Final_Color = Effect_Color * mix(0.0, 0.05, Hash12(vec2(TIME))) / Dist;
-
+	
 	ALBEDO = Final_Color * Main_Color;
 	EMISSION = ALBEDO * Emission_Power;
 	ALPHA = Final_Color.r;

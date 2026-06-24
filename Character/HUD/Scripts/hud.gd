@@ -29,5 +29,3 @@ func _process(_delta: float) -> void:
 		if player.character.arcane_component.current_arcane>=player.grace_consumption_dict.get(player.current_grace) : grace.modulate=Color.html("21ffff")
 		else : grace.modulate = Color.html("023636")
 		grace.texture=load("res://Character/HUD/assets/Icones equipement/Graces/"+player.current_grace+".PNG")
-	
-	

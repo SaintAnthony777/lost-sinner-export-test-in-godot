@@ -2596,9 +2596,10 @@ light_color = Color(0.95235425, 0.67100966, 0.49743503, 1)
 light_bake_mode = 1
 shadow_enabled = true
 
-[node name="Personnage" parent="." instance=ExtResource("2_f3rgr")]
+[node name="Personnage" parent="." node_paths=PackedStringArray("current_level_played") instance=ExtResource("2_f3rgr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 0)
 collision_mask = 166
+current_level_played = NodePath("..")
 
 [node name="Lights" type="Node3D" parent="."]
 

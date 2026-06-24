@@ -105,9 +105,9 @@ offset_right = 437.0
 offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 3
+theme_override_constants/margin_left = 45
 theme_override_constants/margin_top = 3
-theme_override_constants/margin_right = 3
+theme_override_constants/margin_right = 45
 theme_override_constants/margin_bottom = 3
 
 [node name="Menus" type="HBoxContainer" parent="MarginContainer3/weapons panel/Wepons margin container"]
@@ -143,6 +143,16 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_cx342")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8xos3")
 theme_override_styles/focus = SubResource("StyleBoxFlat_8xos3")
 text = "Graces"
+
+[node name="gifts" type="Button" parent="MarginContainer3/weapons panel/Wepons margin container/Menus"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("3_b6vic")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cx342")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8xos3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_8xos3")
+text = "Gifts"
 
 [node name="objects" type="Button" parent="MarginContainer3/weapons panel/Wepons margin container/Menus"]
 layout_mode = 2
@@ -231,6 +241,20 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="Item_texture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4953125
+anchor_top = 0.31944445
+anchor_right = 0.9984375
+anchor_bottom = 0.78333336
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("2_8xos3")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
 [node name="Item title panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -260,22 +284,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
 
-[node name="Item_texture" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.4953125
-anchor_top = 0.28703704
-anchor_right = 0.9984375
-anchor_bottom = 0.78333336
-grow_horizontal = 0
-grow_vertical = 2
-texture = ExtResource("2_8xos3")
-expand_mode = 1
-stretch_mode = 5
-metadata/_edit_use_anchors_ = true
-
 [connection signal="pressed" from="MarginContainer3/weapons panel/Wepons margin container/Menus/Weapons" to="." method="_on_weapons_pressed"]
 [connection signal="pressed" from="MarginContainer3/weapons panel/Wepons margin container/Menus/Divine dividers" to="." method="_on_divine_dividers_pressed"]
 [connection signal="pressed" from="MarginContainer3/weapons panel/Wepons margin container/Menus/Graces" to="." method="_on_graces_pressed"]
+[connection signal="pressed" from="MarginContainer3/weapons panel/Wepons margin container/Menus/gifts" to="." method="_on_gifts_pressed"]
 [connection signal="pressed" from="MarginContainer3/weapons panel/Wepons margin container/Menus/objects" to="." method="_on_objects_pressed"]
 [connection signal="pressed" from="MarginContainer3/weapons panel/Wepons margin container/Menus/Keys" to="." method="_on_keys_pressed"]

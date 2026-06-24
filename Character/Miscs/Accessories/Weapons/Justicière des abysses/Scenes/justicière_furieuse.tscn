@@ -115,4 +115,3 @@ metadata/_custom_type_script = "uid://qvvnasd4s6yy"
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="5"]
 light_color = Color(2.332, 0.915, 0.479, 1)
-omni_range = 15.0

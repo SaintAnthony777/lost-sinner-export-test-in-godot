@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dbj7gbyyu1gf4"]
+[gd_scene load_steps=23 format=3 uid="uid://dbj7gbyyu1gf4"]
 
 [ext_resource type="PackedScene" uid="uid://coxrnqofsffsf" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scenes/Justicère des abysses.tscn" id="1_7yxmn"]
 [ext_resource type="Shader" uid="uid://dnkgskkb2t1ou" path="res://VFXES/Aura/Weapon Auras/Lightning/Shaders/lightning3d.gdshader" id="2_32tlr"]
@@ -112,7 +112,7 @@ shader_parameter/Aura_color = Color(0.90876096, 2.2901063, 3.8532078, 1)
 shader_parameter/Speed_ = Vector2(-0.5, -0.3)
 shader_parameter/Noise_texture = ExtResource("2_mih1o")
 
-[sub_resource type="SphereMesh" id="SphereMesh_mih1o"]
+[sub_resource type="SphereMesh" id="SphereMesh_4hkkn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s3a4k"]
 render_priority = 0
@@ -132,22 +132,24 @@ shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/uv2_scale = Vector3(0.785, 0.46, 1.52)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 
+[sub_resource type="SphereMesh" id="SphereMesh_mih1o"]
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4hkkn"]
 render_priority = 0
 shader = ExtResource("2_32tlr")
 shader_parameter/Main_Color = Color(1, 1, 1, 1)
-shader_parameter/Effect_Color = Color(0.3019608, 0.7647059, 1, 1)
-shader_parameter/Octave_Count = 10
-shader_parameter/Amp_Start = 1.0
+shader_parameter/Effect_Color = Color(0.781833, 0.9060262, 1.7034768, 1)
+shader_parameter/Octave_Count = 20
+shader_parameter/Amp_Start = 1.3900000000000001
 shader_parameter/Amp_Coeff = 0.5
 shader_parameter/Freq_Coeff = 2.0
-shader_parameter/Speed = 0.3
+shader_parameter/Speed = 1.0
 shader_parameter/Y_Size = 4.0
 shader_parameter/X_Size = 1.0
-shader_parameter/Emission_Power = 15.0
-shader_parameter/uv1_scale = Vector3(1, 0.3, 1)
+shader_parameter/Emission_Power = 2.0
+shader_parameter/uv1_scale = Vector3(1, 0.3, 0)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)
-shader_parameter/uv2_scale = Vector3(0.785, 0.46, 1.52)
+shader_parameter/uv2_scale = Vector3(0, 0, 0)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 
 [sub_resource type="Animation" id="Animation_4hkkn"]
@@ -225,13 +227,13 @@ material_overlay = SubResource("ShaderMaterial_tvyau")
 material_overlay = SubResource("ShaderMaterial_brcr6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.062075675, 0)
-mesh = SubResource("SphereMesh_mih1o")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9626318, 0)
+visible = false
+mesh = SubResource("SphereMesh_4hkkn")
 surface_material_override/0 = SubResource("ShaderMaterial_s3a4k")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.062075675, 0)
-visible = false
+transform = Transform3D(3.4642265, 0, 0, 0, 3.4642265, 0, 0, 0, 3.4642265, 0, 0.062075675, 0)
 mesh = SubResource("SphereMesh_mih1o")
 surface_material_override/0 = SubResource("ShaderMaterial_4hkkn")
 

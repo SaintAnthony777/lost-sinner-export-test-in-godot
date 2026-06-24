@@ -77,6 +77,9 @@ func _on_objects_pressed() -> void:
 	set_new_array_of_items("object")
 func _on_keys_pressed() -> void:
 	set_new_array_of_items("key")
+func _on_gifts_pressed() -> void:
+	set_new_array_of_items("gift")
+
 func item_desc_clean()->void:
 	item_desc.text=""
 	item_texture.texture=null

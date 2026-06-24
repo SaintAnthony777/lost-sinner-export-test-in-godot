@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://fj6m1muvjuj1"]
+[gd_scene load_steps=16 format=3 uid="uid://fj6m1muvjuj1"]
 
 [ext_resource type="PackedScene" uid="uid://ko6mkcshgc14" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scenes/thrown_hammer.tscn" id="1_qwlse"]
 [ext_resource type="Texture2D" uid="uid://dxlfu4npl1n6t" path="res://VFXES/Aura/Weapon Auras/fire aura/textures/Marble/Marble_03-512x512.png" id="2_gt751"]
@@ -110,39 +110,22 @@ shader_parameter/Noise_texture = ExtResource("2_gt751")
 render_priority = 0
 shader = ExtResource("2_y1d5v")
 shader_parameter/Main_Color = Color(1, 1, 1, 1)
-shader_parameter/Effect_Color = Color(0.3019608, 0.7647059, 1, 1)
-shader_parameter/Octave_Count = 10
-shader_parameter/Amp_Start = 0.5
+shader_parameter/Effect_Color = Color(0.93700606, 2.2229905, 2.8768804, 1)
+shader_parameter/Octave_Count = 20
+shader_parameter/Amp_Start = 1.3900000000000001
 shader_parameter/Amp_Coeff = 0.5
 shader_parameter/Freq_Coeff = 2.0
 shader_parameter/Speed = 1.0
 shader_parameter/Y_Size = 4.0
 shader_parameter/X_Size = 1.0
-shader_parameter/Emission_Power = 15.0
+shader_parameter/Emission_Power = 7.8100000000000005
 shader_parameter/uv1_scale = Vector3(1, 0.3, 1)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)
-shader_parameter/uv2_scale = Vector3(0.785, 0.46, 1.52)
-shader_parameter/uv2_offset = Vector3(0, 0, 0)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ymlmt"]
-render_priority = 0
-shader = ExtResource("2_y1d5v")
-shader_parameter/Main_Color = Color(1, 1, 1, 1)
-shader_parameter/Effect_Color = Color(0.3019608, 0.7647059, 1, 1)
-shader_parameter/Octave_Count = 10
-shader_parameter/Amp_Start = 1.0
-shader_parameter/Amp_Coeff = 0.5
-shader_parameter/Freq_Coeff = 2.0
-shader_parameter/Speed = 0.3
-shader_parameter/Y_Size = 4.0
-shader_parameter/X_Size = 1.0
-shader_parameter/Emission_Power = 15.0
-shader_parameter/uv1_scale = Vector3(1, 0.3, 1)
-shader_parameter/uv1_offset = Vector3(0, 0, 0)
-shader_parameter/uv2_scale = Vector3(0.785, 0.46, 1.52)
+shader_parameter/uv2_scale = Vector3(0, 0, 0)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 
 [node name="Thrown_hammer thunders" instance=ExtResource("1_qwlse")]
+attack_nature = "Lightning"
 
 [node name="Cube" parent="Premier modèle" index="0"]
 material_overlay = SubResource("ShaderMaterial_as8yw")
@@ -153,14 +136,15 @@ material_overlay = SubResource("ShaderMaterial_as8yw")
 [node name="Cylinder_001" parent="Premier modèle" index="2"]
 material_overlay = SubResource("ShaderMaterial_8iyi4")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.062075675, 0)
-mesh = SubResource("SphereMesh_gt751")
-surface_material_override/0 = SubResource("ShaderMaterial_7q23v")
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="3"]
+light_color = Color(0.909, 2.29, 3.853, 1)
+light_energy = 0.1200692
+omni_range = 45.0
+omni_attenuation = 4.5083046
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.062075675, 0)
 mesh = SubResource("SphereMesh_gt751")
-surface_material_override/0 = SubResource("ShaderMaterial_ymlmt")
+surface_material_override/0 = SubResource("ShaderMaterial_7q23v")
 
 [editable path="Premier modèle"]

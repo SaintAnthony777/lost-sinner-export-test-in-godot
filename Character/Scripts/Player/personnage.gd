@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 class_name player_character
+@export var current_level_played:Level
 
 @export_group("camera")
 @export_range(0.0,1.0) var mouse_sensitivity:float=0.025
@@ -17,7 +18,16 @@ class_name player_character
 @onready var hammer_starting_point:Node3D=$"Camera_pivot/Hammer_throw_starter_point"
 @onready var aiming_node:Node3D=$"Camera_pivot/Aiming"
 @onready var state_mach:StateMachine=$"StateMachine"
-
+@onready var divine_dividers_consumption_dict:Dictionary ={
+	"Screaming Silence":45.0,
+	"Sundown":55.0,
+	"World Strongest Man":65.0
+}
+@onready var grace_consumption_dict:Dictionary ={
+	"Heavy Charge":1.0,
+	"Disordonance":35.0,
+	"Disaster":45.0
+}
 ###Camera Vars
 var camera_input_direction := Vector2.ZERO
 var last_movement_direction := Vector3.BACK
@@ -41,19 +51,14 @@ var self_delta=.01
 var divine_divider_list : Array[String] = []
 var grace_list : Array[String] = []
 
+#var for chaos
+var chosen_gift:String=""
+var gifts_unlocked:Array[String]
+
 # var divine_divider_list : Array[String] = ["Sundown","Screaming Silence","World Strongest Man"]
 # var grace_list : Array[String] = ["Disordonance","Heavy Charge","Disaster"]
 
-@onready var divine_dividers_consumption_dict:Dictionary ={
-	"Screaming Silence":45.0,
-	"Sundown":55.0,
-	"World Strongest Man":65.0
-}
-@onready var grace_consumption_dict:Dictionary ={
-	"Heavy Charge":1.0,
-	"Disordonance":35.0,
-	"Disaster":45.0
-}
+
 
 var current_grace_index:=0
 var current_divine_divider_index:=0
@@ -79,6 +84,7 @@ var shield:Inventory_Item=Inventory_Item.new()
 var last_picked_item:Inventory_Item=null
 
 func _ready() -> void:
+	print(chosen_gift)
 	camera.h_offset=.7
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 	character.inv_UI.given_inventory=player_inventory
