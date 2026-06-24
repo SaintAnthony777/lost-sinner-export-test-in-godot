@@ -59,6 +59,8 @@ var interacts:bool=false
 @onready var AOE_hitBox:HitBoxComponent=$"AOE_Hitboxes/HitBoxComponent"
 @onready var AOE_Collision:CollisionShape3D=$"AOE_Hitboxes/HitBoxComponent/CollisionShape3D"
 @onready var health_component: HealthComponent = $"Hud canvas layer/HUD/Health and equip/HealthComponent"
+@onready var gift_component: GiftComponent = $"Hud canvas layer/HUD/Health and equip/GiftComponent"
+
 @onready var dealt_attack:Attack
 @onready var Shield_Light:SpotLight3D=$"Shield Light"
 @onready var inv_UI:inventory_UI=$"Inventory layer/Inventory"

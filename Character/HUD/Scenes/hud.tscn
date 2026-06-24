@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://4y8dawkwukrf"]
+[gd_scene load_steps=13 format=3 uid="uid://4y8dawkwukrf"]
 
 [ext_resource type="Script" uid="uid://cpkqa4muvsuos" path="res://Character/HUD/Scripts/hud.gd" id="1_0t85m"]
 [ext_resource type="Texture2D" uid="uid://busnvhvb8lcsp" path="res://Character/HUD/assets/Icones equipement/Equippement Diamond.png" id="3_0t85m"]
 [ext_resource type="Texture2D" uid="uid://bc6pcnxi0fmev" path="res://Componenents/Hud Assets/Fond biseauté.PNG" id="3_8ydmn"]
 [ext_resource type="Texture2D" uid="uid://ld33bs0kl8xt" path="res://Componenents/Hud Assets/Remplissage.PNG" id="4_di408"]
 [ext_resource type="Script" uid="uid://bki642kkfwyem" path="res://Componenents/ArcaneComponent/ArcaneComponent.gd" id="7_di408"]
+[ext_resource type="Script" uid="uid://x2p77k620mmj" path="res://Componenents/GiftComponent/GiftComponent.gd" id="7_hnjob"]
 [ext_resource type="Script" uid="uid://bibpdrfengocv" path="res://Componenents/HealthComponent/health_component.gd" id="8_hnjob"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ydmn"]
@@ -109,7 +110,7 @@ offset_bottom = -150.00006
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Chaos" type="TextureRect" parent="Maincontainer/HBoxContainer/Abilities and others"]
+[node name="Gift" type="TextureRect" parent="Maincontainer/HBoxContainer/Abilities and others"]
 modulate = Color(1.3782858, 1.3782858, 0.36602187, 1)
 layout_mode = 1
 anchors_preset = -1
@@ -153,13 +154,13 @@ texture_progress = ExtResource("4_di408")
 tint_under = Color(0, 1, 1, 0.6784314)
 tint_progress = Color(2.7097487e-06, 0.6654723, 0.9111079, 1)
 
-[node name="Chaos Row" type="MarginContainer" parent="Maincontainer/HBoxContainer/Barcontainers"]
+[node name="Gift Row" type="MarginContainer" parent="Maincontainer/HBoxContainer/Barcontainers"]
 layout_mode = 2
 theme_override_constants/margin_left = -70
 
-[node name="Chaos" type="TextureProgressBar" parent="Maincontainer/HBoxContainer/Barcontainers/Chaos Row"]
+[node name="Gift" type="TextureProgressBar" parent="Maincontainer/HBoxContainer/Barcontainers/Gift Row"]
 layout_mode = 2
-value = 25.0
+value = 100.0
 texture_under = ExtResource("3_8ydmn")
 texture_progress = ExtResource("4_di408")
 tint_under = Color(1, 1, 0.34117648, 0.6039216)
@@ -191,6 +192,12 @@ Health_gauge = NodePath("../../Maincontainer/HBoxContainer/Barcontainers/Healthr
 Bearable_power = 15.0
 Armor_value = 75.0
 metadata/_custom_type_script = "uid://bibpdrfengocv"
+
+[node name="GiftComponent" type="Node" parent="Health and equip" node_paths=PackedStringArray("gift_gauge")]
+script = ExtResource("7_hnjob")
+max_gift = 100.0
+gift_gauge = NodePath("../../Maincontainer/HBoxContainer/Barcontainers/Gift Row/Gift")
+metadata/_custom_type_script = "uid://x2p77k620mmj"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

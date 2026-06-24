@@ -7,8 +7,9 @@ extends Control
 @onready var arcane_comp:arcane_component=$"Health and equip/arcane_component"
 @onready var healthrow: MarginContainer = $Maincontainer/HBoxContainer/Barcontainers/Healthrow
 @onready var arcane_row: MarginContainer = $"Maincontainer/HBoxContainer/Barcontainers/Arcane row"
-@onready var chaos_row: MarginContainer = $"Maincontainer/HBoxContainer/Barcontainers/Chaos Row"
+@onready var gift_row: MarginContainer = $"Maincontainer/HBoxContainer/Barcontainers/Gift Row"
 @onready var barcontainers: VBoxContainer = $Maincontainer/HBoxContainer/Barcontainers
+@onready var gift: TextureRect = $"Maincontainer/HBoxContainer/Abilities and others/Gift"
 
 func _process(_delta: float) -> void:
 	for element in player.player_inventory.Inventory_list:
@@ -29,3 +30,5 @@ func _process(_delta: float) -> void:
 		if player.character.arcane_component.current_arcane>=player.grace_consumption_dict.get(player.current_grace) : grace.modulate=Color.html("21ffff")
 		else : grace.modulate = Color.html("023636")
 		grace.texture=load("res://Character/HUD/assets/Icones equipement/Graces/"+player.current_grace+".PNG")
+	if player.chosen_gift:
+		gift.texture=load("res://Character/HUD/assets/Icones equipement/Gifts/"+player.chosen_gift+".png")
