@@ -16,11 +16,18 @@ func physics_update(_delta) -> void:
 
 func state_logic(delta)->void:
 	if character.pick_back_hammer:state_machine.change_state("hammer_take_back")
-	if !player.current_target:
+	if !player.current_target and !character.gift_component.is_consummed:
 		if character.can_throw_hammer:
 			character.hide_equipped_weapon()
 		else : character.unused_weapon_attachment.hide()
-	else : character.show_equipped_weapon()
+	else : 
+		character.show_equipped_weapon()
+		if character.gift_component.is_consummed:
+			if !character.can_throw_hammer:
+				character.hide_equipped_weapon()
+			else :
+				character.get_weapon_by_gift(player.chosen_gift).show()
+		else : character.emptied_enchantement()
 	player.SPEED=running_speed
 	player.gravity_applying(delta)
 	player.camera_rotation_logic(delta)
@@ -55,9 +62,12 @@ func Player_Input_events() -> void:
 		state_machine.change_state("shield_normal")
 		
 	if Input.is_action_just_pressed("Attack_trigger") and character.can_throw_hammer:
-			character.is_attacking=true
-			character.show_equipped_weapon()
-			state_machine.change_state("hammer_attack_1")
+		character.is_attacking=true
+		if character.gift_component.is_consummed:
+			character.get_weapon_by_gift(player.chosen_gift).show()
+		else : character.emptied_enchantement()
+		character.show_equipped_weapon()
+		state_machine.change_state("hammer_attack_1")
 			
 	if (Input.is_action_just_pressed("Special") and player.divine_divider_list and
 	 character.arcane_component.current_arcane>=player.divine_dividers_consumption_dict[player.current_divine_divider]):
@@ -75,6 +85,7 @@ func Player_Input_events() -> void:
 	if Input.is_action_just_pressed("Action trigger") and player.can_interact:
 		character.interacts=true
 		state_machine.change_state(player.interaction_type)
-
+	if Input.is_action_just_pressed("Enchants") and character.gift_component.can_be_consumed:
+		state_machine.change_state("Enchanting")
 func exit() -> void:
 	player.is_busy=true

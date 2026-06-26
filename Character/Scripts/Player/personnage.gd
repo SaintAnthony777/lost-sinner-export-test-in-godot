@@ -52,7 +52,7 @@ var divine_divider_list : Array[String] = []
 var grace_list : Array[String] = []
 
 #var for chaos
-var chosen_gift:String=""
+var chosen_gift:String="Fury of the Gods"
 var gifts_unlocked:Array[String]
 
 # var divine_divider_list : Array[String] = ["Sundown","Screaming Silence","World Strongest Man"]

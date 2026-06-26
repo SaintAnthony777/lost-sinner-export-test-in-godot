@@ -69,7 +69,9 @@ var interacts:bool=false
 @onready var item_picked_panel_shower: Control = $"Item_picked cavans layer/Item_picked panel shower"
 @onready var Container_for_the_items: VBoxContainer = $"Item_picked cavans layer/Item_picked panel shower/Container/VBoxContainer"
 
-
+@onready var fire_of_giants_aura: Node3D = $"Aura effects/Fire of Giants Aura"
+@onready var fury_of_the_gods_aura: Node3D = $"Aura effects/Fury of the Gods Aura"
+@onready var Aura_list:Node3D=$"Aura effects"
 
 
 func _ready() -> void:
@@ -151,7 +153,10 @@ func jump_logics(current_state:String,current_action:String):
 	animation_tree.set("parameters/State/transition_request","Airborne")
 	animation_tree.set("parameters/Airborne transition/transition_request",current_state)
 	animation_tree.set("parameters/"+current_state+" Airborne Transitions/transition_request",current_action)
-	
+func enchants(current_enchantement:String)->void:
+	grounding("Enchants")
+	animation_tree.set("parameters/Enchanting transition/transition_request",current_enchantement)
+
 ###combo logic by me
 func cannot_progress_combo()->void: can_advance_to_next_atack_pattern=false
 func can_progress_combo()->void: can_advance_to_next_atack_pattern=true
@@ -268,3 +273,29 @@ func iframes_on()->void:
 	health_component.is_invulnerable=true
 func iframes_off()->void:
 	health_component.is_invulnerable=false
+func get_aura_by_gift(given_gift:String)->Aura:
+	var aura_to_be_returned:Aura
+	for aura : Aura in Aura_list.get_children():
+		if aura :
+			if aura.gift==given_gift:
+				aura_to_be_returned=aura
+	return aura_to_be_returned
+
+func get_weapon_by_gift(given_gift:String)->Weapon:
+	var weapon_to_be_returned:Weapon
+	for weap : Weapon in right_hand_weapon_attachment.get_children():
+		if weap and weap.weapon_s_gift==given_gift:
+			weapon_to_be_returned = weap
+	return weapon_to_be_returned
+	
+func emptied_enchantement()->void:
+	for weap : Weapon in right_hand_weapon_attachment.get_children():
+		if weap.weapon_s_gift!="Neutral":weap.hide()
+		else : weap.show()
+		
+func switch_to_enchantement()->void:
+	gift_component.is_consummed=true
+	for weap : Weapon in right_hand_weapon_attachment.get_children():
+		if weap.weapon_s_gift==player.chosen_gift : weap.show()
+		else : weap.hide()
+	HitStopManager.hit_stop_function(.1,.2)

@@ -36,7 +36,6 @@ func create_items()->void:
 		false,
 		"gift"
 		)
-
 func _ready() -> void:
 	create_items()
 	

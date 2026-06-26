@@ -32,3 +32,10 @@ func _process(_delta: float) -> void:
 		grace.texture=load("res://Character/HUD/assets/Icones equipement/Graces/"+player.current_grace+".PNG")
 	if player.chosen_gift:
 		gift.texture=load("res://Character/HUD/assets/Icones equipement/Gifts/"+player.chosen_gift+".png")
+		if player.character.gift_component.current_gift_lvl>25:
+			gift.modulate=Color(1.378, 1.378, 0.366)
+		if player.character.gift_component.current_gift_lvl==100.0 or player.character.gift_component.is_consummed:
+			gift.modulate=Color(11.602, 11.602, 3.369)
+		else :
+			gift.modulate=Color(0.486, 0.486, 0.106)
+			

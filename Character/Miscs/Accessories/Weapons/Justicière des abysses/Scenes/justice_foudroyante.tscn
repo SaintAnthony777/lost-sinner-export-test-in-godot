@@ -1,9 +1,13 @@
-[gd_scene load_steps=23 format=3 uid="uid://dbj7gbyyu1gf4"]
+[gd_scene load_steps=34 format=3 uid="uid://dbj7gbyyu1gf4"]
 
 [ext_resource type="PackedScene" uid="uid://coxrnqofsffsf" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scenes/Justicère des abysses.tscn" id="1_7yxmn"]
 [ext_resource type="Shader" uid="uid://dnkgskkb2t1ou" path="res://VFXES/Aura/Weapon Auras/Lightning/Shaders/lightning3d.gdshader" id="2_32tlr"]
 [ext_resource type="Texture2D" uid="uid://dxlfu4npl1n6t" path="res://VFXES/Aura/Weapon Auras/fire aura/textures/Marble/Marble_03-512x512.png" id="2_mih1o"]
 [ext_resource type="Script" uid="uid://brxa30r45sbbg" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scripts/justice_foudroyante.gd" id="2_s3a4k"]
+[ext_resource type="Shader" uid="uid://56e3yuv4tx3k" path="res://addons/GPUTrail-main/shaders/trail.gdshader" id="5_brcr6"]
+[ext_resource type="Shader" uid="uid://bt33wee7shjtw" path="res://addons/GPUTrail-main/shaders/trail_draw_pass.gdshader" id="6_66txj"]
+[ext_resource type="Texture2D" uid="uid://cogtcj7u06w03" path="res://VFXES/Fire/textures/Flare00.PNG" id="7_brcr6"]
+[ext_resource type="Script" uid="uid://qvvnasd4s6yy" path="res://addons/GPUTrail-main/GPUTrail3D.gd" id="8_0ptms"]
 
 [sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_w6gpy"]
 parameter_name = "Noise_texture"
@@ -140,7 +144,7 @@ shader = ExtResource("2_32tlr")
 shader_parameter/Main_Color = Color(1, 1, 1, 1)
 shader_parameter/Effect_Color = Color(0.781833, 0.9060262, 1.7034768, 1)
 shader_parameter/Octave_Count = 20
-shader_parameter/Amp_Start = 1.3900000000000001
+shader_parameter/Amp_Start = 1.39
 shader_parameter/Amp_Coeff = 0.5
 shader_parameter/Freq_Coeff = 2.0
 shader_parameter/Speed = 1.0
@@ -214,6 +218,39 @@ _data = {
 &"RESET": SubResource("Animation_s3a4k")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0vg1v"]
+shader = ExtResource("5_brcr6")
+
+[sub_resource type="Gradient" id="Gradient_871hj"]
+colors = PackedColorArray(0.2880841, 0.74527556, 1.5834601, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_64fqu"]
+gradient = SubResource("Gradient_871hj")
+use_hdr = true
+
+[sub_resource type="Curve" id="Curve_h0tyh"]
+bake_resolution = 16
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_k2hev"]
+curve = SubResource("Curve_h0tyh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e5yqc"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("6_66txj")
+shader_parameter/tex = ExtResource("7_brcr6")
+shader_parameter/mask_strength = 1.0
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/color_ramp = SubResource("GradientTexture1D_64fqu")
+shader_parameter/curve = SubResource("CurveTexture_k2hev")
+shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/flags = 42
+
+[sub_resource type="QuadMesh" id="QuadMesh_js7an"]
+material = SubResource("ShaderMaterial_e5yqc")
+
 [node name="Justice foudroyante" instance=ExtResource("1_7yxmn")]
 script = ExtResource("2_s3a4k")
 
@@ -246,3 +283,20 @@ omni_attenuation = 0.1
 libraries = {
 &"": SubResource("AnimationLibrary_8k2m4")
 }
+
+[node name="GPUTrail3D" type="GPUParticles3D" parent="." index="7"]
+amount = 20
+lifetime = 20.0
+explosiveness = 1.0
+fixed_fps = 59
+process_material = SubResource("ShaderMaterial_0vg1v")
+draw_pass_1 = SubResource("QuadMesh_js7an")
+script = ExtResource("8_0ptms")
+length = 20
+length_seconds = 0.3389830508474576
+texture = ExtResource("7_brcr6")
+color_ramp = SubResource("GradientTexture1D_64fqu")
+curve = SubResource("CurveTexture_k2hev")
+use_red_as_alpha = true
+_defaults_have_been_set = true
+metadata/_custom_type_script = "uid://qvvnasd4s6yy"

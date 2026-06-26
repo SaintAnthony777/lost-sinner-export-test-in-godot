@@ -9,7 +9,7 @@ func enter() -> void:
 	player.can_switch_camera=false
 	var current_attack:Attack=Attack.new()
 	current_attack.Base_damage=55
-	current_attack.Nature="Grace"
+	current_attack.Nature="Divine Divider"
 	current_attack.Strength=25.0
 	current_attack.Stun_time=5.5
 	current_attack.arcane_consumption=45.0

@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://4y8dawkwukrf"]
+[gd_scene load_steps=14 format=3 uid="uid://4y8dawkwukrf"]
 
 [ext_resource type="Script" uid="uid://cpkqa4muvsuos" path="res://Character/HUD/Scripts/hud.gd" id="1_0t85m"]
 [ext_resource type="Texture2D" uid="uid://busnvhvb8lcsp" path="res://Character/HUD/assets/Icones equipement/Equippement Diamond.png" id="3_0t85m"]
 [ext_resource type="Texture2D" uid="uid://bc6pcnxi0fmev" path="res://Componenents/Hud Assets/Fond biseauté.PNG" id="3_8ydmn"]
+[ext_resource type="Texture2D" uid="uid://bhofegcjfel0k" path="res://Character/HUD/assets/Icones equipement/Gifts/Fire of the Giants.png" id="3_hnjob"]
 [ext_resource type="Texture2D" uid="uid://ld33bs0kl8xt" path="res://Componenents/Hud Assets/Remplissage.PNG" id="4_di408"]
 [ext_resource type="Script" uid="uid://bki642kkfwyem" path="res://Componenents/ArcaneComponent/ArcaneComponent.gd" id="7_di408"]
 [ext_resource type="Script" uid="uid://x2p77k620mmj" path="res://Componenents/GiftComponent/GiftComponent.gd" id="7_hnjob"]
@@ -111,7 +112,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Gift" type="TextureRect" parent="Maincontainer/HBoxContainer/Abilities and others"]
-modulate = Color(1.3782858, 1.3782858, 0.36602187, 1)
+modulate = Color(0.4862745, 0.4862745, 0.105882354, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.38333333
@@ -120,6 +121,7 @@ anchor_right = 0.6611111
 anchor_bottom = 0.9034335
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("3_hnjob")
 expand_mode = 1
 
 [node name="Barcontainers" type="VBoxContainer" parent="Maincontainer/HBoxContainer"]

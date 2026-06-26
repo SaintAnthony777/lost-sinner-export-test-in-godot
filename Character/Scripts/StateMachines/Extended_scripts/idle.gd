@@ -15,14 +15,20 @@ func physics_update(_delta) -> void:
 func state_logic(delta)->void:
 	if character.pick_back_hammer :
 		state_machine.change_state("hammer_take_back")
-	if !player.current_target:
+	if !player.current_target and !character.gift_component.is_consummed:
 		if character.can_throw_hammer:
 			character.hide_equipped_weapon()
 		else : character.unused_weapon_attachment.hide()
 		character.normal_motion("Idle_unarmed")
 	else:
-		character.normal_motion("Idle_warned")
 		character.show_equipped_weapon()
+		character.normal_motion("Idle_warned")
+		if character.gift_component.is_consummed:
+			if !character.can_throw_hammer:
+				character.hide_equipped_weapon()
+			else :
+				character.get_weapon_by_gift(player.chosen_gift).show()
+		else : character.emptied_enchantement()
 	player.gravity_applying(delta)
 	player.camera_rotation_logic(delta)
 	if !player.is_on_floor():
@@ -53,6 +59,9 @@ func input_logic()->void:
 		
 	if Input.is_action_just_pressed("Attack_trigger") and character.can_throw_hammer:
 		character.is_attacking=true
+		if character.gift_component.is_consummed:
+			character.get_weapon_by_gift(player.chosen_gift).show()
+		else : character.emptied_enchantement()
 		character.show_equipped_weapon()
 		state_machine.change_state("hammer_attack_1")
 	
@@ -73,5 +82,8 @@ func input_logic()->void:
 	if Input.is_action_just_pressed("Action trigger") and player.can_interact:
 		character.interacts=true
 		state_machine.change_state(player.interaction_type)
+	
+	if Input.is_action_just_pressed("Enchants") and character.gift_component.can_be_consumed:
+		state_machine.change_state("Enchanting")
 func exit() -> void:
 	player.is_busy=true

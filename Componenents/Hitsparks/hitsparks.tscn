@@ -1,0 +1,78 @@
+[gd_scene load_steps=17 format=3 uid="uid://xdpqlqv6mnwu"]
+
+[ext_resource type="Shader" uid="uid://bv8dkc2s43lsh" path="res://Componenents/Hitsparks/hitsparks.tres" id="1_65s3l"]
+[ext_resource type="Texture2D" uid="uid://bqurwkkdwnfxe" path="res://Componenents/Hitsparks/textures/effect_3.png" id="2_blgm2"]
+[ext_resource type="Shader" uid="uid://dg5r2pfjr0ixb" path="res://Componenents/Hitsparks/hitsparks2.tres" id="3_rl4dd"]
+[ext_resource type="Texture2D" uid="uid://bk2ykev004cgd" path="res://Componenents/Hitsparks/textures/spotlight_1.png" id="4_1gtxr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_65s3l"]
+render_priority = 0
+shader = ExtResource("1_65s3l")
+shader_parameter/Main_texture = ExtResource("2_blgm2")
+
+[sub_resource type="Gradient" id="Gradient_blgm2"]
+colors = PackedColorArray(7.6889853, 2.8530424, 0, 1, 3.5420802, 0.22190017, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rl4dd"]
+gradient = SubResource("Gradient_blgm2")
+use_hdr = true
+
+[sub_resource type="Curve" id="Curve_blgm2"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5213415, 0.99999994), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_rl4dd"]
+curve = SubResource("Curve_blgm2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vit1x"]
+angle_min = -179.99998
+angle_max = 180.00002
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_rl4dd")
+color = Color(3.5420802, 3.5420802, 3.5420802, 1)
+color_ramp = SubResource("GradientTexture1D_rl4dd")
+
+[sub_resource type="QuadMesh" id="QuadMesh_65s3l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1gtxr"]
+render_priority = 0
+shader = ExtResource("3_rl4dd")
+shader_parameter/Main_texture = ExtResource("4_1gtxr")
+
+[sub_resource type="Gradient" id="Gradient_olmqw"]
+colors = PackedColorArray(3.7184305, 1.4054049, 0, 1, 1.0532222, 0.35608757, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wjgks"]
+gradient = SubResource("Gradient_olmqw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_olmqw"]
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 8.0
+initial_velocity_max = 12.0
+gravity = Vector3(0, 0, 0)
+color = Color(6.936375, 6.936375, 6.936375, 1)
+color_ramp = SubResource("GradientTexture1D_wjgks")
+
+[sub_resource type="QuadMesh" id="QuadMesh_wjgks"]
+size = Vector2(0.2, 0.5)
+
+[node name="Hitsparks" type="Node3D"]
+
+[node name="Effects" type="GPUParticles3D" parent="."]
+material_override = SubResource("ShaderMaterial_65s3l")
+amount = 1
+lifetime = 0.3
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_vit1x")
+draw_pass_1 = SubResource("QuadMesh_65s3l")
+
+[node name="Sparks" type="GPUParticles3D" parent="."]
+material_override = SubResource("ShaderMaterial_1gtxr")
+lifetime = 0.25
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_olmqw")
+draw_pass_1 = SubResource("QuadMesh_wjgks")

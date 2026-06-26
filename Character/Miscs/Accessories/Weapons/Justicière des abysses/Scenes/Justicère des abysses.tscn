@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://coxrnqofsffsf"]
+[gd_scene load_steps=11 format=3 uid="uid://coxrnqofsffsf"]
 
 [ext_resource type="PackedScene" uid="uid://d4medbrm0yyky" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Premier modèle.blend" id="1_g6a52"]
+[ext_resource type="Script" uid="uid://tjcicl7rcspe" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scripts/Weapon.gd" id="2_houmg"]
 [ext_resource type="Material" uid="uid://3x80h7j0o7t2" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/textures/iron/Metal052C_1K-JPG.tres" id="2_mdalh"]
 [ext_resource type="Texture2D" uid="uid://bw0rlbqk8te3s" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/textures/iron/Metal052C_1K-JPG_Color.jpg" id="2_y3cy3"]
 [ext_resource type="Material" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/textures/handle/Leather034C_1K-JPG.tres" id="3_hoooc"]
@@ -25,6 +26,7 @@ heightmap_texture = ExtResource("3_houmg")
 
 [node name="Premier modèle" instance=ExtResource("1_g6a52")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+script = ExtResource("2_houmg")
 
 [node name="Cube" parent="." index="0"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
