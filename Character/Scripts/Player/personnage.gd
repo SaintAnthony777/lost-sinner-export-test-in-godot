@@ -58,8 +58,6 @@ var gifts_unlocked:Array[String]
 # var divine_divider_list : Array[String] = ["Sundown","Screaming Silence","World Strongest Man"]
 # var grace_list : Array[String] = ["Disordonance","Heavy Charge","Disaster"]
 
-
-
 var current_grace_index:=0
 var current_divine_divider_index:=0
 var current_divine_divider:=""

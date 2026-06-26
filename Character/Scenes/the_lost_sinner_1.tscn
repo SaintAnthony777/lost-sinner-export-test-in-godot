@@ -1,4 +1,4 @@
-[gd_scene load_steps=193 format=3 uid="uid://xumlackoysv2"]
+[gd_scene load_steps=194 format=3 uid="uid://xumlackoysv2"]
 
 [ext_resource type="PackedScene" uid="uid://dshsna3bwyfl7" path="res://Character/Glb/lost sinner 1/The Lost Sinner1.glb" id="1_ag85x"]
 [ext_resource type="Script" uid="uid://dijb6jh7etgx0" path="res://Character/Scripts/Player/character_mesh.gd" id="2_ukanm"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://b1f8axeg41wcp" path="res://Character/Miscs/Accessories/Shields/Shield remade/textures/Scratched Iron/Metal054B_1K-JPG_Roughness.jpg" id="14_ktiam"]
 [ext_resource type="PackedScene" uid="uid://yo3pdwrica36" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scenes/justicière_furieuse.tscn" id="14_mchvo"]
 [ext_resource type="PackedScene" uid="uid://dbj7gbyyu1gf4" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scenes/justice_foudroyante.tscn" id="15_0xjbh"]
+[ext_resource type="Script" uid="uid://bclc1qftmbfeb" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scripts/justicière_furieuse.gd" id="16_tdvcv"]
 [ext_resource type="AnimationLibrary" uid="uid://o8626glb53tl" path="res://Character/Imported Animations/jumping animation packs*.res" id="16_xxyrl"]
 [ext_resource type="AnimationLibrary" uid="uid://di6m7iji2yvs5" path="res://Character/Imported Animations/Parrying+blocking impact.res" id="17_cl0wa"]
 [ext_resource type="AnimationLibrary" uid="uid://sn2ig2iq7oua" path="res://Character/Imported Animations/Running Jump + landing.res" id="18_rw4r8"]
@@ -17692,6 +17693,8 @@ transform = Transform3D(-0.017689157, 0.19894014, 0.010483983, 0.0360424, 0.0135
 weapon_s_gift = "Neutral"
 base_damage = 16.0
 damage_nature = "Physical"
+strength = 15.0
+stun_time = 4.0
 
 [node name="Hammer Hitbox" type="Area3D" parent="Armature/Skeleton3D/Right_hand_weapon_attachment/Premier modèle" index="3"]
 collision_layer = 8
@@ -17708,13 +17711,20 @@ disabled = true
 transform = Transform3D(-0.017689157, 0.19894014, 0.010483983, 0.0360424, 0.013547446, -0.19625853, -0.19592865, -0.015468902, -0.037049614, 0.138, 0.081, 0.014)
 visible = false
 weapon_s_gift = "Fury of the Gods"
+base_damage = 20.0
 damage_nature = "Lightning"
+strength = 40.0
+stun_time = 8.0
 
 [node name="Justicière Furieuse" parent="Armature/Skeleton3D/Right_hand_weapon_attachment" index="2" instance=ExtResource("14_mchvo")]
 transform = Transform3D(-0.017689157, 0.19894014, 0.010483983, 0.0360424, 0.013547446, -0.19625853, -0.19592865, -0.015468902, -0.037049614, 0.138, 0.081, 0.014)
 visible = false
+script = ExtResource("16_tdvcv")
 weapon_s_gift = "Fire of the Giants"
+base_damage = 30.0
 damage_nature = "Fire"
+strength = 20.0
+stun_time = 3.0
 
 [node name="AnimationPlayer" parent="." index="1"]
 libraries = {

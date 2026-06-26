@@ -39,7 +39,7 @@ var is_alive:bool=true
 var opening_door:bool=false
 var interacts:bool=false
 
-
+var current_attack_nature : String = ""
 
 @onready var player: player_character = $".."
 @onready var animation_tree: AnimationTree = $AnimationTree

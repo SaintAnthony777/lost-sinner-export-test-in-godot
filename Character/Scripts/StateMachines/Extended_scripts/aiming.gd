@@ -33,7 +33,10 @@ func physics_update(_delta) -> void:
 func state_logics (delta:float) -> void :
 	Crosshair_tricks()
 	if character.can_throw_hammer:
-		character.show_equipped_weapon()
+		if character.gift_component.is_consummed:
+			character.get_weapon_by_gift(player.chosen_gift).show()
+		else : character.emptied_enchantement()
+	character.show_equipped_weapon()
 	aiming_angle_correct()
 	character.crosshair_layer.show()
 	if character.pick_back_hammer:state_machine.change_state("hammer_take_back")

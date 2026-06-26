@@ -1,10 +1,15 @@
 extends State
 @onready var character: character_mesh = $"../../The Lost Sinner1"
 @onready var player: player_character = $"../.."
-
+@onready var curr_weapon:Weapon=Weapon.new()
 func enter() -> void:
 	character.requested_next_attack=false
 	character.requested_dash=false
+	if character.gift_component.is_consummed:
+		character.get_weapon_by_gift(player.chosen_gift).show()
+		curr_weapon=character.get_weapon_by_gift(player.chosen_gift)
+	else : character.emptied_enchantement();curr_weapon = character.get_weapon_by_gift("Neutral")
+	character.show_equipped_weapon()
 	attack_stuff()
 func physics_update(_delta) -> void:
 	attack_check()
@@ -13,10 +18,10 @@ func physics_update(_delta) -> void:
 func attack_stuff()->void:
 	var atk:=Attack.new()
 	atk.create_attack(
-		15.0,
-		12.0,
-		"Physical",
-		3.0,
+		curr_weapon.base_damage+randf_range(0.1,2.0),
+		curr_weapon.strength+randf_range(0.1,0.5),
+		curr_weapon.damage_nature,
+		curr_weapon.stun_time+randf_range(0.1,0.2),
 		0.0
 	)
 	character.dealt_attack=atk

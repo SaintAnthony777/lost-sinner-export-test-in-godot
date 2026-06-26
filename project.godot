@@ -36,7 +36,7 @@ Shortcuts/density_decrement=Object(Shortcut,"resource_local_to_scene":false,"res
 
 config/name="A soaring Silence"
 config/tags=PackedStringArray("almost_done", "prototype", "soaring_silence_demo_version")
-run/main_scene="uid://bhgrj3gfn5q2o"
+run/main_scene="uid://dd5ructcpr0n4"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="uid://flvau0snwba7"
 
