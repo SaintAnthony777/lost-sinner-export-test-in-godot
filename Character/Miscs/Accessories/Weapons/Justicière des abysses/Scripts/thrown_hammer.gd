@@ -2,20 +2,24 @@ extends Node3D
 
 @onready var hammer_ray_cast: ShapeCast3D = $Hammer_ray_cast
 @onready var hammer_hitbox:HitBoxComponent=$Hammer_hitbox
+@onready var player : player_character = get_tree().get_first_node_in_group("Personnage")
 @export var attack_nature:String=""
 const HAMMER_SPEED:=40.0
 var lifetime:=0.0
 var returning:bool=false
 var dealt_attack:Attack=Attack.new()
-
+var curr_weapon:Weapon=Weapon.new()
 func _ready() -> void:
 	hammer_ray_cast.set_collision_mask_value(2,true)
 	hammer_ray_cast.set_collision_mask_value(3,true)
 	hammer_hitbox.untouchable_owner=get_parent().get_node("Personnage").get_node("The Lost Sinner1")
-	dealt_attack.Base_damage=15
-	dealt_attack.Nature=attack_nature
-	dealt_attack.Stun_time=3
-	dealt_attack.Strength=15
+	if player.character.gift_component.is_consummed:
+		curr_weapon=player.character.get_weapon_by_gift(player.chosen_gift)
+	else : curr_weapon=player.character.get_weapon_by_gift("Neutral")
+	dealt_attack.Base_damage=curr_weapon.base_damage+randf_range(0.1,5.0)
+	dealt_attack.Nature=curr_weapon.damage_nature
+	dealt_attack.Stun_time=curr_weapon.stun_time+randf_range(0.1,4.0)
+	dealt_attack.Strength=curr_weapon.strength+randf_range(0.1,3.0)
 	hammer_hitbox.collsion_shape.disabled=false
 func _process(delta: float) -> void:
 	hammer_hitbox.collsion_shape.disabled=false

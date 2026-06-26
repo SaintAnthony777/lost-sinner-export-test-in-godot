@@ -1,12 +1,15 @@
 extends State
 @onready var character: character_mesh = $"../../The Lost Sinner1"
 @onready var player: player_character = $"../.."
-@onready var thrown_hammer_mesh:=preload("res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scenes/thrown_hammer_thunders.tscn")
+@onready var thrown_hammer_mesh:PackedScene
 var instance 
 
 func enter() -> void:
 	character.aiming_attack("Hammer_throwing")
 	print(player)
+	if character.gift_component.is_consummed:
+		thrown_hammer_mesh=load("res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scenes/thrown_hammer_"+player.chosen_gift+".tscn")
+	else : preload("res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scenes/thrown_hammer.tscn")
 func physics_update(_delta) -> void:
 	state_logic()
 	

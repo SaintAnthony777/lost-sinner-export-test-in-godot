@@ -7,7 +7,7 @@ class_name GiftComponent extends Node
 @onready var is_consummed:bool=false
 
 var current_gift_lvl:float
-var gift_consumed_lvl:float=.8
+var gift_consumed_lvl:float=.2
 var can_be_consumed:bool=false
 
 func _ready() -> void: 
