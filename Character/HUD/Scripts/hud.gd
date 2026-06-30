@@ -10,8 +10,14 @@ extends Control
 @onready var gift_row: MarginContainer = $"Maincontainer/HBoxContainer/Barcontainers/Gift Row"
 @onready var barcontainers: VBoxContainer = $Maincontainer/HBoxContainer/Barcontainers
 @onready var gift: TextureRect = $"Maincontainer/HBoxContainer/Abilities and others/Gift"
-
+@onready var objects: TextureRect = $"Maincontainer/HBoxContainer/Abilities and others/Objects"
+@onready var object_quantity: Label = $"Maincontainer/HBoxContainer/Abilities and others/HBoxContainer/Object Quantity"
+@onready var object_name: Label = $"Maincontainer/HBoxContainer/Abilities and others/HBoxContainer/Object name"
+@onready var object_list:Array[RegenItem]
+@onready var current_object_index:int=0
+@onready var current_item : RegenItem = RegenItem.new()
 func _process(_delta: float) -> void:
+	objects_check()
 	for element in player.player_inventory.Inventory_list:
 			if element and element is Inventory_Item :
 				if element.category == "divine divider" and !(player.divine_divider_list.has(element.item_name)):
@@ -38,4 +44,22 @@ func _process(_delta: float) -> void:
 			gift.modulate=Color(11.602, 11.602, 3.369)
 		else :
 			gift.modulate=Color(0.486, 0.486, 0.106)
-			
+	object_switch()
+
+func objects_check()->void:
+	for element in player.player_inventory.Inventory_list :
+		if element and element is RegenItem and !object_list.has(element):
+			object_list.append(element)
+
+
+func object_switch()->void:
+	if object_list.is_empty():
+		return
+	if Input.is_action_just_pressed("Object Switch"):
+		current_object_index+=1
+		if current_object_index>=object_list.size() : current_object_index=0 
+	current_item = object_list[current_object_index]
+	objects.texture=load("res://Character/HUD/assets/Icones equipement/objects/"+current_item.item_name+".PNG")
+	object_name.text=current_item.item_name
+	object_quantity.text=str(current_item.item_number)
+	objects.modulate=current_item.color_type

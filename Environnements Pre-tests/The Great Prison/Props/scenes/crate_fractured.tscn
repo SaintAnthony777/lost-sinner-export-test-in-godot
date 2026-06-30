@@ -5,3 +5,123 @@
 
 [node name="crate fractured" instance=ExtResource("1_t7t36")]
 script = ExtResource("2_1wwog")
+
+[node name="Crate metal parts -rigid" parent="." index="0"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate metal parts_001 -rigid" parent="." index="1"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate_cell -rigid" parent="." index="2"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate_cell_001 -rigid" parent="." index="3"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate_cell_002 -rigid" parent="." index="4"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate_cell_003 -rigid" parent="." index="5"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate_cell_004 -rigid" parent="." index="6"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate_cell_005 -rigid" parent="." index="7"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate_cell_006 -rigid" parent="." index="8"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate_cell_007 -rigid" parent="." index="9"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate_cell_008 -rigid" parent="." index="10"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate_cell_009 -rigid" parent="." index="11"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate_cell_010 -rigid" parent="." index="12"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate_cell_011 -rigid" parent="." index="13"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate_cell_012 -rigid" parent="." index="14"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate_cell_013 -rigid" parent="." index="15"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate_cell_014 -rigid" parent="." index="16"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate_cell_015 -rigid" parent="." index="17"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate_cell_016 -rigid" parent="." index="18"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate_cell_017 -rigid" parent="." index="19"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate_cell_018 -rigid" parent="." index="20"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate_cell_019 -rigid" parent="." index="21"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate_cell_020 -rigid" parent="." index="22"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate_cell_021 -rigid" parent="." index="23"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate_cell_022 -rigid" parent="." index="24"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate_cell_023 -rigid" parent="." index="25"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate_cell_024 -rigid" parent="." index="26"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate_cell_025 -rigid" parent="." index="27"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate_cell_026 -rigid" parent="." index="28"]
+collision_layer = 32
+collision_mask = 35
+
+[node name="Crate_cell_027 -rigid" parent="." index="29"]
+collision_layer = 32
+collision_mask = 35

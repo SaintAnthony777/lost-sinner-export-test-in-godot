@@ -36,6 +36,10 @@ func Iframes_on()->void:
 func Iframes_off()->void:
 	is_invulnerable=false
 	
+func regen_health(health_regen:float)->void:
+	Current_health+=health_regen
+	if Current_health>=Max_health:Current_health=Max_health
+
 func taking_damage(taken_attack:Attack):
 	if is_invulnerable : HitStopManager.hit_stop_function(.01,.1) ; return
 	if Moveable_Player:Moveable_Player.character.is_taking_damage=true
@@ -64,7 +68,7 @@ func taking_damage(taken_attack:Attack):
 			player_to_call_on_death.is_alive=false
 		if random_node_to_call_on_death:
 			random_node_to_call_on_death.is_alive=false
-	else : 	HitStopManager.hit_stop_function(.01,.1)
+	else : HitStopManager.hit_stop_function(.01,.1)
 func death_check()->void:
 	if Current_health<0:Current_health=0
 	

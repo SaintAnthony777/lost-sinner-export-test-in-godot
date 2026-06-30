@@ -68,6 +68,7 @@ var current_attack_nature : String = ""
 @onready var right_hand_weapon_attachment: BoneAttachment3D = $Armature/Skeleton3D/Right_hand_weapon_attachment
 @onready var item_picked_panel_shower: Control = $"Item_picked cavans layer/Item_picked panel shower"
 @onready var Container_for_the_items: VBoxContainer = $"Item_picked cavans layer/Item_picked panel shower/Container/VBoxContainer"
+@onready var right_hand_fruit: BoneAttachment3D = $Armature/Skeleton3D/Right_Hand_fruit
 
 @onready var fire_of_giants_aura: Node3D = $"Aura effects/Fire of Giants Aura"
 @onready var fury_of_the_gods_aura: Node3D = $"Aura effects/Fury of the Gods Aura"
@@ -77,7 +78,7 @@ var current_attack_nature : String = ""
 func _ready() -> void:
 	health_component.Moveable_Player=player
 	Shield_Light.hide()
-	iframes_on()
+	
 func _process(delta: float) -> void:
 	if is_blocking : Shield_Light.show()
 	else : Shield_Light.hide()
@@ -269,10 +270,15 @@ func done_interacting()->void:
 	interacts=false
 func can_unleash_divine_divider_now():
 	can_unleash_divine_divider=true
+	
 func iframes_on()->void:
 	health_component.is_invulnerable=true
 func iframes_off()->void:
 	health_component.is_invulnerable=false
+	
+func fruit_switch()->void:
+	right_hand_fruit.visible=!right_hand_fruit.visible
+
 func get_aura_by_gift(given_gift:String)->Aura:
 	var aura_to_be_returned:Aura
 	for aura : Aura in Aura_list.get_children():

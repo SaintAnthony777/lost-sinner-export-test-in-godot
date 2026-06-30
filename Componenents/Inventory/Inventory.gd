@@ -6,7 +6,7 @@ extends Resource
 signal inventory_updated
 
 func add_item(item:Inventory_Item, quantity : int) -> void:
-	var item_entered:Inventory_Item= find_item_by_name(item.item_name)
+	var item_entered:Inventory_Item = find_item_by_name(item.item_name)
 	if item_entered and item_entered.is_stackable:
 		item_entered.item_number+=quantity
 	else:

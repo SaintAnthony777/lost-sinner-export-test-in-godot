@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://4y8dawkwukrf"]
+[gd_scene load_steps=18 format=3 uid="uid://4y8dawkwukrf"]
 
 [ext_resource type="Script" uid="uid://cpkqa4muvsuos" path="res://Character/HUD/Scripts/hud.gd" id="1_0t85m"]
 [ext_resource type="Texture2D" uid="uid://busnvhvb8lcsp" path="res://Character/HUD/assets/Icones equipement/Equippement Diamond.png" id="3_0t85m"]
 [ext_resource type="Texture2D" uid="uid://bc6pcnxi0fmev" path="res://Componenents/Hud Assets/Fond biseauté.PNG" id="3_8ydmn"]
 [ext_resource type="Texture2D" uid="uid://bhofegcjfel0k" path="res://Character/HUD/assets/Icones equipement/Gifts/Fire of the Giants.png" id="3_hnjob"]
+[ext_resource type="Texture2D" uid="uid://d3ul6aasx74yy" path="res://Character/HUD/assets/Icones equipement/objects/Evergreen Seeds.PNG" id="4_37fun"]
 [ext_resource type="Texture2D" uid="uid://ld33bs0kl8xt" path="res://Componenents/Hud Assets/Remplissage.PNG" id="4_di408"]
+[ext_resource type="FontFile" uid="uid://d0ug5noy0uhhl" path="res://Fonts/Cinzel,EB_Garamond/EB_Garamond/static/EBGaramond-Regular.ttf" id="5_5hg1f"]
 [ext_resource type="Script" uid="uid://bki642kkfwyem" path="res://Componenents/ArcaneComponent/ArcaneComponent.gd" id="7_di408"]
 [ext_resource type="Script" uid="uid://x2p77k620mmj" path="res://Componenents/GiftComponent/GiftComponent.gd" id="7_hnjob"]
 [ext_resource type="Script" uid="uid://bibpdrfengocv" path="res://Componenents/HealthComponent/health_component.gd" id="8_hnjob"]
@@ -15,6 +17,19 @@ corner_radius_top_left = 525
 corner_radius_top_right = 285
 corner_radius_bottom_right = 260
 corner_radius_bottom_left = 475
+
+[sub_resource type="LabelSettings" id="LabelSettings_5hg1f"]
+font = ExtResource("5_5hg1f")
+font_size = 85
+outline_size = 10
+outline_color = Color(0.026721504, 0.026721502, 0.026721498, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7l2ih"]
+font = ExtResource("5_5hg1f")
+font_size = 75
+font_color = Color(0.9096839, 0.95349735, 0.8403214, 1)
+outline_size = 14
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_hnjob"]
 resource_name = "Divine_divider_switch"
@@ -48,14 +63,12 @@ script = ExtResource("1_0t85m")
 [node name="Maincontainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.018229166
-anchor_top = 0.7664815
-anchor_right = 0.21467015
-anchor_bottom = 0.9391667
-offset_left = 26.0
-offset_top = -46.80005
-offset_right = 764.49994
-offset_bottom = 263.36658
+anchor_left = 0.031770833
+anchor_top = 0.72314817
+anchor_right = 0.32230902
+anchor_bottom = 0.9530863
+offset_right = 557.8333
+offset_bottom = 248.33337
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
@@ -63,6 +76,7 @@ theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
+metadata/_edit_use_anchors_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="Maincontainer"]
 layout_mode = 2
@@ -123,6 +137,38 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_hnjob")
 expand_mode = 1
+
+[node name="Objects" type="TextureRect" parent="Maincontainer/HBoxContainer/Abilities and others"]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 71.0
+offset_right = 315.0
+offset_bottom = 181.0
+texture = ExtResource("4_37fun")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Maincontainer/HBoxContainer/Abilities and others"]
+layout_mode = 0
+offset_left = 263.0
+offset_top = -97.0
+offset_right = 807.0
+offset_bottom = 15.0
+
+[node name="Object Quantity" type="Label" parent="Maincontainer/HBoxContainer/Abilities and others/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+text = "7"
+label_settings = SubResource("LabelSettings_5hg1f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Object name" type="Label" parent="Maincontainer/HBoxContainer/Abilities and others/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+text = " Evergreen Seeds"
+label_settings = SubResource("LabelSettings_7l2ih")
 
 [node name="Barcontainers" type="VBoxContainer" parent="Maincontainer/HBoxContainer"]
 layout_mode = 2

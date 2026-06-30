@@ -52,7 +52,7 @@ func _process(delta: float) -> void:
 		item_texture.texture=null
 		
 func fill_item_list()->void:
-	for element:Inventory_Item in given_inventory.Inventory_list:
+	for element : Inventory_Item in given_inventory.Inventory_list:
 		if element and element.category==category_to_be_shown:
 			array_of_items.append(element)
 	if !array_of_items.is_empty():
@@ -60,19 +60,16 @@ func fill_item_list()->void:
 			if items : 
 				var item_to_be_added : inventory_ui_button=inventory_ui_button.new(items)
 				item_to_be_added.item=items
-				item_to_be_added.text = items.item_name
+				item_to_be_added.text = items.item_name +" "+str(items.item_number)
 				item_container.add_child(item_to_be_added)
-	else : item_to_be_shown = null ; 
+	else : item_to_be_shown = null 
 	
 func _on_weapons_pressed() -> void:
 	set_new_array_of_items("weapon")
-	
 func _on_divine_dividers_pressed() -> void:
 	set_new_array_of_items("divine divider")
-	
 func _on_graces_pressed() -> void:
 	set_new_array_of_items("grace")
-	
 func _on_objects_pressed() -> void:
 	set_new_array_of_items("object")
 func _on_keys_pressed() -> void:

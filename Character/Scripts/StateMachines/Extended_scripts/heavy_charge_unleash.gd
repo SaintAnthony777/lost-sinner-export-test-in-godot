@@ -9,7 +9,7 @@ func enter() -> void:
 	Heavy_Strike.create_attack(
 		35.0,
 		200,
-		"grace",
+		"Grace",
 		5.0,
 		.5
 	)

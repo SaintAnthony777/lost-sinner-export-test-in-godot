@@ -4,10 +4,14 @@ var SAVE_PATH:=""
 var current_save:GameSaveData=GameSaveData.new()
 const FOLDER_PATH:String="user://save_data"
 func save_game(player_node:player_character)->void:
-	
-	player_node.character.health_component.Current_health=player_node.character.health_component.Max_health
 	current_save.current_health = player_node.character.health_component.Current_health
-	player_node.character.arcane_component.current_arcane=player_node.character.arcane_component.Max_Arcane
+	current_save.current_arcane = player_node.character.arcane_component.current_arcane
+	current_save.current_gift_gauge = player_node.character.gift_component.current_gift_lvl
+	
+	current_save.max_health = player_node.character.health_component.Max_health
+	current_save.max_arcane = player_node.character.arcane_component.Max_Arcane
+	current_save.max_gift_gauge = player_node.character.gift_component.max_gift
+	
 	current_save.player_position = player_node.global_position
 	current_save.player_rotation_degrees = player_node.rotation_degrees
 	current_save.current_scene = get_tree().current_scene.scene_file_path
@@ -22,24 +26,42 @@ func save_game(player_node:player_character)->void:
 	else : 
 		print(error)
 		print("sauvegarde echouée")
-
+func restor_health_and_arcane(player_node:player_character)->void:
+	player_node.character.health_component.Current_health = player_node.character.health_component.Max_health
+	player_node.character.arcane_component.current_arcane = player_node.character.arcane_component.Max_Arcane
+	player_node.character.gift_component.current_gift_lvl = player_node.character.gift_component.max_gift
 func load_game() -> void:
 	if not ResourceLoader.exists(SAVE_PATH):
 		print('sauvegarde introuvable')
 	current_save = ResourceLoader.load(SAVE_PATH)
 	if current_save : 
 		get_tree().change_scene_to_file(current_save.current_scene)
+		await  get_tree().process_frame
 		await get_tree().node_added
-		var player : player_character = get_tree().current_scene.find_child("Personnage")
+		
+		var player : player_character = null
+		while player == null:
+			await get_tree().process_frame
+			player = get_tree().current_scene.find_child("Personnage",true,false)
+		await get_tree().process_frame
 		if player : 
 			player.global_position = current_save.player_position
 			player.rotation_degrees = current_save.player_rotation_degrees
 			player.player_inventory = current_save.player_inventory
 			player.chosen_gift = current_save.player_gift
 			player.save_location = current_save.current_save_place
+			
+			player.character.health_component.Current_health=current_save.current_health
+			player.character.arcane_component.current_arcane=current_save.current_arcane
+			player.character.gift_component.current_gift_lvl=current_save.current_gift_gauge
+			
+			player.character.health_component.Max_health = current_save.max_health
+			player.character.arcane_component.Max_Arcane = current_save.max_arcane
+			player.character.gift_component.max_gift = current_save.max_gift_gauge
 			if current_save.player_inventory:
 				for element:Inventory_Item in current_save.player_inventory.Inventory_list:
 					if element.category == "divine divider":
+						print(element.category)
 						player.divine_divider_list.append(element.item_name)
 					if element.category == "grace":
 						player.grace_list.append(element.item_name)

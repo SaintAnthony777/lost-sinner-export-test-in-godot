@@ -4,7 +4,6 @@ extends State
 
 func enter() -> void:
 	player.camera.h_offset=0.0
-	print(player.chosen_gift)
 	character.show_equipped_weapon()
 	enchatement_logic()
 

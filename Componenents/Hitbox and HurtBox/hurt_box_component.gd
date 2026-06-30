@@ -15,7 +15,7 @@ func _on_area_entered(area: Area3D) -> void:
 		#print("attack from ",area.owner,"received by ",owner," message from ",area)
 		if area.owner.dealt_attack:
 			var curr_att:Attack=area.owner.dealt_attack
-			if curr_att.Nature!="Divine Divider" and curr_att.Nature!="Grace": 
+			if curr_att.Nature!="Divine Divider" and curr_att.Nature!="Grace" and curr_att.Nature!="": 
 				var curr_hitspark:hitsparks=load("res://Componenents/Hitsparks/hitsparks_"+curr_att.Nature.to_lower()+".tscn").instantiate()
 				owner.get_parent().add_child(curr_hitspark)
 				curr_hitspark.global_position=area.global_position

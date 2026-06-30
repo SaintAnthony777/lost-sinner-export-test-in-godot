@@ -76,7 +76,7 @@ var is_busy:bool=false
 var save_location:String
 
 # var for inventory
-var player_inventory:Inventory=Inventory.new()
+var player_inventory:Inventory=SaveManager.current_save.player_inventory
 var hammer:Inventory_Item=Inventory_Item.new()
 var shield:Inventory_Item=Inventory_Item.new()
 var last_picked_item:Inventory_Item=null
@@ -86,23 +86,6 @@ func _ready() -> void:
 	camera.h_offset=.7
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 	character.inv_UI.given_inventory=player_inventory
-	hammer.create_item(
-		"The Hand of the Maestria",
-		1,
-		"The weapon wield by Maerlyn, the mother of all humans, said to be unbreakable, needs a godly amount of strength to be used at its peak. This hammer was said to choose a sinner as its new wielder once Maerlyn falls. The Story goes that this Hammer has no real magic despite its durability the only one who can say if it's true is no longer able to tell anything about it",
-		true,
-		"weapon"
-	)
-	shield.create_item(
-		"Jack's Aegis",
-		1,
-		"This shield once belonged to the one they call the world's strongest man, it has the power to protect the one who uses it against everything that exists, a gift from Jack once he died, said to choose a sinner among the ones that remains. Jack made this shield by using his pure strength. in fact, it is said that Jack did never need to use a shield as he would bear with his body alone any hit that would land on him, the shield was meant to be a weapon to protect all of the humans, not him",
-		true,
-		"weapon"
-	)
-	if not shield in player_inventory.Inventory_list:
-		player_inventory.add_item(shield,1)
-		player_inventory.add_item(hammer,1)
 	if divine_divider_list:
 		current_divine_divider = divine_divider_list[current_divine_divider_index]
 	if grace_list : 
@@ -165,10 +148,12 @@ func character_moving(dir:Vector3):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	move_and_slide()
 	push_rigids()
+	
 func push_rigids()->void:
 	for i in get_slide_collision_count():
 		if get_slide_collision(i).get_collider() is RigidBody3D:
-			get_slide_collision(i).get_collider().apply_central_impulse(-get_slide_collision(i).get_normal()*2.0)
+			get_slide_collision(i).get_collider().apply_central_impulse(-get_slide_collision(i).get_normal()*1.0)
+
 func camera_rotation_logic(delta:float):
 	camera_controller.rotation.x+=camera_input_direction.y*delta
 	camera_controller.rotation.x=clamp(camera_controller.rotation.x, -PI/6.0 , PI/3.0)

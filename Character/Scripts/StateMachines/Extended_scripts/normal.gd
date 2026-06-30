@@ -4,6 +4,7 @@ extends State
 
 func physics_update(_delta) -> void:
 	state_logics()
+
 func state_logics () -> void :
 	if player.player_direction!=Vector3.ZERO:
 		state_machine.change_state("run")

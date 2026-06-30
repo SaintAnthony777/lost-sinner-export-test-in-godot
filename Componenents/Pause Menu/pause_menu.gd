@@ -7,8 +7,6 @@ class_name PauseMenu extends Control
 @onready var confirm_quit_to_main_menu: VBoxContainer = $Confirm_quit_to_main_menu
 @onready var buttons_Vbox_container: VBoxContainer = $"Buttons container/VBoxContainer"
 
-func _ready() -> void:
-	print(Env_to_edit)
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Pause") and !Inventory_UI.visible:
 		show_and_hide_pause()

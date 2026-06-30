@@ -6,15 +6,15 @@ var instance
 
 func enter() -> void:
 	character.aiming_attack("Hammer_throwing")
-	print(player)
 	if character.gift_component.is_consummed:
-		thrown_hammer_mesh=load("res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scenes/thrown_hammer_"+player.chosen_gift+".tscn")
-	else : preload("res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scenes/thrown_hammer.tscn")
+		thrown_hammer_mesh = load("res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scenes/thrown_hammer_"+player.chosen_gift+".tscn")
+	else : thrown_hammer_mesh = preload("res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scenes/thrown_hammer.tscn")
 func physics_update(_delta) -> void:
 	state_logic()
 	
 func state_logic()->void:
 	character.unused_weapon_attachment.hide()
+	
 	instance=thrown_hammer_mesh.instantiate()
 	if character.thrown_hammer and is_instance_valid(instance):
 		var target_point := player.get_target_point()
@@ -24,5 +24,6 @@ func state_logic()->void:
 		instance.look_at(target_point)
 		character.equipped_hammer.hide()
 		character.thrown_hammer=false
+		
 	if !character.is_attacking:
 		state_machine.change_state("idle")

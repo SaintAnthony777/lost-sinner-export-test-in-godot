@@ -2,6 +2,7 @@ extends State
 @onready var character: character_mesh = $"../../The Lost Sinner1"
 @onready var player: player_character = $"../.."
 @onready var curr_weapon:Weapon=Weapon.new()
+
 func enter() -> void:
 	character.requested_next_attack=false
 	character.requested_dash=false

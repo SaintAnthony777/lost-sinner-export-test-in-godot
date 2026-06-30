@@ -5,11 +5,11 @@ extends State
 func enter() -> void:
 	character.requested_next_attack=false
 	character.requested_dash=false
-	attack_stuff()
 	if character.gift_component.is_consummed:
 		character.get_weapon_by_gift(player.chosen_gift).show()
 		curr_weapon=character.get_weapon_by_gift(player.chosen_gift)
 	else : character.emptied_enchantement();curr_weapon = character.get_weapon_by_gift("Neutral")
+	attack_stuff()
 func physics_update(_delta) -> void:
 	attack_check()
 	state_logic(_delta)

@@ -11,6 +11,8 @@ func physics_update(_delta) -> void:
 	if !character.is_alive:state_machine.change_state("Dying")
 
 func state_logic(delta)->void:
+	if character.can_throw_hammer:
+		character.show_equipped_weapon()
 	player.SPEED=3.0
 	character.shield_motion("walking",Vector2.ZERO)
 	player.gravity_applying(delta)

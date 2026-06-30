@@ -10,6 +10,7 @@ func enter() -> void:
 	character.look_at(player.player_look_node.global_position)
 	character.rotate_y(PI)
 	SaveManager.save_game(player)
+	SaveManager.restor_health_and_arcane(player)
 	sitting_ready_logics()
 	
 func physics_update(_delta) -> void:
