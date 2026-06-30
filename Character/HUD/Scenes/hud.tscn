@@ -139,6 +139,7 @@ texture = ExtResource("3_hnjob")
 expand_mode = 1
 
 [node name="Objects" type="TextureRect" parent="Maincontainer/HBoxContainer/Abilities and others"]
+modulate = Color(0.1428582, 0.14285824, 0.1428582, 1)
 layout_mode = 0
 offset_left = 235.0
 offset_top = 71.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://srgn3wkeivsn"]
+[gd_scene load_steps=81 format=3 uid="uid://srgn3wkeivsn"]
 
 [ext_resource type="Script" uid="uid://bhjwagrue8av5" path="res://Character/Scripts/Player/personnage.gd" id="1_ov8r6"]
 [ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="2_ov8r6"]
@@ -66,6 +66,7 @@
 [ext_resource type="Script" uid="uid://2qqy3cwjhjkl" path="res://Character/Scripts/StateMachines/Extended_scripts/done_sitting.gd" id="64_k4wqs"]
 [ext_resource type="Script" uid="uid://df2a3vrsiom5a" path="res://Character/Scripts/StateMachines/Extended_scripts/pick_up.gd" id="65_n16ah"]
 [ext_resource type="Script" uid="uid://bx36n1faa1dix" path="res://Character/Scripts/StateMachines/Extended_scripts/enchanting.gd" id="66_rw8dl"]
+[ext_resource type="Script" uid="uid://2my38stm72jm" path="res://Character/Scripts/StateMachines/Extended_scripts/use_object.gd" id="67_uu0do"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ov8r6"]
 
@@ -527,6 +528,10 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="Enchanting" type="Node" parent="StateMachine"]
 script = ExtResource("66_rw8dl")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Use object" type="Node" parent="StateMachine"]
+script = ExtResource("67_uu0do")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

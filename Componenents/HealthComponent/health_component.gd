@@ -30,7 +30,7 @@ func _process(_delta: float) -> void:
 		Health_gauge.value=lerp(Health_gauge.value,Current_health,.5)
 	if received_attack:
 		take_a_step(received_attack,_delta)
-
+	if Current_health>Max_health:Current_health=Max_health
 func Iframes_on()->void:
 	is_invulnerable=true
 func Iframes_off()->void:

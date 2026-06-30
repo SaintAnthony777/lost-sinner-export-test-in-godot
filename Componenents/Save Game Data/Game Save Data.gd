@@ -12,6 +12,8 @@ extends Resource
 @export var player_rotation_degrees:Vector3
 @export var player_inventory : Inventory = Inventory.new()
 @export var player_gift : String
+@export var max_fruits:int
+@export var max_seeds:int
 
 ###Scene Status
 @export var current_scene : String

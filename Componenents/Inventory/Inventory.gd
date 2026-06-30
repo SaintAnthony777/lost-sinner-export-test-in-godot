@@ -20,8 +20,10 @@ func substract_item(item:Inventory_Item,number:int)->void:
 	if not item_to_be_deleted:
 		return
 	item_to_be_deleted.item_number-=number
-	if item_to_be_deleted.item_number<=0:
-		Inventory_list.erase(item_to_be_deleted)
+	if item_to_be_deleted.item_number<=0 :
+		if item.category!="object":
+			Inventory_list.erase(item_to_be_deleted)
+		else : item_to_be_deleted.item_number = 0
 	inventory_updated.emit()
 
 

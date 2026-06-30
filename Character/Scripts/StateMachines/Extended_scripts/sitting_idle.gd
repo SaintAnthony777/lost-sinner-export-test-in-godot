@@ -4,6 +4,7 @@ extends State
 @onready var player: player_character = $"../.."
 func enter() -> void:
 	sitting_idle_logics()
+	SaveManager.restore_seeds_and_fruits(player)
 
 func physics_update(_delta) -> void:
 	player.camera_rotation_logic(_delta)

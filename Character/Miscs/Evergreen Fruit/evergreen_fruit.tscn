@@ -6,3 +6,7 @@
 
 [node name="Evergreen fruits" parent="." index="0"]
 transform = Transform3D(0.17999998, 0, 0, 0, 0.17999998, 0, 0, 0, 0.17999998, 0, 0.59569716, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
+light_color = Color(0, 0.34901962, 0.63529414, 1)
+omni_range = 3.0

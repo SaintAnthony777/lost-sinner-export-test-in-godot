@@ -14,7 +14,7 @@ func enter() -> void:
 	current_attack.Stun_time=5.5
 	current_attack.arcane_consumption=45.0
 	character.dealt_attack=current_attack
-	character.arcane_component.arcane_consumption(current_attack)
+	character.arc_component.arcane_consumption(current_attack)
 	
 func physics_update(_delta) -> void:
 	state_logics()

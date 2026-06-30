@@ -55,7 +55,7 @@ var current_attack_nature : String = ""
 @onready var hit_box_component: HitBoxComponent = $"Armature/Skeleton3D/Right_hand_weapon_attachment/Premier modèle/Hammer Hitbox"
 @onready var hurt_box_component: HurtBoxComponent = $HurtBoxComponent
 @onready var hitbox_collision: CollisionShape3D = $"Armature/Skeleton3D/Right_hand_weapon_attachment/Premier modèle/Hammer Hitbox/CollisionShape3D"
-@onready var arcane_component: arcane_component = $"Hud canvas layer/HUD/Health and equip/arcane_component"
+@onready var arc_component: arcane_component = $"Hud canvas layer/HUD/Health and equip/arcane_component"
 @onready var AOE_hitBox:HitBoxComponent=$"AOE_Hitboxes/HitBoxComponent"
 @onready var AOE_Collision:CollisionShape3D=$"AOE_Hitboxes/HitBoxComponent/CollisionShape3D"
 @onready var health_component: HealthComponent = $"Hud canvas layer/HUD/Health and equip/HealthComponent"
@@ -74,6 +74,7 @@ var current_attack_nature : String = ""
 @onready var fury_of_the_gods_aura: Node3D = $"Aura effects/Fury of the Gods Aura"
 @onready var Aura_list:Node3D=$"Aura effects"
 
+@onready var is_healing:bool=false
 
 func _ready() -> void:
 	health_component.Moveable_Player=player
@@ -158,6 +159,11 @@ func enchants(current_enchantement:String)->void:
 	grounding("Enchants")
 	animation_tree.set("parameters/Enchanting transition/transition_request",current_enchantement)
 
+### healing functions with objects
+func use_regen_Item(anim_name:String)->void:
+	grounding("Use Object")
+	animation_tree.set("parameters/Object Using Transistion/transition_request",anim_name)
+
 ###combo logic by me
 func cannot_progress_combo()->void: can_advance_to_next_atack_pattern=false
 func can_progress_combo()->void: can_advance_to_next_atack_pattern=true
@@ -240,7 +246,8 @@ func show_hammer():
 func has_got_hammer_back():
 	can_throw_hammer=true
 	pick_back_hammer=false
-	
+
+
 func done_landing()->void:
 	landed=true
 func done_aerial_dash()->void:
@@ -305,3 +312,11 @@ func switch_to_enchantement()->void:
 		if weap.weapon_s_gift==player.chosen_gift : weap.show()
 		else : weap.hide()
 	HitStopManager.hit_stop_function(.1,.2)
+
+func healing_factor(item_healer:RegenItem) -> void:
+	if item_healer.regen_type=="health":
+		health_component.Current_health+=item_healer.regen_value
+	elif item_healer.regen_type=="arcane":
+		arc_component.current_arcane+=item_healer.regen_value
+func heals_now()->void:
+	is_healing=true

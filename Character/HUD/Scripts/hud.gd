@@ -30,10 +30,10 @@ func _process(_delta: float) -> void:
 	if player.current_divine_divider:
 		var divine_divider_texture:=load("res://Character/HUD/assets/Icones equipement/Divines dividers/"+player.current_divine_divider+".PNG")
 		divine_divider.texture = divine_divider_texture
-		if player.character.arcane_component.current_arcane >= player.divine_dividers_consumption_dict.get(player.current_divine_divider) : divine_divider.modulate=Color.html("e61737")
+		if player.character.arc_component.current_arcane >= player.divine_dividers_consumption_dict.get(player.current_divine_divider) : divine_divider.modulate=Color.html("e61737")
 		else : divine_divider.modulate = Color.html("2b0104")
 	if player.current_grace:
-		if player.character.arcane_component.current_arcane>=player.grace_consumption_dict.get(player.current_grace) : grace.modulate=Color.html("21ffff")
+		if player.character.arc_component.current_arcane>=player.grace_consumption_dict.get(player.current_grace) : grace.modulate=Color.html("21ffff")
 		else : grace.modulate = Color.html("023636")
 		grace.texture=load("res://Character/HUD/assets/Icones equipement/Graces/"+player.current_grace+".PNG")
 	if player.chosen_gift:
@@ -50,7 +50,10 @@ func objects_check()->void:
 	for element in player.player_inventory.Inventory_list :
 		if element and element is RegenItem and !object_list.has(element):
 			object_list.append(element)
-
+	if current_item:
+		if current_item.item_number==0:
+			objects.modulate=Color.html("242424")
+		else : objects.modulate=current_item.color_type
 
 func object_switch()->void:
 	if object_list.is_empty():
@@ -58,8 +61,11 @@ func object_switch()->void:
 	if Input.is_action_just_pressed("Object Switch"):
 		current_object_index+=1
 		if current_object_index>=object_list.size() : current_object_index=0 
+	
 	current_item = object_list[current_object_index]
+	player.current_item=current_item
+	
 	objects.texture=load("res://Character/HUD/assets/Icones equipement/objects/"+current_item.item_name+".PNG")
 	object_name.text=current_item.item_name
 	object_quantity.text=str(current_item.item_number)
-	objects.modulate=current_item.color_type
+	

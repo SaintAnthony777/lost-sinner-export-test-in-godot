@@ -70,12 +70,12 @@ func Player_Input_events() -> void:
 		state_machine.change_state("hammer_attack_1")
 			
 	if (Input.is_action_just_pressed("Special") and player.divine_divider_list and
-	 character.arcane_component.current_arcane>=player.divine_dividers_consumption_dict[player.current_divine_divider]):
+	 character.arc_component.current_arcane>=player.divine_dividers_consumption_dict[player.current_divine_divider]):
 		character.is_divine_dividing=true
 		state_machine.change_state(player.current_divine_divider)
 		
 	if (Input.is_action_just_pressed("Grace") and player.grace_list and 
-		character.arcane_component.current_arcane>=player.grace_consumption_dict[player.current_grace]):
+		character.arc_component.current_arcane>=player.grace_consumption_dict[player.current_grace]):
 		character.is_making_grace=true
 		state_machine.change_state(player.current_grace)
 	
@@ -87,5 +87,8 @@ func Player_Input_events() -> void:
 		state_machine.change_state(player.interaction_type)
 	if Input.is_action_just_pressed("Enchants") and character.gift_component.can_be_consumed:
 		state_machine.change_state("Enchanting")
+	if Input.is_action_just_pressed("Object_use") and player.current_item.item_number>0:
+		player.used_item = player.current_item
+		state_machine.change_state("Use object")
 func exit() -> void:
 	player.is_busy=true

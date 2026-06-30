@@ -56,7 +56,7 @@ func create_items()->void:
 	Evergreen_seeds.create_item(
 		"Evergreen Seeds",
 		0,
-		"A seed of the mystic tree called the Evergreen, allows to heal wounds. No one never really knew from where did the evergreen ever came, but all agrees to say that it's pretty powerful as it can repel most of afflictions. When the world fell apart, the evergreen almost vanished from the world leaving only a few of its shards remaining here. Those shards are not very impressive but they can be used as restpoints for the few living sane creatures in these lands.",
+		"A seed of the mystic tree called the Evergreen, allows to heal wounds, can be replenished by resting at an evergreen shard. No one never really knew from where did the evergreen ever came, but all agrees to say that it's pretty powerful as it can repel most of afflictions. When the world fell apart, the evergreen almost vanished from the world leaving only a few of its shards remaining here. Those shards are not very impressive but they can be used as restpoints for the few living sane creatures in these lands.",
 		true,
 		"object"
 	)
@@ -68,14 +68,14 @@ func create_items()->void:
 	)
 	Evergreen_fruits.set_regen_type_and_value(
 		"arcane",
-		25.0,
+		35.0,
 		Evergreen_fruits.item_name,
 		Color(0.0, 0.661, 3.383)
 	)
 	Evergreen_fruits.create_item(
 		"Evergreen Fruit",
 		0,
-		"A fruit of the mystic tree called the Evergreen, allows to regen arcane. This fruit is a quite rare and blessful gift from the evergreen itself . The fruits crystalize themselves once they are out in the air, condensing a high amount of magic in them. No matter how powerful divine dividers and graces are, in this world they still depend on this mysterious source called the evergreen, so be cautious when using those powers.",
+		"A fruit of the mystic tree called the Evergreen, allows to regen arcane, can be replenished by resting at an evergreen shard. This fruit is a quite rare and blessful gift from the evergreen itself . The fruits crystalize themselves once they are out in the air, condensing a high amount of magic in them. No matter how powerful divine dividers and graces are, in this world they still depend on this mysterious source called the evergreen, so be cautious when using those powers.",
 		true,
 		"object"
 	)
@@ -89,11 +89,13 @@ func create_save_with_gift(ability:Inventory_Item,gift_here:Inventory_Item)->voi
 	new_save.current_arcane=100
 	new_save.current_gift_gauge=100
 	new_save.current_health=100
+	new_save.max_fruits = 5
+	new_save.max_seeds = 7
 	new_save.player_inventory=Inventory.new()
 	new_save.player_inventory.add_item(ability,1)
 	new_save.player_inventory.add_item(gift_here,1)
-	new_save.player_inventory.add_item(Evergreen_fruits,5)
-	new_save.player_inventory.add_item(Evergreen_seeds,7)
+	new_save.player_inventory.add_item(Evergreen_fruits,new_save.max_fruits)
+	new_save.player_inventory.add_item(Evergreen_seeds,new_save.max_seeds)
 	new_save.player_inventory.add_item(hammer,1)
 	new_save.player_inventory.add_item(shield,1)
 	new_save.player_gift = gift_here.item_name

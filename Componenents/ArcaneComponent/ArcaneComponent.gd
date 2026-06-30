@@ -10,6 +10,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	#Arcane_Gauge.value=current_arcane
 	Arcane_Gauge.value=lerp(Arcane_Gauge.value,current_arcane,.5)
+	if current_arcane>=Max_Arcane:current_arcane=Max_Arcane
 func arcane_consumption(current_attack:Attack)->void:
 	current_arcane-=(current_attack.arcane_consumption)*Engine.time_scale
 	if current_arcane<0:

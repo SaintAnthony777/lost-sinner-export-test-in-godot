@@ -18,6 +18,13 @@ class_name player_character
 @onready var hammer_starting_point:Node3D=$"Camera_pivot/Hammer_throw_starter_point"
 @onready var aiming_node:Node3D=$"Camera_pivot/Aiming"
 @onready var state_mach:StateMachine=$"StateMachine"
+
+@onready var current_item:RegenItem=RegenItem.new()
+@onready var used_item:RegenItem=RegenItem.new()
+@onready var max_fruits:int=0
+@onready var max_seeds:int=0
+
+
 @onready var divine_dividers_consumption_dict:Dictionary ={
 	"Screaming Silence":45.0,
 	"Sundown":55.0,
@@ -104,7 +111,7 @@ func _input(_event: InputEvent) -> void:
 		switch_special(grace_list)
 	if Input.is_action_just_pressed("Divine Divider switch") and can_switch_special:
 		switch_special(divine_divider_list)
-
+	
 
 func _unhandled_input(event: InputEvent) -> void:
 	var camera_is_in_motion:=(
