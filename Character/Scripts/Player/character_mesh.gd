@@ -77,6 +77,8 @@ var current_attack_nature : String = ""
 @onready var is_healing:bool=false
 @onready var healing_particles: Node3D = $"Healing particles"
 
+@onready var distorsion_rectangle:PackedScene=preload("res://Componenents/Circular distorsion node/Circular distorsion.tscn")
+
 func _ready() -> void:
 	health_component.Moveable_Player=player
 	Shield_Light.hide()
@@ -310,7 +312,14 @@ func emptied_enchantement()->void:
 func switch_to_enchantement()->void:
 	gift_component.is_consummed=true
 	for weap : Weapon in right_hand_weapon_attachment.get_children():
-		if weap.weapon_s_gift==player.chosen_gift : weap.show()
+		if weap.weapon_s_gift==player.chosen_gift : 
+			weap.show()
+			var dist:circular_distorsion=distorsion_rectangle.instantiate()
+			dist.force=.1
+			dist.thickness=2.0
+			dist.given_center=player.camera.unproject_position(weap.global_position)
+			self.add_child(dist)
+			HitStopManager.hit_stop_function(.1,3.0)
 		else : weap.hide()
 	HitStopManager.hit_stop_function(.1,.2)
 

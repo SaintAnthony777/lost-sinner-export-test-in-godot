@@ -3,7 +3,6 @@ class_name GiftComponent extends Node
 
 @export var max_gift:float
 @export var gift_gauge:TextureProgressBar
-
 @onready var is_consummed:bool=false
 
 var current_gift_lvl:float
@@ -21,7 +20,6 @@ func _process(delta: float) -> void:
 	if is_consummed:
 		can_be_consumed = false
 		gift_consumption(gift_consumed_lvl)
-
 func gift_consumption(gift_consumed)->void:
 	current_gift_lvl-=gift_consumed
 	if current_gift_lvl < 0:

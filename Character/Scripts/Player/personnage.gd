@@ -170,6 +170,7 @@ func camera_rotation_logic(delta:float):
 
 ###fonction permettant de faire du va et viens entre gauche droite de la camera
 func camera_switch_logic():
+	can_switch_camera=false
 	if camera_position=="left":
 		camera_animations.play("Camera_switching_To_Right")
 		await camera_animations.animation_finished
@@ -178,6 +179,7 @@ func camera_switch_logic():
 		camera_animations.play("Camera_switching_to_Left")
 		await camera_animations.animation_finished
 		camera_position="left"
+	can_switch_camera=true
 
 func get_best_target()->enemy_root:
 	var best_target : enemy_root

@@ -2,10 +2,6 @@ extends State
 @onready var character: character_mesh = $"../../The Lost Sinner1"
 @onready var player: player_character = $"../.."
 
-func enter() -> void:
-	character.look_at(Vector3(player.get_target_point().x,player.global_position.y,player.get_target_point().z))
-	character.rotate_y(PI)
-	
 func physics_update(_delta) -> void:
 	state_logics(_delta)
 	if !character.is_alive:state_machine.change_state("Dying")

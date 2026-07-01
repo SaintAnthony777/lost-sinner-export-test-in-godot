@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://80ubef6p0fwv"]
+
+[ext_resource type="Script" uid="uid://qruyofggnsld" path="res://Componenents/Circular distorsion node/circular_distorsion.gd" id="1_rx2rr"]
+[ext_resource type="Shader" uid="uid://cs055a5qfhgh1" path="res://Character/Shaders/screen distorsion/radial distorsion.gdshader" id="3_ut0h3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8cso3"]
+resource_local_to_scene = true
+shader = ExtResource("3_ut0h3")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/force = 0.05
+shader_parameter/size = 0.0
+shader_parameter/thickness = 0.1
+
+[sub_resource type="Animation" id="Animation_bn5n8"]
+resource_name = "distords"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_ut0h3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8cso3"]
+_data = {
+&"RESET": SubResource("Animation_ut0h3"),
+&"distords": SubResource("Animation_bn5n8")
+}
+
+[node name="CircularDistorsion" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_rx2rr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_8cso3")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="distorded animator" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8cso3")
+}
