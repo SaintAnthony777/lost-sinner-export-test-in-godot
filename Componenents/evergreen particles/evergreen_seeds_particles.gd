@@ -7,8 +7,8 @@ class_name evergreen_particles extends Node3D
 @export var affiliated_item:String=""
 func _ready() -> void:
 	evergreen_play()
-	
 func evergreen_play()->void:
+	animation_player.play("RESET")
 	animation_player.play("evergreen animation")
 	await animation_player.animation_finished
-	self.hide()
+	self.queue_free()

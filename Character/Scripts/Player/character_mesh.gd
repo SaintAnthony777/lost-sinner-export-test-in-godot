@@ -75,6 +75,7 @@ var current_attack_nature : String = ""
 @onready var Aura_list:Node3D=$"Aura effects"
 
 @onready var is_healing:bool=false
+@onready var healing_particles: Node3D = $"Healing particles"
 
 func _ready() -> void:
 	health_component.Moveable_Player=player
@@ -318,5 +319,6 @@ func healing_factor(item_healer:RegenItem) -> void:
 		health_component.Current_health+=item_healer.regen_value
 	elif item_healer.regen_type=="arcane":
 		arc_component.current_arcane+=item_healer.regen_value
+		
 func heals_now()->void:
 	is_healing=true
