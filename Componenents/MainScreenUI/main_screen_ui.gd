@@ -13,6 +13,7 @@ class_name MainscreenUI extends Control
 
 func _ready() -> void:
 	init_slots() 
+	Engine.time_scale=1.0
 func init_slots() -> void:
 	for elements in save_slots_row.get_children():
 		elements.queue_free()

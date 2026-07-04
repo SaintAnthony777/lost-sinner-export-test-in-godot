@@ -5,6 +5,7 @@
 
 [node name="crate fractured" instance=ExtResource("1_t7t36")]
 script = ExtResource("2_1wwog")
+body_type = "wood"
 
 [node name="Crate metal parts -rigid" parent="." index="0"]
 collision_layer = 32

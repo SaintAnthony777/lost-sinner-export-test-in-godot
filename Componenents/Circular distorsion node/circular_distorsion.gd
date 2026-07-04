@@ -1,4 +1,5 @@
 class_name circular_distorsion extends Control
+
 @onready var distors_rect: ColorRect = $ColorRect
 @onready var given_center:Vector2
 @onready var force:float=0.05

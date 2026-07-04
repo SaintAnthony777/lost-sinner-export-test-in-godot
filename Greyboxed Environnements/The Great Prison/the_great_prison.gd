@@ -11,7 +11,9 @@ func _ready() -> void:
 		await get_tree().process_frame
 		player = get_tree().current_scene.find_child("Personnage",true,false)
 	self.add_child(lvl_shower)
-	lvl_shower.label.text=level_name+" - "+get_closest_save_point().save_place_name
+	if SaveManager.current_save.current_save_place:
+		lvl_shower.label.text=level_name+" - "+SaveManager.current_save.current_save_place
+	else : lvl_shower.label.text=level_name
 	await lvl_shower.animation_player_node.animation_finished
 	lvl_shower.queue_free()
 

@@ -24,6 +24,7 @@ initial_velocity_max = 10.0
 gravity = Vector3(0, 10, 0)
 
 [sub_resource type="QuadMesh" id="QuadMesh_nbyds"]
+size = Vector2(0.2, 0.2)
 
 [sub_resource type="Animation" id="Animation_v8ja1"]
 length = 0.001

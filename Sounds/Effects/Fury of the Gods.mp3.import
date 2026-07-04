@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bsg4dt2d4c8up"
+path="res://.godot/imported/Fury of the Gods.mp3-d583d43e11b0193d61dd4633eb5eaba5.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Effects/Fury of the Gods.mp3"
+dest_files=["res://.godot/imported/Fury of the Gods.mp3-d583d43e11b0193d61dd4633eb5eaba5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

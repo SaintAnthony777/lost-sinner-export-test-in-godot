@@ -9,6 +9,7 @@ var lifetime:=0.0
 var returning:bool=false
 var dealt_attack:Attack=Attack.new()
 var curr_weapon:Weapon=Weapon.new()
+
 func _ready() -> void:
 	hammer_ray_cast.set_collision_mask_value(2,true)
 	hammer_ray_cast.set_collision_mask_value(3,true)
@@ -21,6 +22,7 @@ func _ready() -> void:
 	dealt_attack.Stun_time=curr_weapon.stun_time+randf_range(0.1,4.0)
 	dealt_attack.Strength=curr_weapon.strength+randf_range(0.1,3.0)
 	hammer_hitbox.collsion_shape.disabled=false
+	
 func _process(delta: float) -> void:
 	hammer_hitbox.collsion_shape.disabled=false
 	hammer_ray_cast.force_shapecast_update()
@@ -35,6 +37,8 @@ func _process(delta: float) -> void:
 		var direction = (get_parent().get_node("Personnage").hammer_starting_point.global_position-global_position).normalized()
 		global_position+=direction*HAMMER_SPEED*delta
 		rotate_y(20*delta)
+		if global_position.distance_to(get_parent().get_node("Personnage").global_position)<=15.0:
+			get_parent().get_node("Personnage").get_node("The Lost Sinner1").play_hammer_sweep()
 		if global_position.distance_to(get_parent().get_node("Personnage").global_position)<3.0:
 			get_parent().get_node("Personnage").get_node("The Lost Sinner1").equipped_hammer.show()
 			get_parent().get_node("Personnage").get_node("The Lost Sinner1").pick_back_hammer=true

@@ -79,13 +79,17 @@ var current_attack_nature : String = ""
 
 @onready var distorsion_rectangle:PackedScene=preload("res://Componenents/Circular distorsion node/Circular distorsion.tscn")
 
+@onready var hammer_sweep: AudioStreamPlayer3D = $"Armature/Skeleton3D/Hammer Sounds/Hammer Sweep"
+
+@onready var passive_gift_sounds: BoneAttachment3D = $"Armature/Skeleton3D/Passive Gift Sounds"
+@onready var footsteps_1: AudioStreamPlayer3D = $"Footsteps sounds/footsteps 1"
+
 func _ready() -> void:
 	health_component.Moveable_Player=player
 	Shield_Light.hide()
 	
 func _process(delta: float) -> void:
-	if is_blocking : Shield_Light.show()
-	else : Shield_Light.hide()
+	play_passive_gift_sound()
 	
 func show_equipped_weapon()->void:
 	right_hand_weapon_attachment.show()
@@ -319,9 +323,8 @@ func switch_to_enchantement()->void:
 			dist.thickness=2.0
 			dist.given_center=player.camera.unproject_position(weap.global_position)
 			self.add_child(dist)
-			HitStopManager.hit_stop_function(.1,3.0)
+			HitStopManager.hit_stop_function(.5,1.0)
 		else : weap.hide()
-	HitStopManager.hit_stop_function(.1,.2)
 
 func healing_factor(item_healer:RegenItem) -> void:
 	if item_healer.regen_type=="health":
@@ -331,3 +334,19 @@ func healing_factor(item_healer:RegenItem) -> void:
 		
 func heals_now()->void:
 	is_healing=true
+
+func play_hammer_sweep()->void:
+	hammer_sweep.pitch_scale=randf_range(.6,1.2)
+	hammer_sweep.play()
+func stop_hammer_sweep()->void:
+	hammer_sweep.stop()
+
+func play_passive_gift_sound():
+	for sounds : AudioStreamPlayer3D in passive_gift_sounds.get_children():
+		if sounds.name==player.chosen_gift and gift_component.is_consummed and !sounds.playing: 
+			sounds.play()
+		if !gift_component.is_consummed : sounds.stop()
+	
+func play_footsteps()->void:
+	footsteps_1.pitch_scale=randf_range(1.0,1.2)
+	footsteps_1.play()

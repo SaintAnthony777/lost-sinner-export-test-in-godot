@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bpvyk0bmfah4c"
+path="res://.godot/imported/Fire of the Giants.mp3-9256c0b3d22761987894d97e1e86f040.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Effects/Fire of the Giants.mp3"
+dest_files=["res://.godot/imported/Fire of the Giants.mp3-9256c0b3d22761987894d97e1e86f040.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

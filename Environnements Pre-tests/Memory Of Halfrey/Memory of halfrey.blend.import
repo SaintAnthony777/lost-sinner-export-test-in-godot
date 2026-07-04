@@ -1,0 +1,188 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://bn85nitxlu3j0"
+path="res://.godot/imported/Memory of halfrey.blend-0205b8e10ba720f838a88f4201700c1c.scn"
+
+[deps]
+
+source_file="res://Environnements Pre-tests/Memory Of Halfrey/Memory of halfrey.blend"
+dest_files=["res://.godot/imported/Memory of halfrey.blend-0205b8e10ba720f838a88f4201700c1c.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"meshes": {
+"Memory of halfrey_Circle": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/Memory Of Halfrey/shrine and circle/paved circle.res",
+"save_to_file/path": "uid://cjxj8xc3812y1"
+},
+"Memory of halfrey_Circle_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/Memory Of Halfrey/shrine and circle/shrine.res",
+"save_to_file/path": "uid://d033rdvdr7p5k"
+},
+"Memory of halfrey_Cube": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/Memory Of Halfrey/wall/wall 16*16.res",
+"save_to_file/path": "uid://83f7k2ngn2hn"
+},
+"Memory of halfrey_Cylinder": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/Memory Of Halfrey/pillars/pillar 1.res",
+"save_to_file/path": "uid://dp5nhnac10enu"
+},
+"Memory of halfrey_Cylinder_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/Memory Of Halfrey/pillars/pillar 2.res",
+"save_to_file/path": "uid://d13peigbljf1h"
+},
+"Memory of halfrey_Plane": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/Memory Of Halfrey/floors/floor_long.res",
+"save_to_file/path": "uid://dq8523hegs5xd"
+},
+"Memory of halfrey_Plane_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/Memory Of Halfrey/floors/floor_large.res",
+"save_to_file/path": "uid://chosiyu02bvos"
+},
+"Memory of halfrey_Plane_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/Memory Of Halfrey/floors/floor_square.res",
+"save_to_file/path": "uid://deaqburx1gbqi"
+},
+"Memory of halfrey_rock_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/Memory Of Halfrey/Rocks/Rock 1.res",
+"save_to_file/path": "uid://dp7vv8pcby5oa"
+},
+"Memory of halfrey_rock_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/Memory Of Halfrey/Rocks/rock 2.res",
+"save_to_file/path": "uid://brf0ypunrmqys"
+},
+"Memory of halfrey_rock_003": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/Memory Of Halfrey/Rocks/rock 3.res",
+"save_to_file/path": "uid://b1rvu73x6810w"
+},
+"Memory of halfrey_rock_004": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/Memory Of Halfrey/Rocks/rock 4.res",
+"save_to_file/path": "uid://cxnfqg0xdma2c"
+},
+"Memory of halfrey_rock_005": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/Memory Of Halfrey/Rocks/rock 5.res",
+"save_to_file/path": "uid://l53jh24i8g2k"
+},
+"Memory of halfrey_rock_006": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Environnements Pre-tests/Memory Of Halfrey/Rocks/rock 6.res",
+"save_to_file/path": "uid://q3q0qgo7g2c2"
+}
+}
+}
+blender/nodes/visible=0
+blender/nodes/active_collection_only=false
+blender/nodes/punctual_lights=true
+blender/nodes/cameras=true
+blender/nodes/custom_properties=true
+blender/nodes/modifiers=1
+blender/meshes/colors=false
+blender/meshes/uvs=true
+blender/meshes/normals=true
+blender/meshes/export_geometry_nodes_instances=false
+blender/meshes/tangents=true
+blender/meshes/skins=2
+blender/meshes/export_bones_deforming_mesh_only=false
+blender/materials/unpack_enabled=true
+blender/materials/export_materials=1
+blender/animation/limit_playback=true
+blender/animation/always_sample=true
+blender/animation/group_tracks=true
+gltf/naming_version=2

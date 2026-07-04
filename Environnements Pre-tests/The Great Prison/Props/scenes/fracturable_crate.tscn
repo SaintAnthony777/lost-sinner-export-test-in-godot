@@ -31,6 +31,7 @@ shape = SubResource("BoxShape3D_fonju")
 script = ExtResource("3_fonju")
 Max_health = 5.0
 random_node_to_call_on_death = NodePath("..")
+body_nature = "wood"
 metadata/_custom_type_script = "uid://bibpdrfengocv"
 
 [node name="Spawn Point" type="Marker3D" parent="."]
@@ -39,4 +40,5 @@ metadata/_custom_type_script = "uid://bibpdrfengocv"
 mesh = ExtResource("4_ktcr3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_ktcr3")

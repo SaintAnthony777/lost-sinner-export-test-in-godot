@@ -20,6 +20,9 @@ var dealt_thrown_time:float=.0
 @export var Node_to_call_on_death:enemy_root
 @export var player_to_call_on_death:character_mesh
 @export var random_node_to_call_on_death:fracturable_static
+@export var body_nature:String
+
+@onready var hit_impact_sound:Hitsound_impact=Hitsound_impact.new()
 
 func _ready() -> void:
 	Current_health=Max_health
@@ -45,12 +48,25 @@ func taking_damage(taken_attack:Attack):
 	if Moveable_Player:Moveable_Player.character.is_taking_damage=true
 	if Moveable_Body:Moveable_Body.visuals.is_taking_damage=true
 	if Moveable_Player and Moveable_Player.character.is_blocking :
+		hit_impact_sound.hitsound_type="metal"
+		hit_impact_sound.load_sound()
 		var dealt_dmg=(taken_attack.Base_damage+Damage_Factor)-Armor_value
 		if dealt_dmg < 0 : dealt_dmg=0
 		Current_health-=dealt_dmg
 		dealt_thrown_time=taken_attack.Stun_time
 		death_check()
 		return
+	if body_nature:
+		if hit_impact_sound and hit_impact_sound not in self.get_children():
+			self.add_child(hit_impact_sound)
+			hit_impact_sound.hitsound_type=body_nature
+			hit_impact_sound.load_sound()
+		elif hit_impact_sound and hit_impact_sound in self.get_children():
+			hit_impact_sound.queue_free()
+			var hits:Hitsound_impact=Hitsound_impact.new()
+			self.add_child(hits)
+			hits.hitsound_type=body_nature
+			hits.load_sound()
 	if taken_attack.Nature in Vulnerability:
 		Damage_Factor=taken_attack.Base_damage*25/100
 	elif taken_attack.Nature in Resistance:
@@ -69,6 +85,7 @@ func taking_damage(taken_attack:Attack):
 		if random_node_to_call_on_death:
 			random_node_to_call_on_death.is_alive=false
 	else : HitStopManager.hit_stop_function(.01,.1)
+	
 func death_check()->void:
 	if Current_health<0:Current_health=0
 	

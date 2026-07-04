@@ -548,6 +548,7 @@ points = PackedVector3Array(-0.14689931, -0.18311891, 0.06688977, -0.14668679, -
 
 [node name="Fractured Door 1" type="Node3D"]
 script = ExtResource("1_4l77u")
+body_type = "metal"
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 collision_layer = 32

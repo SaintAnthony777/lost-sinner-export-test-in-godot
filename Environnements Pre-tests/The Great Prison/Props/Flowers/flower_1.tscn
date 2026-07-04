@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b4uw8bgm64usb" path="res://Environnements Pre-tests/The Great Prison/Props/Flowers/Flower 1.blend" id="1_xov4k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xov4k"]
+cull_mode = 2
 shading_mode = 0
 albedo_color = Color(0.22672042, 0.581757, 0, 1)
 

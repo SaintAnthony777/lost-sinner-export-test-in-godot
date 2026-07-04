@@ -38,6 +38,7 @@ shape = SubResource("CapsuleShape3D_cdtbh")
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("4_susiw")
 Max_health = 10.0
+body_nature = "wood"
 metadata/_custom_type_script = "uid://bibpdrfengocv"
 
 [node name="Spawn Point" type="Marker3D" parent="."]

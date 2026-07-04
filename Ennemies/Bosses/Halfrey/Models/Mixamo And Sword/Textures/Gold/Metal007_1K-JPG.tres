@@ -7,13 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://bj5b4yt35p3mh" path="res://Ennemies/Bosses/Halfrey/Models/Mixamo And Sword/Textures/Gold/Metal007_1K-JPG_Roughness.jpg" id="Roughness"]
 
 [resource]
-albedo_color = Color(6.936375, 6.936375, 6.936375, 1)
 albedo_texture = ExtResource("Color")
 metallic = 1.0
 metallic_texture = ExtResource("Metalness")
 metallic_texture_channel = 4
 roughness_texture = ExtResource("Roughness")
 roughness_texture_channel = 4
+emission_enabled = true
+emission = Color(5.1557817, 5.1557817, 1.5259516, 1)
+emission_energy_multiplier = 0.6
 normal_enabled = true
 normal_texture = ExtResource("NormalGL")
 heightmap_enabled = true

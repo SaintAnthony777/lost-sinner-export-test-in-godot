@@ -4,6 +4,7 @@ extends State
 @onready var player: player_character = $"../.."
 @onready var object_particle:evergreen_particles=evergreen_particles.new()
 @onready var particles:PackedScene
+
 func enter() -> void:
 	character.use_regen_Item(player.used_item.item_name)
 	particles=load("res://Componenents/evergreen particles/"+player.used_item.item_name+"_particles.tscn")
