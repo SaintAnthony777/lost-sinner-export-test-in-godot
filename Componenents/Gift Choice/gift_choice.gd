@@ -102,12 +102,14 @@ func create_save_with_gift(ability:Inventory_Item,gift_here:Inventory_Item)->voi
 	new_save.current_save_place="Prison cell"
 	new_save.player_position=Vector3.ZERO
 	new_save.current_scene="res://Greyboxed Environnements/The Great Prison/the_great_prison.tscn"
+	SaveManager.current_save=new_save
 	var err = ResourceSaver.save(new_save,SaveManager.SAVE_PATH)
 	if err==OK:
 		print('sauvegarde créée')
 		var save:GameSaveData=ResourceLoader.load(SaveManager.SAVE_PATH)
 		if save :
-			SaveManager.load_game()
+			print(save.current_scene)
+			get_tree().change_scene_to_file("res://Componenents/Loading Screen/loading_screen.tscn")
 	else:pass
 func new_game_with_gifts(ability:Inventory_Item,gift:Inventory_Item) -> void :
 	create_save_with_gift(ability,gift)

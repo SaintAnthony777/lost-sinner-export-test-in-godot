@@ -1,0 +1,14 @@
+class_name portal_warp extends Node3D
+
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var interacted:bool=false
+@onready var inter_area: interaction_area = $interaction_area
+@onready var personnage:player_character=get_tree().get_first_node_in_group("Personnage")
+
+func _process(delta: float) -> void:
+	if (!interacted and Input.is_action_just_pressed("Action trigger") and
+		 inter_area and inter_area.interact==self and personnage.character.interacts):
+			interacted=true
+			animation_player.play("warping")
+			var white_screen_loaded:white_screen=load("res://Componenents/Whitescreen_fade/white_screen_fading.tscn").instantiate()
+			self.add_child(white_screen_loaded)

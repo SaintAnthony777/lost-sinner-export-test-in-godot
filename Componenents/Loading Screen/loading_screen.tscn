@@ -1,0 +1,199 @@
+[gd_scene load_steps=15 format=3 uid="uid://dwiqsmanok72t"]
+
+[ext_resource type="FontFile" uid="uid://d0ug5noy0uhhl" path="res://Fonts/Cinzel,EB_Garamond/EB_Garamond/static/EBGaramond-Regular.ttf" id="1_waeyn"]
+[ext_resource type="Script" uid="uid://cko6ra7termkb" path="res://Componenents/Loading Screen/loading_screen.gd" id="1_whbob"]
+[ext_resource type="Texture2D" uid="uid://cogtcj7u06w03" path="res://VFXES/Fire/textures/Flare00.PNG" id="2_eiga0"]
+
+[sub_resource type="Curve" id="Curve_jasdg"]
+_data = [Vector2(0.0038167834, 0), 0.0, 0.0, 0, 0, Vector2(0.4923664, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_sd158"]
+curve = SubResource("Curve_jasdg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_whbob"]
+emission_shape = 3
+emission_box_extents = Vector3(1000, 500, 1)
+gravity = Vector3(0, -75, 0)
+scale_min = 0.099999994
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_sd158")
+
+[sub_resource type="LabelSettings" id="LabelSettings_whbob"]
+font = ExtResource("1_waeyn")
+font_size = 65
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eiga0"]
+font = ExtResource("1_waeyn")
+font_size = 35
+
+[sub_resource type="LabelSettings" id="LabelSettings_waeyn"]
+font = ExtResource("1_waeyn")
+font_size = 45
+
+[sub_resource type="LabelSettings" id="LabelSettings_jasdg"]
+font = ExtResource("1_waeyn")
+font_size = 45
+
+[sub_resource type="Animation" id="Animation_hn0r4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("maincontainer/Loading status:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("maincontainer/Confirm start game:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_oqtxd"]
+resource_name = "confirm start await"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("maincontainer/Confirm start game:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_sd158"]
+resource_name = "loading animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("maincontainer/Loading status:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ha66j"]
+_data = {
+&"RESET": SubResource("Animation_hn0r4"),
+&"confirm start await": SubResource("Animation_oqtxd"),
+&"loading animation": SubResource("Animation_sd158")
+}
+
+[node name="Loading Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_whbob")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(1000, 500)
+texture = ExtResource("2_eiga0")
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_whbob")
+
+[node name="maincontainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="maincontainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 65
+
+[node name="Title_container" type="MarginContainer" parent="maincontainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="maincontainer/VBoxContainer/Title_container"]
+visible = false
+layout_mode = 2
+text = "Tips"
+label_settings = SubResource("LabelSettings_whbob")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message container" type="MarginContainer" parent="maincontainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Message" type="Label" parent="maincontainer/VBoxContainer/Message container"]
+custom_minimum_size = Vector2(145, 0)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Your Gift determines The elemental power of your weapon and can change the course of any fight, be sure to master it !"
+label_settings = SubResource("LabelSettings_eiga0")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Loading status" type="MarginContainer" parent="maincontainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/margin_bottom = 65
+
+[node name="Status" type="Label" parent="maincontainer/Loading status"]
+layout_mode = 2
+text = "Loading "
+label_settings = SubResource("LabelSettings_waeyn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Confirm start game" type="MarginContainer" parent="maincontainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 65
+
+[node name="Label" type="Label" parent="maincontainer/Confirm start game"]
+layout_mode = 2
+text = "Press space to continue"
+label_settings = SubResource("LabelSettings_jasdg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loader animator" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ha66j")
+}
