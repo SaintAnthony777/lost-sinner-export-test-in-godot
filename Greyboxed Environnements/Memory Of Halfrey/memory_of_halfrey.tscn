@@ -327,6 +327,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/FloorSquare/StaticBody3D"]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_yvu8y")
 
 [node name="FloorSquare2" type="MeshInstance3D" parent="World/floor"]
@@ -339,6 +340,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/FloorSquare2/StaticBody3D"]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_vhaat")
 
 [node name="FloorSquare3" type="MeshInstance3D" parent="World/floor"]
@@ -351,6 +353,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/FloorSquare3/StaticBody3D"]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_pna08")
 
 [node name="FloorSquare4" type="MeshInstance3D" parent="World/floor"]
@@ -363,6 +366,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/FloorSquare4/StaticBody3D"]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_xd1qr")
 
 [node name="FloorSquare5" type="MeshInstance3D" parent="World/floor"]
@@ -375,6 +379,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/FloorSquare5/StaticBody3D"]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_eb2mw")
 
 [node name="FloorSquare6" type="MeshInstance3D" parent="World/floor"]
@@ -387,6 +392,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/FloorSquare6/StaticBody3D"]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_pi602")
 
 [node name="FloorSquare9" type="MeshInstance3D" parent="World/floor"]
@@ -399,6 +405,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/FloorSquare9/StaticBody3D"]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_sdcm2")
 
 [node name="FloorSquare10" type="MeshInstance3D" parent="World/floor"]
@@ -411,6 +418,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/FloorSquare10/StaticBody3D"]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_qh3fy")
 
 [node name="FloorSquare11" type="MeshInstance3D" parent="World/floor"]
@@ -423,6 +431,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/FloorSquare11/StaticBody3D"]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_ebf8k")
 
 [node name="FloorSquare12" type="MeshInstance3D" parent="World/floor"]
@@ -435,6 +444,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/FloorSquare12/StaticBody3D"]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_lxl1k")
 
 [node name="FloorSquare7" type="MeshInstance3D" parent="World/floor"]
@@ -447,6 +457,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/FloorSquare7/StaticBody3D"]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_rgyep")
 
 [node name="FloorSquare8" type="MeshInstance3D" parent="World/floor"]
@@ -459,6 +470,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/FloorSquare8/StaticBody3D"]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_uhyle")
 
 [node name="Wall16*16" type="MeshInstance3D" parent="World/floor"]
@@ -470,6 +482,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/Wall16*16/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_nlx45")
 
 [node name="Wall16*17" type="MeshInstance3D" parent="World/floor"]
@@ -481,6 +494,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/Wall16*17/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_s8mwq")
 
 [node name="Wall16*18" type="MeshInstance3D" parent="World/floor"]
@@ -492,6 +506,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/Wall16*18/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_r82ae")
 
 [node name="Wall16*19" type="MeshInstance3D" parent="World/floor"]
@@ -503,6 +518,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/Wall16*19/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_kn1ol")
 
 [node name="Wall16*20" type="MeshInstance3D" parent="World/floor"]
@@ -514,6 +530,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/Wall16*20/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_ptwho")
 
 [node name="Wall16*21" type="MeshInstance3D" parent="World/floor"]
@@ -525,6 +542,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/Wall16*21/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_xr86u")
 
 [node name="Wall16*22" type="MeshInstance3D" parent="World/floor"]
@@ -536,6 +554,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/Wall16*22/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_ym6ru")
 
 [node name="Wall16*23" type="MeshInstance3D" parent="World/floor"]
@@ -547,6 +566,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/Wall16*23/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_p44c8")
 
 [node name="FloorLarge" type="MeshInstance3D" parent="World/floor"]
@@ -558,6 +578,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/FloorLarge/StaticBody3D"]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_yl01v")
 
 [node name="FloorLong" type="MeshInstance3D" parent="World/floor"]
@@ -569,6 +590,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/FloorLong/StaticBody3D"]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_wd2uv")
 
 [node name="FloorLong2" type="MeshInstance3D" parent="World/floor"]
@@ -580,6 +602,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/FloorLong2/StaticBody3D"]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_6w5t8")
 
 [node name="FloorLong3" type="MeshInstance3D" parent="World/floor"]
@@ -591,6 +614,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/FloorLong3/StaticBody3D"]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_lskup")
 
 [node name="FloorLong4" type="MeshInstance3D" parent="World/floor"]
@@ -602,6 +626,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/FloorLong4/StaticBody3D"]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_3kcm8")
 
 [node name="FloorLong5" type="MeshInstance3D" parent="World/floor"]
@@ -613,6 +638,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/FloorLong5/StaticBody3D"]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_d4w1o")
 
 [node name="FloorLong6" type="MeshInstance3D" parent="World/floor"]
@@ -624,6 +650,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/FloorLong6/StaticBody3D"]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_udfd2")
 
 [node name="FloorLong7" type="MeshInstance3D" parent="World/floor"]
@@ -635,6 +662,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/FloorLong7/StaticBody3D"]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_kh0g4")
 
 [node name="Stairs8Meters" type="MeshInstance3D" parent="World/floor"]
@@ -646,6 +674,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/Stairs8Meters/StaticBody3D"]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_h0d78")
 
 [node name="Stairs8Meters2" type="MeshInstance3D" parent="World/floor"]
@@ -657,6 +686,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/floor/Stairs8Meters2/StaticBody3D"]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_dp53m")
 
 [node name="Rocks" type="Node3D" parent="World"]
@@ -671,6 +701,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock5/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_3mgbw")
 
 [node name="Rock1" type="MeshInstance3D" parent="World/Rocks"]
@@ -683,6 +714,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock1/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_8dt8i")
 
 [node name="Rock2" type="MeshInstance3D" parent="World/Rocks"]
@@ -695,6 +727,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock2/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_5w310")
 
 [node name="Rock3" type="MeshInstance3D" parent="World/Rocks"]
@@ -707,6 +740,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock3/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_0j72q")
 
 [node name="Rock4" type="MeshInstance3D" parent="World/Rocks"]
@@ -719,6 +753,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock4/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_y2lxw")
 
 [node name="Rock6" type="MeshInstance3D" parent="World/Rocks"]
@@ -730,6 +765,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock6/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_88w0t")
 
 [node name="Rock7" type="MeshInstance3D" parent="World/Rocks"]
@@ -741,6 +777,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock7/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_6ucyt")
 
 [node name="Rock8" type="MeshInstance3D" parent="World/Rocks"]
@@ -752,6 +789,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock8/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_v6utr")
 
 [node name="Rock9" type="MeshInstance3D" parent="World/Rocks"]
@@ -763,6 +801,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock9/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_efkpq")
 
 [node name="Rock10" type="MeshInstance3D" parent="World/Rocks"]
@@ -774,6 +813,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock10/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_j0ecx")
 
 [node name="Rock11" type="MeshInstance3D" parent="World/Rocks"]
@@ -785,6 +825,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock11/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_p88k1")
 
 [node name="Rock12" type="MeshInstance3D" parent="World/Rocks"]
@@ -796,6 +837,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock12/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_ex3iu")
 
 [node name="Rock15" type="MeshInstance3D" parent="World/Rocks"]
@@ -807,6 +849,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock15/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_7yxet")
 
 [node name="Rock13" type="MeshInstance3D" parent="World/Rocks"]
@@ -818,6 +861,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock13/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_xpo12")
 
 [node name="Rock14" type="MeshInstance3D" parent="World/Rocks"]
@@ -829,6 +873,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock14/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_0vc3s")
 
 [node name="Rock16" type="MeshInstance3D" parent="World/Rocks"]
@@ -840,6 +885,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock16/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_h4vt2")
 
 [node name="Rock17" type="MeshInstance3D" parent="World/Rocks"]
@@ -851,6 +897,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock17/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_j4xft")
 
 [node name="Rock18" type="MeshInstance3D" parent="World/Rocks"]
@@ -862,6 +909,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock18/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_jhqco")
 
 [node name="Rock21" type="MeshInstance3D" parent="World/Rocks"]
@@ -873,6 +921,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock21/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_10tw6")
 
 [node name="Rock19" type="MeshInstance3D" parent="World/Rocks"]
@@ -884,6 +933,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock19/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_7uvde")
 
 [node name="Rock20" type="MeshInstance3D" parent="World/Rocks"]
@@ -895,6 +945,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock20/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_lcpj7")
 
 [node name="Rock22" type="MeshInstance3D" parent="World/Rocks"]
@@ -906,6 +957,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock22/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_x6uw6")
 
 [node name="Rock23" type="MeshInstance3D" parent="World/Rocks"]
@@ -917,6 +969,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock23/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_7ekkn")
 
 [node name="Rock24" type="MeshInstance3D" parent="World/Rocks"]
@@ -928,6 +981,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock24/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_wr4ay")
 
 [node name="Rock25" type="MeshInstance3D" parent="World/Rocks"]
@@ -939,6 +993,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock25/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_lolm5")
 
 [node name="Rock26" type="MeshInstance3D" parent="World/Rocks"]
@@ -950,6 +1005,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock26/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_uky8m")
 
 [node name="Rock27" type="MeshInstance3D" parent="World/Rocks"]
@@ -961,6 +1017,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock27/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_ejk7p")
 
 [node name="Rock28" type="MeshInstance3D" parent="World/Rocks"]
@@ -972,6 +1029,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock28/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_d3au6")
 
 [node name="Rock29" type="MeshInstance3D" parent="World/Rocks"]
@@ -983,6 +1041,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock29/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_6n2qi")
 
 [node name="Rock30" type="MeshInstance3D" parent="World/Rocks"]
@@ -994,6 +1053,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock30/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_nuqh2")
 
 [node name="Rock31" type="MeshInstance3D" parent="World/Rocks"]
@@ -1005,6 +1065,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock31/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_jm6o5")
 
 [node name="Rock32" type="MeshInstance3D" parent="World/Rocks"]
@@ -1016,6 +1077,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock32/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_vo42o")
 
 [node name="Rock33" type="MeshInstance3D" parent="World/Rocks"]
@@ -1027,6 +1089,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock33/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_1an4x")
 
 [node name="Rock34" type="MeshInstance3D" parent="World/Rocks"]
@@ -1039,6 +1102,7 @@ collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock34/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+visible = false
 shape = SubResource("ConvexPolygonShape3D_mv24v")
 
 [node name="Rock35" type="MeshInstance3D" parent="World/Rocks"]
@@ -1050,6 +1114,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock35/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_3xwjv")
 
 [node name="Rock36" type="MeshInstance3D" parent="World/Rocks"]
@@ -1061,6 +1126,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock36/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_qwebp")
 
 [node name="Rock37" type="MeshInstance3D" parent="World/Rocks"]
@@ -1072,6 +1138,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock37/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_q0qcy")
 
 [node name="Rock38" type="MeshInstance3D" parent="World/Rocks"]
@@ -1083,6 +1150,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock38/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_wl7j2")
 
 [node name="Rock39" type="MeshInstance3D" parent="World/Rocks"]
@@ -1094,6 +1162,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock39/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_yu0i5")
 
 [node name="Rock40" type="MeshInstance3D" parent="World/Rocks"]
@@ -1105,6 +1174,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock40/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_y7ax8")
 
 [node name="Rock41" type="MeshInstance3D" parent="World/Rocks"]
@@ -1116,6 +1186,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock41/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_nph01")
 
 [node name="Rock42" type="MeshInstance3D" parent="World/Rocks"]
@@ -1127,6 +1198,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock42/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_y3x6x")
 
 [node name="Rock43" type="MeshInstance3D" parent="World/Rocks"]
@@ -1138,6 +1210,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock43/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_atwmb")
 
 [node name="Rock44" type="MeshInstance3D" parent="World/Rocks"]
@@ -1149,6 +1222,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock44/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_vrbym")
 
 [node name="Rock45" type="MeshInstance3D" parent="World/Rocks"]
@@ -1160,6 +1234,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock45/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_v71jc")
 
 [node name="Rock46" type="MeshInstance3D" parent="World/Rocks"]
@@ -1171,6 +1246,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock46/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_8i2a7")
 
 [node name="Rock47" type="MeshInstance3D" parent="World/Rocks"]
@@ -1182,6 +1258,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Rocks/Rock47/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_nqegd")
 
 [node name="pillars" type="Node3D" parent="World"]
@@ -1194,6 +1271,7 @@ skeleton = NodePath("../../..")
 [node name="StaticBody3D" type="StaticBody3D" parent="World/pillars/Pillar1"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/pillars/Pillar1/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_yvu8y")
 
 [node name="Pillar2" type="MeshInstance3D" parent="World/pillars"]
@@ -1204,6 +1282,7 @@ skeleton = NodePath("../../..")
 [node name="StaticBody3D" type="StaticBody3D" parent="World/pillars/Pillar2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/pillars/Pillar2/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_vhaat")
 
 [node name="Pillar3" type="MeshInstance3D" parent="World/pillars"]
@@ -1214,6 +1293,7 @@ skeleton = NodePath("../../..")
 [node name="StaticBody3D" type="StaticBody3D" parent="World/pillars/Pillar3"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/pillars/Pillar3/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_pna08")
 
 [node name="Pillar4" type="MeshInstance3D" parent="World/pillars"]
@@ -1224,6 +1304,7 @@ skeleton = NodePath("../../..")
 [node name="StaticBody3D" type="StaticBody3D" parent="World/pillars/Pillar4"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/pillars/Pillar4/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_xd1qr")
 
 [node name="Pillar5" type="MeshInstance3D" parent="World/pillars"]
@@ -1234,6 +1315,7 @@ skeleton = NodePath("../../..")
 [node name="StaticBody3D" type="StaticBody3D" parent="World/pillars/Pillar5"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/pillars/Pillar5/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_eb2mw")
 
 [node name="Pillar6" type="MeshInstance3D" parent="World/pillars"]
@@ -1244,6 +1326,7 @@ skeleton = NodePath("../../..")
 [node name="StaticBody3D" type="StaticBody3D" parent="World/pillars/Pillar6"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/pillars/Pillar6/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_pi602")
 
 [node name="Pillar7" type="MeshInstance3D" parent="World/pillars"]
@@ -1254,6 +1337,7 @@ skeleton = NodePath("../../..")
 [node name="StaticBody3D" type="StaticBody3D" parent="World/pillars/Pillar7"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/pillars/Pillar7/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_sdcm2")
 
 [node name="Pillar8" type="MeshInstance3D" parent="World/pillars"]
@@ -1264,6 +1348,7 @@ skeleton = NodePath("../../..")
 [node name="StaticBody3D" type="StaticBody3D" parent="World/pillars/Pillar8"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/pillars/Pillar8/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_qh3fy")
 
 [node name="Pillar9" type="MeshInstance3D" parent="World/pillars"]
@@ -1274,6 +1359,7 @@ skeleton = NodePath("../../..")
 [node name="StaticBody3D" type="StaticBody3D" parent="World/pillars/Pillar9"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/pillars/Pillar9/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_ebf8k")
 
 [node name="Miscs" type="Node3D" parent="World"]
@@ -1286,6 +1372,7 @@ skeleton = NodePath("../..")
 [node name="StaticBody3D" type="StaticBody3D" parent="World/Miscs/PavedCircle"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Miscs/PavedCircle/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_rgyep")
 
 [node name="Shrine" type="MeshInstance3D" parent="World/Miscs"]
@@ -1298,9 +1385,11 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Miscs/Shrine/StaticBody3D"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_lxl1k")
 
 [node name="Save points" type="Node3D" parent="."]
 
 [node name="Save Point" parent="Save points" instance=ExtResource("8_d7odx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+save_place_name = "Remembrance of the Braves"

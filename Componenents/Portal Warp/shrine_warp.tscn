@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c63vk0u1ltlu6"]
+
+[ext_resource type="Script" uid="uid://bi1iuhtynsyy4" path="res://Componenents/Portal Warp/portal_warp.gd" id="1_j5203"]
+
+[node name="Shrine Warp" type="Node3D"]
+script = ExtResource("1_j5203")
+metadata/_custom_type_script = "uid://bi1iuhtynsyy4"

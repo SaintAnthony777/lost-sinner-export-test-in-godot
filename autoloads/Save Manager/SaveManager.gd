@@ -9,7 +9,9 @@ func save_game(player_node:player_character)->void:
 	current_save.player_position=player_node.global_position
 	current_save.current_scene = get_tree().current_scene.scene_file_path
 	current_save.current_save_place = player_node.current_level_played.get_closest_save_point().save_place_name
-	
+	write_save()
+
+func write_save()->void:
 	if not DirAccess.dir_exists_absolute(FOLDER_PATH):
 		DirAccess.make_dir_absolute(FOLDER_PATH)
 	var error = ResourceSaver.save(current_save,SAVE_PATH)
@@ -18,6 +20,7 @@ func save_game(player_node:player_character)->void:
 	else : 
 		print(error)
 		print("sauvegarde echouée")
+		
 		
 func restor_health_and_arcane(player_node:player_character)->void:
 	player_node.character.health_component.Current_health = player_node.character.health_component.Max_health
@@ -76,6 +79,7 @@ func specific_save(player_node:player_character,given_postion:Vector3,given_path
 	save_stats(player_node)
 	current_save.player_position=given_postion
 	current_save.current_scene=given_path
+	write_save()
 	
 func save_stats(player_node:player_character):
 	current_save.current_health = player_node.character.health_component.Current_health
