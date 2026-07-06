@@ -7,7 +7,7 @@ class_name loadingscreen extends Control
 @onready var status_percentage:Label=$"maincontainer/Loading status/Status"
 @onready var great_dict:Dictionary={
 	"Tips":[
-			"Rolling can interrupt most of your current actions, use it to evade most of situations",
+			"Rolling can interrupt most of your current actions, use it to evade difficult situations",
 			"Successive attacks with the hammer will result that your enemy will be kept at a distance, beware not to be cornered though",
 			"Graces and Divine dividers can resverse almost any disavantaged battle, use them when you feel surrounded or if the enemy is stronger than expected",
 			"Gifts are really gifts when it comes to infuse more power into ordinary attacks, it can exploit almost any of the enemy's weaknesses, learn to master them"

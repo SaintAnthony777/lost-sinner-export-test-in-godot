@@ -6,6 +6,8 @@
 [sub_resource type="LabelSettings" id="LabelSettings_nih3y"]
 font = ExtResource("1_fqmmg")
 font_size = 85
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_4fkf6"]
 length = 0.001

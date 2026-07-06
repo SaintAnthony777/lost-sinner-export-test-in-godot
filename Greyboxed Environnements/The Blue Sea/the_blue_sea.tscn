@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://caxitdgdqp2cf"]
+
+[ext_resource type="Script" uid="uid://cettk4umshcmn" path="res://Greyboxed Environnements/The Great Prison/the_great_prison.gd" id="1_46rl1"]
+[ext_resource type="Texture2D" uid="uid://bgc5rl13dopuj" path="res://addons/proton_scatter/demos/assets/textures/sky_2.png" id="2_e6twd"]
+[ext_resource type="QuadMesh" uid="uid://iv6mw4ootc36" path="res://Componenents/Sea/shaders/water_surface.tres" id="3_uw7uy"]
+[ext_resource type="Material" uid="uid://dpkuhnalcvy08" path="res://Componenents/Sea/shaders/Water.tres" id="4_hqacr"]
+[ext_resource type="PackedScene" uid="uid://bpy7pyxeeq0rx" path="res://Environnements Pre-tests/The Great Prison/Ending Boat/Scene/ending_boat.tscn" id="5_k3djf"]
+[ext_resource type="PackedScene" uid="uid://d2r2jcuagye5b" path="res://Componenents/Save Point/scene/save_point.tscn" id="6_rqcbh"]
+[ext_resource type="PackedScene" uid="uid://srgn3wkeivsn" path="res://Character/Scenes/personnage.tscn" id="7_3eyy1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_egw6n"]
+sky_top_color = Color(1.732707e-06, 0.47234535, 0.73642915, 1)
+sky_horizon_color = Color(0.558693, 0.92499304, 0.93813777, 1)
+sky_cover = ExtResource("2_e6twd")
+sky_cover_modulate = Color(0.8346143, 0.8346143, 0.8346143, 1)
+ground_bottom_color = Color(0.5568628, 0.9254902, 0.9372549, 1)
+ground_horizon_color = Color(0.5568628, 0.9254902, 0.9372549, 1)
+energy_multiplier = 0.5
+
+[sub_resource type="Sky" id="Sky_d14lo"]
+sky_material = SubResource("ProceduralSkyMaterial_egw6n")
+
+[sub_resource type="Environment" id="Environment_ka5p1"]
+background_mode = 2
+sky = SubResource("Sky_d14lo")
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(1.2411735, 2.7021875, 3.36282, 1)
+fog_density = 1.0
+fog_aerial_perspective = 1.0
+fog_height = 880.86
+fog_depth_curve = 1e-05
+fog_depth_begin = 285.0
+fog_depth_end = 827.2
+
+[node name="The Blue Sea" type="Node3D"]
+script = ExtResource("1_46rl1")
+level_name = "The Blue Sea"
+metadata/_custom_type_script = "uid://cettk4umshcmn"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." groups=["World Environnements"]]
+environment = SubResource("Environment_ka5p1")
+
+[node name="Personnage" parent="." node_paths=PackedStringArray("current_level_played") instance=ExtResource("7_3eyy1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 4, -23)
+current_level_played = NodePath("..")
+
+[node name="Sea" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8, 0)
+mesh = ExtResource("3_uw7uy")
+surface_material_override/0 = ExtResource("4_hqacr")
+
+[node name="Props" type="Node3D" parent="."]
+
+[node name="Ending Boat" parent="Props" instance=ExtResource("5_k3djf")]
+
+[node name="Save points" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, -5)
+
+[node name="Save Point" parent="Save points" instance=ExtResource("6_rqcbh")]
+save_place_name = "Aboard The Freedom"

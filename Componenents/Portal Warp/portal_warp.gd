@@ -8,7 +8,7 @@ class_name portal_warp extends Node3D
 
 @export var destination_scene:String
 @export var destination_location:Vector3
-
+@export var destination_name:String
 func _process(delta: float) -> void:
 	if (!interacted and Input.is_action_just_pressed("Action trigger") and
 		 inter_area and inter_area.interact==self and personnage.character.interacts):
@@ -16,7 +16,8 @@ func _process(delta: float) -> void:
 			SaveManager.specific_save(
 				personnage,
 				destination_location,
-				destination_scene
+				destination_scene,
+				destination_name
 			)
 			animation_player.play("warping")
 			var white_screen_loaded:white_screen=load("res://Componenents/Whitescreen_fade/white_screen_fading.tscn").instantiate()

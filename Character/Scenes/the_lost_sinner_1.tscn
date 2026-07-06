@@ -1,4 +1,4 @@
-[gd_scene load_steps=206 format=3 uid="uid://xumlackoysv2"]
+[gd_scene load_steps=208 format=3 uid="uid://xumlackoysv2"]
 
 [ext_resource type="PackedScene" uid="uid://dshsna3bwyfl7" path="res://Character/Glb/lost sinner 1/The Lost Sinner1.glb" id="1_ag85x"]
 [ext_resource type="Script" uid="uid://dijb6jh7etgx0" path="res://Character/Scripts/Player/character_mesh.gd" id="2_ukanm"]
@@ -58,6 +58,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://skkyyyqajgta" path="res://Character/Imported Animations/praying animation/praying.res" id="44_dglhg"]
 [ext_resource type="AudioStream" uid="uid://cjvenay3h2jxv" path="res://Sounds/footsteps/footstep_concrete_001.ogg" id="45_w1wvh"]
 [ext_resource type="PackedScene" uid="uid://cm8oki3o7molb" path="res://Componenents/Pause Menu/pause_menu.tscn" id="45_wjcrg"]
+[ext_resource type="AnimationLibrary" uid="uid://djcr6mfod1bko" path="res://Character/Imported Animations/touching/touching.res" id="46_se81j"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0acup"]
 albedo_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
@@ -16819,6 +16820,9 @@ animation = &"USing the fruit 2/Using The fruit 2"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_20nr8"]
 animation = &"praying/Praying"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_61r5r"]
+animation = &"touching /Touching"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cxots"]
 animation = &"Grace animation packs 1/Aerial Screaming Silence"
 
@@ -17051,7 +17055,7 @@ input_2/name = "praying"
 input_2/auto_advance = false
 input_2/break_loop_at_end = false
 input_2/reset = true
-input_3/name = "opens chest"
+input_3/name = "touching"
 input_3/auto_advance = false
 input_3/break_loop_at_end = false
 input_3/reset = true
@@ -17422,7 +17426,7 @@ animation = &"Quick roll"
 animation = &"Supplementary animation packs 2/Run slide"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_h8mx0"]
-graph_offset = Vector2(-2498.8772, 1751.5366)
+graph_offset = Vector2(-1903.6615, 1359.5684)
 nodes/output/position = Vector2(1680, 186.66667)
 nodes/State/node = SubResource("AnimationNodeTransition_rf1bm")
 nodes/State/position = Vector2(1440, 160)
@@ -17628,7 +17632,9 @@ nodes/Ground_Taking_Damage_transitions/position = Vector2(693.3333, -186.66667)
 "nodes/Animation 41/position" = Vector2(-693.3333, -320)
 "nodes/Animation 42/node" = SubResource("AnimationNodeAnimation_20nr8")
 "nodes/Animation 42/position" = Vector2(-2960, 2293.3333)
-node_connections = [&"output", 0, &"State", &"State", 0, &"Ground_state", &"State", 1, &"Airborne transition", &"Moving", 0, &"Normal_Transition", &"Moving", 1, &"Strafe_blendspace", &"Moving", 2, &"locking_blendspace", &"Moving", 3, &"roll_transistion", &"Moving", 4, &"TimeScale", &"Moving", 5, &"Ground Attack transitions", &"Moving", 6, &"Ground shield transistion", &"Moving", 7, &"Interaction Transition", &"Moving", 8, &"Enchanting transition", &"Moving", 9, &"Object Using Transistion", &"Normal_Transition", 0, &"Walking", &"Normal_Transition", 1, &"Running", &"Normal_Transition", 2, &"Idle_Animation", &"Normal_Transition", 3, &"Animation 32", &"Ground_state", 0, &"Moving", &"Ground_state", 1, &"Ground_Taking_Damage_transitions", &"roll_transistion", 0, &"slide_animation", &"roll_transistion", 1, &"rolltime_sacle", &"roll_transistion", 2, &"backflip timescale", &"rolltime_sacle", 0, &"rollanimation", &"TimeScale", 0, &"Sprint_animation", &"backflip timescale", 0, &"Animation", &"Ground Attack transitions", 0, &"Weapon_equipped", &"Ground Attack transitions", 1, &"aiming attack transition", &"Ground Attack transitions", 2, &"Specials transitions", &"Ground Attack transitions", 3, &"Graces transitions", &"Ground shield transistion", 0, &"Walk with shiled", &"Ground shield transistion", 1, &"Shiled Idle", &"Ground shield transistion", 2, &"Shield blendspace strafe", &"Ground shield transistion", 3, &"TimeScale 8", &"Ground shield transistion", 4, &"Animation 27", &"Weapon_equipped", 0, &"hammer attack timescale", &"Hammer_attack_transition", 0, &"Hammer_attack_1", &"Hammer_attack_transition", 1, &"Hammer_attack_2", &"Hammer_attack_transition", 2, &"Hammer_attack_3", &"Hammer_attack_transition", 3, &"Hammer_attack_running", &"Hammer_attack_transition", 4, &"TimeScale 2", &"Hammer_attack_transition", 5, &"Hammer attack 4", &"hammer attack timescale", 0, &"Hammer_attack_transition", &"TimeScale 2", 0, &"hammer attack jumping", &"Specials transitions", 0, &"Scream animation", &"Specials transitions", 1, &"Sundown Animation", &"Specials transitions", 2, &"Animation 11", &"Specials transitions", 3, &"Animation 12", &"Specials transitions", 4, &"Animation 13", &"TimeScale 6", 0, &"Animation 3", &"TimeScale 7", 0, &"Animation 2", &"aiming attack transition", 0, &"TimeScale 3", &"aiming attack transition", 1, &"hammer take back aiming", &"aiming attack transition", 2, &"TimeScale 4", &"TimeScale 3", 0, &"Hammer throw animation", &"TimeScale 4", 0, &"hammer take back normal", &"Normal Airborne Transitions", 0, &"jump animation", &"Normal Airborne Transitions", 1, &"fall animation", &"Normal Airborne Transitions", 2, &"landing animation", &"Normal Airborne Transitions", 3, &"TimeScale 5", &"Normal Airborne Transitions", 4, &"Animation 28", &"Airborne transition", 0, &"Normal Airborne Transitions", &"Airborne transition", 1, &"Being hit Airborne Transitions", &"Airborne transition", 3, &"Special Airborne Transitions", &"Airborne transition", 4, &"Grace Airborne Transitions", &"TimeScale 5", 0, &"air evade animation", &"Special Airborne Transitions", 0, &"TimeScale 7", &"Special Airborne Transitions", 1, &"TimeScale 6", &"Special Airborne Transitions", 2, &"Animation 4", &"Special Airborne Transitions", 3, &"Animation 5", &"Special Airborne Transitions", 4, &"Animation 10", &"Grace Airborne Transitions", 0, &"Animation 14", &"Grace Airborne Transitions", 1, &"Animation 15", &"Grace Airborne Transitions", 2, &"Animation 16", &"Grace Airborne Transitions", 3, &"Animation 18", &"Grace Airborne Transitions", 4, &"Animation 19", &"Grace Airborne Transitions", 5, &"Animation 17", &"Grace Airborne Transitions", 6, &"Animation 20", &"Grace Airborne Transitions", 7, &"Animation 22", &"Graces transitions", 0, &"Heavy Charge ready Animation", &"Graces transitions", 1, &"Animation 6", &"Graces transitions", 2, &"Animation 7", &"Graces transitions", 3, &"Animation 8", &"Graces transitions", 4, &"Animation 9", &"Graces transitions", 5, &"Animation 21", &"Ground_Taking_Damage_transitions", 0, &"Animation 23", &"Ground_Taking_Damage_transitions", 1, &"Animation 24", &"Ground_Taking_Damage_transitions", 2, &"Animation 25", &"Ground_Taking_Damage_transitions", 3, &"Animation 29", &"TimeScale 8", 0, &"Animation 26", &"Being hit Airborne Transitions", 0, &"Animation 31", &"Being hit Airborne Transitions", 1, &"TimeScale 9", &"TimeScale 9", 0, &"Animation 30", &"Interaction Transition", 0, &"Animation 33", &"Interaction Transition", 1, &"Animation 37", &"Interaction Transition", 2, &"Animation 42", &"Interaction Transition", 4, &"Animation 34", &"Interaction Transition", 5, &"Animation 35", &"Interaction Transition", 6, &"Animation 36", &"Enchanting transition", 0, &"Animation 38", &"Enchanting transition", 1, &"Animation 39", &"Object Using Transistion", 0, &"Animation 41", &"Object Using Transistion", 1, &"Animation 40"]
+"nodes/Animation 43/node" = SubResource("AnimationNodeAnimation_61r5r")
+"nodes/Animation 43/position" = Vector2(-2800, 2160)
+node_connections = [&"output", 0, &"State", &"State", 0, &"Ground_state", &"State", 1, &"Airborne transition", &"Moving", 0, &"Normal_Transition", &"Moving", 1, &"Strafe_blendspace", &"Moving", 2, &"locking_blendspace", &"Moving", 3, &"roll_transistion", &"Moving", 4, &"TimeScale", &"Moving", 5, &"Ground Attack transitions", &"Moving", 6, &"Ground shield transistion", &"Moving", 7, &"Interaction Transition", &"Moving", 8, &"Enchanting transition", &"Moving", 9, &"Object Using Transistion", &"Normal_Transition", 0, &"Walking", &"Normal_Transition", 1, &"Running", &"Normal_Transition", 2, &"Idle_Animation", &"Normal_Transition", 3, &"Animation 32", &"Ground_state", 0, &"Moving", &"Ground_state", 1, &"Ground_Taking_Damage_transitions", &"roll_transistion", 0, &"slide_animation", &"roll_transistion", 1, &"rolltime_sacle", &"roll_transistion", 2, &"backflip timescale", &"rolltime_sacle", 0, &"rollanimation", &"TimeScale", 0, &"Sprint_animation", &"backflip timescale", 0, &"Animation", &"Ground Attack transitions", 0, &"Weapon_equipped", &"Ground Attack transitions", 1, &"aiming attack transition", &"Ground Attack transitions", 2, &"Specials transitions", &"Ground Attack transitions", 3, &"Graces transitions", &"Ground shield transistion", 0, &"Walk with shiled", &"Ground shield transistion", 1, &"Shiled Idle", &"Ground shield transistion", 2, &"Shield blendspace strafe", &"Ground shield transistion", 3, &"TimeScale 8", &"Ground shield transistion", 4, &"Animation 27", &"Weapon_equipped", 0, &"hammer attack timescale", &"Hammer_attack_transition", 0, &"Hammer_attack_1", &"Hammer_attack_transition", 1, &"Hammer_attack_2", &"Hammer_attack_transition", 2, &"Hammer_attack_3", &"Hammer_attack_transition", 3, &"Hammer_attack_running", &"Hammer_attack_transition", 4, &"TimeScale 2", &"Hammer_attack_transition", 5, &"Hammer attack 4", &"hammer attack timescale", 0, &"Hammer_attack_transition", &"TimeScale 2", 0, &"hammer attack jumping", &"Specials transitions", 0, &"Scream animation", &"Specials transitions", 1, &"Sundown Animation", &"Specials transitions", 2, &"Animation 11", &"Specials transitions", 3, &"Animation 12", &"Specials transitions", 4, &"Animation 13", &"TimeScale 6", 0, &"Animation 3", &"TimeScale 7", 0, &"Animation 2", &"aiming attack transition", 0, &"TimeScale 3", &"aiming attack transition", 1, &"hammer take back aiming", &"aiming attack transition", 2, &"TimeScale 4", &"TimeScale 3", 0, &"Hammer throw animation", &"TimeScale 4", 0, &"hammer take back normal", &"Normal Airborne Transitions", 0, &"jump animation", &"Normal Airborne Transitions", 1, &"fall animation", &"Normal Airborne Transitions", 2, &"landing animation", &"Normal Airborne Transitions", 3, &"TimeScale 5", &"Normal Airborne Transitions", 4, &"Animation 28", &"Airborne transition", 0, &"Normal Airborne Transitions", &"Airborne transition", 1, &"Being hit Airborne Transitions", &"Airborne transition", 3, &"Special Airborne Transitions", &"Airborne transition", 4, &"Grace Airborne Transitions", &"TimeScale 5", 0, &"air evade animation", &"Special Airborne Transitions", 0, &"TimeScale 7", &"Special Airborne Transitions", 1, &"TimeScale 6", &"Special Airborne Transitions", 2, &"Animation 4", &"Special Airborne Transitions", 3, &"Animation 5", &"Special Airborne Transitions", 4, &"Animation 10", &"Grace Airborne Transitions", 0, &"Animation 14", &"Grace Airborne Transitions", 1, &"Animation 15", &"Grace Airborne Transitions", 2, &"Animation 16", &"Grace Airborne Transitions", 3, &"Animation 18", &"Grace Airborne Transitions", 4, &"Animation 19", &"Grace Airborne Transitions", 5, &"Animation 17", &"Grace Airborne Transitions", 6, &"Animation 20", &"Grace Airborne Transitions", 7, &"Animation 22", &"Graces transitions", 0, &"Heavy Charge ready Animation", &"Graces transitions", 1, &"Animation 6", &"Graces transitions", 2, &"Animation 7", &"Graces transitions", 3, &"Animation 8", &"Graces transitions", 4, &"Animation 9", &"Graces transitions", 5, &"Animation 21", &"Ground_Taking_Damage_transitions", 0, &"Animation 23", &"Ground_Taking_Damage_transitions", 1, &"Animation 24", &"Ground_Taking_Damage_transitions", 2, &"Animation 25", &"Ground_Taking_Damage_transitions", 3, &"Animation 29", &"TimeScale 8", 0, &"Animation 26", &"Being hit Airborne Transitions", 0, &"Animation 31", &"Being hit Airborne Transitions", 1, &"TimeScale 9", &"TimeScale 9", 0, &"Animation 30", &"Interaction Transition", 0, &"Animation 33", &"Interaction Transition", 1, &"Animation 37", &"Interaction Transition", 2, &"Animation 42", &"Interaction Transition", 3, &"Animation 43", &"Interaction Transition", 4, &"Animation 34", &"Interaction Transition", 5, &"Animation 35", &"Interaction Transition", 6, &"Animation 36", &"Enchanting transition", 0, &"Animation 38", &"Enchanting transition", 1, &"Animation 39", &"Object Using Transistion", 0, &"Animation 41", &"Object Using Transistion", 1, &"Animation 40"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j1dr1"]
 radius = 0.7236328
@@ -17652,55 +17658,60 @@ script = ExtResource("2_ukanm")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/position = Vector3(0, 0, 0)
-bones/0/rotation = Quaternion(0.005325432, -3.1788133e-08, 2.1917146e-10, 0.9999858)
-bones/4/rotation = Quaternion(0.24202628, 3.2331137e-19, 1.6843829e-16, 0.9702697)
-bones/8/rotation = Quaternion(0.39691317, 0.13238643, 0.45642105, 0.7852475)
-bones/9/rotation = Quaternion(-4.8271613e-07, -6.239861e-07, 0.6325727, 0.774501)
-bones/10/rotation = Quaternion(-0.3704291, 0.13880299, 0.32449475, 0.8591969)
-bones/47/rotation = Quaternion(0.48735633, -0.19235954, -0.39179802, 0.756291)
-bones/48/rotation = Quaternion(4.3120235e-07, -3.0361116e-07, -0.72215027, 0.6917362)
-bones/49/rotation = Quaternion(-0.29251263, -0.23876047, -0.3201678, 0.8688627)
-bones/85/rotation = Quaternion(6.0251863e-05, -0.0006709411, 0.9999848, -0.0054755434)
-bones/86/rotation = Quaternion(-0.027540525, -1.011125e-06, -3.6242504e-08, 0.9996207)
-bones/87/rotation = Quaternion(0.523988, -0.019787682, 0.02004491, 0.85125977)
-bones/90/rotation = Quaternion(-6.0596623e-05, -0.00024481182, 0.999985, 0.005475615)
-bones/91/rotation = Quaternion(-0.030136082, 6.137416e-07, -8.82726e-08, 0.9995458)
-bones/92/rotation = Quaternion(0.5250692, 0.01983501, -0.020101404, 0.85059094)
-bones/96/rotation = Quaternion(0.0053253653, -0.0049999086, 2.662744e-05, 0.99997336)
-bones/99/rotation = Quaternion(0.0054755416, 0.9999848, 0.0006709439, 6.017633e-05)
-bones/100/rotation = Quaternion(-0.027540527, -1.0111123e-06, -3.377575e-08, 0.9996208)
-bones/106/rotation = Quaternion(-0.0054756156, 0.999985, 0.0002448121, -6.067213e-05)
-bones/107/rotation = Quaternion(-0.030136084, 6.136813e-07, -8.775628e-08, 0.9995458)
+bones/0/rotation = Quaternion(0.067736275, 0.23195146, 0.016193613, 0.97023094)
+bones/4/rotation = Quaternion(-0.14102757, -0.22533533, -0.012194451, 0.96394324)
+bones/8/rotation = Quaternion(0.4242759, 0.13701959, 0.28381908, 0.8489183)
+bones/9/rotation = Quaternion(-3.4337063e-08, -8.037314e-07, 0.032689262, 0.99946564)
+bones/10/rotation = Quaternion(0.056703415, -0.09854144, -0.17740676, 0.97754854)
+bones/47/rotation = Quaternion(0.3854009, 0.13918082, -0.13933666, 0.90148777)
+bones/48/rotation = Quaternion(2.2805762e-07, -4.5076013e-07, -0.34496933, 0.938614)
+bones/49/rotation = Quaternion(-0.42679566, -0.38751313, -0.2565138, 0.775809)
+bones/85/rotation = Quaternion(-0.21666409, 0.13355374, 0.9669888, 0.012356089)
+bones/86/rotation = Quaternion(-0.11018111, -1.0212825e-06, -1.13077476e-07, 0.99391156)
+bones/87/rotation = Quaternion(0.53534204, -0.013779821, 0.0012644207, 0.844522)
+bones/90/rotation = Quaternion(-0.23979844, 0.18609329, 0.9506491, 0.06428384)
+bones/91/rotation = Quaternion(-0.23373185, 6.0317683e-07, 4.5089102e-08, 0.97230107)
+bones/92/rotation = Quaternion(0.58546424, 0.014245853, -0.0013661786, 0.8105719)
+bones/93/rotation = Quaternion(0.27190194, 0.011627166, -0.0032855403, 0.9622491)
+bones/96/position = Vector3(0.044017233, 1.0798551, 0.0058541703)
+bones/96/rotation = Quaternion(0.06765446, 0.22709739, 0.01653209, 0.97137856)
+bones/97/rotation = Quaternion(1, 2.0644281e-10, -4.3594973e-08, -1.3600849e-09)
+bones/99/rotation = Quaternion(-0.012356116, 0.9669888, -0.13355382, -0.21666421)
+bones/100/rotation = Quaternion(-0.110181116, -1.0214205e-06, -1.1240279e-07, 0.99391156)
+bones/106/rotation = Quaternion(-0.06428388, 0.9506491, -0.18609327, -0.23979852)
+bones/107/rotation = Quaternion(-0.23373187, 6.0464674e-07, 4.0871043e-08, 0.9723011)
 bones/108/rotation = Quaternion(-0.00547598, 0.9999666, 0.0060662613, -3.4406632e-05)
-bones/116/rotation = Quaternion(0.24202628, 3.233093e-19, 1.684383e-16, 0.9702697)
+bones/116/rotation = Quaternion(-0.14102757, -0.22533533, -0.012194451, 0.96394324)
 bones/118/rotation = Quaternion(-0.57116264, -0.41226855, 0.58466494, -0.4024612)
-bones/119/rotation = Quaternion(0.39691305, 0.13238643, 0.45642105, 0.78524756)
-bones/120/rotation = Quaternion(-4.675799e-07, -5.974447e-07, 0.6325727, 0.77450097)
-bones/125/rotation = Quaternion(0.48735633, -0.19235957, -0.39179802, 0.756291)
-bones/126/rotation = Quaternion(4.0643636e-07, -3.1321596e-07, -0.7221503, 0.6917362)
+bones/119/rotation = Quaternion(0.4242761, 0.13701962, 0.28381914, 0.8489183)
+bones/120/rotation = Quaternion(-2.6165148e-08, -7.962683e-07, 0.03268927, 0.99946564)
+bones/125/rotation = Quaternion(0.3854009, 0.1391808, -0.13933666, 0.9014878)
+bones/126/rotation = Quaternion(2.2880496e-07, -4.6165206e-07, -0.34496927, 0.938614)
 bones/127/rotation = Quaternion(-0.49445957, 0.52879536, -0.4852189, -0.49035484)
-bones/130/position = Vector3(0.5993459, 1.3662192, -0.27432385)
-bones/130/rotation = Quaternion(0.00532547, 1.2628416e-19, 1.6071222e-19, 0.9999858)
-bones/131/position = Vector3(0.10586679, 1.4092453, 0.33655673)
-bones/131/rotation = Quaternion(0.13706033, -0.6512844, -0.0694657, 0.74311346)
-bones/132/position = Vector3(-0.507365, 1.3660557, -0.27299)
-bones/132/rotation = Quaternion(0.0053254394, 1.2628418e-19, 1.6071225e-19, 0.9999858)
-bones/133/position = Vector3(0.00914073, 1.4144875, 0.2681023)
-bones/133/rotation = Quaternion(-0.13581203, -0.6833156, -0.062410176, -0.71466076)
-bones/134/position = Vector3(0.15768853, 0.1314944, -0.03227013)
+bones/130/position = Vector3(0.384291, 1.2786416, -0.41703278)
+bones/130/rotation = Quaternion(0.06773631, 0.23195146, 0.0161936, 0.97023094)
+bones/131/position = Vector3(0.4494975, 1.0279852, 0.024487605)
+bones/131/rotation = Quaternion(0.6494294, 0.13097402, -0.7478537, 0.042454056)
+bones/132/position = Vector3(-0.30227658, 1.2260588, 0.13568604)
+bones/132/rotation = Quaternion(0.06773628, 0.23195148, 0.016193602, 0.970231)
+bones/133/position = Vector3(-0.20619619, 1.1307392, 0.51488906)
+bones/133/rotation = Quaternion(-0.49022162, -0.09740618, -0.07435111, -0.8629408)
+bones/134/position = Vector3(0.17036211, 0.1314944, -0.0322665)
 bones/134/rotation = Quaternion(0.024832504, 0.7066713, 0.7066706, -0.02481326)
-bones/146/rotation = Quaternion(-0.016233837, -2.2855202e-08, 0.9998682, 1.6364642e-09)
-bones/150/position = Vector3(0.15331791, 0.5305224, 0.26506782)
+bones/146/rotation = Quaternion(-0.016233837, -2.293752e-08, 0.9998682, -4.6442666e-10)
+bones/150/position = Vector3(0.1659915, 0.5305224, 0.35689622)
 bones/150/rotation = Quaternion(-0.6538393, 0.26703402, 0.26870832, 0.6549679)
+bones/151/position = Vector3(-0.08221497, 0.13783112, 0.06894843)
+bones/152/rotation = Quaternion(-0.2642111, -0.015810328, 0.004324574, 0.9643256)
 bones/163/rotation = Quaternion(0.016379582, 2.5832337e-08, 0.99986595, -8.109042e-09)
-bones/167/position = Vector3(-0.06518521, 0.5292164, 0.26645666)
+bones/167/position = Vector3(-0.07785879, 0.5355532, 0.4596701)
 bones/167/rotation = Quaternion(-0.57311827, 0.41416812, 0.41466367, 0.5727602)
 
 [node name="Jacket_001" parent="Armature/Skeleton3D" index="0"]
 gi_mode = 0
 
 [node name="Wings_Attachement" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
-transform = Transform3D(1, 2.292671e-09, -6.353642e-08, 9.9765585e-11, 0.99929166, 0.03762902, 6.35777e-08, -0.037629016, 0.9992917, 0.044073574, 1.1965786, 0.0014956421)
+transform = Transform3D(0.8918726, -0.021831937, 0.45175952, 0.06284614, 0.99512666, -0.07598114, -0.4478992, 0.09615685, 0.88889825, 0.04180035, 1.1834713, 0.01542591)
 bone_name = "mixamorig_Spine"
 bone_idx = 1
 
@@ -17715,7 +17726,7 @@ skeleton = NodePath("")
 surface_material_override/0 = ExtResource("5_ipk5c")
 
 [node name="Shield_Attachement" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.15821466, -0.69136775, -0.70496684, -0.8406171, 0.2802418, -0.46349418, 0.51800644, 0.66593885, -0.5368375, 0.30508813, 1.3284837, 0.14467049)
+transform = Transform3D(0.14244814, 0.34502116, -0.9277223, -0.1716939, -0.9144585, -0.36645114, -0.974797, 0.21148457, -0.071024954, 0.35006943, 1.2915148, -0.036458246)
 bone_name = "mixamorig_LeftForeArm"
 bone_idx = 9
 
@@ -17726,7 +17737,7 @@ transform = Transform3D(0.9582356, -0.047459338, 0.28201455, -0.07628757, -0.992
 surface_material_override/1 = SubResource("StandardMaterial3D_0acup")
 
 [node name="Unused_weapon_attachment" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="3"]
-transform = Transform3D(1, -7.7690776e-10, -6.3573026e-08, 9.976561e-11, 0.99994326, -0.010650713, 6.35777e-08, 0.010650713, 0.99994326, 0.044073574, 1.0925287, 0.0054137125)
+transform = Transform3D(0.8918726, -3.3527613e-08, 0.45228675, 0.06284614, 0.9902991, -0.12392739, -0.4478992, 0.13895193, 0.8832206, 0.04407357, 1.0798551, 0.005413713)
 bone_name = "mixamorig_Hips"
 bone_idx = 0
 
@@ -17734,7 +17745,7 @@ bone_idx = 0
 transform = Transform3D(-0.19943751, 0.0075545944, -0.012945268, 0.00418998, -0.13774957, -0.14493959, -0.014390836, -0.14480326, 0.13720392, 0.23458363, -0.12829882, -0.12035659)
 
 [node name="Right_hand_weapon_attachment" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="4"]
-transform = Transform3D(0.058369905, 0.0964005, 0.9936296, 0.2748093, 0.9553199, -0.1088272, -0.95972526, 0.27941078, 0.029270262, 0.0091715455, 1.4144903, 0.26813444)
+transform = Transform3D(0.9699677, -0.032819986, 0.24100864, 0.22382241, 0.5083095, -0.83157957, -0.09521446, 0.8605486, 0.5003898, -0.20619561, 1.130733, 0.5148962)
 bone_name = "mixamorig_RightHand"
 bone_idx = 49
 
@@ -17777,7 +17788,7 @@ strength = 20.0
 stun_time = 3.0
 
 [node name="Hammer Sounds" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="5"]
-transform = Transform3D(0.058369905, 0.0964005, 0.9936296, 0.2748093, 0.9553199, -0.1088272, -0.95972526, 0.27941078, 0.029270262, 0.0091715455, 1.4144903, 0.26813444)
+transform = Transform3D(0.9699677, -0.032819986, 0.24100864, 0.22382241, 0.5083095, -0.83157957, -0.09521446, 0.8605486, 0.5003898, -0.20619561, 1.130733, 0.5148962)
 bone_name = "mixamorig_RightHand"
 bone_idx = 49
 
@@ -17786,7 +17797,7 @@ stream = ExtResource("17_o0sva")
 volume_db = -15.0
 
 [node name="Passive Gift Sounds" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="6"]
-transform = Transform3D(0.058369905, 0.0964005, 0.9936296, 0.2748093, 0.9553199, -0.1088272, -0.95972526, 0.27941078, 0.029270262, 0.0091715455, 1.4144903, 0.26813444)
+transform = Transform3D(0.9699677, -0.032819986, 0.24100864, 0.22382241, 0.5083095, -0.83157957, -0.09521446, 0.8605486, 0.5003898, -0.20619561, 1.130733, 0.5148962)
 bone_name = "mixamorig_RightHand"
 bone_idx = 49
 
@@ -17799,7 +17810,7 @@ stream = ExtResource("19_w1wvh")
 volume_db = -10.0
 
 [node name="Right_Hand_fruit" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="7"]
-transform = Transform3D(0.058369905, 0.0964005, 0.9936296, 0.2748093, 0.9553199, -0.1088272, -0.95972526, 0.27941078, 0.029270262, 0.0091715455, 1.4144903, 0.26813444)
+transform = Transform3D(0.9699677, -0.032819986, 0.24100864, 0.22382241, 0.5083095, -0.83157957, -0.09521446, 0.8605486, 0.5003898, -0.20619561, 1.130733, 0.5148962)
 visible = false
 bone_name = "mixamorig_RightHand"
 bone_idx = 49
@@ -17836,7 +17847,8 @@ libraries = {
 &"jumping animation packs": ExtResource("16_xxyrl"),
 &"pick up": ExtResource("37_1x2dm"),
 &"praying": ExtResource("44_dglhg"),
-&"sitting idle and all that": ExtResource("37_xhq4a")
+&"sitting idle and all that": ExtResource("37_xhq4a"),
+&"touching ": ExtResource("46_se81j")
 }
 movie_quit_on_finish = true
 
@@ -17912,9 +17924,9 @@ parameters/Ground_Taking_Damage_transitions/current_index = 3
 "parameters/Being hit Airborne Transitions/transition_request" = ""
 "parameters/Being hit Airborne Transitions/current_index" = -1
 "parameters/TimeScale 9/scale" = 0.10000000000000142
-"parameters/Interaction Transition/current_state" = "praying"
+"parameters/Interaction Transition/current_state" = "touching"
 "parameters/Interaction Transition/transition_request" = ""
-"parameters/Interaction Transition/current_index" = 2
+"parameters/Interaction Transition/current_index" = 3
 "parameters/Enchanting transition/current_state" = "Fury of the Gods"
 "parameters/Enchanting transition/transition_request" = ""
 "parameters/Enchanting transition/current_index" = 0

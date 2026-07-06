@@ -75,10 +75,11 @@ func load_game() -> void:
 					if element.category == "grace":
 						player.grace_list.append(element.item_name)
 
-func specific_save(player_node:player_character,given_postion:Vector3,given_path:String)->void:
+func specific_save(player_node:player_character,given_postion:Vector3,given_path:String,current_loaction_name:String)->void:
 	save_stats(player_node)
 	current_save.player_position=given_postion
 	current_save.current_scene=given_path
+	current_save.current_save_place=current_loaction_name
 	write_save()
 	
 func save_stats(player_node:player_character):

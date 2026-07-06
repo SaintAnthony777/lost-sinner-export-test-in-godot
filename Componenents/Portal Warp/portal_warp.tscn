@@ -133,6 +133,7 @@ height = 4.0
 [node name="Portal Warp" type="Node3D"]
 script = ExtResource("1_xhw7d")
 destination_scene = "res://Greyboxed Environnements/Memory Of Halfrey/memory_of_halfrey.tscn"
+destination_name = "Remembrance of the Braves "
 
 [node name="Golden Sword" parent="." instance=ExtResource("2_flyed")]
 

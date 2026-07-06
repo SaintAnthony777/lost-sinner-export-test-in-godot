@@ -10,6 +10,5 @@ func load_sound():
 	self.add_child(hitsound_node)
 	hitsound_node.volume_db=-5.0
 	hitsound_node.play()
-	print("playing")
 	await hitsound_node.finished
 	self.queue_free()

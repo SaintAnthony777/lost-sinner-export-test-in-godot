@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://srgn3wkeivsn"]
+[gd_scene load_steps=83 format=3 uid="uid://srgn3wkeivsn"]
 
 [ext_resource type="Script" uid="uid://bhjwagrue8av5" path="res://Character/Scripts/Player/personnage.gd" id="1_ov8r6"]
 [ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="2_ov8r6"]
@@ -68,6 +68,7 @@
 [ext_resource type="Script" uid="uid://bx36n1faa1dix" path="res://Character/Scripts/StateMachines/Extended_scripts/enchanting.gd" id="66_rw8dl"]
 [ext_resource type="Script" uid="uid://2my38stm72jm" path="res://Character/Scripts/StateMachines/Extended_scripts/use_object.gd" id="67_uu0do"]
 [ext_resource type="Script" uid="uid://ccjmpjltn0kvl" path="res://Character/Scripts/StateMachines/Extended_scripts/praying.gd" id="68_dshd8"]
+[ext_resource type="Script" uid="uid://dq801fm14xb6p" path="res://Character/Scripts/StateMachines/Extended_scripts/touching.gd" id="69_sakir"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ov8r6"]
 
@@ -537,6 +538,10 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="Praying" type="Node" parent="StateMachine"]
 script = ExtResource("68_dshd8")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="touching" type="Node" parent="StateMachine"]
+script = ExtResource("69_sakir")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

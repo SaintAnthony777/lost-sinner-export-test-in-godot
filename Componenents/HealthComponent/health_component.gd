@@ -22,7 +22,6 @@ var dealt_thrown_time:float=.0
 @export var random_node_to_call_on_death:fracturable_static
 @export var body_nature:String
 
-@onready var hit_impact_sound:Hitsound_impact=Hitsound_impact.new()
 
 func _ready() -> void:
 	Current_health=Max_health
@@ -44,29 +43,21 @@ func regen_health(health_regen:float)->void:
 	if Current_health>=Max_health:Current_health=Max_health
 
 func taking_damage(taken_attack:Attack):
+	# check invulnerability
 	if is_invulnerable : HitStopManager.hit_stop_function(.01,.1) ; return
+	
+	#check block status
 	if Moveable_Player:Moveable_Player.character.is_taking_damage=true
 	if Moveable_Body:Moveable_Body.visuals.is_taking_damage=true
 	if Moveable_Player and Moveable_Player.character.is_blocking :
-		hit_impact_sound.hitsound_type="metal"
-		hit_impact_sound.load_sound()
 		var dealt_dmg=(taken_attack.Base_damage+Damage_Factor)-Armor_value
 		if dealt_dmg < 0 : dealt_dmg=0
 		Current_health-=dealt_dmg
 		dealt_thrown_time=taken_attack.Stun_time
 		death_check()
 		return
-	if body_nature:
-		if hit_impact_sound and hit_impact_sound not in self.get_children():
-			self.add_child(hit_impact_sound)
-			hit_impact_sound.hitsound_type=body_nature
-			hit_impact_sound.load_sound()
-		elif hit_impact_sound and hit_impact_sound in self.get_children():
-			hit_impact_sound.queue_free()
-			var hits:Hitsound_impact=Hitsound_impact.new()
-			self.add_child(hits)
-			hits.hitsound_type=body_nature
-			hits.load_sound()
+	
+	#damage calculation
 	if taken_attack.Nature in Vulnerability:
 		Damage_Factor=taken_attack.Base_damage*25/100
 	elif taken_attack.Nature in Resistance:
@@ -76,6 +67,11 @@ func taking_damage(taken_attack:Attack):
 	else : Damage_Factor = 0;Current_health-=(taken_attack.Base_damage+Damage_Factor)
 	dealt_thrown_time=taken_attack.Stun_time
 	Current_health-=(taken_attack.Base_damage+Damage_Factor)
+	
+	#play sounds
+	play_sfx()
+	
+	#death ckeck
 	death_check()
 	if Current_health==0:
 		if Node_to_call_on_death:
@@ -121,3 +117,11 @@ func take_a_step(taken_attack:Attack,delta:float):
 				Node_to_be_rotated.owner.move_and_slide()
 		else:
 			received_attack=null
+
+func play_sfx()->void:
+	if !body_nature:
+		return
+	var hitimpact:Hitsound_impact=Hitsound_impact.new()
+	hitimpact.hitsound_type=body_nature
+	self.add_child(hitimpact)
+	hitimpact.load_sound()

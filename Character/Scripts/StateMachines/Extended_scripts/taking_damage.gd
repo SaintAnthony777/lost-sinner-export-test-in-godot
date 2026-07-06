@@ -3,9 +3,12 @@ extends State
 @onready var character: character_mesh = $"../../The Lost Sinner1"
 @onready var player: player_character = $"../.."
 var camera_offset_no_offense_here:float=1.0
+
 func enter() -> void:
 	taking_damage_tricks()
+
 func physics_update(_delta) -> void:
+	print("istakingdamage ",character.is_taking_damage)
 	if !character.is_alive:state_machine.change_state("Dying");player.is_locking=false
 	player.gravity_applying(_delta)
 	if player.current_target:
@@ -21,5 +24,6 @@ func physics_update(_delta) -> void:
 			state_machine.change_state("idle")
 		else:
 			state_machine.change_state("locking")
+	else : taking_damage_tricks()
 func taking_damage_tricks()->void:
 	character.taking_damage("Light")

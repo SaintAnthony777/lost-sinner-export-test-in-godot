@@ -1,7 +1,184 @@
-[gd_scene load_steps=2 format=3 uid="uid://c63vk0u1ltlu6"]
+[gd_scene load_steps=14 format=3 uid="uid://c63vk0u1ltlu6"]
 
 [ext_resource type="Script" uid="uid://bi1iuhtynsyy4" path="res://Componenents/Portal Warp/portal_warp.gd" id="1_j5203"]
+[ext_resource type="Script" uid="uid://fbycaor0kgbs" path="res://Componenents/Portal Warp/warp portal.gd" id="2_8df5t"]
+[ext_resource type="FontFile" uid="uid://d0ug5noy0uhhl" path="res://Fonts/Cinzel,EB_Garamond/EB_Garamond/static/EBGaramond-Regular.ttf" id="3_18hdl"]
+[ext_resource type="ArrayMesh" uid="uid://d033rdvdr7p5k" path="res://Environnements Pre-tests/Memory Of Halfrey/shrine and circle/shrine.res" id="4_18hdl"]
+[ext_resource type="Texture2D" uid="uid://cogtcj7u06w03" path="res://VFXES/Fire/textures/Flare00.PNG" id="5_xhys1"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xhys1"]
+points = PackedVector3Array(-0.0007829666, 0, -4, -0.7807362, 0, -3.9232576, -0.0007829666, 0.09999021, -4, 0.779953, 0, -3.9232576, -0.7807362, 0.09999021, -3.9232576, -1.530932, 0, -3.696163, -0.0007829666, 0.3, -2.0986686, 0.779953, 0.09999021, -3.9232576, 1.530149, 0, -3.696163, -1.530932, 0.09999021, -3.696163, -0.8034456, 0.3, -1.9389193, -0.40955353, 0.3, -2.0579484, -2.2223964, 0, -3.3265467, 0.40877056, 0.3, -2.0579484, 0.8026624, 0.3, -1.9389193, 1.530149, 0.09999021, -3.696163, 2.221613, 0, -3.3265467, -2.2223964, 0.09999021, -3.3265467, -1.1660142, 0.3, -1.7447143, -2.8285043, 0, -2.8285043, 1.1652312, 0.3, -1.7447143, 2.221613, 0.09999021, -3.3265467, 2.827721, 0, -2.8285043, -2.8285043, 0.09999021, -2.8285043, -1.4839468, 0.3, -1.4839468, -3.3265467, 0, -2.2223964, 1.4831638, 0.3, -1.4839468, 2.827721, 0.09999021, -2.8285043, 3.3257637, 0, -2.2223964, -3.3265467, 0.09999021, -2.2223964, -1.7447143, 0.3, -1.1660142, -3.696163, 0, -1.530932, 1.7439313, 0.3, -1.1660142, 3.3257637, 0.09999021, -2.2223964, 3.6953797, 0, -1.530932, -3.696163, 0.09999021, -1.530932, -1.9389193, 0.3, -0.8034456, -3.9232576, 0, -0.7807362, 1.9381361, 0.3, -0.8034456, 3.6953797, 0.09999021, -1.530932, 3.9224744, 0, -0.7807362, -3.9232576, 0.09999021, -0.7807362, -2.0579484, 0.3, -0.40955353, -4, 0, -0.0007829666, 2.0571651, 0.3, -0.40955353, 3.9224744, 0.09999021, -0.7807362, 4, 0, -0.0007829666, -4, 0.09999021, -0.0007829666, -2.0986686, 0.3, -0.0007829666, -3.9232576, 0, 0.779953, 2.0978856, 0.3, -0.0007829666, 4, 0.09999021, -0.0007829666, 3.9224744, 0, 0.779953, -3.9232576, 0.09999021, 0.779953, -2.0579484, 0.3, 0.40877056, -3.696163, 0, 1.530149, 2.0571651, 0.3, 0.40877056, 3.9224744, 0.09999021, 0.779953, 3.6953797, 0, 1.530149, -3.696163, 0.09999021, 1.530149, -1.9389193, 0.3, 0.8026624, -3.3265467, 0, 2.221613, 1.9381361, 0.3, 0.8026624, 3.6953797, 0.09999021, 1.530149, 3.3257637, 0, 2.221613, -3.3265467, 0.09999021, 2.221613, -1.7447143, 0.3, 1.1652312, -2.8285043, 0, 2.827721, 1.7439313, 0.3, 1.1652312, 3.3257637, 0.09999021, 2.221613, 2.827721, 0, 2.827721, -2.8285043, 0.09999021, 2.827721, -1.4839468, 0.3, 1.4831638, -2.2223964, 0, 3.3257637, 1.4831638, 0.3, 1.4831638, 2.827721, 0.09999021, 2.827721, 2.221613, 0, 3.3257637, -2.2223964, 0.09999021, 3.3257637, -1.1660142, 0.3, 1.7439313, -1.530932, 0, 3.6953797, 1.1652312, 0.3, 1.7439313, 2.221613, 0.09999021, 3.3257637, 1.530149, 0, 3.6953797, -1.530932, 0.09999021, 3.6953797, -0.8034456, 0.3, 1.9381361, -0.7807362, 0, 3.9224744, 0.8026624, 0.3, 1.9381361, 1.530149, 0.09999021, 3.6953797, 0.779953, 0, 3.9224744, -0.7807362, 0.09999021, 3.9224744, -0.40955353, 0.3, 2.0571651, -0.0007829666, 0, 4, 0.40877056, 0.3, 2.0571651, 0.779953, 0.09999021, 3.9224744, -0.0007829666, 0.09999021, 4, -0.0007829666, 0.3, 2.0978856)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6k5ms"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1.8273586, 2.2156045, 2.2156045, 1)
+albedo_texture = ExtResource("5_xhys1")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_18hdl"]
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0.1, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_id2md"]
+size = Vector2(0.3, 0.3)
+
+[sub_resource type="Animation" id="Animation_on8vp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles3D:speed_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles3D:amount")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [75]
+}
+
+[sub_resource type="Animation" id="Animation_flyed"]
+resource_name = "warping"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 15.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles3D:speed_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.3, 3.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles3D:amount")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [75, 125]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fmls5"]
+_data = {
+&"RESET": SubResource("Animation_on8vp"),
+&"warping": SubResource("Animation_flyed")
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xhys1"]
+radius = 1.7
+height = 3.4
 
 [node name="Shrine Warp" type="Node3D"]
 script = ExtResource("1_j5203")
+destination_scene = "res://Greyboxed Environnements/The Blue Sea/the_blue_sea.tscn"
+destination_location = Vector3(-2, 4, -23)
+destination_name = "Aboard The Freedom"
 metadata/_custom_type_script = "uid://bi1iuhtynsyy4"
+
+[node name="Shrine" type="MeshInstance3D" parent="."]
+mesh = ExtResource("4_18hdl")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Shrine"]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Shrine/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_xhys1")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_6k5ms")
+amount = 75
+speed_scale = 0.3
+process_material = SubResource("ParticleProcessMaterial_18hdl")
+draw_pass_1 = SubResource("QuadMesh_id2md")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3000001, 0)
+omni_range = 15.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_fmls5")
+}
+
+[node name="interaction_area" type="Area3D" parent="." node_paths=PackedStringArray("player_look_at")]
+script = ExtResource("2_8df5t")
+interaction_type = "touching"
+current_interaction = "Go and face the world"
+player_look_at = NodePath("lookat_node")
+metadata/_custom_type_script = "uid://dbye3ep2uh4xp"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="interaction_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20000005, 0)
+shape = SubResource("CapsuleShape3D_xhys1")
+
+[node name="Interaction Text" type="Label3D" parent="interaction_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+visible = false
+pixel_size = 0.007
+billboard = 1
+text = "Press E to Interact
+"
+font = ExtResource("3_18hdl")
+
+[node name="Hint" type="Label3D" parent="interaction_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+pixel_size = 0.02
+billboard = 1
+outline_modulate = Color(1, 1, 1, 1)
+text = "."
+font = ExtResource("3_18hdl")
+
+[node name="lookat_node" type="Marker3D" parent="interaction_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
