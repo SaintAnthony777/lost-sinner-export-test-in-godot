@@ -47,16 +47,21 @@ func taking_damage(taken_attack:Attack):
 	if is_invulnerable : HitStopManager.hit_stop_function(.01,.1) ; return
 	
 	#check block status
-	if Moveable_Player:Moveable_Player.character.is_taking_damage=true
+	if Moveable_Player:Moveable_Player.character.is_taking_damage=true;
 	if Moveable_Body:Moveable_Body.visuals.is_taking_damage=true
 	if Moveable_Player and Moveable_Player.character.is_blocking :
+		self.body_nature="metal"
+		play_sfx()
 		var dealt_dmg=(taken_attack.Base_damage+Damage_Factor)-Armor_value
 		if dealt_dmg < 0 : dealt_dmg=0
 		Current_health-=dealt_dmg
 		dealt_thrown_time=taken_attack.Stun_time
 		death_check()
 		return
-	
+
+	if Moveable_Player and !Moveable_Player.character.is_blocking:
+		self.body_nature=""
+
 	#damage calculation
 	if taken_attack.Nature in Vulnerability:
 		Damage_Factor=taken_attack.Base_damage*25/100

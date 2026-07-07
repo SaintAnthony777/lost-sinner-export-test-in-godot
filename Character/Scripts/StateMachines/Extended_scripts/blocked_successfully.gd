@@ -4,7 +4,9 @@ extends State
 @onready var player: player_character = $"../.."
 var camera_offset_no_offense_here:float
 func enter() -> void:
+	player.camera_shaking(2.0,1.0)
 	blocking_damage_success()
+	
 func physics_update(_delta) -> void:
 	if player.current_target:
 		camera_offset_no_offense_here=player.global_position.distance_to(player.current_target.global_position)
@@ -22,5 +24,6 @@ func physics_update(_delta) -> void:
 		else:
 			state_machine.change_state("shield_locking")
 	player.gravity_applying(_delta)
+	
 func blocking_damage_success()->void:
 	character.shield_motion("Blocking impact",Vector2.ZERO)

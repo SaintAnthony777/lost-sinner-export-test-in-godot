@@ -26,10 +26,12 @@ func state_logic(delta):
 func input_check()->void:
 	if Input.is_action_just_pressed("sprinting"):
 		pass
-	if Input.is_action_just_pressed("Special") and player.divine_divider_list:
+	if (Input.is_action_just_pressed("Special") and player.divine_divider_list and
+	 character.arc_component.current_arcane>=player.divine_dividers_consumption_dict[player.current_divine_divider]):
 		character.is_divine_dividing=true
 		state_machine.change_state("Air_"+player.current_divine_divider)
-	if Input.is_action_just_pressed("Grace") and player.grace_list:
+	if (Input.is_action_just_pressed("Grace") and player.grace_list and 
+		character.arc_component.current_arcane>=player.grace_consumption_dict[player.current_grace]):
 		character.is_making_grace=true
 		state_machine.change_state("Air_"+player.current_grace)
 func velocity_check()->void:

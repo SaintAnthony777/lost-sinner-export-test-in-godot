@@ -84,6 +84,10 @@ var current_attack_nature : String = ""
 @onready var passive_gift_sounds: BoneAttachment3D = $"Armature/Skeleton3D/Passive Gift Sounds"
 @onready var footsteps_1: AudioStreamPlayer3D = $"Footsteps sounds/footsteps 1"
 
+@onready var wind_trails_2: Node3D = $"Special effects/Wind trails 2"
+@onready var thrust_forward_mesh: Node3D = $"Special effects/Thrust forward mesh"
+
+
 func _ready() -> void:
 	health_component.Moveable_Player=player
 	Shield_Light.hide()
@@ -350,3 +354,6 @@ func play_passive_gift_sound():
 func play_footsteps()->void:
 	footsteps_1.pitch_scale=randf_range(1.0,1.2)
 	footsteps_1.play()
+
+func player_shaking_camera(max_rotation:float,duration:float)->void:
+	player.camera_shaking(max_rotation,duration)

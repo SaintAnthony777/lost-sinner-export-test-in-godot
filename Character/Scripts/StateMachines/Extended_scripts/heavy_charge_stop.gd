@@ -5,7 +5,7 @@ extends State
 
 func enter() -> void:
 	heavy_charge_stop_logic()
-
+	player.camera_shaking(.5,.1)
 func physics_update(_delta) -> void:
 	player.camera.fov=lerp(player.camera.fov,75.0,.1)
 	state_logic()

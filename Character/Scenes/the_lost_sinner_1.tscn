@@ -1,4 +1,4 @@
-[gd_scene load_steps=208 format=3 uid="uid://xumlackoysv2"]
+[gd_scene load_steps=210 format=3 uid="uid://xumlackoysv2"]
 
 [ext_resource type="PackedScene" uid="uid://dshsna3bwyfl7" path="res://Character/Glb/lost sinner 1/The Lost Sinner1.glb" id="1_ag85x"]
 [ext_resource type="Script" uid="uid://dijb6jh7etgx0" path="res://Character/Scripts/Player/character_mesh.gd" id="2_ukanm"]
@@ -59,6 +59,8 @@
 [ext_resource type="AudioStream" uid="uid://cjvenay3h2jxv" path="res://Sounds/footsteps/footstep_concrete_001.ogg" id="45_w1wvh"]
 [ext_resource type="PackedScene" uid="uid://cm8oki3o7molb" path="res://Componenents/Pause Menu/pause_menu.tscn" id="45_wjcrg"]
 [ext_resource type="AnimationLibrary" uid="uid://djcr6mfod1bko" path="res://Character/Imported Animations/touching/touching.res" id="46_se81j"]
+[ext_resource type="PackedScene" uid="uid://vmt2q2icv0wp" path="res://Componenents/Wind trails/scenes/wind_trails_2.tscn" id="49_48y4d"]
+[ext_resource type="PackedScene" uid="uid://cm6aseo5cujgb" path="res://Componenents/thrust forward mesh/Scenes/thrust_forward_mesh.tscn" id="50_o11jx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0acup"]
 albedo_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
@@ -10910,6 +10912,20 @@ tracks/141/keys = {
 "update": 1,
 "values": [true, false, true]
 }
+tracks/142/type = "method"
+tracks/142/imported = false
+tracks/142/enabled = true
+tracks/142/path = NodePath(".")
+tracks/142/interp = 1
+tracks/142/loop_wrap = true
+tracks/142/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [1.0, 1.0],
+"method": &"player_shaking_camera"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_dqom3"]
 resource_name = "Treadmill run"
@@ -17426,7 +17442,6 @@ animation = &"Quick roll"
 animation = &"Supplementary animation packs 2/Run slide"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_h8mx0"]
-graph_offset = Vector2(-1903.6615, 1359.5684)
 nodes/output/position = Vector2(1680, 186.66667)
 nodes/State/node = SubResource("AnimationNodeTransition_rf1bm")
 nodes/State/position = Vector2(1440, 160)
@@ -17969,16 +17984,25 @@ transform = Transform3D(-0.6405034, 0, 0.70290005, 0, 0.60965765, 0, -0.610199, 
 [node name="spike model 4" parent="Spike Bursts/lava spikes" index="5" instance=ExtResource("19_50exv")]
 transform = Transform3D(-0.7820019, 0, -0.47642747, 0, 0.60965765, 0, 0.41359454, 0, -0.9008032, -1.5682061, -4.7683713e-07, 1.7104793)
 
-[node name="slow_mo_node" type="Node" parent="." index="7"]
+[node name="Special effects" type="Node3D" parent="." index="7"]
+
+[node name="Wind trails 2" parent="Special effects" index="0" instance=ExtResource("49_48y4d")]
+visible = false
+
+[node name="Thrust forward mesh" parent="Special effects" index="1" instance=ExtResource("50_o11jx")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+visible = false
+
+[node name="slow_mo_node" type="Node" parent="." index="8"]
 script = ExtResource("20_50exv")
 metadata/_custom_type_script = "uid://b2q8xkjq2aytj"
 
-[node name="Heavy Charge Ray cast" type="RayCast3D" parent="." index="8"]
+[node name="Heavy Charge Ray cast" type="RayCast3D" parent="." index="9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2699435, 0.88781756)
 target_position = Vector3(0, 0, 1)
 collision_mask = 6
 
-[node name="HurtBoxComponent" type="Area3D" parent="." index="9" node_paths=PackedStringArray("health_comp")]
+[node name="HurtBoxComponent" type="Area3D" parent="." index="10" node_paths=PackedStringArray("health_comp")]
 collision_layer = 16
 collision_mask = 13
 script = ExtResource("26_0i3i2")
@@ -17989,7 +18013,7 @@ metadata/_custom_type_script = "uid://4i450if78qh1"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.085700035, 1.0895452, 0)
 shape = SubResource("CapsuleShape3D_j1dr1")
 
-[node name="Thrust Hitbox" type="Node3D" parent="." index="10"]
+[node name="Thrust Hitbox" type="Node3D" parent="." index="11"]
 
 [node name="HitBoxComponent" type="Area3D" parent="Thrust Hitbox" index="0"]
 script = ExtResource("10_tt1bb")
@@ -17999,7 +18023,7 @@ metadata/_custom_type_script = "uid://dflwyxok3081k"
 shape = SubResource("SphereShape3D_ktiam")
 disabled = true
 
-[node name="AOE_Hitboxes" type="Node3D" parent="." index="11"]
+[node name="AOE_Hitboxes" type="Node3D" parent="." index="12"]
 
 [node name="HitBoxComponent" type="Area3D" parent="AOE_Hitboxes" index="0"]
 script = ExtResource("10_tt1bb")
@@ -18009,7 +18033,7 @@ metadata/_custom_type_script = "uid://dflwyxok3081k"
 shape = SubResource("SphereShape3D_0i3i2")
 disabled = true
 
-[node name="Aura effects" type="Node3D" parent="." index="12"]
+[node name="Aura effects" type="Node3D" parent="." index="13"]
 
 [node name="Fire of Giants Aura" parent="Aura effects" index="0" instance=ExtResource("39_ic4f1")]
 visible = false
@@ -18019,10 +18043,10 @@ gift = "Fire of the Giants"
 visible = false
 gift = "Fury of the Gods"
 
-[node name="Healing particles" type="Node3D" parent="." index="13"]
+[node name="Healing particles" type="Node3D" parent="." index="14"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 
-[node name="Shield Light" type="SpotLight3D" parent="." index="14"]
+[node name="Shield Light" type="SpotLight3D" parent="." index="15"]
 transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -1.8626451e-09, 1.2822505, 0.17228991)
 visible = false
 light_color = Color(6.256998e-07, 0.4968124, 0.49929118, 1)
@@ -18030,7 +18054,7 @@ light_energy = 2.0
 spot_range = 11.079
 spot_angle = 54.33
 
-[node name="Special effects layer" type="CanvasLayer" parent="." index="15"]
+[node name="Special effects layer" type="CanvasLayer" parent="." index="16"]
 
 [node name="Radial Blur + Chromatic aberration" parent="Special effects layer" index="0" instance=ExtResource("3_hg5sy")]
 mouse_filter = 2
@@ -18039,13 +18063,13 @@ mouse_filter = 2
 material = SubResource("ShaderMaterial_11fhr")
 mouse_filter = 2
 
-[node name="CrosshairLayer" type="CanvasLayer" parent="." index="16"]
+[node name="CrosshairLayer" type="CanvasLayer" parent="." index="17"]
 visible = false
 
 [node name="Crosshair" parent="CrosshairLayer" index="0" instance=ExtResource("5_11fhr")]
 mouse_filter = 2
 
-[node name="Hud canvas layer" type="CanvasLayer" parent="." index="17"]
+[node name="Hud canvas layer" type="CanvasLayer" parent="." index="18"]
 follow_viewport_enabled = true
 
 [node name="HUD" parent="Hud canvas layer" index="0" instance=ExtResource("23_14b8p")]
@@ -18053,18 +18077,18 @@ follow_viewport_enabled = true
 [node name="HealthComponent" parent="Hud canvas layer/HUD/Health and equip" index="1" node_paths=PackedStringArray("player_to_call_on_death")]
 player_to_call_on_death = NodePath("../../../..")
 
-[node name="Item_picked cavans layer" type="CanvasLayer" parent="." index="18"]
+[node name="Item_picked cavans layer" type="CanvasLayer" parent="." index="19"]
 follow_viewport_enabled = true
 
 [node name="Item_picked panel shower" parent="Item_picked cavans layer" index="0" instance=ExtResource("44_0acup")]
 
-[node name="Inventory layer" type="CanvasLayer" parent="." index="19"]
+[node name="Inventory layer" type="CanvasLayer" parent="." index="20"]
 follow_viewport_enabled = true
 
 [node name="Inventory" parent="Inventory layer" index="0" instance=ExtResource("43_ktiam")]
 visible = false
 
-[node name="Pause Menu canvas" type="CanvasLayer" parent="." index="20"]
+[node name="Pause Menu canvas" type="CanvasLayer" parent="." index="21"]
 
 [node name="Pause Menu" parent="Pause Menu canvas" index="0" instance=ExtResource("45_wjcrg")]
 process_mode = 3

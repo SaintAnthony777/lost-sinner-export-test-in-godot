@@ -6,9 +6,9 @@ var camera_offset_no_offense_here:float=1.0
 
 func enter() -> void:
 	taking_damage_tricks()
-
+	player.camera_shaking(.1,1.0)
 func physics_update(_delta) -> void:
-	print("istakingdamage ",character.is_taking_damage)
+	
 	if !character.is_alive:state_machine.change_state("Dying");player.is_locking=false
 	player.gravity_applying(_delta)
 	if player.current_target:
@@ -25,5 +25,6 @@ func physics_update(_delta) -> void:
 		else:
 			state_machine.change_state("locking")
 	else : taking_damage_tricks()
+	
 func taking_damage_tricks()->void:
 	character.taking_damage("Light")

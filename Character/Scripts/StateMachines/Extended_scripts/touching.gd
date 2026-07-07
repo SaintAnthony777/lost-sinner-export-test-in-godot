@@ -4,6 +4,7 @@ extends State
 @onready var player: player_character = $"../.."
 
 func enter() -> void:
+	player.camera_shaking(1.0,3.0)
 	character.look_at(Vector3(
 		player.player_look_node.global_position.x,
 		player.global_position.y,

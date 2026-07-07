@@ -42,8 +42,8 @@ var rotation_speed := 6.0
 var gravity := -25.0
 
 var camera_position:String="right"
-
 var can_switch_camera:bool=true
+var is_camera_shaking:bool=false
 var is_aiming : bool = false
 var is_locking : bool = false
 var is_shouting:bool=false
@@ -264,3 +264,27 @@ func camera_force_rotation(camera_offset_no_offense_here:float)->void:
 func camera_and_mesh_rotation()->void:
 	self.character.rotate_y(PI)
 	self.camera_controller.rotate_y(PI)
+
+func camera_shaking(max_rotation_degrees:float,duration:float)->void:
+	if is_camera_shaking : return
+	is_camera_shaking = true
+	
+	var max_rotation:=deg_to_rad(max_rotation_degrees)
+	var time_left:=duration
+	var rotation_start:=camera.rotation
+	
+	while time_left > 0 :
+		var offset_x = randf_range(-max_rotation,max_rotation)
+		var offset_y = randf_range(-max_rotation,max_rotation)
+		
+		camera.rotation.x = rotation_start.x + offset_x
+		camera.rotation.y = rotation_start.y + offset_y
+		
+		time_left-=get_process_delta_time()
+		await get_tree().process_frame
+		rotation_start.x = camera.rotation.x - offset_x
+		
+	camera.rotation = rotation_start
+	is_camera_shaking=false
+		
+		

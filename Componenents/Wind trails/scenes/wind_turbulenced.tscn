@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://csomqv0x84ud2"]
+
+[ext_resource type="ArrayMesh" uid="uid://ciq8jbnc6nbd6" path="res://Componenents/Wind trails/meshes/wind 1.res" id="1_i5vu6"]
+[ext_resource type="Shader" uid="uid://cb12hhoheta1" path="res://Componenents/Wind trails/shaders/wind_turbulenced.tres" id="1_xg0cm"]
+[ext_resource type="Texture2D" uid="uid://daakhy7kex2n5" path="res://VFXES/Aura/Weapon Auras/fire aura/textures/Super Perlin/SuperPerlin_03-512x512.png" id="2_hdnfw"]
+
+[sub_resource type="Gradient" id="Gradient_xg0cm"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hdnfw"]
+gradient = SubResource("Gradient_xg0cm")
+fill = 1
+fill_from = Vector2(0.5071225, 0.52136755)
+fill_to = Vector2(0.86609685, 0.21367522)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hdnfw"]
+render_priority = 0
+shader = ExtResource("1_xg0cm")
+shader_parameter/Main_color = Color(0, 2.9698853, 2.5908663, 1)
+shader_parameter/Offset_parameter = Vector2(0, 0.1)
+shader_parameter/Offset_slider = 0.0
+shader_parameter/Scale_parameter = Vector2(1, 1)
+shader_parameter/Base_texture = SubResource("GradientTexture2D_hdnfw")
+shader_parameter/Details_slider = 0.2950000615124999
+shader_parameter/details_scale = Vector2(0.1, 1)
+shader_parameter/Details_texture = ExtResource("2_hdnfw")
+
+[node name="Wind turbulenced" type="Node3D"]
+
+[node name="Wind1" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_hdnfw")
+mesh = ExtResource("1_i5vu6")

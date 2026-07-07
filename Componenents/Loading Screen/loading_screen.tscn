@@ -147,7 +147,6 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Title" type="Label" parent="maincontainer/VBoxContainer/Title_container"]
-visible = false
 layout_mode = 2
 text = "Tips"
 label_settings = SubResource("LabelSettings_whbob")

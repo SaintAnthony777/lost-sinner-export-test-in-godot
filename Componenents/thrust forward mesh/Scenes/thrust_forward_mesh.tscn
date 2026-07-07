@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://cm6aseo5cujgb"]
+
+[ext_resource type="ArrayMesh" uid="uid://ek5c1pveny23" path="res://Componenents/thrust forward mesh/meshes/thurst forward mesh.res" id="1_a331l"]
+[ext_resource type="Shader" uid="uid://dc5ywxfyl8a1a" path="res://Componenents/thrust forward mesh/shader/thrust_forward_mesh.tres" id="1_qg1m4"]
+[ext_resource type="Texture2D" uid="uid://daakhy7kex2n5" path="res://VFXES/Aura/Weapon Auras/fire aura/textures/Super Perlin/SuperPerlin_03-512x512.png" id="2_1lnp5"]
+[ext_resource type="Texture2D" uid="uid://cogtcj7u06w03" path="res://VFXES/Fire/textures/Flare00.PNG" id="4_miret"]
+
+[sub_resource type="Gradient" id="Gradient_1lnp5"]
+offsets = PackedFloat32Array(0.9037037, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_miret"]
+gradient = SubResource("Gradient_1lnp5")
+fill_from = Vector2(1, 0.5669516)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1lnp5"]
+render_priority = 0
+shader = ExtResource("1_qg1m4")
+shader_parameter/Main_color = Color(0.0015293114, 0.92810327, 2.55189, 1)
+shader_parameter/Offset_paraameter = Vector2(0, 0)
+shader_parameter/Main_texture = ExtResource("2_1lnp5")
+shader_parameter/Boundary_parameter = SubResource("GradientTexture2D_miret")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6t35a"]
+emission_shape_scale = Vector3(0, 1, 1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 0.0
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yspfc"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(3.3273523, 5.0176477, 18.892157, 1)
+albedo_texture = ExtResource("4_miret")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_ktgf2"]
+material = SubResource("StandardMaterial3D_yspfc")
+size = Vector2(0.1, 0.1)
+
+[node name="Thrust forward mesh" type="Node3D"]
+
+[node name="ThurstForwardMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("ShaderMaterial_1lnp5")
+mesh = ExtResource("1_a331l")
+
+[node name="Thrust particles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+amount = 1000
+speed_scale = 2.0
+process_material = SubResource("ParticleProcessMaterial_6t35a")
+draw_pass_1 = SubResource("QuadMesh_ktgf2")
