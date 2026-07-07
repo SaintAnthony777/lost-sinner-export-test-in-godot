@@ -5,6 +5,7 @@ extends State
 
 var charge_dir:=Vector3.ZERO
 var Heavy_Strike:Attack=Attack.new()
+
 func enter() -> void:
 	character.thrust_forward_mesh.show()
 	Heavy_Strike.create_attack(
@@ -23,10 +24,12 @@ func state_logic(_delta)->void:
 	character.arc_component.current_arcane < Heavy_Strike.arcane_consumption):
 		state_machine.change_state("Heavy Charge Stop")
 	player.camera_shaking(.2,3.0)
+	
 func physics_update(_delta) -> void:
 	state_logic(_delta)
 	velocity_check(_delta)
-
+	player.camera_rotation_logic(_delta)
+	
 func velocity_check(delta)->void:
 	player.velocity=charge_dir*50
 	player.move_and_slide()

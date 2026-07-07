@@ -37,7 +37,7 @@ data = PackedVector3Array(-2.5, 2.5, 2.5, 2.5, 2.5, 2.5, -2.5, -2.5, 2.5, 2.5, 2
 
 [node name="Node3D" type="Node3D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." groups=["World Environnements"]]
 environment = SubResource("Environment_b2uxi")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

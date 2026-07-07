@@ -357,3 +357,8 @@ func play_footsteps()->void:
 
 func player_shaking_camera(max_rotation:float,duration:float)->void:
 	player.camera_shaking(max_rotation,duration)
+
+func scream_like_a_giant()->void:
+	var scream_part:=load("res://Componenents/screaming silence particles/screaming_silence_particles.tscn")
+	var scream_part_inst:screaming_particles=scream_part.instantiate()
+	self.add_child(scream_part_inst)

@@ -5,7 +5,8 @@ extends State
 
 func enter() -> void:
 	air_heavy_charge_logic()
-
+	character.wind_trails_2.show()
+	
 func physics_update(_delta) -> void:
 	player.camera_rotation_logic(_delta)
 	character.look_at(Vector3(player.get_target_point().x,player.global_position.y,player.get_target_point().z))
@@ -22,3 +23,6 @@ func air_heavy_charge_logic()->void:
 	character.can_unleash_heavy_charge=false
 	character.stopped_charging=false
 	character.jump_logics("Grace","Air Heavy charge")
+
+func exit() -> void:
+	character.wind_trails_2.hide()

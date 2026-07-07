@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://ccjhgqruigd2o"]
+
+[ext_resource type="Texture2D" uid="uid://drdmllgio1mgp" path="res://Componenents/Hitsparks/textures/spotlight_5.png" id="1_n0yvn"]
+[ext_resource type="Script" uid="uid://u2xebjbjlp41" path="res://Componenents/screaming silence particles/screaming_silence_particles.gd" id="1_ufltc"]
+
+[sub_resource type="Curve" id="Curve_ufltc"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5145985, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_qbsus"]
+curve = SubResource("Curve_ufltc")
+
+[sub_resource type="Curve" id="Curve_18fpp"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 3), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_q67vt"]
+curve = SubResource("Curve_18fpp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ri7h3"]
+direction = Vector3(0, 0, 1)
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 14.999977
+radial_velocity_curve = SubResource("CurveTexture_qbsus")
+gravity = Vector3(0, 0, 0)
+scale_over_velocity_min = 0.19999999
+scale_over_velocity_max = 1.0
+scale_over_velocity_curve = SubResource("CurveTexture_q67vt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jvqd6"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(17.49614, 7.4492087, 4.3829374, 1)
+albedo_texture = ExtResource("1_n0yvn")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_n0yvn"]
+material = SubResource("StandardMaterial3D_jvqd6")
+size = Vector2(0.3, 0.3)
+
+[node name="Screaming silence particles" type="Node3D"]
+script = ExtResource("1_ufltc")
+
+[node name="screaming particles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+emitting = false
+amount = 100
+lifetime = 3.0
+one_shot = true
+speed_scale = 3.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ri7h3")
+draw_pass_1 = SubResource("QuadMesh_n0yvn")
