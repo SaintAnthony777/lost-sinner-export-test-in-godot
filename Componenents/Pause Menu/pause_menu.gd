@@ -10,6 +10,7 @@ class_name PauseMenu extends Control
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Pause") and !Inventory_UI.visible:
 		show_and_hide_pause()
+		
 func show_and_hide_pause()->void:
 	if self.visible:
 		get_tree().paused = false ; Input.mouse_mode=Input.MOUSE_MODE_CAPTURED ;

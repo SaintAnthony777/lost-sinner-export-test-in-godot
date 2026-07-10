@@ -5,6 +5,12 @@ class_name EnemyVisuals extends Node3D
 
 var is_attacking:=false
 var is_taking_damage:bool=false
+var isattacking:bool=false
+var is_lunging:bool=false
+var is_turning_at_player:bool=false
+var is_ready:bool=false
+var dealt_attack:Attack
+var is_thinking:bool
 
 func Grounding(current_action:String)->void:
 	animation_tree.set('parameters/Final_State/transition_request',"Grounded")

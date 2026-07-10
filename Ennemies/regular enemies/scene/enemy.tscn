@@ -166,13 +166,13 @@ _data = {
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_7qnhr"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4dp6f"]
-animation = &"Chasing"
+animation = &"Animation/Walk forward"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c06go"]
-animation = &"Atack 1"
+animation = &"Animation/Horizontal attack 1"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oygi1"]
-animation = &"Idle"
+animation = &"Animation/Idle Axe"
 
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_c06go"]
 input_0/name = "Grounded"
@@ -207,6 +207,7 @@ input_4/break_loop_at_end = false
 input_4/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_cmgpa"]
+graph_offset = Vector2(-628.7663, -23.57666)
 nodes/output/position = Vector2(373.33334, 240)
 nodes/Final_State/node = SubResource("AnimationNodeTransition_c06go")
 nodes/Final_State/position = Vector2(51.24056, 204.28401)

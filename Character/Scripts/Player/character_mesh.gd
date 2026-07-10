@@ -362,3 +362,12 @@ func scream_like_a_giant()->void:
 	var scream_part:=load("res://Componenents/screaming silence particles/screaming_silence_particles.tscn")
 	var scream_part_inst:screaming_particles=scream_part.instantiate()
 	self.add_child(scream_part_inst)
+
+func add_power_impulse(force:float,thickness:float,speed:float)->void:
+	var pow_imp:=load("res://Componenents/Circular distorsion node/Circular distorsion.tscn")
+	var power_imp_inst:circular_distorsion=pow_imp.instantiate()
+	power_imp_inst.force=force
+	power_imp_inst.thickness=thickness
+	power_imp_inst.speed_given=speed
+	power_imp_inst.given_center=get_viewport().get_visible_rect().size/2
+	self.add_child(power_imp_inst)

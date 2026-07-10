@@ -10,6 +10,7 @@ class_name GiftChoice extends Control
 @onready var new_save : GameSaveData = GameSaveData.new()
 @onready var hammer:Inventory_Item=Inventory_Item.new()
 @onready var shield:Inventory_Item=Inventory_Item.new()
+
 func create_items()->void:
 	hammer.create_item(
 		"The Hand of the Maestria",
@@ -103,6 +104,7 @@ func create_save_with_gift(ability:Inventory_Item,gift_here:Inventory_Item)->voi
 	new_save.player_position=Vector3.ZERO
 	new_save.current_scene="res://Greyboxed Environnements/The Great Prison/the_great_prison.tscn"
 	SaveManager.current_save=new_save
+	
 	var err = ResourceSaver.save(new_save,SaveManager.SAVE_PATH)
 	if err==OK:
 		print('sauvegarde créée')
@@ -111,6 +113,7 @@ func create_save_with_gift(ability:Inventory_Item,gift_here:Inventory_Item)->voi
 			print(save.current_scene)
 			get_tree().change_scene_to_file("res://Componenents/Loading Screen/loading_screen.tscn")
 	else:pass
+	
 func new_game_with_gifts(ability:Inventory_Item,gift:Inventory_Item) -> void :
 	create_save_with_gift(ability,gift)
 func _on_divine_divider_button_pressed() -> void:

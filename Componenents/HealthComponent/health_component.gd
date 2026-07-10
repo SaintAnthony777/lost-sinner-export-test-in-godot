@@ -2,6 +2,7 @@ class_name HealthComponent extends Node
 
 @onready var Current_health:float
 @onready var is_invulnerable:bool=false
+@onready var playernode:player_character=get_tree().get_first_node_in_group("Personnage")
 var Damage_Factor:float=0.0
 
 var Moveable_Player:player_character
@@ -33,6 +34,7 @@ func _process(_delta: float) -> void:
 	if received_attack:
 		take_a_step(received_attack,_delta)
 	if Current_health>Max_health:Current_health=Max_health
+	
 func Iframes_on()->void:
 	is_invulnerable=true
 func Iframes_off()->void:
@@ -61,7 +63,7 @@ func taking_damage(taken_attack:Attack):
 
 	if Moveable_Player and !Moveable_Player.character.is_blocking:
 		self.body_nature=""
-
+	
 	#damage calculation
 	if taken_attack.Nature in Vulnerability:
 		Damage_Factor=taken_attack.Base_damage*25/100

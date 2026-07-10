@@ -17,11 +17,14 @@ func enter() -> void:
 	init_attacks()
 	attack_picker()
 	halfrey_root.aiming_at_player()
+	await halfrey.animation_tree.animation_finished
+	halfrey.isattacking=false
+	state_machine.change_state("idle")
 
 func physics_update(_delta) -> void:
 	if !halfrey_root.is_alive:
 		state_machine.change_state("Dying")
-	state_logic()
+	
 func state_logic()->void:
 	attack_check()
 	
@@ -32,6 +35,7 @@ func attack_picker() -> void:
 	halfrey.Boss_motion("Attack",ATTACK_LIST[attack_picked])
 	previous_attack=attack_picked
 	halfrey.dealt_attack=Attack_array[attack_picked]
+	
 func attack_check()->void:
 	await halfrey.animation_tree.animation_finished
 	halfrey.isattacking=false
@@ -39,13 +43,13 @@ func attack_check()->void:
 
 func init_attacks()->void:
 	Attack_array.clear()
-	Attack_1.create_attack(15.0,25.0,"Physical",3.0,0.0)
+	Attack_1.create_attack(14.0,25.0,"Physical",3.0,0.0)
 	Attack_array.append(Attack_1)
-	Attack_2.create_attack(16.0,25.0,"Physical",3.0,0.0)
+	Attack_2.create_attack(15.0,25.0,"Physical",3.0,0.0)
 	Attack_array.append(Attack_2)
 	Attack_3.create_attack(14.0,25.0,"Physical",3.0,0.0)
 	Attack_array.append(Attack_3)
-	Attack_4.create_attack(17.0,25.0,"Physical",3.0,0.0)
+	Attack_4.create_attack(15.0,25.0,"Physical",3.0,0.0)
 	Attack_array.append(Attack_4)
 	Attack_5.create_attack(25.0,35.0,"Divine Divider",3.0,0.0)
 	Attack_array.append(Attack_5)

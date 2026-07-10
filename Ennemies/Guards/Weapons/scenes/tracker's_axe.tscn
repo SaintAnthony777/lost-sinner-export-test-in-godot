@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://co7phqnqxwpig"]
+
+[ext_resource type="PackedScene" uid="uid://cuoj6qy0ibghs" path="res://Ennemies/Guards/Weapons/models/Tracker's axe.glb" id="1_38pje"]
+
+[node name="Tracker\'s axe" instance=ExtResource("1_38pje")]

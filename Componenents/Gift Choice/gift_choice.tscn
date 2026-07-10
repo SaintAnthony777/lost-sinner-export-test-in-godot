@@ -55,7 +55,7 @@ border_width_bottom = 3
 
 [sub_resource type="LabelSettings" id="LabelSettings_2y5xo"]
 font = ExtResource("2_3kp5h")
-font_size = 45
+font_size = 35
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
@@ -148,7 +148,7 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_3kp5h")
-theme_override_font_sizes/font_size = 55
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jkuwk")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_5r8d5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4mspa")
@@ -191,7 +191,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_3kp5h")
-theme_override_font_sizes/font_size = 55
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxEmpty_61byy")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_5r8d5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4mspa")

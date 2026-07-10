@@ -6,6 +6,7 @@ class_name circular_distorsion extends Control
 @onready var thickness:float=0.1
 @onready var distorsion_material:ShaderMaterial=ShaderMaterial.new()
 @onready var distorded_animator: AnimationPlayer = $"distorded animator"
+@onready var speed_given:float=1.0
 
 func _ready() -> void: 
 	distorsion_material = distors_rect.material
@@ -14,6 +15,7 @@ func _ready() -> void:
 	distorsion_material.set_shader_parameter("Force",force)
 	distorsion_material.set_shader_parameter("Thickness",thickness)
 	distorded_animator.play("RESET")
+	distorded_animator.speed_scale=speed_given
 	distorded_animator.play("distords")
 	await distorded_animator.animation_finished
 	queue_free()

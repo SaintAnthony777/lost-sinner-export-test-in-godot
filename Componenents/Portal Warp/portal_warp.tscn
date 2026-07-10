@@ -37,6 +37,9 @@ initial_velocity_max = 2.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.59999996
 color_ramp = SubResource("GradientTexture1D_66f3b")
+turbulence_noise_strength = 5.0
+turbulence_noise_scale = 1.0
+turbulence_noise_speed = Vector3(0, 5, 0)
 
 [sub_resource type="QuadMesh" id="QuadMesh_dedg7"]
 size = Vector2(0.3, 0.3)

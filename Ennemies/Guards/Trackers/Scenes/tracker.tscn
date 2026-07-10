@@ -1,0 +1,123 @@
+[gd_scene load_steps=16 format=3 uid="uid://iy8hslvdkxhi"]
+
+[ext_resource type="Script" uid="uid://b2mma88kgmdm2" path="res://Ennemies/regular enemies/script/regular_enemy.gd" id="1_q30j4"]
+[ext_resource type="PackedScene" uid="uid://b4j72348n1luh" path="res://Ennemies/Guards/Trackers/Scenes/guard_axed.tscn" id="2_087bu"]
+[ext_resource type="Script" uid="uid://4i450if78qh1" path="res://Componenents/Hitbox and HurtBox/hurt_box_component.gd" id="3_pp1kf"]
+[ext_resource type="Script" uid="uid://bibpdrfengocv" path="res://Componenents/HealthComponent/health_component.gd" id="4_vmbfs"]
+[ext_resource type="Script" uid="uid://bua0kbub8bjta" path="res://Character/Scripts/StateMachines/Source_codes/StateMachine.gd" id="5_ohjtu"]
+[ext_resource type="Script" uid="uid://ck24g86ieunl0" path="res://Ennemies/regular enemies/Enemies Extended Scripts/idle.gd" id="6_877ru"]
+[ext_resource type="Script" uid="uid://bgbua5rci4t1k" path="res://Ennemies/regular enemies/Enemies Extended Scripts/attack.gd" id="7_7ucys"]
+[ext_resource type="Script" uid="uid://x0fb6is57wkw" path="res://Ennemies/regular enemies/Enemies Extended Scripts/chase.gd" id="8_j8yu2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q30j4"]
+radius = 0.4658203
+height = 1.730957
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_13f1l"]
+radius = 0.63134766
+height = 2.2539063
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ahila"]
+load_path = "res://.godot/imported/Fond .PNG-fa9a20f05b13b4ccd05883a868e2c2d1.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ydbmm"]
+load_path = "res://.godot/imported/Remplissage.PNG-d6f76734bac8eabf6a0a1699de9f6c39.ctex"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_rh45y"]
+viewport_path = NodePath("HealthSubViewPort")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50gp6"]
+shading_mode = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_pp1kf"]
+material = SubResource("StandardMaterial3D_50gp6")
+radius = 0.1
+height = 0.2
+
+[node name="Tracker" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_q30j4")
+metadata/_custom_type_script = "uid://b2mma88kgmdm2"
+
+[node name="Visuals" parent="." instance=ExtResource("2_087bu")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0293245, 0)
+shape = SubResource("CapsuleShape3D_q30j4")
+
+[node name="HurtBoxComponent" type="Area3D" parent="." node_paths=PackedStringArray("health_comp")]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("3_pp1kf")
+health_comp = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://4i450if78qh1"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBoxComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.149543, 0)
+shape = SubResource("CapsuleShape3D_13f1l")
+
+[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("Health_gauge", "Node_to_call_on_death")]
+script = ExtResource("4_vmbfs")
+Max_health = 100.0
+Vulnerability = Array[String](["Divine Divider", "Grace"])
+Resistance = Array[String](["Physical"])
+Health_gauge = NodePath("../HealthSubViewPort/EnemyHealth")
+Bearable_power = 3.0
+Node_to_call_on_death = NodePath("..")
+body_nature = "metal"
+metadata/_custom_type_script = "uid://bibpdrfengocv"
+
+[node name="HealthSubViewPort" type="SubViewport" parent="."]
+transparent_bg = true
+
+[node name="EnemyHealth" type="TextureProgressBar" parent="HealthSubViewPort"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = -256.0
+offset_right = 406.0
+offset_bottom = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.3)
+value = 53.0
+texture_under = SubResource("CompressedTexture2D_ahila")
+texture_progress = SubResource("CompressedTexture2D_ydbmm")
+tint_progress = Color(1.1379404, 0, 0.12515214, 1)
+
+[node name="HealthBarAnchor" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0688846, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="HealthBarAnchor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.0688846, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_rh45y")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("5_ohjtu")
+initial_state = NodePath("Idle_Enemy")
+metadata/_custom_type_script = "uid://bua0kbub8bjta"
+
+[node name="Idle_Enemy" type="Node" parent="StateMachine"]
+script = ExtResource("6_877ru")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource("7_7ucys")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Chase" type="Node" parent="StateMachine"]
+script = ExtResource("8_j8yu2")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="aiming node" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1955564, 0)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="aiming node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1360066, 0.7236614, 0)
+mesh = SubResource("SphereMesh_pp1kf")

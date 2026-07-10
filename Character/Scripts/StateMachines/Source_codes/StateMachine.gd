@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if current_state:
 		current_state.physics_update(delta)
-
+		print(current_state.name)
 func change_state(new_state_name:String) -> void:
 	var new_state = states.get(new_state_name.to_lower())
 	assert(new_state, "state introuvable : "+new_state_name)

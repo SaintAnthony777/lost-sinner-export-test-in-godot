@@ -24,3 +24,8 @@ func done_attacking()->void:
 
 func force_camera_shake(intensity:float,duration:float)->void:
 	Boss_Body.target.camera_shaking(intensity,duration)
+
+func spawn_screaming_particles()->void:
+	var scream_part:=load("res://Componenents/screaming silence particles/screaming_silence_particles.tscn")
+	var scream_part_inst:screaming_particles=scream_part.instantiate()
+	self.add_child(scream_part_inst)

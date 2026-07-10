@@ -13,7 +13,7 @@ func enter() -> void:
 		200,
 		"Grace",
 		5.0,
-		.5
+		.3
 	)
 	character.dealt_attack=Heavy_Strike
 	unleash_trick()

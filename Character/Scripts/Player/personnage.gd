@@ -31,7 +31,7 @@ class_name player_character
 	"World Strongest Man":65.0
 }
 @onready var grace_consumption_dict:Dictionary ={
-	"Heavy Charge":1.0,
+	"Heavy Charge":0.3,
 	"Disordonance":35.0,
 	"Disaster":45.0
 }
@@ -47,6 +47,7 @@ var is_camera_shaking:bool=false
 var is_aiming : bool = false
 var is_locking : bool = false
 var is_shouting:bool=false
+var po_look:Vector3
 
 ##innervars
 var player_move_direction : Vector3
@@ -282,7 +283,8 @@ func camera_shaking(max_rotation_degrees:float,duration:float)->void:
 		
 		time_left-=get_process_delta_time()
 		await get_tree().process_frame
-		rotation_start.x = camera.rotation.x - offset_x
+		#rotation_start.x = camera.rotation.x - offset_x
+		rotation_start.y = camera.rotation.y -offset_y
 		
 	camera.rotation = rotation_start
 	is_camera_shaking=false

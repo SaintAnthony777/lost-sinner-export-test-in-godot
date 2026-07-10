@@ -17,7 +17,7 @@ sky_material = SubResource("ProceduralSkyMaterial_hga1e")
 [sub_resource type="Environment" id="Environment_b2uxi"]
 background_mode = 2
 sky = SubResource("Sky_cc4uq")
-tonemap_mode = 2
+tonemap_mode = 3
 glow_enabled = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nphbl"]
@@ -90,6 +90,74 @@ transform = Transform3D(1.08, 0, 0, 0, 1.08, 0, 0, 0, 1.08, -7, 61, 253)
 shape = SubResource("ConcavePolygonShape3D_0gfhg")
 
 [node name="Spawn Point" type="Marker3D" parent="fracturable_static"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 253)
+
+[node name="fracturable_static2" type="StaticBody3D" parent="."]
+transform = Transform3D(0.39999998, 0, 0, 0, 0.39999998, 0, 0, 0, 0.39999998, 0, -2, 969)
+collision_layer = 32
+collision_mask = 37
+script = ExtResource("2_u66ag")
+packed_breakable = ExtResource("3_u66ag")
+metadata/_custom_type_script = "uid://cakitfhm5emmo"
+
+[node name="PlanetMesh" type="MeshInstance3D" parent="fracturable_static2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 61, 253)
+mesh = ExtResource("2_hga1e")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fracturable_static2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 61, 253)
+shape = SubResource("ConcavePolygonShape3D_0gfhg")
+
+[node name="HealthComponent" type="Node" parent="fracturable_static2"]
+script = ExtResource("5_ycbvu")
+Max_health = 15.0
+metadata/_custom_type_script = "uid://bibpdrfengocv"
+
+[node name="HurtBoxComponent" type="Area3D" parent="fracturable_static2" node_paths=PackedStringArray("health_comp")]
+script = ExtResource("6_2l7oj")
+health_comp = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://4i450if78qh1"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fracturable_static2/HurtBoxComponent"]
+transform = Transform3D(1.08, 0, 0, 0, 1.08, 0, 0, 0, 1.08, -7, 61, 253)
+shape = SubResource("ConcavePolygonShape3D_0gfhg")
+
+[node name="Spawn Point" type="Marker3D" parent="fracturable_static2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 253)
+
+[node name="fracturable_static3" type="StaticBody3D" parent="."]
+transform = Transform3D(0.39999998, 0, 0, 0, 0.39999998, 0, 0, 0, 0.39999998, 0, -2, 261)
+collision_layer = 32
+collision_mask = 37
+script = ExtResource("2_u66ag")
+packed_breakable = ExtResource("3_u66ag")
+metadata/_custom_type_script = "uid://cakitfhm5emmo"
+
+[node name="PlanetMesh" type="MeshInstance3D" parent="fracturable_static3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 61, 253)
+mesh = ExtResource("2_hga1e")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fracturable_static3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 61, 253)
+shape = SubResource("ConcavePolygonShape3D_0gfhg")
+
+[node name="HealthComponent" type="Node" parent="fracturable_static3"]
+script = ExtResource("5_ycbvu")
+Max_health = 15.0
+metadata/_custom_type_script = "uid://bibpdrfengocv"
+
+[node name="HurtBoxComponent" type="Area3D" parent="fracturable_static3" node_paths=PackedStringArray("health_comp")]
+script = ExtResource("6_2l7oj")
+health_comp = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://4i450if78qh1"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fracturable_static3/HurtBoxComponent"]
+transform = Transform3D(1.08, 0, 0, 0, 1.08, 0, 0, 0, 1.08, -7, 61, 253)
+shape = SubResource("ConcavePolygonShape3D_0gfhg")
+
+[node name="Spawn Point" type="Marker3D" parent="fracturable_static3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 253)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
