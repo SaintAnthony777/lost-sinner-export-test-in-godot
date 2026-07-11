@@ -1,14 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2r2jcuagye5b"]
+[gd_scene load_steps=17 format=3 uid="uid://d2r2jcuagye5b"]
 
 [ext_resource type="ArrayMesh" uid="uid://ba1vouggws51v" path="res://Environnements Pre-tests/The Great Prison/Save Points/meshes/evergreen tree.res" id="1_5tncv"]
 [ext_resource type="Script" uid="uid://c6wqiyhdl46jj" path="res://Componenents/Save Point/scene/save_point.gd" id="1_pjy48"]
 [ext_resource type="ArrayMesh" uid="uid://gjrpfe2nw4cx" path="res://Environnements Pre-tests/The Great Prison/Save Points/meshes/evergreen_leaves.res" id="2_vml1j"]
 [ext_resource type="Script" uid="uid://dbye3ep2uh4xp" path="res://autoloads/Interactable Areas/Interaction Area.gd" id="3_vml1j"]
 [ext_resource type="FontFile" uid="uid://d0ug5noy0uhhl" path="res://Fonts/Cinzel,EB_Garamond/EB_Garamond/static/EBGaramond-Regular.ttf" id="5_sedxv"]
+[ext_resource type="Texture2D" uid="uid://cogtcj7u06w03" path="res://VFXES/Fire/textures/Flare00.PNG" id="6_fywve"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pjy48"]
 transparency = 1
 cull_mode = 2
+albedo_color = Color(0.93448913, 8.525091, 2.6248333, 1)
 emission_enabled = true
 emission = Color(0, 0.9280188, 0, 1)
 emission_energy_multiplier = 16.0
@@ -18,6 +20,49 @@ radius = 0.74459517
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_sedxv"]
 radius = 2.0
+
+[sub_resource type="Curve" id="Curve_djw28"]
+_data = [Vector2(0.040145993, 0), 0.0, 0.0, 0, 0, Vector2(0.49999997, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_r7anp"]
+curve = SubResource("Curve_djw28")
+
+[sub_resource type="Curve" id="Curve_fywve"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.49270076, 3), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_djw28"]
+curve = SubResource("Curve_fywve")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_62ha4"]
+angle_min = 1.0728835e-05
+angle_max = 180.00002
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0.1, 0)
+scale_curve = SubResource("CurveTexture_r7anp")
+scale_over_velocity_max = 3.0
+scale_over_velocity_curve = SubResource("CurveTexture_djw28")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1f7nn"]
+transparency = 1
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(1.6057513, 9.445979, 4.5016913, 1)
+albedo_texture = ExtResource("6_fywve")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+grow = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_2t2yx"]
+material = SubResource("StandardMaterial3D_1f7nn")
+size = Vector2(0.2, 0.2)
 
 [node name="Save Point" type="Node3D"]
 script = ExtResource("1_pjy48")
@@ -74,3 +119,9 @@ outline_modulate = Color(1, 1, 1, 1)
 text = "."
 
 [node name="player_lookat" type="Marker3D" parent="interaction_area"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 25
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_62ha4")
+draw_pass_1 = SubResource("QuadMesh_2t2yx")

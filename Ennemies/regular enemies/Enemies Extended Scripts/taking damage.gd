@@ -5,11 +5,8 @@ extends State
 var current_react_dir:String=""
 
 func enter() -> void:
-	
+	enemy_body.velocity = Vector3.ZERO
 	await visuals.animation_tree.animation_finished
 	visuals.is_taking_damage=false
 	if !visuals.is_taking_damage:
 		state_machine.change_state("idle_enemy")
-		
-func physics_update(_delta) -> void:
-	pass

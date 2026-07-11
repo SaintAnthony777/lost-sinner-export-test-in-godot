@@ -49,9 +49,10 @@ func taking_damage(taken_attack:Attack):
 	if is_invulnerable : HitStopManager.hit_stop_function(.01,.1) ; return
 	
 	#check block status
-	if Moveable_Player:Moveable_Player.character.is_taking_damage=true;
-	if Moveable_Body:Moveable_Body.visuals.is_taking_damage=true
-	if Moveable_Player and Moveable_Player.character.is_blocking :
+	
+	owner.is_taking_damage=true
+	
+	if owner.is_blocking :
 		self.body_nature="metal"
 		play_sfx()
 		var dealt_dmg=(taken_attack.Base_damage+Damage_Factor)-Armor_value
@@ -81,12 +82,7 @@ func taking_damage(taken_attack:Attack):
 	#death ckeck
 	death_check()
 	if Current_health==0:
-		if Node_to_call_on_death:
-			Node_to_call_on_death.is_alive=false
-		if player_to_call_on_death:
-			player_to_call_on_death.is_alive=false
-		if random_node_to_call_on_death:
-			random_node_to_call_on_death.is_alive=false
+		owner.is_alive=false
 	else : HitStopManager.hit_stop_function(.01,.1)
 	
 func death_check()->void:
@@ -94,34 +90,24 @@ func death_check()->void:
 	
 func take_a_step(taken_attack:Attack,delta:float):
 	if is_invulnerable : return
-	var expulsion_direction:Vector3=Vector3.ZERO
+	var expulsion_dir:Vector3=Vector3.ZERO
 	if Bearable_power<=taken_attack.Strength:
 		dealt_thrown_time-=(delta+1)
-		var Node_to_be_rotated
-		if Moveable_Body:
-			Node_to_be_rotated=Moveable_Body.visuals
-		if Moveable_Player:
-			Node_to_be_rotated=Moveable_Player.character
-		
 		if dealt_thrown_time>0:
-			if Moveable_Body:
-				Node_to_be_rotated.owner.look_at(Vector3(
+			if owner is EnemyVisuals or owner is character_mesh and attack_sender and owner:
+				owner.look_at(Vector3(
 					attack_sender.global_position.x,
-					Node_to_be_rotated.global_position.y,
-					attack_sender.global_position.z
+					owner.global_position.y,
+					attack_sender.global_position.z,
 				))
-				Node_to_be_rotated.owner.rotate_y(PI)
-			elif Moveable_Player:
-				Node_to_be_rotated.look_at(Vector3(
-					attack_sender.global_position.x,
-					Node_to_be_rotated.global_position.y,
-					attack_sender.global_position.z
-				))
-				Node_to_be_rotated.rotate_y(PI)
-			if Node_to_be_rotated:
-				expulsion_direction=Node_to_be_rotated.transform.basis.z.normalized()
-				Node_to_be_rotated.owner.velocity =-(expulsion_direction*taken_attack.Strength)
-				Node_to_be_rotated.owner.move_and_slide()
+				owner.rotate_y(PI)
+				owner.get_parent().velocity = Vector3.ZERO
+				expulsion_dir = owner.transform.basis.z.normalized()
+				expulsion_dir.x*=taken_attack.Strength-Bearable_power
+				expulsion_dir.z*=taken_attack.Strength-Bearable_power
+				expulsion_dir.y = 0
+				owner.get_parent().velocity=expulsion_dir
+				owner.get_parent().move_and_slide()
 		else:
 			received_attack=null
 

@@ -60,7 +60,8 @@ var current_attack_nature : String = ""
 @onready var arc_component: arcane_component = $"Hud canvas layer/HUD/Health and equip/arcane_component"
 @onready var AOE_hitBox:HitBoxComponent=$"AOE_Hitboxes/HitBoxComponent"
 @onready var AOE_Collision:CollisionShape3D=$"AOE_Hitboxes/HitBoxComponent/CollisionShape3D"
-@onready var health_component: HealthComponent = $"Hud canvas layer/HUD/Health and equip/HealthComponent"
+@onready var health_component: HealthComponent = $HealthComponent
+
 @onready var gift_component: GiftComponent = $"Hud canvas layer/HUD/Health and equip/GiftComponent"
 
 @onready var dealt_attack:Attack

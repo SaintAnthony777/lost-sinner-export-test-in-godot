@@ -1,9 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://b4j72348n1luh"]
+[gd_scene load_steps=40 format=3 uid="uid://b4j72348n1luh"]
 
 [ext_resource type="PackedScene" uid="uid://bgc46e2u6ytgy" path="res://Ennemies/Guards/Trackers/Model/guard axed.glb" id="1_icm8c"]
 [ext_resource type="PackedScene" uid="uid://co7phqnqxwpig" path="res://Ennemies/Guards/Weapons/scenes/tracker's_axe.tscn" id="2_bxhgb"]
 [ext_resource type="Script" uid="uid://bwmwaihgj0mtq" path="res://Ennemies/regular enemies/script/Enemy_visuals.gd" id="2_ym28q"]
 [ext_resource type="Script" uid="uid://dflwyxok3081k" path="res://Componenents/Hitbox and HurtBox/hitbox_component.gd" id="3_bxhgb"]
+[ext_resource type="Script" uid="uid://4i450if78qh1" path="res://Componenents/Hitbox and HurtBox/hurt_box_component.gd" id="5_usxs6"]
+[ext_resource type="Script" uid="uid://bibpdrfengocv" path="res://Componenents/HealthComponent/health_component.gd" id="6_44s4s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ym28q"]
 size = Vector3(0.48239136, 0.47216797, 0.17584229)
@@ -12598,7 +12600,7 @@ input_8/break_loop_at_end = false
 input_8/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_bxhgb"]
-graph_offset = Vector2(-637.41943, 128.76839)
+graph_offset = Vector2(-497.33334, 94.666664)
 nodes/output/position = Vector2(586.6667, 266.66666)
 nodes/Final_State/node = SubResource("AnimationNodeTransition_c06go")
 nodes/Final_State/position = Vector2(293.33334, 213.33333)
@@ -12621,6 +12623,19 @@ nodes/Animation/position = Vector2(-640, 0)
 "nodes/Animation 7/node" = SubResource("AnimationNodeAnimation_44s4s")
 "nodes/Animation 7/position" = Vector2(-560, 906.6667)
 node_connections = [&"output", 0, &"Final_State", &"Final_State", 0, &"Ground Transisitons", &"Final_State", 1, &"Airborne Transitions", &"Ground Transisitons", 0, &"Animation", &"Ground Transisitons", 1, &"Animation 2", &"Ground Transisitons", 2, &"Animation 3", &"Ground Transisitons", 5, &"Animation 5", &"Ground Transisitons", 6, &"Animation 4", &"Ground Transisitons", 7, &"Animation 6", &"Ground Transisitons", 8, &"Animation 7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5lcun"]
+radius = 0.63134766
+height = 2.2539063
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rmabu"]
+load_path = "res://.godot/imported/Fond .PNG-fa9a20f05b13b4ccd05883a868e2c2d1.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_10l5k"]
+load_path = "res://.godot/imported/Remplissage.PNG-d6f76734bac8eabf6a0a1699de9f6c39.ctex"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mthhi"]
+viewport_path = NodePath("HealthSubViewPort")
 
 [node name="Visuals" instance=ExtResource("1_icm8c")]
 script = ExtResource("2_ym28q")
@@ -12814,3 +12829,53 @@ parameters/Final_State/current_index = 0
 "parameters/Airborne Transitions/current_state" = ""
 "parameters/Airborne Transitions/transition_request" = ""
 "parameters/Airborne Transitions/current_index" = -1
+
+[node name="HurtBoxComponent" type="Area3D" parent="." index="3" node_paths=PackedStringArray("health_comp")]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("5_usxs6")
+health_comp = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://4i450if78qh1"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBoxComponent" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.149543, 0)
+shape = SubResource("CapsuleShape3D_5lcun")
+
+[node name="HealthComponent" type="Node" parent="." index="4" node_paths=PackedStringArray("Health_gauge")]
+script = ExtResource("6_44s4s")
+Max_health = 100.0
+Vulnerability = Array[String](["Divine Divider", "Grace"])
+Resistance = Array[String](["Physical"])
+Health_gauge = NodePath("../HealthSubViewPort/EnemyHealth")
+Bearable_power = 3.0
+body_nature = "metal"
+metadata/_custom_type_script = "uid://bibpdrfengocv"
+
+[node name="HealthSubViewPort" type="SubViewport" parent="." index="5"]
+transparent_bg = true
+
+[node name="EnemyHealth" type="TextureProgressBar" parent="HealthSubViewPort" index="0"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = -256.0
+offset_right = 406.0
+offset_bottom = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.3)
+value = 53.0
+texture_under = SubResource("CompressedTexture2D_rmabu")
+texture_progress = SubResource("CompressedTexture2D_10l5k")
+tint_progress = Color(1.1379404, 0, 0.12515214, 1)
+
+[node name="HealthBarAnchor" type="Marker3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0688846, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="HealthBarAnchor" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.0688846, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_mthhi")

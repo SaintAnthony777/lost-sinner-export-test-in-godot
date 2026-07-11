@@ -5,20 +5,25 @@ extends State
 
 func enter() -> void:
 	enemy_body.aiming_at_player()
-	enemy_body.dealt_attack=Attack.new()
-	enemy_body.dealt_attack.create_attack(
-		25.0,
-		25.0,
+	var dealt_attack=Attack.new()
+	dealt_attack.create_attack(
+		15.0,
+		55.0,
 		"Physical",
 		3.0,
 		0.0
 	)
+	visuals.dealt_attack=dealt_attack
+
 	visuals.Grounding("Attacking 1")
 
-func physics_update(_delta) -> void:
-	state_logic(_delta)
-
-func state_logic(delta)->void:
+	await visuals.animation_tree.animation_finished
+	visuals.is_attacking=false
+	
 	if !visuals.is_attacking:
-		visuals.is_attacking=true
 		state_machine.change_state("Idle_Enemy")
+
+func physics_update(_delta) -> void:
+	if visuals.is_taking_damage:
+		visuals.is_attacking=false
+		state_machine.change_state("taking damage")

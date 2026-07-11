@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://cgn81wf48rxfa"]
+
+[ext_resource type="PackedScene" uid="uid://srgn3wkeivsn" path="res://Character/Scenes/personnage.tscn" id="1_n8chh"]
+[ext_resource type="PackedScene" uid="uid://iy8hslvdkxhi" path="res://Ennemies/Guards/Trackers/Scenes/tracker.tscn" id="2_66fur"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_66fur"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_udswm"]
+sky_material = SubResource("ProceduralSkyMaterial_66fur")
+
+[sub_resource type="Environment" id="Environment_j2qdx"]
+background_mode = 2
+sky = SubResource("Sky_udswm")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_66fur"]
+size = Vector2(45, 45)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_udswm"]
+data = PackedVector3Array(22.5, 0, 22.5, -22.5, 0, 22.5, 22.5, 0, -22.5, -22.5, 0, 22.5, -22.5, 0, -22.5, 22.5, 0, -22.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_66fur"]
+
+[node name="test_enemy" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+visible = false
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." groups=["World Environnements"]]
+environment = SubResource("Environment_j2qdx")
+
+[node name="Personnage" parent="." instance=ExtResource("1_n8chh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_66fur")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_udswm")
+
+[node name="Tracker" parent="." instance=ExtResource("2_66fur")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 1)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_66fur")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, -6)
+mesh = SubResource("BoxMesh_66fur")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, 0)
+mesh = SubResource("BoxMesh_66fur")

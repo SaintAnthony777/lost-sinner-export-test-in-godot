@@ -1,4 +1,4 @@
-[gd_scene load_steps=210 format=3 uid="uid://xumlackoysv2"]
+[gd_scene load_steps=211 format=3 uid="uid://xumlackoysv2"]
 
 [ext_resource type="PackedScene" uid="uid://dshsna3bwyfl7" path="res://Character/Glb/lost sinner 1/The Lost Sinner1.glb" id="1_ag85x"]
 [ext_resource type="Script" uid="uid://dijb6jh7etgx0" path="res://Character/Scripts/Player/character_mesh.gd" id="2_ukanm"]
@@ -61,6 +61,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://djcr6mfod1bko" path="res://Character/Imported Animations/touching/touching.res" id="46_se81j"]
 [ext_resource type="PackedScene" uid="uid://vmt2q2icv0wp" path="res://Componenents/Wind trails/scenes/wind_trails_2.tscn" id="49_48y4d"]
 [ext_resource type="PackedScene" uid="uid://cm6aseo5cujgb" path="res://Componenents/thrust forward mesh/Scenes/thrust_forward_mesh.tscn" id="50_o11jx"]
+[ext_resource type="Script" uid="uid://bibpdrfengocv" path="res://Componenents/HealthComponent/health_component.gd" id="62_fu2q5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0acup"]
 albedo_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
@@ -18034,7 +18035,7 @@ collision_mask = 6
 collision_layer = 16
 collision_mask = 13
 script = ExtResource("26_0i3i2")
-health_comp = NodePath("../Hud canvas layer/HUD/Health and equip/HealthComponent")
+health_comp = NodePath("../HealthComponent")
 metadata/_custom_type_script = "uid://4i450if78qh1"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBoxComponent" index="0"]
@@ -18103,9 +18104,6 @@ follow_viewport_enabled = true
 
 [node name="HUD" parent="Hud canvas layer" index="0" instance=ExtResource("23_14b8p")]
 
-[node name="HealthComponent" parent="Hud canvas layer/HUD/Health and equip" index="1" node_paths=PackedStringArray("player_to_call_on_death")]
-player_to_call_on_death = NodePath("../../../..")
-
 [node name="Item_picked cavans layer" type="CanvasLayer" parent="." index="19"]
 follow_viewport_enabled = true
 
@@ -18122,6 +18120,15 @@ visible = false
 [node name="Pause Menu" parent="Pause Menu canvas" index="0" instance=ExtResource("45_wjcrg")]
 process_mode = 3
 visible = false
+
+[node name="HealthComponent" type="Node" parent="." index="22" node_paths=PackedStringArray("Health_gauge")]
+script = ExtResource("62_fu2q5")
+Max_health = 100.0
+Vulnerability = Array[String](["Physical"])
+Health_gauge = NodePath("../Hud canvas layer/HUD/Maincontainer/HBoxContainer/Barcontainers/Healthrow/Health")
+Bearable_power = 15.0
+Armor_value = 75.0
+metadata/_custom_type_script = "uid://bibpdrfengocv"
 
 [connection signal="being_hit" from="." to="." method="_on_being_hit"]
 

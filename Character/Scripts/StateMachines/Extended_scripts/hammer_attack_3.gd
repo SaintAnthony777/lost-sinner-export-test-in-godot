@@ -4,6 +4,8 @@ extends State
 @onready var curr_weapon:Weapon=Weapon.new()
 
 func enter() -> void:
+	
+	character.attack_direction="up"
 	character.requested_next_attack=false
 	character.requested_dash=false
 	if character.gift_component.is_consummed:

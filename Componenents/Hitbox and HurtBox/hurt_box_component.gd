@@ -15,13 +15,11 @@ func _on_area_entered(area: Area3D) -> void:
 	if area is HitBoxComponent and self.owner!=area.owner and area.untouchable_owner!=owner:
 		#print("attack from ",area.owner,"received by ",owner," message from ",area)
 		if area.owner.dealt_attack:
-			print(area.owner.attack_direction)
+			
 			var curr_att:Attack=area.owner.dealt_attack
 			var pos : Vector3
-			print(owner)
 			
-			if owner is enemy_root or owner is character_mesh:
-				print(owner)
+			if owner is EnemyVisuals or owner is character_mesh:
 				owner.being_hit.emit()
 			
 			if curr_att.Nature!="Divine Divider" and curr_att.Nature!="Grace" and curr_att.Nature!="": 
@@ -32,10 +30,12 @@ func _on_area_entered(area: Area3D) -> void:
 			else : 
 				pos = self.global_position
 			var distorsion_rect:circular_distorsion=dist_rect.instantiate()
+			
 			distorsion_rect.force=.2
 			distorsion_rect.thickness=2.0
 			distorsion_rect.given_center=get_viewport().get_camera_3d().unproject_position(pos)
-			owner.get_parent().add_child(distorsion_rect)
+			if curr_att.Strength>=25.0:
+				owner.get_parent().add_child(distorsion_rect)
 			health_comp.taking_damage(area.owner.dealt_attack)
 			health_comp.received_attack=area.owner.dealt_attack
 			health_comp.attack_sender=area.owner

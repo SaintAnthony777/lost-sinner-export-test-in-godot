@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://4y8dawkwukrf"]
+[gd_scene load_steps=17 format=3 uid="uid://4y8dawkwukrf"]
 
 [ext_resource type="Script" uid="uid://cpkqa4muvsuos" path="res://Character/HUD/Scripts/hud.gd" id="1_0t85m"]
 [ext_resource type="Texture2D" uid="uid://busnvhvb8lcsp" path="res://Character/HUD/assets/Icones equipement/Equippement Diamond.png" id="3_0t85m"]
@@ -9,7 +9,6 @@
 [ext_resource type="FontFile" uid="uid://d0ug5noy0uhhl" path="res://Fonts/Cinzel,EB_Garamond/EB_Garamond/static/EBGaramond-Regular.ttf" id="5_5hg1f"]
 [ext_resource type="Script" uid="uid://bki642kkfwyem" path="res://Componenents/ArcaneComponent/ArcaneComponent.gd" id="7_di408"]
 [ext_resource type="Script" uid="uid://x2p77k620mmj" path="res://Componenents/GiftComponent/GiftComponent.gd" id="7_hnjob"]
-[ext_resource type="Script" uid="uid://bibpdrfengocv" path="res://Componenents/HealthComponent/health_component.gd" id="8_hnjob"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ydmn"]
 bg_color = Color(0.00024455084, 0.00024455084, 0.00024455084, 0.2509804)
@@ -232,15 +231,6 @@ script = ExtResource("7_di408")
 Max_Arcane = 100.0
 Arcane_Gauge = NodePath("../../Maincontainer/HBoxContainer/Barcontainers/Arcane row/Arcane")
 metadata/_custom_type_script = "uid://bki642kkfwyem"
-
-[node name="HealthComponent" type="Node" parent="Health and equip" node_paths=PackedStringArray("Health_gauge")]
-script = ExtResource("8_hnjob")
-Max_health = 100.0
-Vulnerability = Array[String](["Physical"])
-Health_gauge = NodePath("../../Maincontainer/HBoxContainer/Barcontainers/Healthrow/Health")
-Bearable_power = 15.0
-Armor_value = 75.0
-metadata/_custom_type_script = "uid://bibpdrfengocv"
 
 [node name="GiftComponent" type="Node" parent="Health and equip" node_paths=PackedStringArray("gift_gauge")]
 script = ExtResource("7_hnjob")

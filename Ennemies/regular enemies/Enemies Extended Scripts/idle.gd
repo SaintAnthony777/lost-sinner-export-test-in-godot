@@ -15,5 +15,4 @@ func state_logics(delta)->void:
 
 func distance_check()->void:
 	if enemy_body.global_position.distance_to(enemy_body.target.global_position)<=enemy_body.attack_range:
-		visuals.is_attacking=true
 		state_machine.change_state("attack")
