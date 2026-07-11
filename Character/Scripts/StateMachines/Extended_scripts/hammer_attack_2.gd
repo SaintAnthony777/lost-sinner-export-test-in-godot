@@ -4,6 +4,8 @@ extends State
 @onready var curr_weapon:Weapon=Weapon.new()
 
 func enter() -> void:
+	character.attack_direction="right"
+
 	character.requested_next_attack=false
 	character.requested_dash=false
 	if character.gift_component.is_consummed:
@@ -12,10 +14,12 @@ func enter() -> void:
 	else : character.emptied_enchantement();curr_weapon = character.get_weapon_by_gift("Neutral")
 	character.show_equipped_weapon()
 	attack_stuff()
+	
 func physics_update(_delta) -> void:
 	attack_check()
 	state_logic(_delta)
 	character.check_attack_lunge(2.2,_delta)
+	
 func attack_stuff()->void:
 	var atk:=Attack.new()
 	atk.create_attack(
@@ -27,6 +31,7 @@ func attack_stuff()->void:
 	)
 	character.dealt_attack=atk
 	character.attacking("Normal","Hammer","attack_2")
+	
 func attack_check()->void:
 	if character.requested_dash:
 			character.isrolling=true
@@ -48,8 +53,11 @@ func state_logic(delta)->void:
 	if Input.is_action_just_pressed("sprinting"):character.requested_dash=true
 	if Input.is_action_just_pressed("Attack_trigger")and !character.requested_next_attack:character.requested_next_attack=true
 	player.camera_rotation_logic(delta)
+	
 	if !player.is_locking:
 		character.adjust_character_rotation(delta)
+	else : character.force_lock_rotation()
+
 	if character.is_taking_damage:
 		character.is_attacking=false
 		character.requested_next_attack=false

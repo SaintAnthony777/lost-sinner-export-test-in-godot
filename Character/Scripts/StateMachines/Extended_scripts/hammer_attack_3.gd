@@ -11,10 +11,12 @@ func enter() -> void:
 		curr_weapon=character.get_weapon_by_gift(player.chosen_gift)
 	else : character.emptied_enchantement();curr_weapon = character.get_weapon_by_gift("Neutral")
 	attack_stuff()
+	
 func physics_update(_delta) -> void:
 	attack_check()
 	state_logic(_delta)
 	character.check_attack_lunge(3.5,_delta)
+	
 func attack_stuff()->void:
 	var atk:=Attack.new()
 	atk.create_attack(
@@ -45,11 +47,13 @@ func attack_check()->void:
 			state_machine.change_state("idle")
 
 func state_logic(delta)->void:
-	if Input.is_action_just_pressed("sprinting"):character.requested_dash=true
-	if Input.is_action_just_pressed("Attack_trigger")and !character.requested_next_attack:character.requested_next_attack=true
+	if Input.is_action_just_pressed("sprinting") : character.requested_dash=true
+	if Input.is_action_just_pressed("Attack_trigger") and !character.requested_next_attack:character.requested_next_attack=true
 	player.camera_rotation_logic(delta)
 	if !player.is_locking:
 		character.adjust_character_rotation(delta)
+	else : character.force_lock_rotation()
+
 	if character.is_taking_damage:
 		character.is_attacking=false
 		character.requested_next_attack=false

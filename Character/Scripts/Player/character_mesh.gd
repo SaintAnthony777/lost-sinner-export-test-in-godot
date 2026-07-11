@@ -2,6 +2,8 @@ extends Node3D
 
 class_name character_mesh
 
+signal being_hit
+
 var isrolling:bool=false
 var is_sliding:bool=false
 var is_backfliping:bool=false
@@ -87,6 +89,7 @@ var current_attack_nature : String = ""
 @onready var wind_trails_2: Node3D = $"Special effects/Wind trails 2"
 @onready var thrust_forward_mesh: Node3D = $"Special effects/Thrust forward mesh"
 
+@onready var attack_direction:String="left"
 
 func _ready() -> void:
 	health_component.Moveable_Player=player
@@ -240,6 +243,15 @@ func adjust_character_rotation(delta)->void:
 			))
 		self.rotate_y(PI)
 
+func force_lock_rotation()->void:
+	self.look_at(Vector3(
+				player.current_target.global_position.x,
+				player.global_position.y,
+				player.current_target.global_position.z
+			))
+	self.rotate_y(PI)
+
+
 func starting_dash_attack()->void:
 	is_making_dash_attack=true
 func stopped_dash_attack()->void:
@@ -371,3 +383,7 @@ func add_power_impulse(force:float,thickness:float,speed:float)->void:
 	power_imp_inst.speed_given=speed
 	power_imp_inst.given_center=get_viewport().get_visible_rect().size/2
 	self.add_child(power_imp_inst)
+
+
+func _on_being_hit() -> void:
+	pass # Replace with function body.

@@ -9,7 +9,7 @@ var lifetime:=0.0
 var returning:bool=false
 var dealt_attack:Attack=Attack.new()
 var curr_weapon:Weapon=Weapon.new()
-
+@onready var attack_direction:String="down"
 func _ready() -> void:
 	hammer_ray_cast.set_collision_mask_value(2,true)
 	hammer_ray_cast.set_collision_mask_value(3,true)

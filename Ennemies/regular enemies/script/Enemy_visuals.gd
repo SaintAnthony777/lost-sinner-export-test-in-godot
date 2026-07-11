@@ -3,6 +3,8 @@ class_name EnemyVisuals extends Node3D
 @onready var enemy_body: regular_enemy = $".."
 @onready var animation_tree: AnimationTree = $AnimationTree
 
+@onready var attack_direction:String="left"
+
 var is_attacking:=false
 var is_taking_damage:bool=false
 var isattacking:bool=false
@@ -15,7 +17,9 @@ var is_thinking:bool
 func Grounding(current_action:String)->void:
 	animation_tree.set('parameters/Final_State/transition_request',"Grounded")
 	animation_tree.set("parameters/Ground Transisitons/transition_request",current_action)
-
+func taking_damage(reaction_dir:String)->void:
+	animation_tree.set('parameters/Final_State/transition_request',"Grounded")
+	animation_tree.set('parameters/Ground Transisitons/transition_request','React_'+reaction_dir)
 func done_attacking()->void:
 	is_attacking=false
 func done_taking_damage()->void:

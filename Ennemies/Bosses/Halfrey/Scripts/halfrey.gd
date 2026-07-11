@@ -4,6 +4,7 @@ class_name Boss_Visuals extends Node3D
 @onready var Boss_Body:Boss_Root=$"../"
 @onready var sword_hitbox_component:HitBoxComponent=$"Armature/Skeleton3D/Hand Attachement/Golden Sword/HitBoxComponent"
 @onready var AOE_hitbox:HitBoxComponent=$"AOE_HITBOX"
+@onready var attack_direction:String="left"
 
 var isattacking:bool=false
 var is_lunging:bool=false

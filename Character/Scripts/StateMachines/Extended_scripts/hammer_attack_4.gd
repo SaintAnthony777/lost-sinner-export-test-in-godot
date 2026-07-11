@@ -48,6 +48,8 @@ func state_logic(delta)->void:
 	player.camera_rotation_logic(delta)
 	if !player.is_locking:
 		character.adjust_character_rotation(delta)
+	else : character.force_lock_rotation()
+
 	if character.is_taking_damage:
 		character.is_attacking=false
 		character.requested_next_attack=false

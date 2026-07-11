@@ -3,7 +3,7 @@ class_name HurtBoxComponent extends Area3D
 @export var health_comp:HealthComponent
 @onready var collision_shape:CollisionShape3D=get_node("CollisionShape3D")
 @onready var dist_rect:PackedScene=preload("res://Componenents/Circular distorsion node/Circular distorsion.tscn")
-
+signal is_being_hit
 func _init() -> void:
 	collision_layer=5
 	collision_mask=4
@@ -15,8 +15,15 @@ func _on_area_entered(area: Area3D) -> void:
 	if area is HitBoxComponent and self.owner!=area.owner and area.untouchable_owner!=owner:
 		#print("attack from ",area.owner,"received by ",owner," message from ",area)
 		if area.owner.dealt_attack:
+			print(area.owner.attack_direction)
 			var curr_att:Attack=area.owner.dealt_attack
 			var pos : Vector3
+			print(owner)
+			
+			if owner is enemy_root or owner is character_mesh:
+				print(owner)
+				owner.being_hit.emit()
+			
 			if curr_att.Nature!="Divine Divider" and curr_att.Nature!="Grace" and curr_att.Nature!="": 
 				var curr_hitspark:hitsparks=load("res://Componenents/Hitsparks/hitsparks_"+curr_att.Nature.to_lower()+".tscn").instantiate()
 				owner.get_parent().add_child(curr_hitspark)

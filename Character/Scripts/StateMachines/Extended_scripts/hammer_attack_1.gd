@@ -4,6 +4,7 @@ extends State
 @onready var curr_weapon:Weapon=Weapon.new()
 
 func enter() -> void:
+	character.attack_direction="left"
 	character.requested_next_attack=false
 	character.requested_dash=false
 	if character.gift_component.is_consummed:
@@ -12,6 +13,7 @@ func enter() -> void:
 	else : character.emptied_enchantement();curr_weapon = character.get_weapon_by_gift("Neutral")
 	character.show_equipped_weapon()
 	attack_stuff()
+	
 func physics_update(_delta) -> void:
 	attack_check()
 	state_logic(_delta)
@@ -50,8 +52,10 @@ func state_logic(delta)->void:
 	if Input.is_action_just_pressed("Attack_trigger") and !character.requested_next_attack:character.requested_next_attack = true
 	player.camera_rotation_logic(delta)
 	character.check_attack_lunge(1.0,delta)
-	if !player.is_locking:
-		character.adjust_character_rotation(delta)
+	
+	if !player.is_locking : character.adjust_character_rotation(delta)
+	else : character.force_lock_rotation()
+		
 	if character.is_taking_damage:
 		character.is_attacking=false
 		character.requested_next_attack=false
