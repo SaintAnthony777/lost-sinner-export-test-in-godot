@@ -245,6 +245,8 @@ func adjust_character_rotation(delta)->void:
 		self.rotate_y(PI)
 
 func force_lock_rotation()->void:
+	if !player.current_target:return
+	if !player.current_target.is_alive: return
 	self.look_at(Vector3(
 				player.current_target.global_position.x,
 				player.global_position.y,
@@ -385,6 +387,16 @@ func add_power_impulse(force:float,thickness:float,speed:float)->void:
 	power_imp_inst.given_center=get_viewport().get_visible_rect().size/2
 	self.add_child(power_imp_inst)
 
-
+func cam_adjustement_for_attack_and_lockings(camera_offset_no_offense_here:float)->void:
+	if player.current_target:
+		camera_offset_no_offense_here=player.global_position.distance_to(player.current_target.global_position)
+		camera_offset_no_offense_here=clamp(camera_offset_no_offense_here,0.0,2.0)
+	if player.is_locking:
+		player.camera_force_rotation(camera_offset_no_offense_here)
+		var look_pos = Vector3(player.current_target.aiming_node.global_position.x,
+		player.global_position.y,
+		player.current_target.global_position.z)
+		self.look_at(look_pos,Vector3.UP)
+		player.camera_and_mesh_rotation()
 func _on_being_hit() -> void:
 	pass # Replace with function body.

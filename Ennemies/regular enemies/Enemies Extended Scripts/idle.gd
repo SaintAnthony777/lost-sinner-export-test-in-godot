@@ -8,8 +8,11 @@ func enter() -> void:
 
 func physics_update(_delta) -> void:
 	state_logics(_delta)
+	if !visuals.is_alive:
+		state_machine.change_state("Dying")
 	if visuals.is_taking_damage:
 		state_machine.change_state("taking damage")
+	
 func state_logics(delta)->void:
 	distance_check()
 

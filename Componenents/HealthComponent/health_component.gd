@@ -90,11 +90,13 @@ func death_check()->void:
 	
 func take_a_step(taken_attack:Attack,delta:float):
 	if is_invulnerable : return
+	if !owner.is_alive : return
+	if !attack_sender : return
 	var expulsion_dir:Vector3=Vector3.ZERO
 	if Bearable_power<=taken_attack.Strength:
 		dealt_thrown_time-=(delta+1)
 		if dealt_thrown_time>0:
-			if owner is EnemyVisuals or owner is character_mesh and attack_sender and owner:
+			if owner is EnemyVisuals or owner is character_mesh and (attack_sender and owner) :
 				owner.look_at(Vector3(
 					attack_sender.global_position.x,
 					owner.global_position.y,
@@ -102,11 +104,11 @@ func take_a_step(taken_attack:Attack,delta:float):
 				))
 				owner.rotate_y(PI)
 				owner.get_parent().velocity = Vector3.ZERO
-				expulsion_dir = owner.transform.basis.z.normalized()
-				expulsion_dir.x*=taken_attack.Strength-Bearable_power
-				expulsion_dir.z*=taken_attack.Strength-Bearable_power
+				expulsion_dir = owner.get_parent().transform.basis.z.normalized()
+				expulsion_dir.x *= taken_attack.Strength-Bearable_power
+				expulsion_dir.z *= taken_attack.Strength-Bearable_power
 				expulsion_dir.y = 0
-				owner.get_parent().velocity=expulsion_dir
+				owner.get_parent().velocity = -expulsion_dir
 				owner.get_parent().move_and_slide()
 		else:
 			received_attack=null

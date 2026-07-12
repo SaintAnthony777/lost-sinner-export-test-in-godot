@@ -16,6 +16,7 @@ func physics_update(_delta) -> void:
 	attack_check()
 	state_logic(_delta)
 	character.check_attack_lunge(4.5,_delta)
+	character.cam_adjustement_for_attack_and_lockings(.1)
 func attack_stuff()->void:
 	var atk:=Attack.new()
 	atk.create_attack(

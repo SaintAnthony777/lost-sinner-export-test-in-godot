@@ -6,9 +6,10 @@ extends State
 func enter() -> void:
 	enemy_body.aiming_at_player()
 	var dealt_attack=Attack.new()
+	
 	dealt_attack.create_attack(
 		15.0,
-		55.0,
+		26.0,
 		"Physical",
 		3.0,
 		0.0
@@ -24,6 +25,9 @@ func enter() -> void:
 		state_machine.change_state("Idle_Enemy")
 
 func physics_update(_delta) -> void:
+	if !visuals.is_alive:
+		visuals.is_attacking=false
+		state_machine.change_state("Dying")
 	if visuals.is_taking_damage:
 		visuals.is_attacking=false
 		state_machine.change_state("taking damage")

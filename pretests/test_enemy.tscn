@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cgn81wf48rxfa"]
+[gd_scene load_steps=10 format=3 uid="uid://cgn81wf48rxfa"]
 
 [ext_resource type="PackedScene" uid="uid://srgn3wkeivsn" path="res://Character/Scenes/personnage.tscn" id="1_n8chh"]
 [ext_resource type="PackedScene" uid="uid://iy8hslvdkxhi" path="res://Ennemies/Guards/Trackers/Scenes/tracker.tscn" id="2_66fur"]
@@ -23,6 +23,11 @@ size = Vector2(45, 45)
 data = PackedVector3Array(22.5, 0, 22.5, -22.5, 0, 22.5, 22.5, 0, -22.5, -22.5, 0, 22.5, -22.5, 0, -22.5, 22.5, 0, -22.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_66fur"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_66fur"]
+albedo_color = Color(5.4402213, 9.877248, 11.14497, 1)
+metallic = 1.0
+roughness = 0.06
 
 [node name="test_enemy" type="Node3D"]
 
@@ -52,11 +57,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 1)
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("BoxMesh_66fur")
+surface_material_override/0 = SubResource("StandardMaterial3D_66fur")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, -6)
 mesh = SubResource("BoxMesh_66fur")
+surface_material_override/0 = SubResource("StandardMaterial3D_66fur")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, 0)
 mesh = SubResource("BoxMesh_66fur")
+surface_material_override/0 = SubResource("StandardMaterial3D_66fur")

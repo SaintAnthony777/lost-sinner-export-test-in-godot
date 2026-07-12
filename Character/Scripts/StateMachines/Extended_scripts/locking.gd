@@ -14,7 +14,7 @@ func physics_update(_delta) -> void:
 	if !character.is_alive:state_machine.change_state("Dying")
 	
 func state_logic(_delta:float):
-	
+	if !player.current_target : state_machine.change_state("idle")
 	if player.current_target:
 		camera_offset_no_offense_here=player.global_position.distance_to(player.current_target.global_position)
 		camera_offset_no_offense_here=clamp(camera_offset_no_offense_here,0.0,2.0)
@@ -24,7 +24,7 @@ func state_logic(_delta:float):
 	player.camera.fov=lerp(player.camera.fov,100.0,.1)
 	player.gravity_applying(_delta)
 	
-	if (Input.is_action_just_pressed("locking") or 
+	if (player.current_target) and (Input.is_action_just_pressed("locking") or 
 	Input.is_action_just_pressed("Aiming") or 
 	player.global_position.distance_to(player.current_target.global_position) > 12 or !player.current_target.is_alive):
 		player.is_locking=false

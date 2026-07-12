@@ -13,15 +13,17 @@ func _ready() -> void:
 	
 func _on_area_entered(area: Area3D) -> void:
 	if area is HitBoxComponent and self.owner!=area.owner and area.untouchable_owner!=owner:
+		if !owner.is_alive:return
 		#print("attack from ",area.owner,"received by ",owner," message from ",area)
 		if area.owner.dealt_attack:
 			
 			var curr_att:Attack=area.owner.dealt_attack
 			var pos : Vector3
 			
-			if owner is EnemyVisuals or owner is character_mesh:
-				owner.being_hit.emit()
-			
+			if owner is EnemyVisuals or owner is character_mesh :
+				if owner.is_alive:
+					owner.being_hit.emit()
+				
 			if curr_att.Nature!="Divine Divider" and curr_att.Nature!="Grace" and curr_att.Nature!="": 
 				var curr_hitspark:hitsparks=load("res://Componenents/Hitsparks/hitsparks_"+curr_att.Nature.to_lower()+".tscn").instantiate()
 				owner.get_parent().add_child(curr_hitspark)

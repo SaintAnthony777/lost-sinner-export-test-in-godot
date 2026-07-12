@@ -10,3 +10,6 @@ func enter() -> void:
 	visuals.is_taking_damage=false
 	if !visuals.is_taking_damage:
 		state_machine.change_state("idle_enemy")
+
+func physics_update(_delta) -> void:
+	if !visuals.is_alive:visuals.is_taking_damage=false;state_machine.change_state("Dying")

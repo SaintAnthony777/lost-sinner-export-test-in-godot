@@ -14,18 +14,7 @@ func enter() -> void:
 	
 func physics_update(_delta) -> void:
 	if !character.is_alive:player.is_locking=false;state_machine.change_state("Dying")
-	player.gravity_applying(_delta)
-	
-	if player.current_target:
-		camera_offset_no_offense_here=player.global_position.distance_to(player.current_target.global_position)
-		camera_offset_no_offense_here=clamp(camera_offset_no_offense_here,0.0,2.0)
-	if player.is_locking:
-		player.camera_force_rotation(camera_offset_no_offense_here)
-		var look_pos = Vector3(player.current_target.aiming_node.global_position.x,
-		player.global_position.y,
-		player.current_target.global_position.z)
-		self.character.look_at(look_pos,Vector3.UP)
-		player.camera_and_mesh_rotation()
+	character.cam_adjustement_for_attack_and_lockings(camera_offset_no_offense_here)
 	player.gravity_applying(_delta)
 	
 	

@@ -187,7 +187,7 @@ func get_best_target()->enemy_root:
 	var min_angle = INF
 	var enemies_in_sight=camera_area_of_sight.get_overlapping_bodies()
 	for foe in enemies_in_sight :
-		if foe is enemy_root:
+		if foe is enemy_root and foe.visuals.is_alive:
 			camera_line_of_sight.look_at(foe.aiming_node.global_position)
 			camera_line_of_sight.force_raycast_update()
 			if camera_line_of_sight.is_colliding() and camera_line_of_sight.get_collider() is enemy_root:
@@ -245,6 +245,7 @@ func reset_camera()->void:
 	can_switch_camera=true
 	
 func player_force_rotation()->void:
+	if !self.current_target: return
 	var input_dir := Input.get_vector("Droite", "Gauche", "Bas", "Haut") 
 	var look_pos = Vector3(self.current_target.aiming_node.global_position.x,
 	self.global_position.y,
@@ -255,6 +256,7 @@ func player_force_rotation()->void:
 	self.character.look_at(look_pos,Vector3.UP)
 
 func camera_force_rotation(camera_offset_no_offense_here:float)->void:
+	if !self.current_target: return
 	camera_offset_no_offense_here=self.global_position.distance_to(self.current_target.global_position)
 	camera_offset_no_offense_here=clamp(camera_offset_no_offense_here,0.0,2.0)
 	var camera_look_pos =Vector3(self.current_target.global_position.x,
