@@ -22,6 +22,7 @@ func break_everything()->void:
 	if health_comp.attack_sender:
 		broken_instance.Thrower_position=health_comp.attack_sender.global_position
 	broken_instance.global_position=spawn_point.global_position
+	broken_instance.rotation=self.rotation
 	broken_instance.scale=scale
 	broken_instance.breaker_baby()
 	queue_free()

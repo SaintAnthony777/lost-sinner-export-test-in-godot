@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=4 uid="uid://bctt1rhu83hot"]
+[gd_scene load_steps=80 format=4 uid="uid://bctt1rhu83hot"]
 
 [ext_resource type="PackedScene" uid="uid://blyq4n1rwb256" path="res://Ennemies/Bosses/Halfrey/Models/Mixamo And Sword/Halfrey/Halfrey.glb" id="1_bg2gg"]
 [ext_resource type="Script" uid="uid://nssk0owo1p6s" path="res://Ennemies/Bosses/Halfrey/Scripts/halfrey.gd" id="2_ftrhv"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://bo72mtob7s65a" path="res://Character/Miscs/earth meshes bursts/Ground spikes/Lava spikes 1/textures/Lava004_1K-JPG/Lava004_1K-JPG_Displacement.jpg" id="27_1tgb0"]
 [ext_resource type="Texture2D" uid="uid://cqfvlnel4mgdu" path="res://Character/Miscs/earth meshes bursts/Ground spikes/Lava spikes 1/textures/Lava004_1K-JPG/Lava004_1K-JPG_NormalGL.jpg" id="28_36d2i"]
 [ext_resource type="Texture2D" uid="uid://ba4jb8gwi5kim" path="res://Character/Miscs/earth meshes bursts/Ground spikes/Lava spikes 1/textures/Lava004_1K-JPG/Lava004_1K-JPG_Roughness.jpg" id="29_srnbn"]
+[ext_resource type="Script" uid="uid://bibpdrfengocv" path="res://Componenents/HealthComponent/health_component.gd" id="30_yg2xw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cd4xa"]
 albedo_texture = ExtResource("3_2wxu8")
@@ -11792,3 +11793,14 @@ surface_material_override/0 = SubResource("StandardMaterial3D_stwtf")
 metadata/extras = {
 "ant_landscape": {}
 }
+
+[node name="HealthComponent" type="Node" parent="." index="6" node_paths=PackedStringArray("Health_gauge", "Node_to_call_on_death")]
+script = ExtResource("30_yg2xw")
+Max_health = 800.0
+Resistance = Array[String](["Physical", "Divine Divider", "Grace"])
+Health_gauge = NodePath("")
+Bearable_power = 50.0
+Armor_value = 50.0
+Node_to_call_on_death = NodePath("")
+body_nature = "metal"
+metadata/_custom_type_script = "uid://bibpdrfengocv"

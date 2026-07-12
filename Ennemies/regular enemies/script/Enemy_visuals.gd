@@ -1,6 +1,6 @@
 class_name EnemyVisuals extends Node3D
 
-@onready var enemy_body: regular_enemy = $".."
+@onready var enemy_body: enemy_root = $".."
 @onready var animation_tree: AnimationTree = $AnimationTree
 
 @onready var attack_direction:String="left"

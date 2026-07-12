@@ -245,8 +245,8 @@ func adjust_character_rotation(delta)->void:
 		self.rotate_y(PI)
 
 func force_lock_rotation()->void:
-	if !player.current_target:return
-	if !player.current_target.is_alive: return
+	if !player.current_target:player.is_locking=false; return
+	if !player.current_target.is_alive: player.is_locking=false; return
 	self.look_at(Vector3(
 				player.current_target.global_position.x,
 				player.global_position.y,
@@ -398,5 +398,6 @@ func cam_adjustement_for_attack_and_lockings(camera_offset_no_offense_here:float
 		player.current_target.global_position.z)
 		self.look_at(look_pos,Vector3.UP)
 		player.camera_and_mesh_rotation()
+
 func _on_being_hit() -> void:
-	pass # Replace with function body.
+	pass

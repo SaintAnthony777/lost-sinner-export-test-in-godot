@@ -8,6 +8,7 @@ func _ready() -> void:
 	initialize_aiming_node()
 	initialize_player()
 	boss_name.text=Boss_name
+	self.visuals=Halfrey
 func _process(delta: float) -> void:
 	if Halfrey.is_ready:Boss_hud.show()
 	check_if_aimed_at()

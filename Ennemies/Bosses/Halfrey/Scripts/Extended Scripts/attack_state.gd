@@ -18,16 +18,13 @@ func enter() -> void:
 	attack_picker()
 	halfrey_root.aiming_at_player()
 	await halfrey.animation_tree.animation_finished
-	halfrey.isattacking=false
 	state_machine.change_state("idle")
 
 func physics_update(_delta) -> void:
 	if !halfrey_root.is_alive:
 		state_machine.change_state("Dying")
-	
-func state_logic()->void:
-	attack_check()
-	
+
+
 func attack_picker() -> void:
 	attack_picked=randi_range(0,4)
 	if attack_picked==previous_attack:
@@ -36,10 +33,7 @@ func attack_picker() -> void:
 	previous_attack=attack_picked
 	halfrey.dealt_attack=Attack_array[attack_picked]
 	
-func attack_check()->void:
-	await halfrey.animation_tree.animation_finished
-	halfrey.isattacking=false
-	state_machine.change_state("idle")
+
 
 func init_attacks()->void:
 	Attack_array.clear()

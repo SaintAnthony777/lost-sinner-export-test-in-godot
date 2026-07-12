@@ -13,7 +13,7 @@ func _ready() -> void:
 	
 func _on_area_entered(area: Area3D) -> void:
 	if area is HitBoxComponent and self.owner!=area.owner and area.untouchable_owner!=owner:
-		if !owner.is_alive:return
+		
 		#print("attack from ",area.owner,"received by ",owner," message from ",area)
 		if area.owner.dealt_attack:
 			
@@ -21,6 +21,8 @@ func _on_area_entered(area: Area3D) -> void:
 			var pos : Vector3
 			
 			if owner is EnemyVisuals or owner is character_mesh :
+				owner.get_parent().velocity=Vector3.ZERO
+				if !owner.is_alive:return
 				if owner.is_alive:
 					owner.being_hit.emit()
 				

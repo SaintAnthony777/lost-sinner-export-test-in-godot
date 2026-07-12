@@ -5,9 +5,9 @@ extends State
 var camera_offset_no_offense_here:float
 
 func enter() -> void:
-	player.camera_shaking(character.health_component.received_attack.Strength/10,.2)
-	character.shield_motion("Blocking impact",Vector2.ZERO)
+	#player.camera_shaking(character.health_component.received_attack.Strength/10,.1)
 	
+	character.shield_motion("Blocking impact",Vector2.ZERO)
 	await character.animation_tree.animation_finished
 	character.is_taking_damage= false
 	if !character.is_taking_damage:
@@ -20,8 +20,5 @@ func enter() -> void:
 func physics_update(_delta) -> void:
 	character.cam_adjustement_for_attack_and_lockings(camera_offset_no_offense_here)
 	player.gravity_applying(_delta)
+	player.move_and_slide()
 	
-	
-	
-func blocking_damage_success()->void:
-	character.shield_motion("Blocking impact",Vector2.ZERO)

@@ -32,6 +32,7 @@ func state_logic(delta)->void:
 	player.gravity_applying(delta)
 	player.camera_rotation_logic(delta)
 	if !player.is_on_floor():
+		player.move_and_slide()
 		character.landed=false
 		state_machine.change_state("falling")
 	taking_hit_check()

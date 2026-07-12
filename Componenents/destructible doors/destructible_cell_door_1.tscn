@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://bimivk2u3kj5x"]
+
+[ext_resource type="Script" uid="uid://cakitfhm5emmo" path="res://autoloads/Fracturable Static body/Fracturable_static.gd" id="1_tpaxv"]
+[ext_resource type="PackedScene" uid="uid://hgvgd0yi6vhs" path="res://Environnements Pre-tests/The Great Prison/Walls/Scenes/Fractured Door/fractured_door_1.tscn" id="2_bhc74"]
+[ext_resource type="ArrayMesh" uid="uid://n8jokjq88avn" path="res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Barred Door.res" id="3_kmr3d"]
+[ext_resource type="Script" uid="uid://bibpdrfengocv" path="res://Componenents/HealthComponent/health_component.gd" id="4_13vvo"]
+[ext_resource type="Script" uid="uid://4i450if78qh1" path="res://Componenents/Hitbox and HurtBox/hurt_box_component.gd" id="5_bi7dj"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tpaxv"]
+points = PackedVector3Array(-1.0223701, -3.1765459, -1.962483e-05, -0.9643264, -0.74780655, -0.10000011, -0.98814434, -3.0751362, -0.10000011, 1.0223706, -3.1765459, -1.962483e-05, -0.98814434, -3.0751362, 0.09998043, -0.9643264, -0.74780655, 0.09998043, -0.9971511, -0.72705483, -5.2154064e-08, -0.92149407, -0.4228263, -0.10000011, 0.9879446, -3.0751362, -0.10000011, 0.9879446, -3.0751362, 0.09998043, 0.9641267, -0.74780655, -0.10000011, 0.99695134, -0.72705483, -5.2154064e-08, 0.9641267, -0.74780655, 0.09998043, 0.26560032, 0.6546993, 0.10000001, -0.13570201, 0.7044251, 0.10000001, -0.92149407, -0.4228263, 0.09998043, -0.9501157, -0.37035942, -5.2154064e-08, -0.88746846, -0.13621688, -5.2154064e-08, -0.86345035, -0.2066946, -0.10000011, 0.92129445, -0.4228263, -0.10000011, 0.949916, -0.37035942, -5.2154064e-08, 0.92129445, -0.4228263, 0.09998043, 0.86325073, -0.2066946, 0.09998043, 0.7913965, -0.0073993206, 0.09998043, 0.7069329, 0.17271018, 0.09998043, 0.61086047, 0.331285, 0.09998043, 0.5045804, 0.46597576, 0.09998043, 0.3890934, 0.5744331, 0.09998043, 0.2712046, 0.7549341, -5.2154064e-08, 0.13830447, 0.8058348, -5.2154064e-08, 0.13550234, 0.7044251, 0.10000001, 2.3841858e-07, 0.721653, 0.10000001, 2.3841858e-07, 0.82345414, -5.2154064e-08, -0.13850415, 0.8058348, -5.2154064e-08, -0.26580006, 0.6546993, 0.09998043, -0.38929307, 0.5744331, 0.09998043, -0.5047801, 0.46597576, 0.09998043, -0.61106014, 0.331285, 0.09998043, -0.7071326, 0.17271018, 0.09998043, -0.79159623, -0.0073993206, 0.09998043, -0.86345035, -0.2066946, 0.09998043, -0.81221175, 0.072475195, -5.2154064e-08, -0.79159623, -0.0073993206, -0.10000011, 0.86325073, -0.2066946, -0.10000011, 0.8872688, -0.13621688, -5.2154064e-08, 0.8120121, 0.072475195, -5.2154064e-08, 0.7241459, 0.2592411, -5.2154064e-08, 0.62507117, 0.42290592, -5.2154064e-08, 0.51558876, 0.561512, -5.2154064e-08, 0.39729965, 0.6727102, -5.2154064e-08, 0.3890934, 0.5744331, -0.10000011, 0.26560032, 0.6546993, -0.10000011, 0.13550234, 0.7044251, -0.10000011, 2.3841858e-07, 0.721653, -0.10000011, -0.13570201, 0.7044251, -0.10000011, -0.26580006, 0.6546993, -0.10000011, -0.27140427, 0.7549341, -5.2154064e-08, -0.39749926, 0.6727102, -5.2154064e-08, -0.6252709, 0.42290592, -5.2154064e-08, -0.5157884, 0.561512, -5.2154064e-08, -0.72434556, 0.2592411, -5.2154064e-08, -0.7071326, 0.17271018, -0.10000011, 0.7913965, -0.0073993206, -0.10000011, 0.7069329, 0.17271018, -0.10000011, 0.61086047, 0.331285, -0.10000011, 0.5045804, 0.46597576, -0.10000011, -0.38929307, 0.5744331, -0.10000011, -0.5047801, 0.46597576, -0.10000011, -0.61106014, 0.331285, -0.10000011)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tpaxv"]
+size = Vector3(2, 4, 1)
+
+[node name="Destructible cell Door 1" type="StaticBody3D"]
+collision_layer = 32
+collision_mask = 5
+script = ExtResource("1_tpaxv")
+packed_breakable = ExtResource("2_bhc74")
+metadata/_custom_type_script = "uid://cakitfhm5emmo"
+
+[node name="BarredDoor" type="MeshInstance3D" parent="."]
+mesh = ExtResource("3_kmr3d")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_tpaxv")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("4_13vvo")
+Max_health = 85.0
+body_nature = "metal"
+metadata/_custom_type_script = "uid://bibpdrfengocv"
+
+[node name="HurtBoxComponent" type="Area3D" parent="." node_paths=PackedStringArray("health_comp")]
+script = ExtResource("5_bi7dj")
+health_comp = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://4i450if78qh1"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBoxComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9604645e-08, -1.0999999, 0)
+shape = SubResource("BoxShape3D_tpaxv")
+
+[node name="Spawn Point" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0.001866579)

@@ -49,10 +49,10 @@ func taking_damage(taken_attack:Attack):
 	if is_invulnerable : HitStopManager.hit_stop_function(.01,.1) ; return
 	
 	#check block status
+	if owner is character_mesh or owner is EnemyVisuals:
+		owner.is_taking_damage=true
 	
-	owner.is_taking_damage=true
-	
-	if owner.is_blocking :
+	if (owner is character_mesh or owner is EnemyVisuals) and owner.is_blocking :
 		self.body_nature="metal"
 		play_sfx()
 		var dealt_dmg=(taken_attack.Base_damage+Damage_Factor)-Armor_value
@@ -61,10 +61,7 @@ func taking_damage(taken_attack:Attack):
 		dealt_thrown_time=taken_attack.Stun_time
 		death_check()
 		return
-
-	if Moveable_Player and !Moveable_Player.character.is_blocking:
-		self.body_nature=""
-	
+		
 	#damage calculation
 	if taken_attack.Nature in Vulnerability:
 		Damage_Factor=taken_attack.Base_damage*25/100
@@ -81,6 +78,7 @@ func taking_damage(taken_attack:Attack):
 	
 	#death ckeck
 	death_check()
+	
 	if Current_health==0:
 		owner.is_alive=false
 	else : HitStopManager.hit_stop_function(.01,.1)
@@ -95,6 +93,8 @@ func take_a_step(taken_attack:Attack,delta:float):
 	var expulsion_dir:Vector3=Vector3.ZERO
 	if Bearable_power<=taken_attack.Strength:
 		dealt_thrown_time-=(delta+1)
+		print('bearable : ',Bearable_power)
+		print("strength : ",taken_attack.Strength)
 		if dealt_thrown_time>0:
 			if owner is EnemyVisuals or owner is character_mesh and (attack_sender and owner) :
 				owner.look_at(Vector3(
@@ -104,12 +104,14 @@ func take_a_step(taken_attack:Attack,delta:float):
 				))
 				owner.rotate_y(PI)
 				owner.get_parent().velocity = Vector3.ZERO
-				expulsion_dir = owner.get_parent().transform.basis.z.normalized()
+				if owner is EnemyVisuals:
+					expulsion_dir = owner.get_parent().transform.basis.z.normalized()
+				elif owner is character_mesh:
+					expulsion_dir = owner.transform.basis.z.normalized()
 				expulsion_dir.x *= taken_attack.Strength-Bearable_power
 				expulsion_dir.z *= taken_attack.Strength-Bearable_power
 				expulsion_dir.y = 0
 				owner.get_parent().velocity = -expulsion_dir
-				owner.get_parent().move_and_slide()
 		else:
 			received_attack=null
 

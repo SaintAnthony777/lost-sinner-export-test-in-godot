@@ -25,6 +25,7 @@ func state_logic(delta)->void:
 		state_machine.change_state("blocked_successfully")
 	if character.pick_back_hammer and character.equipped_hammer.visible:
 		character.has_got_hammer_back()
+		
 func input_logic()->void:
 	if !Input.is_action_pressed("Blocks"):
 		character.is_blocking=false
