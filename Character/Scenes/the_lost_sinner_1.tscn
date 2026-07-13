@@ -17798,7 +17798,7 @@ transform = Transform3D(-0.017689157, 0.19894014, 0.010483983, 0.0360424, 0.0135
 weapon_s_gift = "Neutral"
 base_damage = 16.0
 damage_nature = "Physical"
-strength = 25.0
+strength = 17.0
 stun_time = 4.0
 
 [node name="Hammer Hitbox" type="Area3D" parent="Armature/Skeleton3D/Right_hand_weapon_attachment/Premier modèle" index="3"]

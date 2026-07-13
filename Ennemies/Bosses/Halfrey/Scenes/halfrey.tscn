@@ -11363,13 +11363,14 @@ input_3/break_loop_at_end = false
 input_3/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_cd4xa"]
+graph_offset = Vector2(-913.6897, 35.658245)
 nodes/output/position = Vector2(640, 320)
 "nodes/Final Output Transition/node" = SubResource("AnimationNodeTransition_cd4xa")
 "nodes/Final Output Transition/position" = Vector2(266.66666, 320)
 "nodes/Still Motion Transition/node" = SubResource("AnimationNodeTransition_pskss")
 "nodes/Still Motion Transition/position" = Vector2(-106.666664, 80)
 "nodes/Move Motion Transition/node" = SubResource("AnimationNodeTransition_fv8er")
-"nodes/Move Motion Transition/position" = Vector2(-933.3333, 453.33334)
+"nodes/Move Motion Transition/position" = Vector2(-1013.3333, 560)
 "nodes/Attack Motion Transition/node" = SubResource("AnimationNodeTransition_teb6s")
 "nodes/Attack Motion Transition/position" = Vector2(-266.66666, 826.6667)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_m77a7")
@@ -11389,11 +11390,11 @@ nodes/Animation/position = Vector2(-742.98615, 734.36035)
 "nodes/Animation 8/node" = SubResource("AnimationNodeAnimation_c1j8r")
 "nodes/Animation 8/position" = Vector2(-1093.3334, 0)
 "nodes/Animation 9/node" = SubResource("AnimationNodeAnimation_esvxg")
-"nodes/Animation 9/position" = Vector2(-986.6667, 186.66667)
+"nodes/Animation 9/position" = Vector2(-1413.3334, 133.33333)
 "nodes/Animation 10/node" = SubResource("AnimationNodeAnimation_blkoc")
 "nodes/Animation 10/position" = Vector2(-960, 266.66666)
 "nodes/Animation 11/node" = SubResource("AnimationNodeAnimation_qeqtg")
-"nodes/Animation 11/position" = Vector2(-506.66666, 320)
+"nodes/Animation 11/position" = Vector2(-640, 346.66666)
 node_connections = [&"output", 0, &"Final Output Transition", &"Final Output Transition", 0, &"Still Motion Transition", &"Final Output Transition", 1, &"Move Motion Transition", &"Final Output Transition", 2, &"Attack Motion Transition", &"Still Motion Transition", 0, &"Animation 8", &"Still Motion Transition", 1, &"Animation 9", &"Still Motion Transition", 2, &"Animation 10", &"Still Motion Transition", 3, &"Animation 11", &"Move Motion Transition", 0, &"Animation 6", &"Move Motion Transition", 1, &"Animation 7", &"Attack Motion Transition", 0, &"Animation", &"Attack Motion Transition", 1, &"Animation 2", &"Attack Motion Transition", 2, &"Animation 3", &"Attack Motion Transition", 3, &"Animation 4", &"Attack Motion Transition", 4, &"Animation 5"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_pskss"]
@@ -11711,8 +11712,9 @@ metadata/_custom_type_script = "uid://dflwyxok3081k"
 shape = SubResource("SphereShape3D_pskss")
 disabled = true
 
-[node name="HurtBoxComponent" type="Area3D" parent="." index="4"]
+[node name="HurtBoxComponent" type="Area3D" parent="." index="4" node_paths=PackedStringArray("health_comp")]
 script = ExtResource("18_teb6s")
+health_comp = NodePath("../HealthComponent")
 metadata/_custom_type_script = "uid://4i450if78qh1"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBoxComponent" index="0"]
@@ -11794,13 +11796,11 @@ metadata/extras = {
 "ant_landscape": {}
 }
 
-[node name="HealthComponent" type="Node" parent="." index="6" node_paths=PackedStringArray("Health_gauge", "Node_to_call_on_death")]
+[node name="HealthComponent" type="Node" parent="." index="6"]
 script = ExtResource("30_yg2xw")
 Max_health = 800.0
 Resistance = Array[String](["Physical", "Divine Divider", "Grace"])
-Health_gauge = NodePath("")
 Bearable_power = 50.0
 Armor_value = 50.0
-Node_to_call_on_death = NodePath("")
 body_nature = "metal"
 metadata/_custom_type_script = "uid://bibpdrfengocv"

@@ -21,9 +21,11 @@ signal being_hit
 @onready var hurt_box_component: HurtBoxComponent = $HurtBoxComponent
 @onready var health_component: HealthComponent = $HealthComponent
 
-func Grounding(current_action:String)->void:
+func Grounding(current_state:String,current_action:String)->void:
 	animation_tree.set('parameters/Final_State/transition_request',"Grounded")
-	animation_tree.set("parameters/Ground Transisitons/transition_request",current_action)
+	animation_tree.set("parameters/Ground Transisitons/transition_request",current_state)
+	animation_tree.set('parameters/'+current_state+' transition/transition_request',current_action)
+	
 func taking_damage(reaction_dir:String)->void:
 	animation_tree.set('parameters/Final_State/transition_request',"Grounded")
 	animation_tree.set('parameters/Ground Transisitons/transition_request','React_'+reaction_dir)
@@ -37,4 +39,4 @@ func _on_being_hit() -> void:
 	enemy_body.target.camera_shaking(.1,.1)
 	if enemy_body.target.character.attack_direction!=current_react_dir:
 		current_react_dir=enemy_body.target.character.attack_direction
-		self.taking_damage(current_react_dir)
+		self.Grounding("Taking Damage","React "+current_react_dir.capitalize())

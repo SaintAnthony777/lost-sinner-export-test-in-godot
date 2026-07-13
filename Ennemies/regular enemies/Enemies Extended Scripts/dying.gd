@@ -4,7 +4,7 @@ extends State
 @onready var visuals: EnemyVisuals = $"../../Visuals"
 
 func enter() -> void:
-	visuals.Grounding("Dying")
+	visuals.Grounding("Dying","Dying 1")
 	
 	await visuals.animation_tree.animation_finished
 	enemy_body.queue_free()

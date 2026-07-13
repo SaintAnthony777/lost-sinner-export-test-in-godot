@@ -92,9 +92,7 @@ func take_a_step(taken_attack:Attack,delta:float):
 	if !attack_sender : return
 	var expulsion_dir:Vector3=Vector3.ZERO
 	if Bearable_power<=taken_attack.Strength:
-		dealt_thrown_time-=(delta+1)
-		print('bearable : ',Bearable_power)
-		print("strength : ",taken_attack.Strength)
+		dealt_thrown_time-=(delta+1.5)
 		if dealt_thrown_time>0:
 			if owner is EnemyVisuals or owner is character_mesh and (attack_sender and owner) :
 				owner.look_at(Vector3(
@@ -108,10 +106,11 @@ func take_a_step(taken_attack:Attack,delta:float):
 					expulsion_dir = owner.get_parent().transform.basis.z.normalized()
 				elif owner is character_mesh:
 					expulsion_dir = owner.transform.basis.z.normalized()
-				expulsion_dir.x *= taken_attack.Strength-Bearable_power
-				expulsion_dir.z *= taken_attack.Strength-Bearable_power
+				expulsion_dir.x = (taken_attack.Strength-Bearable_power)/10
+				expulsion_dir.z = (taken_attack.Strength-Bearable_power)/10
 				expulsion_dir.y = 0
 				owner.get_parent().velocity = -expulsion_dir
+				owner.get_parent().move_and_slide()
 		else:
 			received_attack=null
 

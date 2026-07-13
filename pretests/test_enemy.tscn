@@ -44,10 +44,10 @@ shadow_enabled = true
 environment = SubResource("Environment_j2qdx")
 
 [node name="Personnage" parent="." instance=ExtResource("1_n8chh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -8)
 
 [node name="Tracker" parent="." instance=ExtResource("2_66fur")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 1)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_66fur")

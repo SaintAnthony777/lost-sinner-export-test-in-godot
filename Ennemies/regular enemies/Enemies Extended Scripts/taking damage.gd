@@ -12,5 +12,4 @@ func enter() -> void:
 		state_machine.change_state("idle_enemy")
 
 func physics_update(_delta) -> void:
-	enemy_body.move_and_slide()
 	if !visuals.is_alive:visuals.is_taking_damage=false;state_machine.change_state("Dying")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://iy8hslvdkxhi"]
+[gd_scene load_steps=13 format=3 uid="uid://iy8hslvdkxhi"]
 
 [ext_resource type="Script" uid="uid://b2mma88kgmdm2" path="res://Ennemies/regular enemies/script/regular_enemy.gd" id="1_q30j4"]
 [ext_resource type="PackedScene" uid="uid://b4j72348n1luh" path="res://Ennemies/Guards/Trackers/Scenes/guard_axed.tscn" id="2_087bu"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bgbua5rci4t1k" path="res://Ennemies/regular enemies/Enemies Extended Scripts/attack.gd" id="7_7ucys"]
 [ext_resource type="Script" uid="uid://x0fb6is57wkw" path="res://Ennemies/regular enemies/Enemies Extended Scripts/chase.gd" id="8_j8yu2"]
 [ext_resource type="Script" uid="uid://b7fqulhd4nfyg" path="res://Ennemies/regular enemies/Enemies Extended Scripts/dying.gd" id="8_pp1kf"]
+[ext_resource type="Script" uid="uid://td7jtpqrrdrr" path="res://Ennemies/regular enemies/Enemies Extended Scripts/strafing.gd" id="9_ohjtu"]
 [ext_resource type="Script" uid="uid://c5i637b412l2u" path="res://Ennemies/regular enemies/Enemies Extended Scripts/taking damage.gd" id="9_vmbfs"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q30j4"]
@@ -25,7 +26,7 @@ height = 0.2
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_q30j4")
-attack_range = 3.0
+attack_range = 1.5
 metadata/_custom_type_script = "uid://b2mma88kgmdm2"
 
 [node name="Visuals" parent="." instance=ExtResource("2_087bu")]
@@ -57,6 +58,10 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="Dying" type="Node" parent="StateMachine"]
 script = ExtResource("8_pp1kf")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Strafing" type="Node" parent="StateMachine"]
+script = ExtResource("9_ohjtu")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="aiming node" type="Marker3D" parent="."]

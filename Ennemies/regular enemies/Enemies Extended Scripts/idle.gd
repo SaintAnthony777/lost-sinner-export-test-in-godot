@@ -4,7 +4,8 @@ extends State
 @onready var visuals: EnemyVisuals = $"../../Visuals"
 
 func enter() -> void:
-	visuals.Grounding("Idle")
+	print('idle')
+	visuals.Grounding("Still motion","Idle")
 
 func physics_update(_delta) -> void:
 	state_logics(_delta)
@@ -17,7 +18,8 @@ func state_logics(delta)->void:
 	distance_check()
 
 func distance_check()->void:
-	if enemy_body.global_position.distance_to(enemy_body.target.global_position)<=enemy_body.attack_range:
+	if enemy_body.global_position.distance_to(enemy_body.target.global_position)<enemy_body.attack_range:
+		visuals.is_attacking=true
 		state_machine.change_state("attack")
 	if enemy_body.global_position.distance_to(enemy_body.target.global_position)>=enemy_body.attack_range:
 		state_machine.change_state("chase")

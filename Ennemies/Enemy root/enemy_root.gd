@@ -9,6 +9,7 @@ var is_alive:bool=true
 var is_blocking:=false
 @export var attack_range:float
 @onready var nav_agent:NavigationAgent3D=get_node("NavigationAgent3D")
+
 func initialize_player() -> void:
 	target=get_tree().get_first_node_in_group("Personnage")
 	
@@ -25,6 +26,7 @@ func _process(_delta: float) -> void:
 	else : aiming_node.hide()
 	
 func aiming_at_player()->void:
+	if!target:return
 	self.look_at(Vector3(
 		target.global_position.x,
 		self.global_position.y,
