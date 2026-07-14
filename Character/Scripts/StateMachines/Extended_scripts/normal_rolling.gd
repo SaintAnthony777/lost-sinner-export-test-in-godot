@@ -20,6 +20,7 @@ func physics_update(_delta) -> void:
 
 func state_logic(delta):
 	player.move_and_slide()
+	player.push_rigids()
 	player.camera_rotation_logic(delta)
 	character.rolling()
 	if !character.isrolling:

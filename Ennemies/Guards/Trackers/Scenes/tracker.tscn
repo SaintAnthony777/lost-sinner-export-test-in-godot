@@ -73,6 +73,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1360066, 0.7236614, 0)
 mesh = SubResource("SphereMesh_pp1kf")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+height = 2.0
 
 [connection signal="being_hit" from="." to="." method="_on_being_hit"]
 [connection signal="being_hit" from="Visuals" to="Visuals" method="_on_being_hit"]

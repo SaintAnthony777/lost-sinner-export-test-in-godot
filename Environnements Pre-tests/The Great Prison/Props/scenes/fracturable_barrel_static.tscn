@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cofs7a1ps3ew8"]
 
-[ext_resource type="Script" uid="uid://cakitfhm5emmo" path="res://autoloads/Fracturable Static body/Fracturable_static.gd" id="1_0j1jc"]
+[ext_resource type="Script" uid="uid://dyj2o8eglmqa3" path="res://Componenents/fracturable rigids/fracturable_rigid.gd" id="1_susiw"]
 [ext_resource type="ArrayMesh" uid="uid://p5wvhicu0cwi" path="res://Environnements Pre-tests/The Great Prison/Props/Meshes/Barrel.res" id="2_d5wsj"]
 [ext_resource type="PackedScene" uid="uid://dgbquu0vr68r6" path="res://Environnements Pre-tests/The Great Prison/Props/scenes/barrel_fractured.tscn" id="2_susiw"]
 [ext_resource type="Script" uid="uid://4i450if78qh1" path="res://Componenents/Hitbox and HurtBox/hurt_box_component.gd" id="3_3muqd"]
@@ -13,12 +13,13 @@ points = PackedVector3Array(-0.56931156, 0.9016702, -0.000111460686, -0.526067, 
 radius = 1.0
 height = 2.4
 
-[node name="Fracturable Barrel Static" type="StaticBody3D"]
+[node name="Fracturable Barrel Static" type="RigidBody3D"]
 collision_layer = 32
-collision_mask = 5
-script = ExtResource("1_0j1jc")
+collision_mask = 39
+mass = 10.0
+script = ExtResource("1_susiw")
 packed_breakable = ExtResource("2_susiw")
-metadata/_custom_type_script = "uid://cakitfhm5emmo"
+metadata/_custom_type_script = "uid://dyj2o8eglmqa3"
 
 [node name="Barrel" type="MeshInstance3D" parent="."]
 mesh = ExtResource("2_d5wsj")

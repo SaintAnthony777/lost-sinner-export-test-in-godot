@@ -1,4 +1,4 @@
-class_name fracturable_static extends StaticBody3D
+class_name fracturable_rigid extends RigidBody3D
 
 @onready var is_alive:bool=true
 @export var packed_breakable:PackedScene
@@ -8,7 +8,7 @@ class_name fracturable_static extends StaticBody3D
 @onready var breakable_id:String=String(get_path())
 
 func _ready() -> void:
-	health_comp.random_node_to_call_on_death=self
+	
 	if breakable_id in SaveManager.current_save.props_id_list:
 		queue_free()
 		
