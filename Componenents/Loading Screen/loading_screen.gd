@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 	status_percentage.text="Loading "+str(floor(progress[0]*100))+" %"
 	if scene_load_status == ResourceLoader.THREAD_LOAD_LOADED:
 		loading_status.hide();confirm_start_game.show();loader_animator.play("confirm start await")
-		if Input.is_action_just_pressed("Jump trigger"):
+		if Input.is_action_just_pressed("Jump trigger") or Input.is_action_just_pressed("Attack_trigger"):
 			SaveManager.new_scene=ResourceLoader.load_threaded_get(SaveManager.current_save.current_scene)
 			SaveManager.load_game()
 	else : 

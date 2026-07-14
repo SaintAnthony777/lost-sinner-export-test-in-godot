@@ -8,7 +8,7 @@ var Damage_Factor:float=0.0
 var Moveable_Player:player_character
 var Moveable_Body:enemy_root
 var received_attack:Attack
-var attack_sender
+var attack_sender : Node3D
 var dealt_thrown_time:float=.0
 
 @export var Max_health:float
@@ -87,6 +87,7 @@ func death_check()->void:
 	if Current_health<0:Current_health=0
 	
 func take_a_step(taken_attack:Attack,delta:float):
+	
 	if is_invulnerable : return
 	if !owner.is_alive : return
 	if !attack_sender : return
@@ -102,14 +103,12 @@ func take_a_step(taken_attack:Attack,delta:float):
 				))
 				owner.rotate_y(PI)
 				owner.get_parent().velocity = Vector3.ZERO
-				if owner is EnemyVisuals:
-					expulsion_dir = owner.get_parent().transform.basis.z.normalized()
-				elif owner is character_mesh:
-					expulsion_dir = owner.transform.basis.z.normalized()
-				expulsion_dir.x = (taken_attack.Strength-Bearable_power)/10
-				expulsion_dir.z = (taken_attack.Strength-Bearable_power)/10
+				expulsion_dir = attack_sender.global_position - owner.global_position
 				expulsion_dir.y = 0
-				owner.get_parent().velocity = -expulsion_dir
+				expulsion_dir = -expulsion_dir.normalized()
+				owner.get_parent().velocity.x = expulsion_dir.x*(taken_attack.Strength-Bearable_power)
+				owner.get_parent().velocity.z = expulsion_dir.z*(taken_attack.Strength-Bearable_power)
+				
 				owner.get_parent().move_and_slide()
 		else:
 			received_attack=null

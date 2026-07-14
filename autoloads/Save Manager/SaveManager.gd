@@ -81,7 +81,7 @@ func specific_save(player_node:player_character,given_postion:Vector3,given_path
 	current_save.current_scene=given_path
 	current_save.current_save_place=current_loaction_name
 	write_save()
-	
+
 func save_stats(player_node:player_character):
 	current_save.current_health = player_node.character.health_component.Current_health
 	current_save.current_arcane = player_node.character.arc_component.current_arcane

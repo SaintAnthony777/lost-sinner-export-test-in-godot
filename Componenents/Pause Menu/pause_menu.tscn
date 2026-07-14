@@ -173,7 +173,7 @@ size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="Confirm_quit_to_main_menu/MarginContainer"]
 layout_mode = 2
-text = "Quit to Main Menu and Save game ?"
+text = "Save game and quit to main menu ?"
 label_settings = SubResource("LabelSettings_vxjle")
 horizontal_alignment = 1
 vertical_alignment = 1

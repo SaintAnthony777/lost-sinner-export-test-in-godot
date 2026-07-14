@@ -14,6 +14,7 @@ func _input(event: InputEvent) -> void:
 func show_and_hide_pause()->void:
 	if self.visible:
 		get_tree().paused = false ; Input.mouse_mode=Input.MOUSE_MODE_CAPTURED ;
+		show_and_hide(confirm_quit_to_main_menu,buttons_Vbox_container)
 	else : 
 		get_tree().paused = true ; Input.mouse_mode=Input.MOUSE_MODE_VISIBLE ; 
 	self.visible=!self.visible
@@ -27,7 +28,7 @@ func _on_quit_to_main_menu_pressed() -> void:
 	show_and_hide(buttons_Vbox_container,confirm_quit_to_main_menu)
 func _on_yes_main_menu_pressed() -> void:
 	get_tree().paused=false
-	SaveManager.save_game(playernode)
+	SaveManager.save_stats(playernode)
 	get_tree().change_scene_to_file("res://Componenents/MainScreenUI/main_screen_ui.tscn")
 func show_and_hide(box1:Control,box2:Control):
 	box1.hide()
@@ -44,5 +45,5 @@ func _on_no_desktop_pressed() -> void:
 
 func _on_yes_desktop_pressed() -> void:
 	get_tree().paused=false
-	SaveManager.save_game(playernode)
+	SaveManager.save_stats(playernode)
 	get_tree().quit()
