@@ -3,17 +3,32 @@ extends Control
 
 @onready var given_inventory : Inventory
 @onready var category_to_be_shown : String =""
-@onready var item_container : VBoxContainer = $"Item Panel/item list/Item container"
+
 @onready var array_of_items : Array[Inventory_Item]
-@onready var item_texture : TextureRect=$"Item_texture"
-@onready var item_desc : Label =$"Descripition panel/ScrollContainer/MarginContainer2/Item description"
+#@onready var item_texture : TextureRect=$"Item_texture"
+#@onready var item_desc : Label =$"Descripition panel/ScrollContainer/MarginContainer2/Item description"
 @onready var item_to_be_shown : Inventory_Item = null
 @onready var item_panel:Panel=$"Item Panel"
-@onready var desc_panel:Panel=$"Descripition panel"
-@onready var label: Label = $"Item title panel/Item title Text container/Label"
-@onready var item_title_panel: Panel = $"Item title panel"
+#@onready var desc_panel:Panel=$"Descripition panel"
+#@onready var label: Label = $"Item title panel/Item title Text container/Label"
+#@onready var item_title_panel: Panel = $"Item title panel"
 @onready var Pause_UI:PauseMenu=get_tree().get_first_node_in_group("Pause UI")
 
+##remades here
+@onready var item_container: GridContainer = $"Item Panel/MarginContainer/item list/Item container"
+##short_descriptions
+@onready var item_to_be_short_described : Inventory_Item = null
+@onready var small_panel_title: Label = $"Short description panel/Short_description_item_panel/Title_cont/Small_panel Title"
+@onready var small_panel_short_description: Label = $"Short description panel/Short_description_item_panel/Short desc/Small_panel Short description"
+@onready var short_description_item_panel: VBoxContainer = $"Short description panel/Short_description_item_panel"
+@onready var short_description_panel: Panel = $"Short description panel"
+
+##large_descriptions
+@onready var big_panel_title: Label = $"Item_panel/Long_descriptions_box/Item title Text container/Big_panel Title"
+@onready var big_panel_short_descripion: Label = $"Item_panel/Long_descriptions_box/Item First Description container/Big_panel Short descripion"
+@onready var long_description: Label = $"Item_panel/Long_descriptions_box/Item Long Description container2/Long description"
+@onready var long_descriptions_box: VBoxContainer = $Item_panel/Long_descriptions_box
+@onready var item_panel_descriptions: Panel = $Item_panel
 
 
 func _input(event: InputEvent) -> void:
@@ -37,19 +52,25 @@ func show_and_hide_inventory()->void:
 func _process(delta: float) -> void:
 	if array_of_items : item_panel.show()
 	else : item_panel.hide()
-	if item_to_be_shown:
-		item_desc.text=item_to_be_shown.item_description
-		label.show()
-		item_title_panel.show()
-		label.text=item_to_be_shown.item_name
-		item_texture.texture = load("res://Componenents/Inventory UI/Renders for equippement/"+item_to_be_shown.item_name+".png")
-		desc_panel.show()
+	if item_to_be_short_described:
+		short_description_panel.show()
+		small_panel_title.text=item_to_be_short_described.item_name
+		small_panel_short_description.text=item_to_be_short_described.short_description
 	else :
-		desc_panel.hide()
-		label.hide()
-		item_title_panel.hide()
-		item_desc.text=""
-		item_texture.texture=null
+		short_description_panel.hide()
+		small_panel_title.text=""
+		small_panel_short_description.text=""
+	
+	if item_to_be_shown:
+		item_panel_descriptions.show()
+		big_panel_title.text=item_to_be_shown.item_name
+		big_panel_short_descripion.text=item_to_be_shown.short_description
+		long_description.text=item_to_be_shown.item_description
+	else :
+		item_panel_descriptions.hide()
+		big_panel_title.text=""
+		big_panel_short_descripion.text=""
+		long_description.text=""
 		
 func fill_item_list()->void:
 	for element : Inventory_Item in given_inventory.Inventory_list:
@@ -58,9 +79,9 @@ func fill_item_list()->void:
 	if !array_of_items.is_empty():
 		for items : Inventory_Item in array_of_items :
 			if items : 
-				var item_to_be_added : inventory_ui_button=inventory_ui_button.new(items)
-				item_to_be_added.item=items
-				item_to_be_added.text = items.item_name +" "+str(items.item_number)
+				var item_scene:PackedScene=load("res://Componenents/Inventory_button_with_texture/inventory button with texture.tscn")
+				var item_to_be_added :inventory_button_with_texture=item_scene.instantiate()
+				item_to_be_added.item_given=items
 				item_container.add_child(item_to_be_added)
 	else : item_to_be_shown = null 
 	
@@ -78,9 +99,12 @@ func _on_gifts_pressed() -> void:
 	set_new_array_of_items("gift")
 
 func item_desc_clean()->void:
-	item_desc.text=""
-	item_texture.texture=null
+	big_panel_title.text=""
+	big_panel_short_descripion.text=""
+	long_description.text=""
 	item_to_be_shown=null
+	item_to_be_short_described=null
+	
 func clear_items_list()->void:
 	item_desc_clean()
 	for elements in item_container.get_children():

@@ -291,4 +291,6 @@ func camera_shaking(max_rotation_degrees:float,duration:float)->void:
 	camera.rotation = rotation_start
 	is_camera_shaking=false
 		
-		
+func nullyfying_velocity(delta:float)->void:
+	self.velocity.x=lerp(self.velocity.x,0.0,delta*10)
+	self.velocity.z=lerp(self.velocity.z,0.0,delta*10)

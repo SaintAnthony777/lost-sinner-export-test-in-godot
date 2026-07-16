@@ -1,0 +1,103 @@
+[gd_scene load_steps=8 format=3 uid="uid://c5pmq5yn2ydgx"]
+
+[ext_resource type="Script" uid="uid://h5d6jmf50cra" path="res://Componenents/Inventory_button_with_texture/inventory_button_with_texture.gd" id="1_i5rlb"]
+[ext_resource type="FontFile" uid="uid://gxnclglcvy6c" path="res://Fonts/Cinzel,EB_Garamond/EB_Garamond/static/EBGaramond-SemiBold.ttf" id="2_35ekp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ik17t"]
+bg_color = Color(0.6, 0.6, 0.6, 0.105882354)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i5rlb"]
+bg_color = Color(0.6, 0.6, 0.6, 0.11764706)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35ekp"]
+bg_color = Color(0.6, 0.6, 0.6, 0.57254905)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eh0b2"]
+bg_color = Color(0.6, 0.6, 0.6, 0.105882354)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+
+[sub_resource type="LabelSettings" id="LabelSettings_ik17t"]
+font = ExtResource("2_35ekp")
+font_size = 25
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Inventory button with texture" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i5rlb")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 215.0
+offset_bottom = 170.0
+
+[node name="Item_texture" type="TextureRect" parent="MarginContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+expand_mode = 1
+
+[node name="Item_button" type="Button" parent="MarginContainer/Item_texture"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ik17t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i5rlb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_35ekp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_eh0b2")
+
+[node name="Item_number" type="Label" parent="MarginContainer/Item_texture"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = -39.0
+offset_right = -20.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "15"
+label_settings = SubResource("LabelSettings_ik17t")
+horizontal_alignment = 2
+vertical_alignment = 1

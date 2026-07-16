@@ -10,7 +10,7 @@ func enter() -> void:
 	var dealt_attack=Attack.new()
 	dealt_attack.create_attack(
 		randf_range(15.0,18.0),
-		randf_range(15.0,17.0),
+		16.0,
 		"Physical",
 		3.0,
 		0.0

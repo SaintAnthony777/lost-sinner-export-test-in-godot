@@ -1,10 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://cktsm7c5nwsvg"]
+[gd_scene load_steps=15 format=3 uid="uid://cktsm7c5nwsvg"]
 
 [ext_resource type="Script" uid="uid://bturlus46enlt" path="res://Componenents/Inventory UI/inventory.gd" id="1_8xos3"]
-[ext_resource type="Texture2D" uid="uid://biwlumayhawiy" path="res://Componenents/Inventory UI/Renders for equippement/The Hand of the Maestria.png" id="2_8xos3"]
 [ext_resource type="FontFile" uid="uid://ffia62sdtc4k" path="res://Fonts/Cinzel,EB_Garamond/Cinzel/static/Cinzel-Medium.ttf" id="2_56r8e"]
 [ext_resource type="FontFile" uid="uid://b1bcl47vqg1rp" path="res://Fonts/Cinzel,EB_Garamond/Cinzel/static/Cinzel-Regular.ttf" id="3_b6vic"]
 [ext_resource type="FontFile" uid="uid://d0ug5noy0uhhl" path="res://Fonts/Cinzel,EB_Garamond/EB_Garamond/static/EBGaramond-Regular.ttf" id="6_dp3dx"]
+
+[sub_resource type="Gradient" id="Gradient_e0jke"]
+colors = PackedColorArray(0.9764706, 0.972549, 0.96862745, 0, 0.52773505, 0.29716516, 2.8878452e-07, 0.41960785)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_56r8e"]
+gradient = SubResource("Gradient_e0jke")
+fill = 1
+fill_from = Vector2(0.48433048, 0.50427353)
+fill_to = Vector2(0, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_urthe"]
 font = ExtResource("3_b6vic")
@@ -39,9 +47,27 @@ border_blend = true
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="LabelSettings" id="LabelSettings_56r8e"]
+font = ExtResource("3_b6vic")
+font_size = 40
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dp3dx"]
+font = ExtResource("6_dp3dx")
+font_size = 35
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_b6vic"]
 font = ExtResource("3_b6vic")
 font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_e0jke"]
+font = ExtResource("6_dp3dx")
+font_size = 35
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Inventory" type="Control" groups=["Inventory UI"]]
 process_mode = 3
@@ -53,14 +79,23 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8xos3")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect2" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.91764706)
+color = Color(0, 0, 0, 0.8509804)
+
+[node name="ColorRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_56r8e")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -178,28 +213,35 @@ text = "Keys"
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0046875
-anchor_top = 0.21296297
+anchor_top = 0.2
 anchor_right = 0.49010417
 anchor_bottom = 0.77685183
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cx342")
 metadata/_edit_use_anchors_ = true
 
-[node name="item list" type="ScrollContainer" parent="Item Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="Item Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 15
 
-[node name="Item container" type="VBoxContainer" parent="Item Panel/item list"]
+[node name="item list" type="ScrollContainer" parent="Item Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Item container" type="GridContainer" parent="Item Panel/MarginContainer/item list"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/separation = 18
+theme_override_constants/h_separation = 235
+theme_override_constants/v_separation = 183
+columns = 4
 
-[node name="Descripition panel" type="Panel" parent="."]
+[node name="Short description panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -210,64 +252,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_cx342")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Descripition panel"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -236.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="MarginContainer2" type="MarginContainer" parent="Descripition panel/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 2
-
-[node name="Item description" type="Label" parent="Descripition panel/ScrollContainer/MarginContainer2"]
-custom_minimum_size = Vector2(450, 0)
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_fonts/font = ExtResource("6_dp3dx")
-theme_override_font_sizes/font_size = 35
-text = "desc"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="Item_texture" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.4953125
-anchor_top = 0.31944445
-anchor_right = 0.9984375
-anchor_bottom = 0.78333336
-grow_horizontal = 0
-grow_vertical = 2
-texture = ExtResource("2_8xos3")
-expand_mode = 1
-stretch_mode = 5
-metadata/_edit_use_anchors_ = true
-
-[node name="Item title panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.4953125
-anchor_top = 0.21574074
-anchor_right = 1.0
-anchor_bottom = 0.30277777
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_cx342")
-metadata/_edit_use_anchors_ = true
-
-[node name="Item title Text container" type="MarginContainer" parent="Item title panel"]
+[node name="Short_description_item_panel" type="VBoxContainer" parent="Short description panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -275,14 +260,93 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Item title panel/Item title Text container"]
+[node name="Title_cont" type="MarginContainer" parent="Short description panel/Short_description_item_panel"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+
+[node name="Small_panel Title" type="Label" parent="Short description panel/Short_description_item_panel/Title_cont"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Jack's Aegis"
+label_settings = SubResource("LabelSettings_56r8e")
+
+[node name="Short desc" type="MarginContainer" parent="Short description panel/Short_description_item_panel"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_constants/margin_left = 15
+
+[node name="Small_panel Short description" type="Label" parent="Short description panel/Short_description_item_panel/Short desc"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "The Shield that is said to protect against almost any threat"
+label_settings = SubResource("LabelSettings_dp3dx")
+
+[node name="Item_panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.49635416
+anchor_top = 0.19907407
+anchor_right = 1.0
+anchor_bottom = 0.77037036
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cx342")
+metadata/_edit_use_anchors_ = true
+
+[node name="Long_descriptions_box" type="VBoxContainer" parent="Item_panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Item title Text container" type="MarginContainer" parent="Item_panel/Long_descriptions_box"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Big_panel Title" type="Label" parent="Item_panel/Long_descriptions_box/Item title Text container"]
 custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 text = "jack's aegis"
 label_settings = SubResource("LabelSettings_b6vic")
-horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
+
+[node name="Item First Description container" type="MarginContainer" parent="Item_panel/Long_descriptions_box"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Big_panel Short descripion" type="Label" parent="Item_panel/Long_descriptions_box/Item First Description container"]
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_e0jke")
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Item Long Description container2" type="MarginContainer" parent="Item_panel/Long_descriptions_box"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Long description" type="Label" parent="Item_panel/Long_descriptions_box/Item Long Description container2"]
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+text = "Once upon a different lifetime. Years and years ago, a man was said to be a threat to even the gods, he was the kindest of his brothers. He wielded a power and a body way beyond comparison, so strong that he built this shield with his bare hands, not to protect himself but as a token of protection for all those he loved."
+label_settings = SubResource("LabelSettings_e0jke")
+vertical_alignment = 1
+autowrap_mode = 2
 
 [connection signal="pressed" from="MarginContainer3/weapons panel/Wepons margin container/Menus/Weapons" to="." method="_on_weapons_pressed"]
 [connection signal="pressed" from="MarginContainer3/weapons panel/Wepons margin container/Menus/Divine dividers" to="." method="_on_divine_dividers_pressed"]

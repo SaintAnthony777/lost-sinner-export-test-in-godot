@@ -54,9 +54,9 @@ var current_attack_nature : String = ""
 @onready var hud_animation_player: AnimationPlayer = $"Hud canvas layer/HUD/AnimationPlayer"
 
 @onready var heavy_charge_ray_cast: RayCast3D = $"Heavy Charge Ray cast"
-@onready var hit_box_component: HitBoxComponent = $"Armature/Skeleton3D/Right_hand_weapon_attachment/Premier modèle/Hammer Hitbox"
+#@onready var hit_box_component: HitBoxComponent = $"Armature/Skeleton3D/Right_hand_weapon_attachment/Premier modèle/Hammer Hitbox"
 @onready var hurt_box_component: HurtBoxComponent = $HurtBoxComponent
-@onready var hitbox_collision: CollisionShape3D = $"Armature/Skeleton3D/Right_hand_weapon_attachment/Premier modèle/Hammer Hitbox/CollisionShape3D"
+#@onready var hitbox_collision: CollisionShape3D = $"Armature/Skeleton3D/Right_hand_weapon_attachment/Premier modèle/Hammer Hitbox/CollisionShape3D"
 @onready var arc_component: arcane_component = $"Hud canvas layer/HUD/Health and equip/arcane_component"
 @onready var AOE_hitBox:HitBoxComponent=$"AOE_Hitboxes/HitBoxComponent"
 @onready var AOE_Collision:CollisionShape3D=$"AOE_Hitboxes/HitBoxComponent/CollisionShape3D"

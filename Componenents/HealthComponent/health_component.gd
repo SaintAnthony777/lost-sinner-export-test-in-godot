@@ -87,7 +87,6 @@ func death_check()->void:
 	if Current_health<0:Current_health=0
 	
 func take_a_step(taken_attack:Attack,delta:float):
-	
 	if is_invulnerable : return
 	if !owner.is_alive : return
 	if !attack_sender : return
@@ -102,14 +101,9 @@ func take_a_step(taken_attack:Attack,delta:float):
 					attack_sender.global_position.z,
 				))
 				owner.rotate_y(PI)
-				owner.get_parent().velocity = Vector3.ZERO
-				expulsion_dir = attack_sender.global_position - owner.global_position
+				expulsion_dir = -(Vector3(attack_sender.global_position - owner.global_position)).normalized()
 				expulsion_dir.y = 0
-				expulsion_dir = -expulsion_dir.normalized()
-				owner.get_parent().velocity.x = expulsion_dir.x*(taken_attack.Strength-Bearable_power)
-				owner.get_parent().velocity.z = expulsion_dir.z*(taken_attack.Strength-Bearable_power)
-				
-				owner.get_parent().move_and_slide()
+				owner.get_parent().velocity = expulsion_dir*(taken_attack.Strength-Bearable_power)
 		else:
 			received_attack=null
 

@@ -1,0 +1,21 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://c00avy1uy1fy2"]
+
+[ext_resource type="Texture2D" uid="uid://beplksgxb21cs" path="res://Componenents/Avelyn/Model/textures/Smooth Iron/Metal055A_1K-JPG_Color.jpg" id="Color"]
+[ext_resource type="Texture2D" uid="uid://b5mmsh2obm3gq" path="res://Componenents/Avelyn/Model/textures/Smooth Iron/Metal055A_1K-JPG_Displacement.jpg" id="Displacement"]
+[ext_resource type="Texture2D" uid="uid://bp3rugx0slaxu" path="res://Componenents/Avelyn/Model/textures/Smooth Iron/Metal055A_1K-JPG_Metalness.jpg" id="Metalness"]
+[ext_resource type="Texture2D" uid="uid://dkscs82xa5vxn" path="res://Componenents/Avelyn/Model/textures/Smooth Iron/Metal055A_1K-JPG_NormalGL.jpg" id="NormalGL"]
+[ext_resource type="Texture2D" uid="uid://c2cokkjj1qp27" path="res://Componenents/Avelyn/Model/textures/Smooth Iron/Metal055A_1K-JPG_Roughness.jpg" id="Roughness"]
+
+[resource]
+albedo_color = Color(0.6556006, 0.655601, 0.6556007, 1)
+albedo_texture = ExtResource("Color")
+metallic = 1.0
+metallic_texture = ExtResource("Metalness")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("Roughness")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("NormalGL")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("Displacement")

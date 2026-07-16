@@ -1,4 +1,4 @@
-[gd_scene load_steps=211 format=3 uid="uid://xumlackoysv2"]
+[gd_scene load_steps=210 format=3 uid="uid://xumlackoysv2"]
 
 [ext_resource type="PackedScene" uid="uid://dshsna3bwyfl7" path="res://Character/Glb/lost sinner 1/The Lost Sinner1.glb" id="1_ag85x"]
 [ext_resource type="Script" uid="uid://dijb6jh7etgx0" path="res://Character/Scripts/Player/character_mesh.gd" id="2_ukanm"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://duumpia3tgccc" path="res://Character/Miscs/CrossHair/crosshair.tscn" id="5_11fhr"]
 [ext_resource type="Material" uid="uid://epa0jchvjw26" path="res://Character/materials/wings_material.tres" id="5_ipk5c"]
 [ext_resource type="PackedScene" uid="uid://k4eg2kxp4alp" path="res://Character/Miscs/Accessories/Shields/Shield remade/shield.tscn" id="5_nlbpv"]
-[ext_resource type="PackedScene" uid="uid://coxrnqofsffsf" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scenes/Justicère des abysses.tscn" id="6_dqom3"]
 [ext_resource type="AnimationLibrary" uid="uid://0dvlmht1eer6" path="res://Character/Imported Animations/Attack animation packs/Hammer/Ground_hammer_attacks.res" id="7_nlbpv"]
 [ext_resource type="AnimationLibrary" uid="uid://l6mly7aqkaj3" path="res://Character/Imported Animations/blocking animation packs.res" id="8_dqom3"]
 [ext_resource type="Texture2D" uid="uid://c8wwv7dr7qsvl" path="res://Character/Miscs/Accessories/Shields/Shield remade/textures/Scratched Iron/Metal054B_1K-JPG_Color.jpg" id="9_nqygr"]
@@ -22,15 +21,15 @@
 [ext_resource type="AnimationLibrary" uid="uid://ddxmjakg7xv5" path="res://Character/Imported Animations/Aerial Disaster and arcane switch.res" id="11_55dcl"]
 [ext_resource type="AnimationLibrary" uid="uid://kkf3vmrar6yj" path="res://Character/Imported Animations/Hammer air attacks.res" id="11_700hb"]
 [ext_resource type="Texture2D" uid="uid://dstxwmf7imag" path="res://Character/Miscs/Accessories/Shields/Shield remade/textures/Scratched Iron/Metal054B_1K-JPG_Displacement.jpg" id="11_s2f6k"]
+[ext_resource type="PackedScene" uid="uid://dl8nll5ey4q13" path="res://Componenents/Avelyn/scenes/avelyn.tscn" id="12_2n8w1"]
 [ext_resource type="Texture2D" uid="uid://ciqxa2qfa6ldl" path="res://Character/Miscs/Accessories/Shields/Shield remade/textures/Scratched Iron/Metal054B_1K-JPG_Metalness.jpg" id="12_xhq4a"]
 [ext_resource type="Texture2D" uid="uid://mid356yaana0" path="res://Character/Miscs/Accessories/Shields/Shield remade/textures/Scratched Iron/Metal054B_1K-JPG_NormalGL.jpg" id="13_1x2dm"]
 [ext_resource type="AnimationLibrary" uid="uid://dxjuerjn16iht" path="res://Character/Imported Animations/Dying Animation/Dying.res" id="13_48fqy"]
 [ext_resource type="AnimationLibrary" uid="uid://bh1ojp7beuuyc" path="res://Character/Imported Animations/Heavy Charge Stop animation.res" id="13_tstfb"]
 [ext_resource type="AnimationLibrary" uid="uid://c0y5w0kfjl8d6" path="res://Character/Imported Animations/Air Taking Damage animation/Air Taking Damage.res" id="13_w728p"]
 [ext_resource type="Texture2D" uid="uid://b1f8axeg41wcp" path="res://Character/Miscs/Accessories/Shields/Shield remade/textures/Scratched Iron/Metal054B_1K-JPG_Roughness.jpg" id="14_ktiam"]
-[ext_resource type="PackedScene" uid="uid://yo3pdwrica36" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scenes/justicière_furieuse.tscn" id="14_mchvo"]
-[ext_resource type="PackedScene" uid="uid://dbj7gbyyu1gf4" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scenes/justice_foudroyante.tscn" id="15_0xjbh"]
-[ext_resource type="Script" uid="uid://bclc1qftmbfeb" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scripts/justicière_furieuse.gd" id="16_tdvcv"]
+[ext_resource type="PackedScene" uid="uid://c7w55glbxwnau" path="res://Componenents/Avelyn/scenes/avelyn_Fire.tscn" id="14_o11jx"]
+[ext_resource type="PackedScene" uid="uid://pg3n6dta0pih" path="res://Componenents/Avelyn/scenes/avelyn_lightning.tscn" id="15_fu2q5"]
 [ext_resource type="AnimationLibrary" uid="uid://o8626glb53tl" path="res://Character/Imported Animations/jumping animation packs*.res" id="16_xxyrl"]
 [ext_resource type="PackedScene" uid="uid://cmr81welytsw6" path="res://Character/Miscs/Evergreen Fruit/evergreen Fruit.tscn" id="17_apyk1"]
 [ext_resource type="AnimationLibrary" uid="uid://di6m7iji2yvs5" path="res://Character/Imported Animations/Parrying+blocking impact.res" id="17_cl0wa"]
@@ -83,9 +82,9 @@ heightmap_enabled = true
 heightmap_scale = 1.0
 heightmap_texture = ExtResource("11_s2f6k")
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0i3i2"]
-radius = 0.9838867
-height = 3.275879
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2n8w1"]
+radius = 0.4
+height = 0.85
 
 [sub_resource type="Animation" id="Animation_ag85x"]
 resource_name = "Flying"
@@ -4985,7 +4984,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Armature/Skeleton3D/Right_hand_weapon_attachment/Premier modèle/Hammer Hitbox/CollisionShape3D:disabled")
+tracks/5/path = NodePath("AOE_Hitboxes/HitBoxComponent/CollisionShape3D:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -4997,31 +4996,31 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("AOE_Hitboxes/HitBoxComponent/CollisionShape3D:disabled")
+tracks/6/path = NodePath("Armature/Skeleton3D/Shield_Attachement/Shield/Torus:surface_material_override/1:emission_energy_multiplier")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [4.0]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Armature/Skeleton3D/Shield_Attachement/Shield/Torus:surface_material_override/1:emission_energy_multiplier")
+tracks/7/path = NodePath("Thrust Hitbox/HitBoxComponent/CollisionShape3D:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [4.0]
+"update": 1,
+"values": [true]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Thrust Hitbox/HitBoxComponent/CollisionShape3D:disabled")
+tracks/8/path = NodePath("Armature/Skeleton3D/Right_hand_weapon_attachment/Avelyn/HitBoxComponent/CollisionShape3D:disabled")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -17781,55 +17780,45 @@ transform = Transform3D(0.9582356, -0.047459338, 0.28201455, -0.07628757, -0.992
 surface_material_override/1 = SubResource("StandardMaterial3D_0acup")
 
 [node name="Unused_weapon_attachment" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.8918726, -3.3527613e-08, 0.45228675, 0.06284614, 0.9902991, -0.12392739, -0.4478992, 0.13895193, 0.8832206, 0.04407357, 1.0798551, 0.005413713)
-bone_name = "mixamorig_Hips"
-bone_idx = 0
+transform = Transform3D(0.8918726, -0.021831956, 0.45175952, 0.06284614, 0.99512666, -0.075981095, -0.4478992, 0.09615681, 0.88889825, 0.0361173, 1.4425117, 0.040456403)
+bone_name = "mixamorig_Spine2"
+bone_idx = 3
 
-[node name="Premier modèle" parent="Armature/Skeleton3D/Unused_weapon_attachment" index="0" instance=ExtResource("6_dqom3")]
-transform = Transform3D(-0.19943751, 0.0075545944, -0.012945268, 0.00418998, -0.13774957, -0.14493959, -0.014390836, -0.14480326, 0.13720392, 0.23458363, -0.12829882, -0.12035659)
+[node name="Avelyn" parent="Armature/Skeleton3D/Unused_weapon_attachment" index="0" instance=ExtResource("12_2n8w1")]
+transform = Transform3D(-0.19393964, 0.4949017, -0.84703004, 0.25962976, -0.806743, -0.5308087, -0.9460337, -0.32285917, 0.027968246, -0.26384196, 0.21721734, -0.13300298)
+weapon_s_gift = "Neutral"
 
 [node name="Right_hand_weapon_attachment" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="4"]
 transform = Transform3D(0.9699677, -0.032819986, 0.24100864, 0.22382241, 0.5083095, -0.83157957, -0.09521446, 0.8605486, 0.5003898, -0.20619561, 1.130733, 0.5148962)
 bone_name = "mixamorig_RightHand"
 bone_idx = 49
 
-[node name="Premier modèle" parent="Armature/Skeleton3D/Right_hand_weapon_attachment" index="0" instance=ExtResource("6_dqom3")]
-transform = Transform3D(-0.017689157, 0.19894014, 0.010483983, 0.0360424, 0.013547446, -0.19625853, -0.19592865, -0.015468902, -0.037049614, 0.138, 0.081, 0.014)
+[node name="Avelyn" parent="Armature/Skeleton3D/Right_hand_weapon_attachment" index="0" instance=ExtResource("12_2n8w1")]
+transform = Transform3D(0.24886376, 0.9486838, 0.19510642, 0.21897146, 0.14111742, -0.9654728, -0.943461, 0.2829939, -0.17261559, -0.13100003, 0.014999986, -0.030999899)
 weapon_s_gift = "Neutral"
-base_damage = 16.0
+base_damage = 17.0
 damage_nature = "Physical"
-strength = 25.0
+strength = 16.0
 stun_time = 4.0
 
-[node name="Hammer Hitbox" type="Area3D" parent="Armature/Skeleton3D/Right_hand_weapon_attachment/Premier modèle" index="3"]
-collision_layer = 8
-collision_mask = 16
+[node name="HitBoxComponent" type="Area3D" parent="Armature/Skeleton3D/Right_hand_weapon_attachment/Avelyn" index="5"]
 script = ExtResource("10_tt1bb")
 metadata/_custom_type_script = "uid://dflwyxok3081k"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/Right_hand_weapon_attachment/Premier modèle/Hammer Hitbox" index="0"]
-transform = Transform3D(1, -2.6077032e-08, 2.7008355e-08, 1.8626451e-08, 0.9999998, 0, 2.9057264e-07, 2.9802322e-08, 0.9999999, 0, 0.028076172, -3.8146973e-06)
-shape = SubResource("CapsuleShape3D_0i3i2")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/Right_hand_weapon_attachment/Avelyn/HitBoxComponent" index="0"]
+transform = Transform3D(1.0000005, 2.682209e-07, -1.4901161e-07, 2.3841858e-07, 1.0000007, -1.7881393e-07, -1.1920929e-07, -7.1525574e-07, 1.0000005, 8.940697e-08, 0.42499995, -0.10000008)
+shape = SubResource("CapsuleShape3D_2n8w1")
 disabled = true
 
-[node name="Justice foudroyante" parent="Armature/Skeleton3D/Right_hand_weapon_attachment" index="1" instance=ExtResource("15_0xjbh")]
-transform = Transform3D(-0.017689157, 0.19894014, 0.010483983, 0.0360424, 0.013547446, -0.19625853, -0.19592865, -0.015468902, -0.037049614, 0.138, 0.081, 0.014)
+[node name="Avelyn On Fire" parent="Armature/Skeleton3D/Right_hand_weapon_attachment" index="1" instance=ExtResource("14_o11jx")]
+transform = Transform3D(0.24886379, 0.9486835, 0.1951064, 0.21897157, 0.14111745, -0.9654726, -0.94346076, 0.28299385, -0.17261568, -0.13100003, 0.014999986, -0.030999899)
 visible = false
-weapon_s_gift = "Fury of the Gods"
-base_damage = 20.0
-damage_nature = "Lightning"
-strength = 40.0
-stun_time = 8.0
-
-[node name="Justicière Furieuse" parent="Armature/Skeleton3D/Right_hand_weapon_attachment" index="2" instance=ExtResource("14_mchvo")]
-transform = Transform3D(-0.017689157, 0.19894014, 0.010483983, 0.0360424, 0.013547446, -0.19625853, -0.19592865, -0.015468902, -0.037049614, 0.138, 0.081, 0.014)
-visible = false
-script = ExtResource("16_tdvcv")
 weapon_s_gift = "Fire of the Giants"
-base_damage = 30.0
 damage_nature = "Fire"
-strength = 20.0
-stun_time = 3.0
+
+[node name="Avelyn Lightning" parent="Armature/Skeleton3D/Right_hand_weapon_attachment" index="2" instance=ExtResource("15_fu2q5")]
+transform = Transform3D(0.24886379, 0.9486835, 0.1951064, 0.21897157, 0.14111745, -0.9654726, -0.94346076, 0.28299385, -0.17261568, -0.13100003, 0.014999986, -0.030999899)
+visible = false
 
 [node name="Hammer Sounds" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="5"]
 transform = Transform3D(0.9699677, -0.032819986, 0.24100864, 0.22382241, 0.5083095, -0.83157957, -0.09521446, 0.8605486, 0.5003898, -0.20619561, 1.130733, 0.5148962)

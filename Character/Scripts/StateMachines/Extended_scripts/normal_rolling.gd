@@ -6,6 +6,7 @@ extends State
 var dash_speed := 10.0
 var roll_dir := Vector3.ZERO
 func enter() -> void:
+	player.velocity=Vector3.ZERO
 	character.slow_mo.stops_slow_motion()
 	check_rotation()
 	character.requested_dash_attack = false
@@ -20,7 +21,7 @@ func physics_update(_delta) -> void:
 
 func state_logic(delta):
 	player.move_and_slide()
-	player.push_rigids()
+	#player.push_rigids()
 	player.camera_rotation_logic(delta)
 	character.rolling()
 	if !character.isrolling:

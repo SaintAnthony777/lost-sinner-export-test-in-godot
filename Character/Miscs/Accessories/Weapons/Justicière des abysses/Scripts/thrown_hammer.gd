@@ -1,4 +1,4 @@
-extends Node3D
+class_name thrown_hammer extends Node3D
 
 @onready var hammer_ray_cast: ShapeCast3D = $Hammer_ray_cast
 @onready var hammer_hitbox:HitBoxComponent=$Hammer_hitbox
@@ -9,14 +9,19 @@ var lifetime:=0.0
 var returning:bool=false
 var dealt_attack:Attack=Attack.new()
 var curr_weapon:Weapon=Weapon.new()
+
 @onready var attack_direction:String="down"
+
 func _ready() -> void:
 	hammer_ray_cast.set_collision_mask_value(2,true)
 	hammer_ray_cast.set_collision_mask_value(3,true)
 	hammer_hitbox.untouchable_owner=get_parent().get_node("Personnage").get_node("The Lost Sinner1")
+	
 	if player.character.gift_component.is_consummed:
 		curr_weapon=player.character.get_weapon_by_gift(player.chosen_gift)
+		print(curr_weapon.damage_nature)
 	else : curr_weapon=player.character.get_weapon_by_gift("Neutral")
+	
 	dealt_attack.Base_damage=curr_weapon.base_damage+randf_range(0.1,5.0)
 	dealt_attack.Nature=curr_weapon.damage_nature
 	dealt_attack.Stun_time=curr_weapon.stun_time+randf_range(0.1,4.0)
@@ -43,4 +48,5 @@ func _process(delta: float) -> void:
 			get_parent().get_node("Personnage").get_node("The Lost Sinner1").equipped_hammer.show()
 			get_parent().get_node("Personnage").get_node("The Lost Sinner1").pick_back_hammer=true
 			get_parent().get_node("Personnage").get_node("The Lost Sinner1").hammer_last_pos=self.global_position
+			await get_tree().process_frame
 			queue_free()

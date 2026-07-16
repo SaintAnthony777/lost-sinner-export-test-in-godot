@@ -1,0 +1,77 @@
+[gd_scene load_steps=17 format=3 uid="uid://dl8nll5ey4q13"]
+
+[ext_resource type="PackedScene" uid="uid://6piawfbgg4kw" path="res://Componenents/Avelyn/Model/Avelyn.blend" id="1_7yq7j"]
+[ext_resource type="Script" uid="uid://tjcicl7rcspe" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scripts/Weapon.gd" id="2_15fh8"]
+[ext_resource type="Material" uid="uid://c00avy1uy1fy2" path="res://Componenents/Avelyn/Model/textures/Smooth Iron/Metal055A_1K-JPG.tres" id="2_glrne"]
+[ext_resource type="Material" uid="uid://bb3q13nnila7j" path="res://Componenents/Avelyn/Model/textures/Gold smooth/Metal042A_1K-JPG.tres" id="3_15fh8"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cms3r"]
+load_path = "res://.godot/imported/Metal042A_1K-JPG_Color.jpg-a57e968db192c1e364e2858341b701f4.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_slxhu"]
+load_path = "res://.godot/imported/Metal042A_1K-JPG_Displacement.jpg-9035652a9c5a5c17d587975809ea22e4.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ttye7"]
+load_path = "res://.godot/imported/Metal042A_1K-JPG_Metalness.jpg-1bdf8ea9ca4a3bf6856f61587af5b2b4.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4dfon"]
+load_path = "res://.godot/imported/Metal042A_1K-JPG_NormalGL.jpg-19ef5568c183703574b581bfdea7f99c.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7sv7t"]
+load_path = "res://.godot/imported/Metal042A_1K-JPG_Roughness.jpg-2a408c7d964109b64d23dd771f52c84b.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sblix"]
+albedo_color = Color(0.8289096, 0.82890964, 0.82890975, 1)
+albedo_texture = SubResource("CompressedTexture2D_cms3r")
+metallic = 1.0
+metallic_texture = SubResource("CompressedTexture2D_ttye7")
+metallic_texture_channel = 4
+roughness_texture = SubResource("CompressedTexture2D_7sv7t")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = SubResource("CompressedTexture2D_4dfon")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = SubResource("CompressedTexture2D_slxhu")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r2ovf"]
+load_path = "res://.godot/imported/Metal042A_1K-JPG_Color.jpg-a57e968db192c1e364e2858341b701f4.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l82vb"]
+load_path = "res://.godot/imported/Metal042A_1K-JPG_Displacement.jpg-9035652a9c5a5c17d587975809ea22e4.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3u5pg"]
+load_path = "res://.godot/imported/Metal042A_1K-JPG_Metalness.jpg-1bdf8ea9ca4a3bf6856f61587af5b2b4.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_asllf"]
+load_path = "res://.godot/imported/Metal042A_1K-JPG_NormalGL.jpg-19ef5568c183703574b581bfdea7f99c.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_opeum"]
+load_path = "res://.godot/imported/Metal042A_1K-JPG_Roughness.jpg-2a408c7d964109b64d23dd771f52c84b.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h50bs"]
+albedo_color = Color(0.8289096, 0.82890964, 0.82890975, 1)
+albedo_texture = SubResource("CompressedTexture2D_r2ovf")
+metallic = 1.0
+metallic_texture = SubResource("CompressedTexture2D_3u5pg")
+metallic_texture_channel = 4
+roughness_texture = SubResource("CompressedTexture2D_opeum")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = SubResource("CompressedTexture2D_asllf")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = SubResource("CompressedTexture2D_l82vb")
+
+[node name="Avelyn" instance=ExtResource("1_7yq7j")]
+script = ExtResource("2_15fh8")
+
+[node name="Mace" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_glrne")
+surface_material_override/1 = ExtResource("3_15fh8")
+
+[node name="Center Sphere" parent="." index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_sblix")
+
+[node name="Pommel bottom" parent="." index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_h50bs")

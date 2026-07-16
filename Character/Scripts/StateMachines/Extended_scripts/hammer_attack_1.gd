@@ -18,6 +18,7 @@ func physics_update(_delta) -> void:
 	attack_check()
 	state_logic(_delta)
 	character.cam_adjustement_for_attack_and_lockings(.1)
+	
 func attack_stuff()->void:
 	var atk:=Attack.new()
 	atk.create_attack(
@@ -32,6 +33,7 @@ func attack_stuff()->void:
 
 func attack_check()->void:
 	if character.requested_dash:
+		character.attack_lunge_boolean=false
 		character.isrolling=true
 		if !player.is_locking:
 			state_machine.change_state("normal_rolling")

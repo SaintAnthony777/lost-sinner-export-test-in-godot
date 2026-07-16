@@ -25,7 +25,8 @@ func state_logic(delta)->void:
 		character.normal_motion("Idle_warned")
 		if character.gift_component.is_consummed:
 			if !character.can_throw_hammer:
-				character.hide_equipped_weapon()
+				character.equipped_hammer.hide()
+				character.unused_weapon_attachment.hide()
 			else :
 				character.get_weapon_by_gift(player.chosen_gift).show()
 		else : character.emptied_enchantement()
@@ -39,6 +40,7 @@ func state_logic(delta)->void:
 	
 func taking_hit_check()->void:
 	if character.is_taking_damage:
+		player.velocity=Vector3.ZERO
 		state_machine.change_state("taking_damage")
 		
 func input_logic()->void:

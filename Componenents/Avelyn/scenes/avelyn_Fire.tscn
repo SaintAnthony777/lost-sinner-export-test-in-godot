@@ -1,0 +1,311 @@
+[gd_scene load_steps=45 format=3 uid="uid://c7w55glbxwnau"]
+
+[ext_resource type="PackedScene" uid="uid://6piawfbgg4kw" path="res://Componenents/Avelyn/Model/Avelyn.blend" id="1_o76o0"]
+[ext_resource type="Script" uid="uid://tjcicl7rcspe" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scripts/Weapon.gd" id="2_ts6d3"]
+[ext_resource type="Material" uid="uid://c00avy1uy1fy2" path="res://Componenents/Avelyn/Model/textures/Smooth Iron/Metal055A_1K-JPG.tres" id="3_ksn50"]
+[ext_resource type="Material" uid="uid://bb3q13nnila7j" path="res://Componenents/Avelyn/Model/textures/Gold smooth/Metal042A_1K-JPG.tres" id="4_eu5l5"]
+[ext_resource type="Texture2D" uid="uid://coy5tr3cotur7" path="res://VFXES/Aura/Weapon Auras/fire aura/textures/particles/alpha/spotlight_5.png" id="5_o76o0"]
+[ext_resource type="Shader" uid="uid://56e3yuv4tx3k" path="res://addons/GPUTrail-main/shaders/trail.gdshader" id="6_b6f3r"]
+[ext_resource type="Shader" uid="uid://bt33wee7shjtw" path="res://addons/GPUTrail-main/shaders/trail_draw_pass.gdshader" id="7_22sgv"]
+[ext_resource type="Texture2D" uid="uid://bcfvxddmp0gce" path="res://VFXES/Fire/textures/Flame01.png" id="8_ts6d3"]
+[ext_resource type="Script" uid="uid://qvvnasd4s6yy" path="res://addons/GPUTrail-main/GPUTrail3D.gd" id="9_2lhvh"]
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_o76o0"]
+parameter_name = "Noise_texture"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_ts6d3"]
+expanded_output_ports = [0]
+source = 5
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_ksn50"]
+parameter_name = "Aura_color"
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_eu5l5"]
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_wsaxd"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_b6f3r"]
+parameter_name = "Speed_"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_22sgv"]
+input_name = "time"
+
+[sub_resource type="VisualShader" id="VisualShader_du4gn"]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx, unshaded, shadows_disabled;
+
+uniform vec4 Aura_color : source_color;
+uniform vec2 Speed_;
+uniform sampler2D Noise_texture;
+
+
+
+void fragment() {
+// ColorParameter:4
+	vec4 n_out4p0 = Aura_color;
+
+
+// Input:9
+	float n_out9p0 = TIME;
+
+
+// Vector2Parameter:8
+	vec2 n_out8p0 = Speed_;
+
+
+// VectorOp:6
+	vec2 n_out6p0 = vec2(n_out9p0) * n_out8p0;
+
+
+// UVFunc:5
+	vec2 n_in5p1 = vec2(1.00000, 1.00000);
+	vec2 n_out5p0 = n_out6p0 * n_in5p1 + UV;
+
+
+	vec4 n_out3p0;
+// Texture2D:3
+	n_out3p0 = texture(Noise_texture, n_out5p0);
+
+
+// Output:0
+	ALBEDO = vec3(n_out4p0.xyz);
+	ALPHA = n_out3p0.x;
+
+
+}
+"
+flags/unshaded = true
+flags/shadows_disabled = true
+nodes/fragment/0/position = Vector2(680, 120)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture2DParameter_o76o0")
+nodes/fragment/2/position = Vector2(-260, 400)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_ts6d3")
+nodes/fragment/3/position = Vector2(200, 280)
+nodes/fragment/4/node = SubResource("VisualShaderNodeColorParameter_ksn50")
+nodes/fragment/4/position = Vector2(60, -200)
+nodes/fragment/5/node = SubResource("VisualShaderNodeUVFunc_eu5l5")
+nodes/fragment/5/position = Vector2(-220, 80)
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_wsaxd")
+nodes/fragment/6/position = Vector2(-540, 220)
+nodes/fragment/8/node = SubResource("VisualShaderNodeVec2Parameter_b6f3r")
+nodes/fragment/8/position = Vector2(-900, 380)
+nodes/fragment/9/node = SubResource("VisualShaderNodeInput_22sgv")
+nodes/fragment/9/position = Vector2(-900, 140)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 2, 3, 0, 0, 1, 5, 0, 3, 0, 4, 0, 0, 0, 8, 0, 6, 1, 9, 0, 6, 0, 6, 0, 5, 2)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2lhvh"]
+load_path = "res://.godot/imported/SuperPerlin_03-512x512.png-32c720bbac4c993c54c1ac5bf90b7cd8.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uvq5l"]
+render_priority = 0
+shader = SubResource("VisualShader_du4gn")
+shader_parameter/Aura_color = Color(2.332, 0.915, 0.479, 1)
+shader_parameter/Speed_ = Vector2(0.3, 0.3)
+shader_parameter/Noise_texture = SubResource("CompressedTexture2D_2lhvh")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cms3r"]
+load_path = "res://.godot/imported/Metal042A_1K-JPG_Color.jpg-a57e968db192c1e364e2858341b701f4.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_slxhu"]
+load_path = "res://.godot/imported/Metal042A_1K-JPG_Displacement.jpg-9035652a9c5a5c17d587975809ea22e4.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ttye7"]
+load_path = "res://.godot/imported/Metal042A_1K-JPG_Metalness.jpg-1bdf8ea9ca4a3bf6856f61587af5b2b4.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4dfon"]
+load_path = "res://.godot/imported/Metal042A_1K-JPG_NormalGL.jpg-19ef5568c183703574b581bfdea7f99c.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7sv7t"]
+load_path = "res://.godot/imported/Metal042A_1K-JPG_Roughness.jpg-2a408c7d964109b64d23dd771f52c84b.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sblix"]
+albedo_color = Color(0.8289096, 0.82890964, 0.82890975, 1)
+albedo_texture = SubResource("CompressedTexture2D_cms3r")
+metallic = 1.0
+metallic_texture = SubResource("CompressedTexture2D_ttye7")
+metallic_texture_channel = 4
+roughness_texture = SubResource("CompressedTexture2D_7sv7t")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = SubResource("CompressedTexture2D_4dfon")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = SubResource("CompressedTexture2D_slxhu")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r2ovf"]
+load_path = "res://.godot/imported/Metal042A_1K-JPG_Color.jpg-a57e968db192c1e364e2858341b701f4.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l82vb"]
+load_path = "res://.godot/imported/Metal042A_1K-JPG_Displacement.jpg-9035652a9c5a5c17d587975809ea22e4.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3u5pg"]
+load_path = "res://.godot/imported/Metal042A_1K-JPG_Metalness.jpg-1bdf8ea9ca4a3bf6856f61587af5b2b4.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_asllf"]
+load_path = "res://.godot/imported/Metal042A_1K-JPG_NormalGL.jpg-19ef5568c183703574b581bfdea7f99c.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_opeum"]
+load_path = "res://.godot/imported/Metal042A_1K-JPG_Roughness.jpg-2a408c7d964109b64d23dd771f52c84b.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h50bs"]
+albedo_color = Color(0.8289096, 0.82890964, 0.82890975, 1)
+albedo_texture = SubResource("CompressedTexture2D_r2ovf")
+metallic = 1.0
+metallic_texture = SubResource("CompressedTexture2D_3u5pg")
+metallic_texture_channel = 4
+roughness_texture = SubResource("CompressedTexture2D_opeum")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = SubResource("CompressedTexture2D_asllf")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = SubResource("CompressedTexture2D_l82vb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o76o0"]
+emission_shape = 3
+emission_box_extents = Vector3(0.2, 0.2, 0.2)
+angle_min = -179.99998
+angle_max = 180.00002
+radial_velocity_min = 0.009977648
+radial_velocity_max = 0.09997764
+gravity = Vector3(0, 0, 0)
+scale_min = 0.39999998
+scale_max = 0.59999996
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x1dme"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(5.3511176, 0.93318707, 0, 1)
+albedo_texture = ExtResource("5_o76o0")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_ts6d3"]
+material = SubResource("StandardMaterial3D_x1dme")
+size = Vector2(0.3, 0.3)
+
+[sub_resource type="Animation" id="Animation_x1dme"]
+resource_name = "Light_flickers"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:omni_range")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [5.0, 3.0, 5.0]
+}
+
+[sub_resource type="Animation" id="Animation_le3lt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:omni_range")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_le3lt"]
+_data = {
+&"Light_flickers": SubResource("Animation_x1dme"),
+&"RESET": SubResource("Animation_le3lt")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wsaxd"]
+shader = ExtResource("6_b6f3r")
+
+[sub_resource type="Gradient" id="Gradient_rhnmn"]
+colors = PackedColorArray(14.246319, 2.7106392, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b6f3r"]
+gradient = SubResource("Gradient_rhnmn")
+use_hdr = true
+
+[sub_resource type="Curve" id="Curve_dmpv5"]
+bake_resolution = 16
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_22sgv"]
+curve = SubResource("Curve_dmpv5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t81bo"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("7_22sgv")
+shader_parameter/tex = ExtResource("8_ts6d3")
+shader_parameter/mask_strength = 1.0
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/color_ramp = SubResource("GradientTexture1D_b6f3r")
+shader_parameter/curve = SubResource("CurveTexture_22sgv")
+shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/flags = 40
+
+[sub_resource type="QuadMesh" id="QuadMesh_du4gn"]
+material = SubResource("ShaderMaterial_t81bo")
+
+[node name="Avelyn" instance=ExtResource("1_o76o0")]
+script = ExtResource("2_ts6d3")
+weapon_s_gift = "Fire of The Giants"
+base_damage = 30.0
+damage_nature = "Lightning"
+strength = 30.0
+stun_time = 5.0
+
+[node name="Mace" parent="." index="0"]
+material_overlay = SubResource("ShaderMaterial_uvq5l")
+surface_material_override/0 = ExtResource("3_ksn50")
+surface_material_override/1 = ExtResource("4_eu5l5")
+
+[node name="Center Sphere" parent="." index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_sblix")
+
+[node name="Pommel bottom" parent="." index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_h50bs")
+
+[node name="spark particles" type="GPUParticles3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+amount = 45
+process_material = SubResource("ParticleProcessMaterial_o76o0")
+draw_pass_1 = SubResource("QuadMesh_ts6d3")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+light_color = Color(2.332, 0.915, 0.479, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
+libraries = {
+&"": SubResource("AnimationLibrary_le3lt")
+}
+
+[node name="GPUTrail3D" type="GPUParticles3D" parent="." index="8"]
+transform = Transform3D(0.33535677, 0, 0, 0, 0.33535677, 0, 0, 0, 0.33535677, 0, 0.5, 0)
+amount = 20
+lifetime = 20.0
+explosiveness = 1.0
+fixed_fps = 59
+process_material = SubResource("ShaderMaterial_wsaxd")
+draw_pass_1 = SubResource("QuadMesh_du4gn")
+script = ExtResource("9_2lhvh")
+length = 20
+length_seconds = 0.3389830508474576
+texture = ExtResource("8_ts6d3")
+color_ramp = SubResource("GradientTexture1D_b6f3r")
+curve = SubResource("CurveTexture_22sgv")
+_defaults_have_been_set = true
+metadata/_custom_type_script = "uid://qvvnasd4s6yy"

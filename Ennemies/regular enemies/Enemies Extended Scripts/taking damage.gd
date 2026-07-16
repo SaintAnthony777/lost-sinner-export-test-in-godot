@@ -5,7 +5,6 @@ extends State
 var current_react_dir:String=""
 
 func enter() -> void:
-	
 	await visuals.animation_tree.animation_finished
 	visuals.is_taking_damage=false
 	if !visuals.is_taking_damage:
@@ -13,3 +12,5 @@ func enter() -> void:
 
 func physics_update(_delta) -> void:
 	if !visuals.is_alive:visuals.is_taking_damage=false;state_machine.change_state("Dying")
+	enemy_body.nullyfying_velocity(_delta)
+	enemy_body.move_and_slide()

@@ -7,8 +7,8 @@ var instance
 func enter() -> void:
 	character.aiming_attack("Hammer_throwing")
 	if character.gift_component.is_consummed:
-		thrown_hammer_mesh = load("res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scenes/thrown_hammer_"+player.chosen_gift+".tscn")
-	else : thrown_hammer_mesh = preload("res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scenes/thrown_hammer.tscn")
+		thrown_hammer_mesh = load("res://Componenents/Avelyn/thrown avelyns/thrown_avelyn_"+player.chosen_gift+".tscn")
+	else : thrown_hammer_mesh = preload("res://Componenents/Avelyn/thrown avelyns/thrown_avelyn.tscn")
 func physics_update(_delta) -> void:
 	state_logic()
 	

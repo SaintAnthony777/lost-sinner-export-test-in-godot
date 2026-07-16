@@ -24,7 +24,8 @@ func state_logic(delta)->void:
 		character.show_equipped_weapon()
 		if character.gift_component.is_consummed:
 			if !character.can_throw_hammer:
-				character.hide_equipped_weapon()
+				character.equipped_hammer.hide()
+				character.unused_weapon_attachment.hide()
 			else :
 				character.get_weapon_by_gift(player.chosen_gift).show()
 		else : character.emptied_enchantement()

@@ -31,6 +31,7 @@ func attack_stuff()->void:
 	character.attacking("Normal","Hammer","attack_dashing")
 func attack_check()->void:
 	if Input.is_action_just_pressed("sprinting"):
+		character.attack_lunge_boolean=false
 		character.isrolling=true
 		state_machine.change_state("normal_rolling")
 	if character.is_attacking==false:

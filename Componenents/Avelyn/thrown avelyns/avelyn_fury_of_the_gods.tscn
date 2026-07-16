@@ -1,0 +1,175 @@
+[gd_scene load_steps=20 format=3 uid="uid://cuk7hhos5xxea"]
+
+[ext_resource type="Script" uid="uid://b2pb1uhe2wsdr" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scripts/thrown_hammer.gd" id="1_4ck5m"]
+[ext_resource type="PackedScene" uid="uid://dl8nll5ey4q13" path="res://Componenents/Avelyn/scenes/avelyn.tscn" id="2_cbcr5"]
+[ext_resource type="Script" uid="uid://dflwyxok3081k" path="res://Componenents/Hitbox and HurtBox/hitbox_component.gd" id="3_riaos"]
+[ext_resource type="Shader" uid="uid://dnkgskkb2t1ou" path="res://VFXES/Aura/Weapon Auras/Lightning/Shaders/lightning3d.gdshader" id="4_fqom7"]
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_riaos"]
+parameter_name = "Noise_texture"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_fqom7"]
+expanded_output_ports = [0]
+source = 5
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_yxf4x"]
+parameter_name = "Aura_color"
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_5t7iq"]
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_lmfey"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_2mjir"]
+parameter_name = "Speed_"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_82jie"]
+input_name = "time"
+
+[sub_resource type="VisualShader" id="VisualShader_mwk1d"]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx, unshaded, shadows_disabled;
+
+uniform vec4 Aura_color : source_color;
+uniform vec2 Speed_;
+uniform sampler2D Noise_texture;
+
+
+
+void fragment() {
+// ColorParameter:4
+	vec4 n_out4p0 = Aura_color;
+
+
+// Input:9
+	float n_out9p0 = TIME;
+
+
+// Vector2Parameter:8
+	vec2 n_out8p0 = Speed_;
+
+
+// VectorOp:6
+	vec2 n_out6p0 = vec2(n_out9p0) * n_out8p0;
+
+
+// UVFunc:5
+	vec2 n_in5p1 = vec2(1.00000, 1.00000);
+	vec2 n_out5p0 = n_out6p0 * n_in5p1 + UV;
+
+
+	vec4 n_out3p0;
+// Texture2D:3
+	n_out3p0 = texture(Noise_texture, n_out5p0);
+
+
+// Output:0
+	ALBEDO = vec3(n_out4p0.xyz);
+	ALPHA = n_out3p0.x;
+
+
+}
+"
+flags/unshaded = true
+flags/shadows_disabled = true
+nodes/fragment/0/position = Vector2(680, 120)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture2DParameter_riaos")
+nodes/fragment/2/position = Vector2(-260, 400)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_fqom7")
+nodes/fragment/3/position = Vector2(200, 280)
+nodes/fragment/4/node = SubResource("VisualShaderNodeColorParameter_yxf4x")
+nodes/fragment/4/position = Vector2(60, -200)
+nodes/fragment/5/node = SubResource("VisualShaderNodeUVFunc_5t7iq")
+nodes/fragment/5/position = Vector2(-220, 80)
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_lmfey")
+nodes/fragment/6/position = Vector2(-540, 220)
+nodes/fragment/8/node = SubResource("VisualShaderNodeVec2Parameter_2mjir")
+nodes/fragment/8/position = Vector2(-900, 380)
+nodes/fragment/9/node = SubResource("VisualShaderNodeInput_82jie")
+nodes/fragment/9/position = Vector2(-900, 140)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 2, 3, 0, 0, 1, 5, 0, 3, 0, 4, 0, 0, 0, 8, 0, 6, 1, 9, 0, 6, 0, 6, 0, 5, 2)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pgyk2"]
+load_path = "res://.godot/imported/Marble_03-512x512.png-156b68c75cfe4adfb0e1624d844d5591.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v1npn"]
+render_priority = 0
+shader = SubResource("VisualShader_mwk1d")
+shader_parameter/Aura_color = Color(0.90876096, 2.2901063, 3.8532078, 1)
+shader_parameter/Speed_ = Vector2(-0.5, -0.3)
+shader_parameter/Noise_texture = SubResource("CompressedTexture2D_pgyk2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_riaos"]
+albedo_color = Color(1.1259198, 7.6889853, 7.6889853, 1)
+emission_enabled = true
+emission = Color(0, 0, 16.568003, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fqom7"]
+radius = 0.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yxf4x"]
+radius = 0.70120823
+
+[sub_resource type="SphereMesh" id="SphereMesh_yxf4x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5t7iq"]
+render_priority = 0
+shader = ExtResource("4_fqom7")
+shader_parameter/Main_Color = Color(1, 1, 1, 1)
+shader_parameter/Effect_Color = Color(0.93700606, 2.2229905, 2.8768804, 1)
+shader_parameter/Octave_Count = 20
+shader_parameter/Amp_Start = 1.39
+shader_parameter/Amp_Coeff = 0.5
+shader_parameter/Freq_Coeff = 2.0
+shader_parameter/Speed = 1.0
+shader_parameter/Y_Size = 4.0
+shader_parameter/X_Size = 1.0
+shader_parameter/Emission_Power = 7.81
+shader_parameter/uv1_scale = Vector3(1, 0.3, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(0, 0, 0)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+
+[node name="Thrown_Avelyn_Fury of the Gods" type="Node3D"]
+script = ExtResource("1_4ck5m")
+metadata/_custom_type_script = "uid://b2pb1uhe2wsdr"
+
+[node name="Avelyn" parent="." instance=ExtResource("2_cbcr5")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Mace" parent="Avelyn" index="0"]
+material_overlay = SubResource("ShaderMaterial_v1npn")
+
+[node name="Center Sphere" parent="Avelyn" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_riaos")
+
+[node name="Hammer_ray_cast" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03512913, -0.55272317)
+shape = SubResource("SphereShape3D_fqom7")
+target_position = Vector3(0, 0, 0)
+collision_mask = 6
+
+[node name="Hammer_hitbox" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5610335)
+script = ExtResource("3_riaos")
+metadata/_custom_type_script = "uid://dflwyxok3081k"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hammer_hitbox"]
+shape = SubResource("SphereShape3D_yxf4x")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.49106315)
+light_color = Color(0.909, 2.29, 3.853, 1)
+light_energy = 0.1200692
+omni_range = 45.0
+omni_attenuation = 4.5083046
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.062075675, -0.42333022)
+mesh = SubResource("SphereMesh_yxf4x")
+surface_material_override/0 = SubResource("ShaderMaterial_5t7iq")
+
+[editable path="Avelyn"]

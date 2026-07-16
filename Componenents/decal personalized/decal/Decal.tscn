@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccmqhubohwr1s"]
+
+[ext_resource type="Shader" uid="uid://bcyx81nt00pnb" path="res://Componenents/decal personalized/shader/Decal Shader .gdshader" id="1_lhaa8"]
+[ext_resource type="Texture2D" uid="uid://m0h5f211sm8t" path="res://Componenents/decal personalized/textures/T_cracks33_E3.jpg" id="2_e8dwk"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_koult"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e8dwk"]
+render_priority = 0
+shader = ExtResource("1_lhaa8")
+shader_parameter/Scale = Vector2(1, 1)
+shader_parameter/Albedo = ExtResource("2_e8dwk")
+shader_parameter/Albedo_Mix = 1.10000002384186
+shader_parameter/Emission_Energy = 1.0
+shader_parameter/Modulate = Color(1, 1, 1, 1)
+shader_parameter/Modulate_Emission = Color(1, 1, 1, 1)
+shader_parameter/cube_half_size = 15.0
+shader_parameter/enable_y_fade = true
+shader_parameter/fade_start = 0.3
+shader_parameter/fade_end = 0.7
+shader_parameter/fade_power = 2.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ea8mk"]
+size = Vector2(15, 15)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e8dwk"]
+
+[node name="Decal" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6132647, 0.5430447, 0.5513948)
+mesh = SubResource("BoxMesh_koult")
+surface_material_override/0 = SubResource("ShaderMaterial_e8dwk")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_ea8mk")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = SubResource("BoxMesh_e8dwk")

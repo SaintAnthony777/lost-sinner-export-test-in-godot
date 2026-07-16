@@ -20,5 +20,6 @@ func enter() -> void:
 func physics_update(_delta) -> void:
 	character.cam_adjustement_for_attack_and_lockings(camera_offset_no_offense_here)
 	player.gravity_applying(_delta)
+	player.nullyfying_velocity(_delta)
 	player.move_and_slide()
 	

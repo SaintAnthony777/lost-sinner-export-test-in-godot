@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwv77mfe51yfh"]
+
+[ext_resource type="Script" uid="uid://b2pb1uhe2wsdr" path="res://Character/Miscs/Accessories/Weapons/Justicière des abysses/Scripts/thrown_hammer.gd" id="1_eg2hg"]
+[ext_resource type="PackedScene" uid="uid://dl8nll5ey4q13" path="res://Componenents/Avelyn/scenes/avelyn.tscn" id="2_vkxi8"]
+[ext_resource type="Script" uid="uid://dflwyxok3081k" path="res://Componenents/Hitbox and HurtBox/hitbox_component.gd" id="3_8t4kb"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fqom7"]
+radius = 0.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yxf4x"]
+radius = 0.70120823
+
+[node name="Thrown_Avelyn" type="Node3D"]
+script = ExtResource("1_eg2hg")
+attack_nature = "Physical"
+metadata/_custom_type_script = "uid://b2pb1uhe2wsdr"
+
+[node name="Avelyn" parent="." instance=ExtResource("2_vkxi8")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Hammer_ray_cast" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03512913, -0.55272317)
+shape = SubResource("SphereShape3D_fqom7")
+target_position = Vector3(0, 0, 0)
+collision_mask = 6
+
+[node name="Hammer_hitbox" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5610335)
+script = ExtResource("3_8t4kb")
+metadata/_custom_type_script = "uid://dflwyxok3081k"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hammer_hitbox"]
+shape = SubResource("SphereShape3D_yxf4x")

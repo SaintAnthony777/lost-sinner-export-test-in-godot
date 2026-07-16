@@ -21,6 +21,7 @@ func _ready() -> void:
 	add_theme_stylebox_override("normal",style_box_predefined)
 	add_theme_stylebox_override("hover",style_box_flat_with_things_on_th_outside)
 	add_theme_stylebox_override("focus",style_box_predefined)
+	
 func _pressed() -> void:
 	Inventory_UI.item_to_be_shown=item
 

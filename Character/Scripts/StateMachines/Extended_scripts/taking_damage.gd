@@ -15,12 +15,13 @@ func physics_update(_delta) -> void:
 	if !character.is_alive : player.is_locking=false ; state_machine.change_state("Dying")
 	character.cam_adjustement_for_attack_and_lockings(camera_offset_no_offense_here)
 	player.gravity_applying(_delta)
-	
+	player.nullyfying_velocity(_delta)
+	player.move_and_slide()
 func state_check()->void:
 	await character.animation_tree.animation_finished 
 	character.is_taking_damage=false
-	player.velocity=Vector3.ZERO
 	if !character.is_taking_damage:
+		player.velocity=Vector3.ZERO
 		if !player.is_locking:
 			state_machine.change_state("idle")
 		else:

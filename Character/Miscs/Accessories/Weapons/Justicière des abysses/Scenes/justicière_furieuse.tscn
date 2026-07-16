@@ -88,22 +88,22 @@ _data = {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dohj5"]
 shader = ExtResource("5_hypr3")
 
-[sub_resource type="Gradient" id="Gradient_rhnmn"]
+[sub_resource type="Gradient" id="Gradient_le3lt"]
 colors = PackedColorArray(4.989611, 1.4455855, 0, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_s2t1i"]
-gradient = SubResource("Gradient_rhnmn")
+gradient = SubResource("Gradient_le3lt")
 use_hdr = true
 
-[sub_resource type="Curve" id="Curve_dmpv5"]
+[sub_resource type="Curve" id="Curve_dohj5"]
 bake_resolution = 16
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_2s2l6"]
-curve = SubResource("Curve_dmpv5")
+curve = SubResource("Curve_dohj5")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_t81bo"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rhnmn"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("6_x1dme")
@@ -116,7 +116,7 @@ shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 
 shader_parameter/flags = 40
 
 [sub_resource type="QuadMesh" id="QuadMesh_7fnsx"]
-material = SubResource("ShaderMaterial_t81bo")
+material = SubResource("ShaderMaterial_rhnmn")
 
 [node name="Justicière Furieuse" instance=ExtResource("1_euvud")]
 

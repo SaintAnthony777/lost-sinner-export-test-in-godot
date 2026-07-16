@@ -43,3 +43,7 @@ func chasing_player(chase_speed:float)->void:
 	if !self.is_on_floor():
 		self.velocity.y-=15.0
 	self.move_and_slide()
+
+func nullyfying_velocity(delta:float)->void:
+	self.velocity.x=lerp(self.velocity.x,.0,delta*10)
+	self.velocity.z=lerp(self.velocity.z,.0,delta*10)
