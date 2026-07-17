@@ -1,0 +1,91 @@
+[gd_scene load_steps=6 format=3 uid="uid://6afishd6hgdh"]
+
+[ext_resource type="Script" uid="uid://d2dx37bjn3e1w" path="res://Componenents/User prompt Guide/script/user_prompt_guide.gd" id="1_oeum4"]
+[ext_resource type="Texture2D" uid="uid://3wxj4t21v4cd" path="res://Componenents/User prompt Guide/textures/Keyboard & Mouse/Double/keyboard_a_outline.png" id="2_ucxi8"]
+[ext_resource type="FontFile" uid="uid://d0ug5noy0uhhl" path="res://Fonts/Cinzel,EB_Garamond/EB_Garamond/static/EBGaramond-Regular.ttf" id="3_gyq7l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i0t42"]
+font = ExtResource("3_gyq7l")
+font_size = 45
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gyq7l"]
+font = ExtResource("3_gyq7l")
+font_size = 50
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="User Prompt Guide" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_oeum4")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="can_interact_container" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -257.0
+offset_top = -257.0
+offset_right = 257.0
+offset_bottom = -129.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Texture" type="MarginContainer" parent="can_interact_container"]
+layout_mode = 2
+
+[node name="Prompt_texture" type="TextureRect" parent="can_interact_container/Texture"]
+layout_mode = 2
+texture = ExtResource("2_ucxi8")
+
+[node name="Interaction" type="MarginContainer" parent="can_interact_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Prompt text" type="Label" parent="can_interact_container/Interaction"]
+layout_mode = 2
+text = "
+"
+label_settings = SubResource("LabelSettings_i0t42")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Unable_to_interact" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -284.0
+offset_top = -231.0
+offset_right = 319.0
+offset_bottom = -152.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Unable_to_interact_text" type="Label" parent="Unable_to_interact"]
+layout_mode = 2
+text = "Locked or something like that"
+label_settings = SubResource("LabelSettings_gyq7l")
+horizontal_alignment = 1
+vertical_alignment = 1

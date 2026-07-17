@@ -209,7 +209,6 @@ Enchants={
 
 renderer/rendering_method="gl_compatibility"
 viewport/hdr_2d=true
-anti_aliasing/quality/msaa_3d=1
 
 [shader_globals]
 

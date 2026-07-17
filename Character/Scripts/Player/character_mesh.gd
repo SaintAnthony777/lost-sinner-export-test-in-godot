@@ -92,10 +92,13 @@ var current_attack_nature : String = ""
 
 @onready var attack_direction:String="left"
 
+
+#interaction and all that 
+@onready var character_user_prompt_guide: user_prompt_guide = $"Prompt_guide/character user Prompt Guide"
+
 func _ready() -> void:
 	health_component.Moveable_Player=player
 	Shield_Light.hide()
-	
 func _process(delta: float) -> void:
 	play_passive_gift_sound()
 	

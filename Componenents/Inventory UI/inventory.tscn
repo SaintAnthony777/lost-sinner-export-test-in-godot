@@ -86,7 +86,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.8509804)
+color = Color(0, 0, 0, 0.95686275)
 
 [node name="ColorRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -295,7 +295,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cx342")
 metadata/_edit_use_anchors_ = true
 
-[node name="Long_descriptions_box" type="VBoxContainer" parent="Item_panel"]
+[node name="Item_scroll_container" type="ScrollContainer" parent="Item_panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -303,7 +303,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Item title Text container" type="MarginContainer" parent="Item_panel/Long_descriptions_box"]
+[node name="Long_descriptions_box" type="VBoxContainer" parent="Item_panel/Item_scroll_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Item title Text container" type="MarginContainer" parent="Item_panel/Item_scroll_container/Long_descriptions_box"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 15
@@ -311,7 +315,7 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="Big_panel Title" type="Label" parent="Item_panel/Long_descriptions_box/Item title Text container"]
+[node name="Big_panel Title" type="Label" parent="Item_panel/Item_scroll_container/Long_descriptions_box/Item title Text container"]
 custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 text = "jack's aegis"
@@ -319,28 +323,28 @@ label_settings = SubResource("LabelSettings_b6vic")
 vertical_alignment = 1
 autowrap_mode = 1
 
-[node name="Item First Description container" type="MarginContainer" parent="Item_panel/Long_descriptions_box"]
+[node name="Item First Description container" type="MarginContainer" parent="Item_panel/Item_scroll_container/Long_descriptions_box"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="Big_panel Short descripion" type="Label" parent="Item_panel/Long_descriptions_box/Item First Description container"]
+[node name="Big_panel Short descripion" type="Label" parent="Item_panel/Item_scroll_container/Long_descriptions_box/Item First Description container"]
 custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 label_settings = SubResource("LabelSettings_e0jke")
 vertical_alignment = 1
 autowrap_mode = 1
 
-[node name="Item Long Description container2" type="MarginContainer" parent="Item_panel/Long_descriptions_box"]
+[node name="Item Long Description container2" type="MarginContainer" parent="Item_panel/Item_scroll_container/Long_descriptions_box"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="Long description" type="Label" parent="Item_panel/Long_descriptions_box/Item Long Description container2"]
+[node name="Long description" type="Label" parent="Item_panel/Item_scroll_container/Long_descriptions_box/Item Long Description container2"]
 custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 text = "Once upon a different lifetime. Years and years ago, a man was said to be a threat to even the gods, he was the kindest of his brothers. He wielded a power and a body way beyond comparison, so strong that he built this shield with his bare hands, not to protect himself but as a token of protection for all those he loved."

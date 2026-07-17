@@ -78,10 +78,11 @@ func taking_damage(taken_attack:Attack):
 	
 	#death ckeck
 	death_check()
-	
 	if Current_health==0:
+		HitStopManager.hit_stop_function(.3,.8)
 		owner.is_alive=false
-	else : HitStopManager.hit_stop_function(.01,.1)
+	else :
+		HitStopManager.hit_stop_function(.01,.1)
 	
 func death_check()->void:
 	if Current_health<0:Current_health=0

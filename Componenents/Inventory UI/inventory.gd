@@ -24,17 +24,17 @@ extends Control
 @onready var short_description_panel: Panel = $"Short description panel"
 
 ##large_descriptions
-@onready var big_panel_title: Label = $"Item_panel/Long_descriptions_box/Item title Text container/Big_panel Title"
-@onready var big_panel_short_descripion: Label = $"Item_panel/Long_descriptions_box/Item First Description container/Big_panel Short descripion"
-@onready var long_description: Label = $"Item_panel/Long_descriptions_box/Item Long Description container2/Long description"
-@onready var long_descriptions_box: VBoxContainer = $Item_panel/Long_descriptions_box
+@onready var big_panel_title: Label = $"Item_panel/Item_scroll_container/Long_descriptions_box/Item title Text container/Big_panel Title"
+@onready var big_panel_short_descripion: Label = $"Item_panel/Item_scroll_container/Long_descriptions_box/Item First Description container/Big_panel Short descripion"
+@onready var long_description: Label = $"Item_panel/Item_scroll_container/Long_descriptions_box/Item Long Description container2/Long description"
+@onready var long_descriptions_box: VBoxContainer = $Item_panel/Item_scroll_container/Long_descriptions_box
 @onready var item_panel_descriptions: Panel = $Item_panel
 
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("inventory") and !Pause_UI.visible:
 		show_and_hide_inventory()
-	if Input.is_action_just_pressed("Pause") and self.visible:
+	if (Input.is_action_just_pressed("Pause") or Input.is_action_just_pressed("Aiming")) and self.visible :
 		get_tree().paused = false ; Input.mouse_mode=Input.MOUSE_MODE_CAPTURED ; 
 		clear_items_list();
 		array_of_items.clear()

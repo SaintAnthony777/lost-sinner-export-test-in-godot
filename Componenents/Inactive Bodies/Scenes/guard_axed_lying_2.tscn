@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxv6uq5f3rqk5"]
+
+[ext_resource type="PackedScene" uid="uid://dnw2wy3vggkvf" path="res://Componenents/Inactive Bodies/Inactive guys/lying down 2/guard axed lying 2.glb" id="1_mrnv0"]
+
+[node name="guard axed lying 2" instance=ExtResource("1_mrnv0")]

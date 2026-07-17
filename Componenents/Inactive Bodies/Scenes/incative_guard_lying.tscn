@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3sl0joqb81p1"]
+
+[ext_resource type="Script" uid="uid://caq4mrffo3w6f" path="res://Componenents/Inactive Bodies/script/incative_guard_lying.gd" id="1_3axt4"]
+[ext_resource type="PackedScene" uid="uid://p37tg787jh2x" path="res://Componenents/Inactive Bodies/Scenes/Main model.tscn" id="1_leaxr"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3axt4"]
+radius = 0.3
+height = 1.175
+
+[node name="Incative Guard Lying" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_3axt4")
+animation = "Lying Down"
+
+[node name="guard axed" parent="." instance=ExtResource("1_leaxr")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.19999999, -0.16250002)
+shape = SubResource("CapsuleShape3D_3axt4")
+
+[editable path="guard axed"]

@@ -13,8 +13,8 @@ fill_to = Vector2(1, 0.97720796)
 
 [sub_resource type="LabelSettings" id="LabelSettings_lu5pk"]
 font = ExtResource("3_cjhaw")
-font_size = 27
-outline_size = 1
+font_size = 35
+outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
 [node name="HealthBar canvas" type="CanvasLayer"]
