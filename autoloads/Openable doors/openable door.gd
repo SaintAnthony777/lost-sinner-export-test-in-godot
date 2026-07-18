@@ -6,6 +6,8 @@ class_name Openable_Gate extends Node3D
 @onready var personnage:player_character=get_tree().get_first_node_in_group("Personnage")
 @onready var opening_side:=""
 @onready var interacted:bool=false
+@onready var scene_shower : PackedScene=load("res://Componenents/item picked panel show/item_shower.tscn")
+
 @onready var player_pos:Marker3D=$Playerposition
 @onready var gate_left:MeshInstance3D=$"Door left"
 @onready var gate_right:MeshInstance3D=$"Door Right"
@@ -26,7 +28,10 @@ func _process(delta: float) -> void:
 			if area is interaction_area:
 				area.disable_all_collsion()
 			gate_animation.play("Open from "+opening_side)
-		
+		if inter_area.required_item:
+			var scene_shown:item_shower=scene_shower.instantiate()
+			scene_shown.item_used=inter_area.required_item
+			personnage.character.item_picked_panel_shower.add_child(scene_shown)
 
 func Opened_door_state(Side:String)->void:
 	interacted=true

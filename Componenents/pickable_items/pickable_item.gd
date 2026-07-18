@@ -15,6 +15,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if (Input.is_action_just_pressed("Action trigger") and !personnage.is_busy and !interacted and 
 	inter_area and inter_area.interact==self and personnage.character.interacts):
+		interacted = true
 		personnage.player_inventory.add_item(item_held,item_number)
 		var given_item : item_shower = scene_shower.instantiate()
 		given_item.item_got = item_held

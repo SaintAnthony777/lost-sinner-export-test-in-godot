@@ -29,6 +29,7 @@ func _on_quit_to_main_menu_pressed() -> void:
 func _on_yes_main_menu_pressed() -> void:
 	get_tree().paused=false
 	SaveManager.save_stats(playernode)
+	SaveManager.write_save()
 	get_tree().change_scene_to_file("res://Componenents/MainScreenUI/main_screen_ui.tscn")
 func show_and_hide(box1:Control,box2:Control):
 	box1.hide()
@@ -46,4 +47,5 @@ func _on_no_desktop_pressed() -> void:
 func _on_yes_desktop_pressed() -> void:
 	get_tree().paused=false
 	SaveManager.save_stats(playernode)
+	SaveManager.write_save()
 	get_tree().quit()

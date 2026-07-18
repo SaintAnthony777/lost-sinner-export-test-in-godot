@@ -243,6 +243,8 @@ libraries = {
 
 [node name="Gate Front Interaction area" type="Area3D" parent="." node_paths=PackedStringArray("gate_owner", "player_marker", "player_look_at")]
 script = ExtResource("3_0piym")
+required_item = "Symbol of Halfrey"
+deny_text = "The Symbol of the guardian is requiered"
 side_for_doors = "Front"
 gate_owner = NodePath("..")
 interaction_type = "Opens gate"
@@ -275,6 +277,8 @@ font = ExtResource("4_2wjdu")
 [node name="Gate Back Interaction area2" type="Area3D" parent="." node_paths=PackedStringArray("gate_owner", "player_marker", "player_look_at")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6)
 script = ExtResource("3_0piym")
+required_item = "Symbol of Halfrey"
+deny_text = "The Symbol of the guardian is requiered"
 side_for_doors = "Back"
 gate_owner = NodePath("..")
 interaction_type = "Opens gate"

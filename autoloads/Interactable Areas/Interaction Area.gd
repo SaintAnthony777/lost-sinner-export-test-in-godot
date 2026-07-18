@@ -72,14 +72,14 @@ func _on_body_entered(body: Node3D) -> void:
 		player.save_location=saveplace.save_place_name
 	if gate_owner :
 		gate_owner.opening_side=side_for_doors
-
+		
 func _on_body_exited(body: Node3D) -> void:
-	if pickable_owner: interact = pickable_owner
-	else : interact = owner
+	interact = owner
 	player.character.character_user_prompt_guide.hide()
 	
 	if body is player_character :
-		interact.inter_area=null
+		if interact:
+			interact.inter_area=null
 		player_is_in_area=false
 		player.can_interact=false
 		interaction_text.hide()

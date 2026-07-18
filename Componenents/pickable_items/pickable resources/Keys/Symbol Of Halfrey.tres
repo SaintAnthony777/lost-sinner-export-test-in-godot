@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Inventory_Item" load_steps=2 format=3 uid="uid://cdfoy4smla4e3"]
+
+[ext_resource type="Script" uid="uid://cksbl7u3uxuln" path="res://Componenents/Inventory/Inventory Item.gd" id="1_o5hqj"]
+
+[resource]
+script = ExtResource("1_o5hqj")
+item_name = "Symbol of Halfrey"
+item_description = "A medalion that was a symbol of what the guardian of the prison was. Halfrey was a proud warrior and also the one who made sure the peace between the humans and the giants will stay on forever. He had no bad intention whatsoever building the lowlands great prison, it was meant to rehabilitate criminals or to hold the grudges of the world. But when Yami came, the fear of leaving the humans and the giants to their fate gained him, he thought that keeping the sinner at any cost as far away as possible from Archadia will be enough."
+is_stackable = false
+category = "key"
+short_description = "A token that bears the symbol of the fallen brave, allows one to open the great prison gates."
+metadata/_custom_type_script = "uid://cksbl7u3uxuln"

@@ -335,7 +335,7 @@ custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 label_settings = SubResource("LabelSettings_e0jke")
 vertical_alignment = 1
-autowrap_mode = 1
+autowrap_mode = 2
 
 [node name="Item Long Description container2" type="MarginContainer" parent="Item_panel/Item_scroll_container/Long_descriptions_box"]
 layout_mode = 2

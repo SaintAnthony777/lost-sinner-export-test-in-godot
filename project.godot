@@ -200,6 +200,7 @@ Enchants={
 3d_physics/layer_6="Breakables"
 3d_physics/layer_7="Interaction area"
 3d_physics/layer_8="Evergreen Shards"
+3d_physics/layer_9="broken_parts"
 
 [physics]
 

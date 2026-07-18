@@ -1,6 +1,7 @@
 class_name item_shower extends PanelContainer
 @onready var personnage:player_character=get_tree().get_first_node_in_group("Personnage")
 @onready var item_got : Inventory_Item 
+@onready var item_used : String 
 @onready var custom_style_box_panel : StyleBoxFlat = StyleBoxFlat.new()
 @onready var label : Label = $Label
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -20,6 +21,9 @@ func show_item() -> void:
 				set_borders("e7182a")
 			if item_got.category=="key":
 				set_borders("bfc300")
+	elif item_used:
+		set_borders("ffffff")
+		label.text="Used the "+item_used
 	self.add_theme_stylebox_override("panel",custom_style_box_panel)
 	await get_tree().create_timer(3.0,true,false,true).timeout
 	animation_player.play("RESET")
