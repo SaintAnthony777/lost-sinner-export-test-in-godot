@@ -2,11 +2,13 @@ extends State
 
 @onready var character: character_mesh = $"../../The Lost Sinner1"
 @onready var player: player_character = $"../.."
+
 func enter() -> void:
 	character.is_blocking=false
 	character.crosshair_layer.hide()
 	player.is_busy=false
-	
+	player.can_switch_camera=true
+
 func physics_update(_delta) -> void:
 	player.camera.fov=lerp(player.camera.fov,75.0,.1)
 	state_logic(_delta)

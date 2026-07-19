@@ -16,8 +16,7 @@ func physics_update(_delta) -> void:
 func state_logics () -> void :
 	if !character.is_divine_dividing:
 		state_machine.change_state("falling")
-func exit() -> void:
-	player.reset_camera()
+		
 func aerial_trick():
 	character.jump_logics("Special","World Strongest man")
 	

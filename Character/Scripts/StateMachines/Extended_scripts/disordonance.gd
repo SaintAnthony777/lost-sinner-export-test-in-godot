@@ -16,5 +16,4 @@ func state_logic(_delta)->void:
 		state_machine.change_state("idle")
 func disordoncance_tricks()->void:
 	character.special_attacks("Graces","Disordonance")
-func exit() -> void:
-	player.reset_camera()
+	

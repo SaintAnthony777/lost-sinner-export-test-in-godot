@@ -24,11 +24,7 @@ func physics_update(_delta) -> void:
 	
 func state_logics () -> void :
 	if !character.is_divine_dividing:
-		camera_check()
 		state_machine.change_state("falling")
-		
-func camera_check()->void:
-	player.reset_camera()
 func aerial_trick():
 	character.jump_logics("Special","Screaming_Silence")
 	

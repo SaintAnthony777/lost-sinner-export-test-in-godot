@@ -17,5 +17,5 @@ func state_logics () -> void :
 		if character.can_unleash_divine_divider:
 			state_machine.change_state("world strongest man release")
 		else:
-			player.reset_camera()
+			
 			state_machine.change_state("idle")

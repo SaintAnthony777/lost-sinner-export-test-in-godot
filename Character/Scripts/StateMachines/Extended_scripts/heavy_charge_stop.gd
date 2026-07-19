@@ -17,6 +17,3 @@ func state_logic()->void:
 func heavy_charge_stop_logic()->void:
 	player.velocity=Vector3.ZERO
 	character.jump_logics("Grace","Air Heavy Charge Stop")
-
-func exit()->void:
-	player.reset_camera()

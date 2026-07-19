@@ -14,6 +14,4 @@ func physics_update(_delta) -> void:
 func state_logics () -> void :
 	if !character.is_divine_dividing:
 		state_machine.change_state("idle")
-
-func exit() -> void:
-	player.reset_camera()
+		

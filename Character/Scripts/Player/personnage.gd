@@ -166,7 +166,6 @@ func push_rigids()->void:
 			get_slide_collision(i).get_collider().apply_central_impulse(-get_slide_collision(i).get_normal()*1.0)
 
 func camera_rotation_logic(delta:float):
-	
 	camera_controller.rotation.x+=camera_input_direction.y*delta
 	camera_controller.rotation.x=clamp(camera_controller.rotation.x, -PI/6.0 , PI/3.0)
 	camera_controller.rotation.y-=camera_input_direction.x*delta
@@ -243,8 +242,8 @@ func switch_special(special_to_be_switched_list:Array)->void:
 	can_switch_special=true
 	
 func reset_camera()->void:
-	if camera_position=="left" : camera.h_offset=-.7 
-	else : camera.h_offset=.7
+	if camera_position=="left" : camera.h_offset=-.25 
+	else : camera.h_offset=.25
 	camera.v_offset=0.0
 	can_switch_camera=true
 	
@@ -304,7 +303,15 @@ func nullyfying_velocity(delta:float)->void:
 func adapt_camera(delta)->void:
 	##offset
 	var ratio:float=spring_arm_3d.get_hit_length()
-	var cam_pos:float =.2 if camera_position=="right" else -.2
+	var cam_pos:float
+	if character.is_divine_dividing or character.is_making_grace:
+		cam_pos=0.0
+	else :
+		print(camera_position)
+		if camera_position=="left":
+			cam_pos=-0.25
+		elif camera_position=="right" :
+			cam_pos=.25
 	var target_offset:float=cam_pos*ratio
 	camera.h_offset=lerp(camera.h_offset,target_offset,.1)
 	##position spring_arm
@@ -320,4 +327,4 @@ func spring_arm_init()->void:
 	
 func aim_at_center()->void:
 		character.look_at(Vector3(self.get_target_point().x,self.global_position.y,self.get_target_point().z))
-		character.rotate_y(PI)
+	

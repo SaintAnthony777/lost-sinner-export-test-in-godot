@@ -20,6 +20,5 @@ func input_check()->void:
 	if !character.air_lashes:
 		character.is_divine_dividing=false
 		state_machine.change_state("idle")
-
-func exit() -> void:
+		
 	player.reset_camera()

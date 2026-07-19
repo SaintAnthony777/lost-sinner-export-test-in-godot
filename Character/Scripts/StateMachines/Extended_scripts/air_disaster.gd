@@ -15,5 +15,4 @@ func state_logic(delta)->void:
 		state_machine.change_state("falling")
 func disordoncance_tricks()->void:
 	character.jump_logics("Grace","Air Disaster")
-func exit() -> void:
-	player.reset_camera()
+	

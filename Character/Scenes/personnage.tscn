@@ -75,6 +75,7 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ov8r6"]
 margin = 1.0
+radius = 0.2
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_itldn"]
 points = PackedVector3Array(0, 0, 0, 10, 5, -20, 10, -5, -20, -10, -5, -20, -10, 5, -20)

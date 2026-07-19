@@ -12,7 +12,7 @@ func state_logic(delta)->void:
 	player.aim_at_center()
 	if Input.is_action_just_released("Grace"):
 		if !character.can_unleash_heavy_charge:
-			player.reset_camera()
+			character.is_making_grace=false
 			state_machine.change_state("idle")
 		else :state_machine.change_state("heavy charge unleash")
 	player.camera_shaking(.2,3.0)

@@ -42,7 +42,7 @@ var opening_door:bool=false
 var interacts:bool=false
 
 var current_attack_nature : String = ""
-
+var is_enchanting:bool=false
 @onready var player: player_character = $".."
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var slow_mo:slow_mo_node=$"slow_mo_node"

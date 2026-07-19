@@ -18,4 +18,4 @@ func air_disordonance_landing_check()->void:
 	character.jump_logics("Grace","Air Disordonance lands")
 func exit() -> void:
 	character.air_lashes=false
-	player.reset_camera()
+	

@@ -20,4 +20,4 @@ func idle_check()->void:
 	state_machine.change_state("idle")
 func exit() -> void:
 	character.get_aura_by_gift(player.chosen_gift).hide()
-	player.reset_camera()
+	
