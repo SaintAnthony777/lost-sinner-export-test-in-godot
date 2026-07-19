@@ -22,6 +22,4 @@ func input_check()->void:
 		state_machine.change_state("idle")
 
 func exit() -> void:
-	if player.camera_position=="left" : player.camera.h_offset=-.7
-	else : player.camera.h_offset=.7
-	player.can_switch_camera=true
+	player.reset_camera()

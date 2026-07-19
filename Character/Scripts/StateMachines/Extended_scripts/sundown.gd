@@ -16,7 +16,4 @@ func state_logics () -> void :
 		state_machine.change_state("idle")
 
 func exit() -> void:
-	if player.camera_position=="left" : player.camera.h_offset=-.7 
-	else : player.camera.h_offset=.7
-	player.camera.v_offset=0.0
-	player.can_switch_camera=true
+	player.reset_camera()

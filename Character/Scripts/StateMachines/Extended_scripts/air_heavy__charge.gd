@@ -9,7 +9,7 @@ func enter() -> void:
 	
 func physics_update(_delta) -> void:
 	player.camera_rotation_logic(_delta)
-	character.look_at(Vector3(player.get_target_point().x,player.global_position.y,player.get_target_point().z))
+	player.aim_at_center()
 	player.camera.fov=lerp(player.camera.fov,95.0,.1)
 	state_logic(_delta)
 

@@ -28,7 +28,7 @@ fill_to = Vector2(1, 0.4017094)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_13vvo"]
 render_priority = 0
 shader = ExtResource("3_bhc74")
-shader_parameter/Mainshiner = Color(1.4538956, 1.4538956, 1.4538956, 0)
+shader_parameter/Mainshiner = Color(1.4534599, 1.4534599, 1.4534599, 0)
 shader_parameter/Shinig_Speed = 1.0
 shader_parameter/Alpha_texture = SubResource("GradientTexture2D_kmr3d")
 

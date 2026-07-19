@@ -28,9 +28,7 @@ func state_logics () -> void :
 		state_machine.change_state("falling")
 		
 func camera_check()->void:
-	if player.camera_position=="left" : player.camera.h_offset=-.7 
-	else : player.camera.h_offset=.7
-	player.can_switch_camera=true
+	player.reset_camera()
 func aerial_trick():
 	character.jump_logics("Special","Screaming_Silence")
 	

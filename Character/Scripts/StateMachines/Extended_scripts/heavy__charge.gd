@@ -9,7 +9,7 @@ func enter() -> void:
 func state_logic(delta)->void:
 	player.camera.fov=lerp(player.camera.fov,105.0,1.0)
 	player.camera_rotation_logic(delta)
-	character.look_at(Vector3(player.get_target_point().x,player.global_position.y,player.get_target_point().z))
+	player.aim_at_center()
 	if Input.is_action_just_released("Grace"):
 		if !character.can_unleash_heavy_charge:
 			player.reset_camera()

@@ -35,7 +35,8 @@ func _process(delta: float) -> void:
 	if player_is_in_area:
 		if player.is_busy:
 			player.can_interact=false
-			interaction_text.hide()
+			if interaction_text:
+				interaction_text.hide()
 			player.character.character_user_prompt_guide.hide()
 		else :
 			if required_item and !player.player_inventory.has_the_item(required_item,1): 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://6afishd6hgdh"]
 
 [ext_resource type="Script" uid="uid://d2dx37bjn3e1w" path="res://Componenents/User prompt Guide/script/user_prompt_guide.gd" id="1_oeum4"]
-[ext_resource type="Texture2D" uid="uid://3wxj4t21v4cd" path="res://Componenents/User prompt Guide/textures/Keyboard & Mouse/Double/keyboard_a_outline.png" id="2_ucxi8"]
+[ext_resource type="Texture2D" uid="uid://deyuws7hjri4m" path="res://Componenents/User prompt Guide/textures/Keyboard & Mouse/Vector/keyboard_a_outline.svg" id="2_gyq7l"]
 [ext_resource type="FontFile" uid="uid://d0ug5noy0uhhl" path="res://Fonts/Cinzel,EB_Garamond/EB_Garamond/static/EBGaramond-Regular.ttf" id="3_gyq7l"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i0t42"]
@@ -36,17 +36,19 @@ anchor_bottom = 1.0
 offset_left = -257.0
 offset_top = -257.0
 offset_right = 257.0
-offset_bottom = -129.0
+offset_bottom = -134.0
 grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 
 [node name="Texture" type="MarginContainer" parent="can_interact_container"]
+custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 
 [node name="Prompt_texture" type="TextureRect" parent="can_interact_container/Texture"]
 layout_mode = 2
-texture = ExtResource("2_ucxi8")
+texture = ExtResource("2_gyq7l")
+expand_mode = 1
 
 [node name="Interaction" type="MarginContainer" parent="can_interact_container"]
 layout_mode = 2

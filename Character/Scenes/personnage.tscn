@@ -75,7 +75,6 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ov8r6"]
 margin = 1.0
-radius = 0.2
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_itldn"]
 points = PackedVector3Array(0, 0, 0, 10, 5, -20, 10, -5, -20, -10, -5, -20, -10, 5, -20)
@@ -240,7 +239,6 @@ margin = 1.0
 
 [node name="Camera3D" type="Camera3D" parent="Camera_pivot/SpringArm3D"]
 unique_name_in_owner = true
-transform = Transform3D(0.99999994, 4.1909516e-09, 7.450581e-09, 2.3283064e-09, 0.99999964, -4.0978193e-08, 1.4901161e-08, -7.450581e-09, 0.99999994, 0, 0, 0)
 keep_aspect = 0
 cull_mask = 983039
 

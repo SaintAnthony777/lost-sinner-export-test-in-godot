@@ -7,6 +7,9 @@ class_name player_character
 @export_range(0.0,1.0) var mouse_sensitivity:float=0.025
 @export var SPEED := 5.0
 @export var JUMP_VELOCITY :=8.0
+@export var best_vertical_position:float
+@export var best_horizontal_position:float
+@export var max_separation:float
 
 @onready var camera_controller: Node3D = %Camera_pivot
 @onready var character: character_mesh = $"The Lost Sinner1"
@@ -24,6 +27,7 @@ class_name player_character
 @onready var max_fruits:int=0
 @onready var max_seeds:int=0
 
+@onready var spring_arm_3d: SpringArm3D = $Camera_pivot/SpringArm3D
 
 @onready var divine_dividers_consumption_dict:Dictionary ={
 	"Screaming Silence":45.0,
@@ -90,8 +94,7 @@ var shield:Inventory_Item=Inventory_Item.new()
 var last_picked_item:Inventory_Item=null
 
 func _ready() -> void:
-	print(chosen_gift)
-	camera.h_offset=.7
+	#spring_arm_init()
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 	character.inv_UI.given_inventory=player_inventory
 	if divine_divider_list:
@@ -123,7 +126,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera_input_direction=event.screen_relative*mouse_sensitivity
 	
 func _physics_process(_delta: float) -> void:
-	
+	adapt_camera(_delta)
 	SimpleGrass.set_player_position(global_position)
 	if divine_divider_list :
 		current_divine_divider = divine_divider_list[current_divine_divider_index]
@@ -163,6 +166,7 @@ func push_rigids()->void:
 			get_slide_collision(i).get_collider().apply_central_impulse(-get_slide_collision(i).get_normal()*1.0)
 
 func camera_rotation_logic(delta:float):
+	
 	camera_controller.rotation.x+=camera_input_direction.y*delta
 	camera_controller.rotation.x=clamp(camera_controller.rotation.x, -PI/6.0 , PI/3.0)
 	camera_controller.rotation.y-=camera_input_direction.x*delta
@@ -285,6 +289,8 @@ func camera_shaking(max_rotation_degrees:float,duration:float)->void:
 		
 		time_left-=get_process_delta_time()
 		await get_tree().process_frame
+		if not is_instance_valid(self) or not is_inside_tree():
+			return
 		#rotation_start.x = camera.rotation.x - offset_x
 		rotation_start.y = camera.rotation.y -offset_y
 		
@@ -294,3 +300,24 @@ func camera_shaking(max_rotation_degrees:float,duration:float)->void:
 func nullyfying_velocity(delta:float)->void:
 	self.velocity.x=lerp(self.velocity.x,0.0,delta*10)
 	self.velocity.z=lerp(self.velocity.z,0.0,delta*10)
+	
+func adapt_camera(delta)->void:
+	##offset
+	var ratio:float=spring_arm_3d.get_hit_length()
+	var cam_pos:float =.2 if camera_position=="right" else -.2
+	var target_offset:float=cam_pos*ratio
+	camera.h_offset=lerp(camera.h_offset,target_offset,.1)
+	##position spring_arm
+	#var current_length : float = spring_arm_3d.get_hit_length()
+	#var ratio : float = current_length / max_separation
+	#var target_x := best_horizontal_position * ratio
+	##target_x = -target_x if camera_position=="left" else target_x
+	#spring_arm_3d.position.x=lerp(spring_arm_3d.position.x,target_x,15.0*delta)
+	
+func spring_arm_init()->void:
+	spring_arm_3d.spring_length=max_separation
+	spring_arm_3d.margin = .2
+	
+func aim_at_center()->void:
+		character.look_at(Vector3(self.get_target_point().x,self.global_position.y,self.get_target_point().z))
+		character.rotate_y(PI)

@@ -47,7 +47,7 @@ hint_text = "action trigger"
 [node name="Hint area2" parent="." instance=ExtResource("1_nh8ef")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
 texture_to_be_shown = ExtResource("3_3ov10")
-hint_text = "use item"
+hint_text = "use item like shards and all that"
 
 [node name="Personnage" parent="." instance=ExtResource("4_godk5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2)

@@ -1,8 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://c50qwyeyoplna"]
+[gd_scene load_steps=6 format=3 uid="uid://c50qwyeyoplna"]
 
 [ext_resource type="Script" uid="uid://di4rly3qben5x" path="res://Componenents/user commands guide/user_command_guide.gd" id="1_b0dpj"]
 [ext_resource type="FontFile" uid="uid://d0ug5noy0uhhl" path="res://Fonts/Cinzel,EB_Garamond/EB_Garamond/static/EBGaramond-Regular.ttf" id="2_8ecyj"]
 [ext_resource type="Texture2D" uid="uid://he2aekptv3w" path="res://Componenents/User prompt Guide/textures/Keyboard & Mouse/Vector/mouse_scroll_up_outline.svg" id="2_51npt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ecyj"]
+bg_color = Color(0, 0, 0, 0.23137255)
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+expand_margin_left = 15.0
+expand_margin_right = 15.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_51npt"]
 font = ExtResource("2_8ecyj")
@@ -20,22 +29,28 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_b0dpj")
 
-[node name="command to show" type="HBoxContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.4484375
-anchor_top = 0.19537038
-anchor_right = 0.5515625
-anchor_bottom = 0.25648147
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -156.5
+offset_top = 143.0
+offset_right = 156.5
+offset_bottom = 209.0
 grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ecyj")
+
+[node name="command to show" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="button to show" type="TextureRect" parent="command to show"]
+[node name="button to show" type="TextureRect" parent="PanelContainer/command to show"]
 layout_mode = 2
 size_flags_horizontal = 0
 texture = ExtResource("2_51npt")
 
-[node name="Tip text" type="Label" parent="command to show"]
+[node name="Tip text" type="Label" parent="PanelContainer/command to show"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Change item"
