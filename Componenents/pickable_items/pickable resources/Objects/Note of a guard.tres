@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Inventory_Item" load_steps=2 format=3 uid="uid://gjrtak3hu807"]
+
+[ext_resource type="Script" uid="uid://cksbl7u3uxuln" path="res://Componenents/Inventory/Inventory Item.gd" id="1_cbrlt"]
+
+[resource]
+script = ExtResource("1_cbrlt")
+item_name = "Note of a guard"
+item_description = "This note is almost shred to dust, but a few lines are still clear. 'I know that Yami is strong and we really have to to our best so that he never reaches the sinner. But I don't think keeping him here is the solution, while Jack and the others are still on the set we should accept the sinner to fight with us, I trust he is of good in his heart. Even so, orders are orders and me and my men will follow Halfrey's order as he wishes it.'."
+is_stackable = false
+category = "object"
+short_description = "A note left by one of the guards "
+metadata/_custom_type_script = "uid://cksbl7u3uxuln"

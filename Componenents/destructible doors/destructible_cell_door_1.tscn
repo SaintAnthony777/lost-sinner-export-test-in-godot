@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bimivk2u3kj5x"]
+[gd_scene load_steps=13 format=3 uid="uid://bimivk2u3kj5x"]
 
 [ext_resource type="Script" uid="uid://cakitfhm5emmo" path="res://autoloads/Fracturable Static body/Fracturable_static.gd" id="1_tpaxv"]
 [ext_resource type="PackedScene" uid="uid://hgvgd0yi6vhs" path="res://Environnements Pre-tests/The Great Prison/Walls/Scenes/Fractured Door/fractured_door_1.tscn" id="2_bhc74"]
+[ext_resource type="Shader" uid="uid://b5jkuewj4w6qk" path="res://Componenents/destructible doors/shaders/shinig shader.tres" id="3_bhc74"]
 [ext_resource type="ArrayMesh" uid="uid://n8jokjq88avn" path="res://Environnements Pre-tests/The Great Prison/Walls/Meshes/Barred Door.res" id="3_kmr3d"]
 [ext_resource type="Script" uid="uid://bibpdrfengocv" path="res://Componenents/HealthComponent/health_component.gd" id="4_13vvo"]
 [ext_resource type="Script" uid="uid://4i450if78qh1" path="res://Componenents/Hitbox and HurtBox/hurt_box_component.gd" id="5_bi7dj"]
@@ -11,6 +12,25 @@ points = PackedVector3Array(-1.0223701, -3.1765459, -1.962483e-05, -0.9643264, -
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tpaxv"]
 size = Vector3(2, 4, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kmr3d"]
+size = Vector3(2, 4, 0.2)
+
+[sub_resource type="Gradient" id="Gradient_bhc74"]
+offsets = PackedFloat32Array(0.3448276, 0.52873564, 0.7356322)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kmr3d"]
+gradient = SubResource("Gradient_bhc74")
+fill_from = Vector2(1, 0.23076923)
+fill_to = Vector2(1, 0.4017094)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_13vvo"]
+render_priority = 0
+shader = ExtResource("3_bhc74")
+shader_parameter/Mainshiner = Color(1.4538956, 1.4538956, 1.4538956, 0)
+shader_parameter/Shinig_Speed = 1.0
+shader_parameter/Alpha_texture = SubResource("GradientTexture2D_kmr3d")
 
 [node name="Destructible cell Door 1" type="StaticBody3D"]
 collision_layer = 32
@@ -43,3 +63,8 @@ shape = SubResource("BoxShape3D_tpaxv")
 
 [node name="Spawn Point" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0.001866579)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0720311, 0)
+mesh = SubResource("BoxMesh_kmr3d")
+surface_material_override/0 = SubResource("ShaderMaterial_13vvo")

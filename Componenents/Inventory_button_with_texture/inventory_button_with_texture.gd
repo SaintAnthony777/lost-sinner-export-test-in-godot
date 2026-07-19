@@ -23,4 +23,5 @@ func _pressed()->void:
 func _hovered()->void:
 	inventory.item_to_be_short_described = item_given
 func _exit_hover()->void:
-	inventory.item_to_be_short_described = null
+	pass
+	#inventory.item_to_be_short_described = null

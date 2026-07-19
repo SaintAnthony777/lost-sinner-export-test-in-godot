@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Inventory_Item" load_steps=2 format=3 uid="uid://ddppaw5shccul"]
+
+[ext_resource type="Script" uid="uid://cksbl7u3uxuln" path="res://Componenents/Inventory/Inventory Item.gd" id="1_haxok"]
+
+[resource]
+script = ExtResource("1_haxok")
+item_name = "Note of Grim 2"
+item_description = "The note says, 'Remember, if you want to rest,use the evergreen shards as restpoints, you will recover most of your capacities.'."
+category = "object"
+short_description = "Another note left By Grim"
+metadata/_custom_type_script = "uid://cksbl7u3uxuln"

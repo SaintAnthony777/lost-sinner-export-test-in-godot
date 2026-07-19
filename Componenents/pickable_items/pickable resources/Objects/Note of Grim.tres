@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Inventory_Item" load_steps=2 format=3 uid="uid://cmuh6iqhrs8d5"]
+
+[ext_resource type="Script" uid="uid://cksbl7u3uxuln" path="res://Componenents/Inventory/Inventory Item.gd" id="1_0bt62"]
+
+[resource]
+script = ExtResource("1_0bt62")
+item_name = "Note of Grim"
+item_description = "Strange fact that he wants me to get out, judging by what happens here, the situation may be at its worse point out there. The note says 'With the Hammer and the shield the guards should be of no problem to you,after all they are mostly just dead bodies right now as they are still animated by the orders of Halfrey, but still, remember they are meant to hold you here by any means necessary so don't let your guard down.' ."
+category = "object"
+short_description = "The words left by the God of Death himself."
+metadata/_custom_type_script = "uid://cksbl7u3uxuln"

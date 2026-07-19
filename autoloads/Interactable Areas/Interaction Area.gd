@@ -29,8 +29,8 @@ func _ready() -> void:
 	body_exited.connect(_on_body_exited)
 
 func _process(delta: float) -> void:
-	
-	interaction_text.text = current_interaction
+	if interaction_text:
+		interaction_text.text = current_interaction
 	
 	if player_is_in_area:
 		if player.is_busy:
@@ -82,7 +82,8 @@ func _on_body_exited(body: Node3D) -> void:
 			interact.inter_area=null
 		player_is_in_area=false
 		player.can_interact=false
-		interaction_text.hide()
+		if interaction_text:
+			interaction_text.hide()
 		if interact and !interact.interacted:
 			Hint.show()
 

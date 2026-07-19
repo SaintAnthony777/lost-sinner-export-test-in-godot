@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://d0ftqpojxqcoq"]
+
+[ext_resource type="PackedScene" uid="uid://dm526qmedyih4" path="res://Componenents/Hint Area/hint_area.tscn" id="1_nh8ef"]
+[ext_resource type="Texture2D" uid="uid://3wxj4t21v4cd" path="res://Componenents/User prompt Guide/textures/Keyboard & Mouse/Double/keyboard_a_outline.png" id="2_godk5"]
+[ext_resource type="Texture2D" uid="uid://babpvw1jr1arp" path="res://Componenents/User prompt Guide/textures/Keyboard & Mouse/Double/keyboard_e_outline.png" id="3_3ov10"]
+[ext_resource type="PackedScene" uid="uid://srgn3wkeivsn" path="res://Character/Scenes/personnage.tscn" id="4_godk5"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3ov10"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_aa4of"]
+sky_material = SubResource("ProceduralSkyMaterial_3ov10")
+
+[sub_resource type="Environment" id="Environment_nhqmw"]
+background_mode = 2
+sky = SubResource("Sky_aa4of")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_aa4of"]
+size = Vector2(45, 45)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_16s2p"]
+points = PackedVector3Array(-22.5, 0, -22.5, -22.5, 0, 22.5, 22.5, 0, -22.5, 22.5, 0, 22.5)
+
+[node name="test user guide" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." groups=["World Environnements"]]
+environment = SubResource("Environment_nhqmw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_aa4of")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_16s2p")
+
+[node name="Hint area" parent="." instance=ExtResource("1_nh8ef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -1)
+texture_to_be_shown = ExtResource("2_godk5")
+hint_text = "action trigger"
+
+[node name="Hint area2" parent="." instance=ExtResource("1_nh8ef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+texture_to_be_shown = ExtResource("3_3ov10")
+hint_text = "use item"
+
+[node name="Personnage" parent="." instance=ExtResource("4_godk5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2)

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Inventory_Item" load_steps=2 format=3 uid="uid://g23183k0p1wu"]
+
+[ext_resource type="Script" uid="uid://cksbl7u3uxuln" path="res://Componenents/Inventory/Inventory Item.gd" id="1_flfva"]
+
+[resource]
+script = ExtResource("1_flfva")
+item_name = "Disaster"
+item_description = "One of the few spells that combines a swordmaster's abilities and a wiseman's knowledge. This spell casts an array of swords that will be the towering defense against any foe. Jack was all amazed when they showed him this spell, he said he never saw chaos and calm."
+short_description = "A power that shows what a scholar can do with magic and swords. A spell that challenges Halfrey's sword."
+metadata/_custom_type_script = "uid://cksbl7u3uxuln"

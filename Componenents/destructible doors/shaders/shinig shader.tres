@@ -1,0 +1,104 @@
+[gd_resource type="VisualShader" load_steps=10 format=3 uid="uid://b5jkuewj4w6qk"]
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_8t3to"]
+parameter_name = "Mainshiner"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_8t3to"]
+expanded_output_ports = [0]
+source = 5
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_gtl7o"]
+parameter_name = "Alpha_texture"
+
+[sub_resource type="VisualShaderNodeClamp" id="VisualShaderNodeClamp_8t3to"]
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_8t3to"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_gtl7o"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_nbpx2"]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_52faw"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_evvjd"]
+parameter_name = "Shinig_Speed"
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform vec4 Mainshiner : source_color;
+uniform float Shinig_Speed;
+uniform sampler2D Alpha_texture;
+
+
+
+void fragment() {
+// ColorParameter:10
+	vec4 n_out10p0 = Mainshiner;
+
+
+// Input:6
+	float n_out6p0 = TIME;
+
+
+// FloatParameter:9
+	float n_out9p0 = Shinig_Speed;
+
+
+// FloatOp:8
+	float n_out8p0 = n_out6p0 * n_out9p0;
+
+
+// VectorCompose:7
+	vec2 n_out7p0 = vec2(n_out8p0, n_out8p0);
+
+
+// UVFunc:5
+	vec2 n_in5p1 = vec2(1.00000, 1.00000);
+	vec2 n_out5p0 = n_out7p0 * n_in5p1 + UV;
+
+
+	vec4 n_out2p0;
+// Texture2D:2
+	n_out2p0 = texture(Alpha_texture, n_out5p0);
+	float n_out2p1 = n_out2p0.r;
+
+
+// Clamp:4
+	float n_in4p1 = 0.00000;
+	float n_in4p2 = 1.00000;
+	float n_out4p0 = clamp(n_out2p1, n_in4p1, n_in4p2);
+
+
+// Output:0
+	ALBEDO = vec3(n_out10p0.xyz);
+	ALPHA = n_out4p0;
+
+
+}
+"
+nodes/fragment/0/position = Vector2(1120, 200)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_8t3to")
+nodes/fragment/2/position = Vector2(360, 220)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture2DParameter_gtl7o")
+nodes/fragment/3/position = Vector2(80, 460)
+nodes/fragment/4/node = SubResource("VisualShaderNodeClamp_8t3to")
+nodes/fragment/4/position = Vector2(773.56366, 355.9182)
+nodes/fragment/5/node = SubResource("VisualShaderNodeUVFunc_8t3to")
+nodes/fragment/5/position = Vector2(-40, 220)
+nodes/fragment/6/node = SubResource("VisualShaderNodeInput_gtl7o")
+nodes/fragment/6/position = Vector2(-860, 420)
+nodes/fragment/7/node = SubResource("VisualShaderNodeVectorCompose_nbpx2")
+nodes/fragment/7/position = Vector2(-240, 380)
+nodes/fragment/8/node = SubResource("VisualShaderNodeFloatOp_52faw")
+nodes/fragment/8/position = Vector2(-460, 540)
+nodes/fragment/9/node = SubResource("VisualShaderNodeFloatParameter_evvjd")
+nodes/fragment/9/position = Vector2(-820, 760)
+nodes/fragment/10/node = SubResource("VisualShaderNodeColorParameter_8t3to")
+nodes/fragment/10/position = Vector2(780, 40)
+nodes/fragment/connections = PackedInt32Array(3, 0, 2, 2, 2, 1, 4, 0, 4, 0, 0, 1, 5, 0, 2, 0, 7, 0, 5, 2, 6, 0, 8, 0, 9, 0, 8, 1, 10, 0, 0, 0, 8, 0, 7, 1, 8, 0, 7, 0)

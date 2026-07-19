@@ -96,6 +96,9 @@ var current_attack_nature : String = ""
 #interaction and all that 
 @onready var character_user_prompt_guide: user_prompt_guide = $"Prompt_guide/character user Prompt Guide"
 
+#user hint guide
+@onready var user_command_guide: UserCommandGuide = $"User_command_canvas/User Command guide"
+
 func _ready() -> void:
 	health_component.Moveable_Player=player
 	Shield_Light.hide()

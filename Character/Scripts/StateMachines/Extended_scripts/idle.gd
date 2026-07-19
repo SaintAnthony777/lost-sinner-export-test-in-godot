@@ -6,6 +6,7 @@ func enter() -> void:
 	character.is_blocking=false
 	character.crosshair_layer.hide()
 	player.is_busy=false
+	
 func physics_update(_delta) -> void:
 	player.camera.fov=lerp(player.camera.fov,75.0,.1)
 	state_logic(_delta)

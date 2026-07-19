@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Inventory_Item" load_steps=2 format=3 uid="uid://cm865os0j1nqe"]
+
+[ext_resource type="Script" uid="uid://cksbl7u3uxuln" path="res://Componenents/Inventory/Inventory Item.gd" id="1_6rath"]
+
+[resource]
+script = ExtResource("1_6rath")
+item_name = "Heavy Charge"
+item_description = "Ludwig was known as the one who was the bridge between the outer world and Archadia. Contrary to Maerlyn, Jack and Halfrey he did not have any weapon of sort that was unique, instead his speed had no equal. Despite his speed He lost his life when giving his body to seal Rex, one of Yami's child and also one of the three pieces that would allow Yami to cross a path to the Human world."
+category = "grace"
+short_description = "The power of ludwig, the messenger of light. Grants the power to cross space at an incredible speed"
+metadata/_custom_type_script = "uid://cksbl7u3uxuln"

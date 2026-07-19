@@ -163,6 +163,8 @@ libraries = {
 
 [node name="interaction_area" type="Area3D" parent="." node_paths=PackedStringArray("player_look_at")]
 script = ExtResource("4_on8vp")
+required_item = "Symbol of Halfrey"
+deny_text = "No one leaves"
 interaction_type = "Praying"
 current_interaction = "Pray at the sword of the fallen"
 player_look_at = NodePath("lookat_node")

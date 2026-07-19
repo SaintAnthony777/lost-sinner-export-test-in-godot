@@ -1,4 +1,4 @@
-[gd_scene load_steps=212 format=3 uid="uid://xumlackoysv2"]
+[gd_scene load_steps=213 format=3 uid="uid://xumlackoysv2"]
 
 [ext_resource type="PackedScene" uid="uid://dshsna3bwyfl7" path="res://Character/Glb/lost sinner 1/The Lost Sinner1.glb" id="1_ag85x"]
 [ext_resource type="Script" uid="uid://dijb6jh7etgx0" path="res://Character/Scripts/Player/character_mesh.gd" id="2_ukanm"]
@@ -61,6 +61,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://djcr6mfod1bko" path="res://Character/Imported Animations/touching/touching.res" id="46_se81j"]
 [ext_resource type="PackedScene" uid="uid://vmt2q2icv0wp" path="res://Componenents/Wind trails/scenes/wind_trails_2.tscn" id="49_48y4d"]
 [ext_resource type="PackedScene" uid="uid://cm6aseo5cujgb" path="res://Componenents/thrust forward mesh/Scenes/thrust_forward_mesh.tscn" id="50_o11jx"]
+[ext_resource type="PackedScene" uid="uid://c50qwyeyoplna" path="res://Componenents/user commands guide/user_command_guide.tscn" id="61_l8bo3"]
 [ext_resource type="Script" uid="uid://bibpdrfengocv" path="res://Componenents/HealthComponent/health_component.gd" id="62_fu2q5"]
 [ext_resource type="PackedScene" uid="uid://6afishd6hgdh" path="res://Componenents/User prompt Guide/user_prompt_guide.tscn" id="63_2n8w1"]
 
@@ -18022,7 +18023,7 @@ metadata/_custom_type_script = "uid://b2q8xkjq2aytj"
 [node name="Heavy Charge Ray cast" type="RayCast3D" parent="." index="9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2699435, 0.88781756)
 target_position = Vector3(0, 0, 1)
-collision_mask = 6
+collision_mask = 166
 
 [node name="HurtBoxComponent" type="Area3D" parent="." index="10" node_paths=PackedStringArray("health_comp")]
 collision_layer = 16
@@ -18107,19 +18108,24 @@ follow_viewport_enabled = true
 [node name="character user Prompt Guide" parent="Prompt_guide" index="0" instance=ExtResource("63_2n8w1")]
 visible = false
 
-[node name="Inventory layer" type="CanvasLayer" parent="." index="21"]
+[node name="User_command_canvas" type="CanvasLayer" parent="." index="21"]
+
+[node name="User Command guide" parent="User_command_canvas" index="0" instance=ExtResource("61_l8bo3")]
+visible = false
+
+[node name="Inventory layer" type="CanvasLayer" parent="." index="22"]
 follow_viewport_enabled = true
 
 [node name="Inventory" parent="Inventory layer" index="0" instance=ExtResource("43_ktiam")]
 visible = false
 
-[node name="Pause Menu canvas" type="CanvasLayer" parent="." index="22"]
+[node name="Pause Menu canvas" type="CanvasLayer" parent="." index="23"]
 
 [node name="Pause Menu" parent="Pause Menu canvas" index="0" instance=ExtResource("45_wjcrg")]
 process_mode = 3
 visible = false
 
-[node name="HealthComponent" type="Node" parent="." index="23" node_paths=PackedStringArray("Health_gauge")]
+[node name="HealthComponent" type="Node" parent="." index="24" node_paths=PackedStringArray("Health_gauge")]
 script = ExtResource("62_fu2q5")
 Max_health = 100.0
 Vulnerability = Array[String](["Physical"])

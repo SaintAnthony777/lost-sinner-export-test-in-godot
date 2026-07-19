@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cshv10lkkmeha"
-path="res://.godot/imported/Guard's note.PNG-67e7f970769d6127c8557f9abef56289.ctex"
+uid="uid://bxndoha0dir38"
+path="res://.godot/imported/Note of Grim.PNG-9d9e8331199bd47770f892d25776632d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Componenents/Krita Icons for equipement/Icons/Guard's note.PNG"
-dest_files=["res://.godot/imported/Guard's note.PNG-67e7f970769d6127c8557f9abef56289.ctex"]
+source_file="res://Componenents/Krita Icons for equipement/Icons/Note of Grim.PNG"
+dest_files=["res://.godot/imported/Note of Grim.PNG-9d9e8331199bd47770f892d25776632d.ctex"]
 
 [params]
 

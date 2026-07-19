@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Inventory_Item" load_steps=2 format=3 uid="uid://dwe3mm1r0asvg"]
+
+[ext_resource type="Script" uid="uid://cksbl7u3uxuln" path="res://Componenents/Inventory/Inventory Item.gd" id="1_vln4d"]
+
+[resource]
+script = ExtResource("1_vln4d")
+item_name = "Note of a guard"
+item_description = "The few lines that can be read says '... Whatever happens, Yami won't get to here, the spell made by Grim and Halfrey will last mostly forever, but I don't think it's of any good to us guards, I mean it's our duty to stay here and keep the sinner as far away as possible from Yami but now It's been ages and Halfrey hasn't come out of his world. I know he would never leave us here unprotected but ..."
+is_stackable = false
+category = "object"
+short_description = "The notes of one of the guards here"
+metadata/_custom_type_script = "uid://cksbl7u3uxuln"

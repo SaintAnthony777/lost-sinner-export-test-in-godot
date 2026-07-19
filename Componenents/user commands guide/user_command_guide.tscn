@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://c50qwyeyoplna"]
+
+[ext_resource type="Script" uid="uid://di4rly3qben5x" path="res://Componenents/user commands guide/user_command_guide.gd" id="1_b0dpj"]
+[ext_resource type="FontFile" uid="uid://d0ug5noy0uhhl" path="res://Fonts/Cinzel,EB_Garamond/EB_Garamond/static/EBGaramond-Regular.ttf" id="2_8ecyj"]
+[ext_resource type="Texture2D" uid="uid://he2aekptv3w" path="res://Componenents/User prompt Guide/textures/Keyboard & Mouse/Vector/mouse_scroll_up_outline.svg" id="2_51npt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_51npt"]
+font = ExtResource("2_8ecyj")
+font_size = 50
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="User Command guide" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_b0dpj")
+
+[node name="command to show" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4484375
+anchor_top = 0.19537038
+anchor_right = 0.5515625
+anchor_bottom = 0.25648147
+grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="button to show" type="TextureRect" parent="command to show"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_51npt")
+
+[node name="Tip text" type="Label" parent="command to show"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Change item"
+label_settings = SubResource("LabelSettings_51npt")
+vertical_alignment = 1

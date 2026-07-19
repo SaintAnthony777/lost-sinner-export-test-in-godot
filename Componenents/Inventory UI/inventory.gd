@@ -29,6 +29,8 @@ extends Control
 @onready var long_description: Label = $"Item_panel/Item_scroll_container/Long_descriptions_box/Item Long Description container2/Long description"
 @onready var long_descriptions_box: VBoxContainer = $Item_panel/Item_scroll_container/Long_descriptions_box
 @onready var item_panel_descriptions: Panel = $Item_panel
+#empty data
+@onready var empty_box_shower: MarginContainer = $"Item Panel/Empty_box_shower"
 
 
 func _input(event: InputEvent) -> void:
@@ -50,24 +52,25 @@ func show_and_hide_inventory()->void:
 	self.visible=!self.visible
 	
 func _process(delta: float) -> void:
-	if array_of_items : item_panel.show()
-	else : item_panel.hide()
+	if category_to_be_shown:
+		if array_of_items:empty_box_shower.hide()
+		else : empty_box_shower.show()
 	if item_to_be_short_described:
-		short_description_panel.show()
+		#short_description_panel.show()
 		small_panel_title.text=item_to_be_short_described.item_name
 		small_panel_short_description.text=item_to_be_short_described.short_description
 	else :
-		short_description_panel.hide()
+		#short_description_panel.hide()
 		small_panel_title.text=""
 		small_panel_short_description.text=""
 	
 	if item_to_be_shown:
-		item_panel_descriptions.show()
+		#item_panel_descriptions.show()
 		big_panel_title.text=item_to_be_shown.item_name
 		big_panel_short_descripion.text=item_to_be_shown.short_description
 		long_description.text=item_to_be_shown.item_description
 	else :
-		item_panel_descriptions.hide()
+		#item_panel_descriptions.hide()
 		big_panel_title.text=""
 		big_panel_short_descripion.text=""
 		long_description.text=""
@@ -104,6 +107,7 @@ func item_desc_clean()->void:
 	long_description.text=""
 	item_to_be_shown=null
 	item_to_be_short_described=null
+	category_to_be_shown=""
 	
 func clear_items_list()->void:
 	item_desc_clean()

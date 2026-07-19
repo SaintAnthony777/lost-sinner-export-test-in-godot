@@ -6,7 +6,7 @@
 
 [sub_resource type="Gradient" id="Gradient_ldcjs"]
 offsets = PackedFloat32Array(0, 0.55376345, 1)
-colors = PackedColorArray(6.5898795, 6.5898795, 6.5898795, 1, 18.892157, 3.8798728, 6.827484, 1, 1, 1, 1, 0)
+colors = PackedColorArray(6.5898795, 6.5898795, 6.5898795, 1, 18.892157, 18.892157, 6.848802, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ecn4h"]
 gradient = SubResource("Gradient_ldcjs")
@@ -40,7 +40,7 @@ grow = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_518om"]
 material = SubResource("StandardMaterial3D_by0n2")
-size = Vector2(0.5, 0.5)
+size = Vector2(0.3, 0.3)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7ombm"]
 radius = 1.0
@@ -52,7 +52,8 @@ metadata/_custom_type_script = "uid://cictxuotnqh0v"
 
 [node name="Particles" type="GPUParticles3D" parent="."]
 amount = 45
-lifetime = 3.0
+lifetime = 2.0
+speed_scale = 0.33
 process_material = SubResource("ParticleProcessMaterial_7ombm")
 draw_pass_1 = SubResource("QuadMesh_518om")
 
@@ -67,7 +68,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_7ombm")
 
 [node name="Hint" type="Label3D" parent="interaction_area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2999997, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5999997, 0)
 pixel_size = 0.0195
 billboard = 1
 outline_modulate = Color(1, 1, 1, 1)

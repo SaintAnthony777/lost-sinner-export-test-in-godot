@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cktsm7c5nwsvg"]
+[gd_scene load_steps=16 format=3 uid="uid://cktsm7c5nwsvg"]
 
 [ext_resource type="Script" uid="uid://bturlus46enlt" path="res://Componenents/Inventory UI/inventory.gd" id="1_8xos3"]
 [ext_resource type="FontFile" uid="uid://ffia62sdtc4k" path="res://Fonts/Cinzel,EB_Garamond/Cinzel/static/Cinzel-Medium.ttf" id="2_56r8e"]
@@ -46,6 +46,12 @@ border_color = Color(1.9834908, 1.9834908, 1.3612077, 1)
 border_blend = true
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_r4tob"]
+font = ExtResource("6_dp3dx")
+font_size = 45
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_56r8e"]
 font = ExtResource("3_b6vic")
@@ -220,6 +226,21 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cx342")
 metadata/_edit_use_anchors_ = true
 
+[node name="Empty_box_shower" type="MarginContainer" parent="Item Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Item Panel/Empty_box_shower"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "You don't have any item of this type"
+label_settings = SubResource("LabelSettings_r4tob")
+
 [node name="MarginContainer" type="MarginContainer" parent="Item Panel"]
 layout_mode = 1
 anchors_preset = 15
@@ -288,8 +309,8 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.49635416
 anchor_top = 0.19907407
-anchor_right = 1.0
-anchor_bottom = 0.77037036
+anchor_right = 0.9959837
+anchor_bottom = 0.775
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cx342")
