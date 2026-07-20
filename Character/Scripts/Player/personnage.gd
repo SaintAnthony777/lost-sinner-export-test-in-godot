@@ -307,7 +307,6 @@ func adapt_camera(delta)->void:
 	if character.is_divine_dividing or character.is_making_grace:
 		cam_pos=0.0
 	else :
-		print(camera_position)
 		if camera_position=="left":
 			cam_pos=-0.25
 		elif camera_position=="right" :

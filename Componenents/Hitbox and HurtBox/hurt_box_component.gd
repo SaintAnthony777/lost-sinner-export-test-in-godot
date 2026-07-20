@@ -13,7 +13,7 @@ func _ready() -> void:
 	
 func _on_area_entered(area: Area3D) -> void:
 	if area is HitBoxComponent and self.owner!=area.owner and area.untouchable_owner!=owner:
-		
+		if health_comp.is_invulnerable:return
 		#print("attack from ",area.owner,"received by ",owner," message from ",area)
 		if area.owner.dealt_attack:
 			
