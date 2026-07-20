@@ -12,10 +12,6 @@
 [ext_resource type="Script" uid="uid://bt5876p7u6fai" path="res://Ennemies/Bosses/Halfrey/Scripts/Extended Scripts/slow_chase.gd" id="9_50gp6"]
 [ext_resource type="Script" uid="uid://up0tqqvyqkey" path="res://Ennemies/Bosses/Halfrey/Scripts/Extended Scripts/dying.gd" id="10_3xsv6"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l6s3y"]
-radius = 0.78808594
-height = 3.5214844
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50gp6"]
 shading_mode = 0
 
@@ -24,12 +20,30 @@ material = SubResource("StandardMaterial3D_50gp6")
 radius = 0.1
 height = 0.2
 
-[node name="Halfrey root" type="CharacterBody3D"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l6s3y"]
+radius = 0.78808594
+height = 3.5214844
+
+[node name="Halfrey root" type="CharacterBody3D" node_paths=PackedStringArray("aiming_node")]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_60m16")
-attack_range = null
+aiming_node = NodePath("head_attachement/aiming node")
 metadata/_custom_type_script = "uid://cugap2g484shs"
+
+[node name="head_attachement" type="BoneAttachment3D" parent="."]
+transform = Transform3D(0.6661143, 0.26865575, 0.72346294, 0.7646133, -0.10021296, -0.6667892, -0.10460144, 0.9782969, -0.26697755, -0.22942959, 0.17860833, 2.994292)
+bone_name = "mixamorig_Head"
+bone_idx = 5
+use_external_skeleton = true
+external_skeleton = NodePath("../Halfrey/Armature/Skeleton3D")
+
+[node name="aiming node" type="Marker3D" parent="head_attachement"]
+transform = Transform3D(0.98091894, 0, 0, 0, 0.98091847, 0, 0, 0, 0.98091865, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="head_attachement/aiming node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1360066, 0.7236614, 0)
+mesh = SubResource("SphereMesh_50gp6")
 
 [node name="Halfrey" parent="." instance=ExtResource("2_l6s3y")]
 
@@ -126,14 +140,6 @@ Health_gauge = NodePath("../../HealthBar canvas/Boss Hud/MarginContainer/Healthb
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9405031, 0)
 shape = SubResource("CapsuleShape3D_l6s3y")
-
-[node name="aiming node" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5355036, 0)
-visible = false
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="aiming node"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1360066, 0.7236614, 0)
-mesh = SubResource("SphereMesh_50gp6")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_l6rd2")

@@ -4,7 +4,7 @@ class_name enemy_root
 var visuals:EnemyVisuals
 var target:player_character
 var dealt_attack:Attack
-var aiming_node:Marker3D
+@export var aiming_node:Marker3D
 var is_alive:bool=true
 var is_blocking:=false
 @export var attack_range:float
@@ -14,7 +14,8 @@ func initialize_player() -> void:
 	target=get_tree().get_first_node_in_group("Personnage")
 	
 func initialize_aiming_node()->void:
-	aiming_node=get_node("aiming node")
+	pass
+	#aiming_node=get_node("aiming node")
 	
 func check_if_aimed_at():
 	if target.current_target and target.current_target==self and target.is_locking : aiming_node.show()

@@ -1,0 +1,95 @@
+[gd_scene load_steps=7 format=3 uid="uid://pt08jl64ovhk"]
+
+[ext_resource type="Script" uid="uid://bl0o177bo3pm8" path="res://Componenents/Radial Blur componene/radial_blur_and_chromatic_aberration.gd" id="1_2wsm6"]
+[ext_resource type="Shader" uid="uid://cbm35vhen40sr" path="res://Componenents/Radial Blur componene/radial_blur_and_chromatic_aberration.gdshader" id="2_33odm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pmir0"]
+shader = ExtResource("2_33odm")
+shader_parameter/blur_power = 0.01
+shader_parameter/chromatic_power = 0.02
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/samples = 20
+
+[sub_resource type="Animation" id="Animation_33odm"]
+resource_name = "Distorsion"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/blur_power")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.01, 0.6000000285, 0.6000000285, 0.01]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/chromatic_power")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.02, 0.400000019, 0.400000019, 0.02]
+}
+
+[sub_resource type="Animation" id="Animation_pmir0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/blur_power")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.01]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/chromatic_power")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.02]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pmir0"]
+_data = {
+&"Distorsion": SubResource("Animation_33odm"),
+&"RESET": SubResource("Animation_pmir0")
+}
+
+[node name="Radial Blur and chromatic aberration" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_2wsm6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_pmir0")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_pmir0")
+}
