@@ -25,5 +25,4 @@ func state_check()->void:
 		if !player.is_locking:
 			state_machine.change_state("idle")
 		else:
-			print("quitted taking damage")
 			state_machine.change_state("locking")

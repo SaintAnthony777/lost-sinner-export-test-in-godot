@@ -123,6 +123,7 @@ func locking_motion(direction:Vector2)->void:
 	grounding("Locking")
 	animation_tree.set("parameters/locking_blendspace/blend_position",direction)
 func shield_motion(current_action:String,input_dir:Vector2):
+	await get_tree().process_frame
 	grounding("Ground shielding")
 	animation_tree.set("parameters/Ground shield transistion/transition_request",current_action)
 	animation_tree.set("parameters/Shield blendspace strafe/blend_position",input_dir)
@@ -137,6 +138,7 @@ func grounding(stance:String)->void:
 	animation_tree.set("parameters/Moving/transition_request",stance)
 
 func taking_damage(damage_lift:String)->void:
+	await get_tree().process_frame
 	animation_tree.set("parameters/Ground_state/transition_request","Ground_Taking_Damage")
 	animation_tree.set("parameters/Ground_Taking_Damage_transitions/transition_request",damage_lift+" Damage")
 

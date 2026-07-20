@@ -8,6 +8,7 @@ class_name Boss_Visuals extends EnemyVisuals
 
 
 func Boss_motion(current_state:String,current_action:String)->void:
+	await get_tree().process_frame
 	animation_tree.set("parameters/Final Output Transition/transition_request",current_state)
 	animation_tree.set("parameters/"+current_state+" Motion Transition/transition_request",current_action)
 
