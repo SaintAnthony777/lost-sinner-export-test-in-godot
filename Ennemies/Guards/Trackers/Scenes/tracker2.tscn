@@ -1,0 +1,71 @@
+[gd_scene load_steps=12 format=3 uid="uid://ckdeblwbusye6"]
+
+[ext_resource type="Script" uid="uid://b2mma88kgmdm2" path="res://Ennemies/regular enemies/script/regular_enemy.gd" id="1_imsut"]
+[ext_resource type="PackedScene" uid="uid://b4j72348n1luh" path="res://Ennemies/Guards/Trackers/Scenes/guard_axed.tscn" id="2_m7xew"]
+[ext_resource type="Script" uid="uid://bua0kbub8bjta" path="res://Character/Scripts/StateMachines/Source_codes/StateMachine.gd" id="3_jf0vc"]
+[ext_resource type="Script" uid="uid://ck24g86ieunl0" path="res://Ennemies/regular enemies/Enemies Extended Scripts/idle.gd" id="4_hgqls"]
+[ext_resource type="Script" uid="uid://bgbua5rci4t1k" path="res://Ennemies/regular enemies/Enemies Extended Scripts/attack.gd" id="5_j2nr5"]
+[ext_resource type="Script" uid="uid://x0fb6is57wkw" path="res://Ennemies/regular enemies/Enemies Extended Scripts/chase.gd" id="6_or6bm"]
+[ext_resource type="Script" uid="uid://c5i637b412l2u" path="res://Ennemies/regular enemies/Enemies Extended Scripts/taking damage.gd" id="7_tr1k5"]
+[ext_resource type="Script" uid="uid://b7fqulhd4nfyg" path="res://Ennemies/regular enemies/Enemies Extended Scripts/dying.gd" id="8_1bn1a"]
+[ext_resource type="Script" uid="uid://td7jtpqrrdrr" path="res://Ennemies/regular enemies/Enemies Extended Scripts/strafing.gd" id="9_dq0i3"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_vmbfs"]
+viewport_path = NodePath("HealthSubViewPort")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q30j4"]
+radius = 0.4658203
+height = 1.730957
+
+[node name="Tracker" type="CharacterBody3D" node_paths=PackedStringArray("aiming_node")]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_imsut")
+aiming_node = NodePath("Visuals/Headattachement/aiming node")
+attack_range = 1.5
+metadata/_custom_type_script = "uid://b2mma88kgmdm2"
+
+[node name="Visuals" parent="." instance=ExtResource("2_m7xew")]
+
+[node name="Sprite3D" parent="Visuals/HealthBarAnchor" index="0"]
+texture = SubResource("ViewportTexture_vmbfs")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_jf0vc")
+initial_state = NodePath("Idle_Enemy")
+metadata/_custom_type_script = "uid://bua0kbub8bjta"
+
+[node name="Idle_Enemy" type="Node" parent="StateMachine"]
+script = ExtResource("4_hgqls")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource("5_j2nr5")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Chase" type="Node" parent="StateMachine"]
+script = ExtResource("6_or6bm")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="taking damage" type="Node" parent="StateMachine"]
+script = ExtResource("7_tr1k5")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Dying" type="Node" parent="StateMachine"]
+script = ExtResource("8_1bn1a")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Strafing" type="Node" parent="StateMachine"]
+script = ExtResource("9_dq0i3")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0293245, 0)
+shape = SubResource("CapsuleShape3D_q30j4")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+height = 2.0
+
+[connection signal="being_hit" from="." to="." method="_on_being_hit"]
+
+[editable path="Visuals"]

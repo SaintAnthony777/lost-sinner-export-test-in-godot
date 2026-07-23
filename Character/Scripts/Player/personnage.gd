@@ -323,18 +323,18 @@ func adapt_camera(delta)->void:
 	var target_y:=best_vertical_offset
 	##target_x = -target_x if camera_position=="left" else target_x
 	if is_locking:
-		if camera_position=="left":best_horizontal_offset = 1.5
-		else : best_horizontal_offset = -1.5
+		if camera_position=="left":best_horizontal_offset = 1.7;best_vertical_offset=-.9
+		else : best_horizontal_offset = -1.1;best_vertical_offset=0.0
 	elif Input.is_action_pressed("Aiming"):
 		if camera_position=="left":best_horizontal_offset = 1.0
 		else : best_horizontal_offset = -1.0
 	else :
 		if camera_position=="left":best_horizontal_offset = .8
 		else : best_horizontal_offset = -.8
+		
 	if character.is_divine_dividing or character.is_making_grace:
 		spring_arm_3d.position.x=lerp(spring_arm_3d.position.x,0.0,15.0*delta)
 		spring_arm_3d.position.y=lerp(spring_arm_3d.position.y,target_y,15.0*delta)
-		
 	else :
 		spring_arm_3d.position.x=lerp(spring_arm_3d.position.x,target_x,15.0*delta)
 		spring_arm_3d.position.y=lerp(spring_arm_3d.position.y,0.0,15.0*delta)

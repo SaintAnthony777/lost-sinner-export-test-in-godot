@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://iy8hslvdkxhi"]
+[gd_scene load_steps=12 format=3 uid="uid://iy8hslvdkxhi"]
 
 [ext_resource type="Script" uid="uid://b2mma88kgmdm2" path="res://Ennemies/regular enemies/script/regular_enemy.gd" id="1_q30j4"]
 [ext_resource type="PackedScene" uid="uid://b4j72348n1luh" path="res://Ennemies/Guards/Trackers/Scenes/guard_axed.tscn" id="2_087bu"]
@@ -10,37 +10,22 @@
 [ext_resource type="Script" uid="uid://td7jtpqrrdrr" path="res://Ennemies/regular enemies/Enemies Extended Scripts/strafing.gd" id="9_ohjtu"]
 [ext_resource type="Script" uid="uid://c5i637b412l2u" path="res://Ennemies/regular enemies/Enemies Extended Scripts/taking damage.gd" id="9_vmbfs"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_vmbfs"]
-viewport_path = NodePath("HealthSubViewPort")
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q30j4"]
 radius = 0.4658203
 height = 1.730957
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kn5ww"]
-shading_mode = 0
-
-[sub_resource type="SphereMesh" id="SphereMesh_pp1kf"]
-material = SubResource("StandardMaterial3D_kn5ww")
-radius = 0.1
-height = 0.2
+[sub_resource type="ViewportTexture" id="ViewportTexture_vmbfs"]
+viewport_path = NodePath("Visuals/HealthSubViewPort")
 
 [node name="Tracker" type="CharacterBody3D" node_paths=PackedStringArray("aiming_node")]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_q30j4")
-aiming_node = NodePath("Headattachement/aiming node")
+aiming_node = NodePath("Visuals/Headattachement/aiming node")
 attack_range = 1.5
 metadata/_custom_type_script = "uid://b2mma88kgmdm2"
 
 [node name="Visuals" parent="." instance=ExtResource("2_087bu")]
-
-[node name="Sprite3D" parent="Visuals/HealthBarAnchor" index="0"]
-texture = SubResource("ViewportTexture_vmbfs")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0293245, 0)
-shape = SubResource("CapsuleShape3D_q30j4")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("5_ohjtu")
@@ -71,24 +56,21 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 script = ExtResource("9_ohjtu")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0293245, 0)
+shape = SubResource("CapsuleShape3D_q30j4")
+
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 height = 2.0
 
-[node name="Headattachement" type="BoneAttachment3D" parent="."]
-transform = Transform3D(1.1934478, -0.11701033, -0.04462116, 0.10071643, 1.1509404, -0.32433358, 0.074422255, 0.31881756, 1.1544769, -0.11398155, 1.6700988, 0.16961315)
-bone_name = "mixamorig_Head"
-bone_idx = 5
-use_external_skeleton = true
-external_skeleton = NodePath("../Visuals/Armature/Skeleton3D")
+[node name="HealthBarAnchor" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0688846, 0)
 
-[node name="aiming node" type="Marker3D" parent="Headattachement"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -0.19743639, -7.450581e-09)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Headattachement/aiming node"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1360066, 0.7236614, 0)
-mesh = SubResource("SphereMesh_pp1kf")
+[node name="Sprite3D" type="Sprite3D" parent="HealthBarAnchor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.0688846, 0)
+billboard = 2
+texture = SubResource("ViewportTexture_vmbfs")
 
 [connection signal="being_hit" from="." to="." method="_on_being_hit"]
-[connection signal="being_hit" from="Visuals" to="Visuals" method="_on_being_hit"]
 
 [editable path="Visuals"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://b4j72348n1luh"]
+[gd_scene load_steps=56 format=3 uid="uid://b4j72348n1luh"]
 
 [ext_resource type="PackedScene" uid="uid://bgc46e2u6ytgy" path="res://Ennemies/Guards/Trackers/Model/guard axed.glb" id="1_icm8c"]
 [ext_resource type="PackedScene" uid="uid://co7phqnqxwpig" path="res://Ennemies/Guards/Weapons/scenes/tracker's_axe.tscn" id="2_bxhgb"]
@@ -7,6 +7,8 @@
 [ext_resource type="AnimationLibrary" uid="uid://davtc23u8a5uw" path="res://Ennemies/Guards/Trackers/Animation resources/Dying pack.res" id="5_44s4s"]
 [ext_resource type="Script" uid="uid://4i450if78qh1" path="res://Componenents/Hitbox and HurtBox/hurt_box_component.gd" id="5_usxs6"]
 [ext_resource type="Script" uid="uid://bibpdrfengocv" path="res://Componenents/HealthComponent/health_component.gd" id="6_44s4s"]
+[ext_resource type="Texture2D" uid="uid://eu25ybyhi0g3" path="res://Character/HUD/assets/Barres 2/Fond .PNG" id="6_rmabu"]
+[ext_resource type="Texture2D" uid="uid://ld33bs0kl8xt" path="res://Componenents/Hud Assets/Remplissage.PNG" id="7_10l5k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ym28q"]
 size = Vector3(0.48239136, 0.47216797, 0.17584229)
@@ -12705,7 +12707,6 @@ input_3/break_loop_at_end = false
 input_3/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_bxhgb"]
-graph_offset = Vector2(-1779.4486, 482.48502)
 nodes/output/position = Vector2(586.6667, 266.66666)
 nodes/Final_State/node = SubResource("AnimationNodeTransition_c06go")
 nodes/Final_State/position = Vector2(293.33334, 213.33333)
@@ -12757,18 +12758,17 @@ nodes/Animation/position = Vector2(-1440, -53.333332)
 "nodes/Animation 15/position" = Vector2(-2613.3333, 1360)
 node_connections = [&"output", 0, &"Final_State", &"Final_State", 0, &"Ground Transisitons", &"Final_State", 1, &"Airborne Transitions", &"Ground Transisitons", 0, &"Still motion transition", &"Ground Transisitons", 1, &"Chasing transition", &"Ground Transisitons", 2, &"Attacking transition", &"Ground Transisitons", 3, &"Dying transition", &"Ground Transisitons", 4, &"Taking Damage transition", &"Ground Transisitons", 5, &"Strafing transition", &"Still motion transition", 0, &"Animation", &"Still motion transition", 1, &"Animation 14", &"Chasing transition", 0, &"Animation 2", &"Attacking transition", 0, &"Animation 3", &"Attacking transition", 1, &"Animation 9", &"Attacking transition", 2, &"Animation 10", &"Attacking transition", 3, &"Animation 15", &"Taking Damage transition", 0, &"Animation 7", &"Taking Damage transition", 1, &"Animation 6", &"Taking Damage transition", 2, &"Animation 5", &"Taking Damage transition", 3, &"Animation 4", &"Dying transition", 0, &"Animation 8", &"Dying transition", 1, &"Animation 11", &"Strafing transition", 0, &"Animation 12", &"Strafing transition", 1, &"Animation 13"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kn5ww"]
+shading_mode = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_rmabu"]
+material = SubResource("StandardMaterial3D_kn5ww")
+radius = 0.1
+height = 0.2
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5lcun"]
 radius = 0.63134766
 height = 2.2539063
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rmabu"]
-load_path = "res://.godot/imported/Fond .PNG-fa9a20f05b13b4ccd05883a868e2c2d1.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_10l5k"]
-load_path = "res://.godot/imported/Remplissage.PNG-d6f76734bac8eabf6a0a1699de9f6c39.ctex"
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_mthhi"]
-viewport_path = NodePath("HealthSubViewPort")
 
 [node name="Visuals" instance=ExtResource("1_icm8c")]
 script = ExtResource("2_ym28q")
@@ -12982,26 +12982,19 @@ parameters/Final_State/current_index = 0
 "parameters/Strafing transition/transition_request" = ""
 "parameters/Strafing transition/current_index" = 0
 
-[node name="HurtBoxComponent" type="Area3D" parent="." index="3" node_paths=PackedStringArray("health_comp")]
-collision_layer = 16
-collision_mask = 16
-script = ExtResource("5_usxs6")
-health_comp = NodePath("../HealthComponent")
-metadata/_custom_type_script = "uid://4i450if78qh1"
+[node name="Headattachement" type="BoneAttachment3D" parent="." index="4"]
+transform = Transform3D(1.1934478, -0.11701033, -0.04462116, 0.10071643, 1.1509404, -0.32433358, 0.074422255, 0.31881756, 1.1544769, -0.11398155, 1.6700988, 0.16961315)
+bone_name = "mixamorig_Head"
+bone_idx = 5
+use_external_skeleton = true
+external_skeleton = NodePath("../Armature/Skeleton3D")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBoxComponent" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.149543, 0)
-shape = SubResource("CapsuleShape3D_5lcun")
+[node name="aiming node" type="Marker3D" parent="Headattachement" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -0.19743639, -7.450581e-09)
 
-[node name="HealthComponent" type="Node" parent="." index="4" node_paths=PackedStringArray("Health_gauge")]
-script = ExtResource("6_44s4s")
-Max_health = 100.0
-Vulnerability = Array[String](["Divine Divider", "Grace"])
-Resistance = Array[String](["Physical"])
-Health_gauge = NodePath("../HealthSubViewPort/EnemyHealth")
-Bearable_power = 3.0
-body_nature = "metal"
-metadata/_custom_type_script = "uid://bibpdrfengocv"
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Headattachement/aiming node" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1360066, 0.7236614, 0)
+mesh = SubResource("SphereMesh_rmabu")
 
 [node name="HealthSubViewPort" type="SubViewport" parent="." index="5"]
 disable_3d = true
@@ -13021,14 +13014,29 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.3)
 value = 53.0
-texture_under = SubResource("CompressedTexture2D_rmabu")
-texture_progress = SubResource("CompressedTexture2D_10l5k")
+nine_patch_stretch = true
+texture_under = ExtResource("6_rmabu")
+texture_progress = ExtResource("7_10l5k")
 tint_progress = Color(1.1379404, 0, 0.12515214, 1)
 
-[node name="HealthBarAnchor" type="Marker3D" parent="." index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0688846, 0)
+[node name="HurtBoxComponent" type="Area3D" parent="." index="6" node_paths=PackedStringArray("health_comp")]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("5_usxs6")
+health_comp = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://4i450if78qh1"
 
-[node name="Sprite3D" type="Sprite3D" parent="HealthBarAnchor" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.0688846, 0)
-billboard = 1
-texture = SubResource("ViewportTexture_mthhi")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBoxComponent" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.149543, 0)
+shape = SubResource("CapsuleShape3D_5lcun")
+
+[node name="HealthComponent" type="Node" parent="." index="7" node_paths=PackedStringArray("Health_gauge")]
+script = ExtResource("6_44s4s")
+Max_health = 100.0
+Resistance = Array[String](["Physical"])
+Health_gauge = NodePath("../HealthSubViewPort/EnemyHealth")
+Bearable_power = 13.0
+body_nature = "metal"
+metadata/_custom_type_script = "uid://bibpdrfengocv"
+
+[connection signal="being_hit" from="." to="." method="_on_being_hit"]
