@@ -72,10 +72,11 @@
 [ext_resource type="Script" uid="uid://cnifllb6v6yv3" path="res://Character/Scripts/StateMachines/Extended_scripts/quick_read.gd" id="70_f7odx"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ov8r6"]
+radius = 0.6
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ov8r6"]
 margin = 0.1
-radius = 0.05
+radius = 0.02
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_itldn"]
 points = PackedVector3Array(0, 0, 0, 10, 5, -20, 10, -5, -20, -10, -5, -20, -10, 5, -20)
@@ -98,7 +99,7 @@ mouse_sensitivity = 0.05
 best_horizontal_offset = -1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0458833, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0458833, 0.052616954)
 shape = SubResource("CapsuleShape3D_ov8r6")
 
 [node name="The Lost Sinner1" parent="." instance=ExtResource("2_ov8r6")]
