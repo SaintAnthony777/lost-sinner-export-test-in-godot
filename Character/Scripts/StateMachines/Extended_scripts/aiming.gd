@@ -2,6 +2,8 @@ extends State
 @onready var character: character_mesh = $"../../The Lost Sinner1"
 @onready var player: player_character = $"../.."
 
+func enter() -> void:
+	player.can_switch_camera=true
 func physics_update(_delta) -> void:
 	state_logics(_delta)
 	if !character.is_alive:state_machine.change_state("Dying")
@@ -37,13 +39,17 @@ func state_logics (delta:float) -> void :
 	character.crosshair_layer.show()
 	if character.pick_back_hammer:state_machine.change_state("hammer_take_back")
 	var input_dir := Input.get_vector("Droite", "Gauche", "Bas", "Haut")
-	player.camera.fov=lerp(player.camera.fov,55.0,.1)
+	player.camera.fov=lerp(player.camera.fov,65.0,.1)
 	player.SPEED=3.0
 	player.gravity_applying(delta)
 	player.camera_rotation_logic(delta)
 	player.character_moving(player.player_direction)
 	if player.can_switch_camera:
-		character.look_at(Vector3(player.get_target_point().x,player.global_position.y,player.get_target_point().z))
+		character.look_at(Vector3(
+			player.get_target_point().x,
+			0.0,
+			player.get_target_point().z)
+		)
 		character.rotate_y(PI)
 	character.strafing_motion(input_dir)
 

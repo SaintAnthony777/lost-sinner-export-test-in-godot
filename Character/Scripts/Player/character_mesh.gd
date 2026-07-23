@@ -118,7 +118,8 @@ func normal_motion(current_action:String)->void:
 	animation_tree.set("parameters/Normal_Transition/transition_request",current_action)
 func strafing_motion(direction:Vector2)->void:
 	grounding("Aiming")
-	animation_tree.set("parameters/Strafe_blendspace/blend_position",direction)
+	var lerped_dir:Vector2=lerp(animation_tree.get('parameters/Strafe_blendspace/blend_position'),direction,.5)
+	animation_tree.set("parameters/Strafe_blendspace/blend_position",lerped_dir)
 func locking_motion(direction:Vector2)->void:
 	grounding("Locking")
 	animation_tree.set("parameters/locking_blendspace/blend_position",direction)

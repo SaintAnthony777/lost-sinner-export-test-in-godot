@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdjyuyp2wntvc"]
+
+[ext_resource type="PackedScene" uid="uid://srgn3wkeivsn" path="res://Character/Scenes/personnage.tscn" id="1_j8wka"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4iuh1"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_j8wka"]
+sky_material = SubResource("ProceduralSkyMaterial_4iuh1")
+
+[sub_resource type="Environment" id="Environment_bo71w"]
+background_mode = 2
+sky = SubResource("Sky_j8wka")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bo71w"]
+size = Vector2(35, 35)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_sqarx"]
+data = PackedVector3Array(17.5, 0, 17.5, -17.5, 0, 17.5, 17.5, 0, -17.5, -17.5, 0, 17.5, -17.5, 0, -17.5, 17.5, 0, -17.5)
+
+[node name="test_camera" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." groups=["World Environnements"]]
+environment = SubResource("Environment_bo71w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_bo71w")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_sqarx")
+
+[node name="Personnage" parent="." instance=ExtResource("1_j8wka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+best_horizontal_offset = -0.7

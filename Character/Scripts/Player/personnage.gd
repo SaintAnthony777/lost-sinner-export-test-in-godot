@@ -7,14 +7,10 @@ class_name player_character
 @export_range(0.0,1.0) var mouse_sensitivity:float=0.025
 @export var SPEED := 5.0
 @export var JUMP_VELOCITY :=8.0
-@export var best_vertical_position:float
-@export var best_horizontal_position:float
-@export var max_separation:float
 
 @onready var camera_controller: Node3D = %Camera_pivot
 @onready var character: character_mesh = $"The Lost Sinner1"
 @onready var camera: Camera3D = %Camera3D
-@onready var camera_animations: AnimationPlayer = $Camera_animations
 @onready var looking_at_node: Node3D = $"Camera_pivot/Looking at"
 @onready var camera_area_of_sight: Area3D = $Camera_pivot/SpringArm3D/Camera_area_of_sight
 @onready var camera_line_of_sight: RayCast3D = $Camera_pivot/SpringArm3D/Camera_line_of_sight
@@ -28,6 +24,10 @@ class_name player_character
 @onready var max_seeds:int=0
 
 @onready var spring_arm_3d: SpringArm3D = $Camera_pivot/SpringArm3D
+@export_group("spring_arms")
+@export var best_horizontal_offset:float = -.8
+@export var best_vertical_offset : float = .1
+@export var max_separation : float = 3.0
 
 @onready var divine_dividers_consumption_dict:Dictionary ={
 	"Screaming Silence":45.0,
@@ -176,14 +176,14 @@ func camera_rotation_logic(delta:float):
 func camera_switch_logic():
 	can_switch_camera=false
 	if camera_position=="left":
-		camera_animations.play("Camera_switching_To_Right")
-		await camera_animations.animation_finished
 		camera_position="right"
+		best_horizontal_offset=-.8
 	else:
-		camera_animations.play("Camera_switching_to_Left")
-		await camera_animations.animation_finished
 		camera_position="left"
+		best_horizontal_offset=.8
+	await get_tree().create_timer(.5).timeout
 	can_switch_camera=true
+### get best_target
 
 func get_best_target()->enemy_root:
 	var best_target : enemy_root
@@ -242,9 +242,9 @@ func switch_special(special_to_be_switched_list:Array)->void:
 	can_switch_special=true
 	
 func reset_camera()->void:
-	if camera_position=="left" : camera.h_offset=-.25 
-	else : camera.h_offset=.25
-	camera.v_offset=0.0
+	#if camera_position=="left" : camera.h_offset=-.25 
+	#else : camera.h_offset=.25
+	#camera.v_offset=0.0
 	can_switch_camera=true
 	
 func player_force_rotation()->void:
@@ -302,24 +302,42 @@ func nullyfying_velocity(delta:float)->void:
 	
 func adapt_camera(delta)->void:
 	##offset
-	var ratio:float=spring_arm_3d.get_hit_length()
-	var cam_pos:float
-	if character.is_divine_dividing or character.is_making_grace:
-		cam_pos=0.0
-	else :
-		if camera_position=="left":
-			cam_pos=-0.25
-		elif camera_position=="right" :
-			cam_pos=.25
-	var target_offset:float=cam_pos*ratio
-	camera.h_offset=lerp(camera.h_offset,target_offset,.1)
+	#var ratio:float=spring_arm_3d.get_hit_length()
+	#var cam_pos:float
+	#if character.is_divine_dividing or character.is_making_grace:
+	#	cam_pos=0.0
+	#else :
+	#	if camera_position=="left":
+	#		cam_pos=-0.25
+	#	elif camera_position=="right" :
+	#		cam_pos=.25
+	#var target_offset:float=cam_pos*ratio
+	#camera.h_offset=lerp(camera.h_offset,target_offset,.1)
+	pass
 	##position spring_arm
-	#var current_length : float = spring_arm_3d.get_hit_length()
-	#var ratio : float = current_length / max_separation
-	#var target_x := best_horizontal_position * ratio
-	##target_x = -target_x if camera_position=="left" else target_x
-	#spring_arm_3d.position.x=lerp(spring_arm_3d.position.x,target_x,15.0*delta)
+	if max_separation<=0.0:return
 	
+	var current_length : float = spring_arm_3d.get_hit_length()
+	var ratio : float = current_length / max_separation
+	var target_x := best_horizontal_offset * ratio
+	var target_y:=best_vertical_offset
+	##target_x = -target_x if camera_position=="left" else target_x
+	if is_locking:
+		if camera_position=="left":best_horizontal_offset = 1.5
+		else : best_horizontal_offset = -1.5
+	elif Input.is_action_pressed("Aiming"):
+		if camera_position=="left":best_horizontal_offset = 1.0
+		else : best_horizontal_offset = -1.0
+	else :
+		if camera_position=="left":best_horizontal_offset = .8
+		else : best_horizontal_offset = -.8
+	if character.is_divine_dividing or character.is_making_grace:
+		spring_arm_3d.position.x=lerp(spring_arm_3d.position.x,0.0,15.0*delta)
+		spring_arm_3d.position.y=lerp(spring_arm_3d.position.y,target_y,15.0*delta)
+		
+	else :
+		spring_arm_3d.position.x=lerp(spring_arm_3d.position.x,target_x,15.0*delta)
+		spring_arm_3d.position.y=lerp(spring_arm_3d.position.y,0.0,15.0*delta)
 func spring_arm_init()->void:
 	spring_arm_3d.spring_length=max_separation
 	spring_arm_3d.margin = .2
@@ -327,3 +345,5 @@ func spring_arm_init()->void:
 func aim_at_center()->void:
 		character.look_at(Vector3(self.get_target_point().x,self.global_position.y,self.get_target_point().z))
 	
+func set_horizontal_offset(given_offset:float)->void:
+	best_horizontal_offset=given_offset

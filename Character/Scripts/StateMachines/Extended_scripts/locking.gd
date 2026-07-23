@@ -23,7 +23,7 @@ func state_logic(_delta:float):
 	if camera_offset_no_offense_here<2.0:
 		camera_offset_no_offense_here=lerp(camera_offset_no_offense_here,-1.0,.1)
 	player.SPEED=5.0
-	player.camera.fov=lerp(player.camera.fov,100.0,.1)
+	player.camera.fov=lerp(player.camera.fov,110.0,.1)
 	player.gravity_applying(_delta)
 	
 	if (player.current_target) and (Input.is_action_just_pressed("locking") or 

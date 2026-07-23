@@ -12999,11 +12999,12 @@ Max_health = 100.0
 Vulnerability = Array[String](["Divine Divider", "Grace"])
 Resistance = Array[String](["Physical"])
 Health_gauge = NodePath("../HealthSubViewPort/EnemyHealth")
-Bearable_power = 14.0
+Bearable_power = 3.0
 body_nature = "metal"
 metadata/_custom_type_script = "uid://bibpdrfengocv"
 
 [node name="HealthSubViewPort" type="SubViewport" parent="." index="5"]
+disable_3d = true
 transparent_bg = true
 
 [node name="EnemyHealth" type="TextureProgressBar" parent="HealthSubViewPort" index="0"]

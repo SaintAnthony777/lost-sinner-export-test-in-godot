@@ -9,7 +9,7 @@ func enter() -> void:
 	#character.health_component.Armor_value=15
 	player.is_busy=false
 func physics_update(_delta) -> void:
-	player.camera.fov=lerp(player.camera.fov,85.0,.1)
+	player.camera.fov=lerp(player.camera.fov,105.0,.1)
 	state_logic(_delta)
 	Player_Input_events()
 	if !character.is_alive:state_machine.change_state("Dying")

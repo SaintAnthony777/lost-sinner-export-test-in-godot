@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://srgn3wkeivsn"]
+[gd_scene load_steps=78 format=3 uid="uid://srgn3wkeivsn"]
 
 [ext_resource type="Script" uid="uid://bhjwagrue8av5" path="res://Character/Scripts/Player/personnage.gd" id="1_ov8r6"]
 [ext_resource type="PackedScene" uid="uid://xumlackoysv2" path="res://Character/Scenes/the_lost_sinner_1.tscn" id="2_ov8r6"]
@@ -74,8 +74,8 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ov8r6"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ov8r6"]
-margin = 1.0
-radius = 0.2
+margin = 0.1
+radius = 0.05
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_itldn"]
 points = PackedVector3Array(0, 0, 0, 10, 5, -20, 10, -5, -20, -10, -5, -20, -10, 5, -20)
@@ -87,128 +87,6 @@ albedo_color = Color(5.944087, 1.4173156, 1.5065131, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_k21se"]
 
-[sub_resource type="Animation" id="Animation_ov8r6"]
-resource_name = "Camera_switching"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera_pivot/Aiming:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(1.6701095, 2.091804, 3.5302541), Vector3(-0.8867841, 2.091804, 3.5302544)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera_pivot/SpringArm3D/Camera3D:h_offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.7, 0.7]
-}
-
-[sub_resource type="Animation" id="Animation_al2sp"]
-resource_name = "Camera_switching_to_right"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera_pivot/Aiming:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.8867841, 2.091804, 3.5302544), Vector3(1.6701095, 2.091804, 3.5302541)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera_pivot/SpringArm3D/Camera3D:h_offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.7, -0.7]
-}
-
-[sub_resource type="Animation" id="Animation_y3tdl"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera_pivot/Aiming:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1.6701095, 2.091804, 3.5302541)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera_pivot:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 1.548, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Camera_pivot/SpringArm3D/Camera3D:h_offset")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_a0kpl"]
-resource_name = "camera_sliding"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera_pivot:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.34, 0.7, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 1.548, 0), Vector3(0, 1, 0), Vector3(0, 1, 0), Vector3(0, 1.548, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_e8vxi"]
-resource_name = "camera_up_then_down"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_al2sp"]
-_data = {
-&"Camera_switching_To_Right": SubResource("Animation_ov8r6"),
-&"Camera_switching_to_Left": SubResource("Animation_al2sp"),
-&"RESET": SubResource("Animation_y3tdl"),
-&"camera_sliding": SubResource("Animation_a0kpl"),
-&"camera_up_then_down": SubResource("Animation_e8vxi")
-}
-
 [sub_resource type="SphereMesh" id="SphereMesh_r2hrc"]
 
 [node name="Personnage" type="CharacterBody3D" groups=["Personnage", "Player"]]
@@ -217,6 +95,7 @@ collision_mask = 134
 floor_max_angle = 1.0471976
 script = ExtResource("1_ov8r6")
 mouse_sensitivity = 0.05
+best_horizontal_offset = -1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0458833, 0)
@@ -232,10 +111,10 @@ transform = Transform3D(1, 0, 0, 0, 0.938746, -0.34461, 0, 0.34461, 0.938746, 0,
 transform = Transform3D(1, 0, 0, 0, 0.938746, 0.34461, 0, -0.34461, 0.938746, 0, 0.17478669, 2.0663383)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="Camera_pivot"]
-transform = Transform3D(-0.9951677, -0.024405831, -0.09510949, 0.014037089, 0.9233085, -0.3838034, 0.097182415, -0.38328394, -0.91850376, 0, 0.135, 0)
+transform = Transform3D(-1.0000001, 2.9900363e-08, 8.215054e-08, 0, 0.9396931, -0.34202015, -8.7422784e-08, -0.34202027, -0.93969274, 0, 0.135, 0)
 collision_mask = 3
 shape = SubResource("SphereShape3D_ov8r6")
-spring_length = 3.0
+spring_length = 2.0
 margin = 1.0
 
 [node name="Camera3D" type="Camera3D" parent="Camera_pivot/SpringArm3D"]
@@ -255,7 +134,7 @@ target_position = Vector3(0, 0, -20)
 collision_mask = 6
 
 [node name="Aiming" type="Node3D" parent="Camera_pivot"]
-transform = Transform3D(1, 0, 0, 0, 0.938746, 0.34461, 0, -0.34461, 0.938746, 1.6701095, 2.091804, 3.5302541)
+transform = Transform3D(1, 0, 0, 0, 0.938746, 0.34461, 0, -0.34461, 0.938746, -0.8867841, 2.091804, 3.5302544)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Camera_pivot/Aiming"]
 visible = false
@@ -269,11 +148,6 @@ transform = Transform3D(0.9541826, -2.9802322e-08, -0.29922405, 0.121953405, 0.9
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 visible = false
 mesh = SubResource("CylinderMesh_k21se")
-
-[node name="Camera_animations" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_al2sp")
-}
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_1ght0")

@@ -3,7 +3,7 @@ class_name HurtBoxComponent extends Area3D
 @export var health_comp:HealthComponent
 @onready var collision_shape:CollisionShape3D=get_node("CollisionShape3D")
 @onready var dist_rect:PackedScene=preload("res://Componenents/Circular distorsion node/Circular distorsion.tscn")
-signal is_being_hit
+
 func _init() -> void:
 	collision_layer=5
 	collision_mask=4
