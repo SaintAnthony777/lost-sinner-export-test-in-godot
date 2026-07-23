@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkicmuhqset1k"]
+
+[ext_resource type="PackedScene" uid="uid://cqdkgoe8hssi4" path="res://Ennemies/Guards/Magus/Magus.glb" id="1_lr756"]
+
+[node name="Magus" instance=ExtResource("1_lr756")]
