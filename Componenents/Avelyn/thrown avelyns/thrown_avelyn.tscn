@@ -10,7 +10,7 @@ radius = 0.4
 [sub_resource type="SphereShape3D" id="SphereShape3D_yxf4x"]
 radius = 0.70120823
 
-[node name="Thrown_Avelyn" type="Node3D"]
+[node name="Thrown_Avelyn" type="Node3D" groups=["Allies"]]
 script = ExtResource("1_eg2hg")
 attack_nature = "Physical"
 metadata/_custom_type_script = "uid://b2pb1uhe2wsdr"

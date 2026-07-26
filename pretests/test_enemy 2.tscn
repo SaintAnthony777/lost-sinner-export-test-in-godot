@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://nmipsdjc5r4o"]
+
+[ext_resource type="PackedScene" uid="uid://srgn3wkeivsn" path="res://Character/Scenes/personnage.tscn" id="1_ctuwc"]
+[ext_resource type="PackedScene" uid="uid://c8g34g67htqxy" path="res://Ennemies/Guards/Magus/scenes/Magus_1.tscn" id="2_b0cmc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ctuwc"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_b0cmc"]
+sky_material = SubResource("ProceduralSkyMaterial_ctuwc")
+
+[sub_resource type="Environment" id="Environment_emf7r"]
+background_mode = 2
+sky = SubResource("Sky_b0cmc")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_rpvaw"]
+vertices = PackedVector3Array(-24.5, 0.5, -24.5, -24.5, 0.5, 24.5, 24.5, 0.5, 24.5, 24.5, 0.5, -24.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rpvaw"]
+size = Vector2(50, 50)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ctuwc"]
+data = PackedVector3Array(25, 0, 25, -25, 0, 25, 25, 0, -25, -25, 0, 25, -25, 0, -25, 25, 0, -25)
+
+[node name="test_enemy_magus" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." groups=["World Environnements"]]
+environment = SubResource("Environment_emf7r")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_rpvaw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D"]
+mesh = SubResource("PlaneMesh_rpvaw")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/MeshInstance3D"]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ctuwc")
+
+[node name="Personnage" parent="." instance=ExtResource("1_ctuwc")]
+
+[node name="Magus 1" parent="." instance=ExtResource("2_b0cmc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5472779, -1.1920929e-07, 4.443907)

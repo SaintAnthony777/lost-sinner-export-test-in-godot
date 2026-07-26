@@ -71,6 +71,8 @@ Player="A group That Contains Only The Player"
 "Inventory UI"=""
 "World Environnements"=""
 Suns=""
+Allies="A group to cut the enemies owner from the allies hitboxes and hurtbox"
+"Bad guys"="Just like for the allies"
 
 [input]
 

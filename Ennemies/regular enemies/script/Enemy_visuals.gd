@@ -17,7 +17,7 @@ var is_blocking:bool=false
 var is_alive:bool=true
 
 signal being_hit
-
+signal died
 @onready var hurt_box_component: HurtBoxComponent = $HurtBoxComponent
 @onready var health_component: HealthComponent = $HealthComponent
 
@@ -35,8 +35,16 @@ func done_attacking()->void:
 func done_taking_damage()->void:
 	is_taking_damage=false
 	
+func _process(delta: float) -> void:
+	if !is_alive:
+		died.emit()
 func _on_being_hit() -> void:
 	enemy_body.target.camera_shaking(.1,.1)
 	if enemy_body.target.character.attack_direction!=current_react_dir:
 		current_react_dir=enemy_body.target.character.attack_direction
 		self.Grounding("Taking Damage","React "+current_react_dir.capitalize())
+
+func _on_died() -> void:
+	self.Grounding("Dying","Dying 2")
+	await animation_tree.animation_finished
+	enemy_body.queue_free()

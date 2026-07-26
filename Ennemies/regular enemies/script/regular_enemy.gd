@@ -9,10 +9,9 @@ var current_react_dir:String=""
 signal being_hit
 
 func _ready() -> void:
-	visuals=$Visuals
-	
 	initialize_player()
 	initialize_aiming_node()
+	
 func death_function():
 	queue_free()
 
@@ -23,3 +22,7 @@ func _on_being_hit() -> void:
 		print('going on')
 		current_react_dir=self.target.character.attack_direction
 		visuals.taking_damage(current_react_dir)
+
+
+func _on_refined_magus_died() -> void:
+	pass # Replace with function body.

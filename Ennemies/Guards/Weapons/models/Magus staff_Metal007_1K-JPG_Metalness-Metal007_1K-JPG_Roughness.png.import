@@ -1,0 +1,44 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://51qem3y70yse"
+path.s3tc="res://.godot/imported/Magus staff_Metal007_1K-JPG_Metalness-Metal007_1K-JPG_Roughness.png-b12a052811626297e875363b17f3c54d.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "e8e219a5def30c75361ab13f3481997f"
+}
+
+[deps]
+
+source_file="res://Ennemies/Guards/Weapons/models/Magus staff_Metal007_1K-JPG_Metalness-Metal007_1K-JPG_Roughness.png"
+dest_files=["res://.godot/imported/Magus staff_Metal007_1K-JPG_Metalness-Metal007_1K-JPG_Roughness.png-b12a052811626297e875363b17f3c54d.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

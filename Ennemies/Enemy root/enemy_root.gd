@@ -1,7 +1,7 @@
 extends CharacterBody3D
 class_name enemy_root
 
-var visuals:EnemyVisuals
+@export var visuals:EnemyVisuals
 var target:player_character
 var dealt_attack:Attack
 @export var aiming_node:Marker3D

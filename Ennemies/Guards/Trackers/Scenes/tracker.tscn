@@ -17,10 +17,11 @@ height = 1.730957
 [sub_resource type="ViewportTexture" id="ViewportTexture_vmbfs"]
 viewport_path = NodePath("Visuals/HealthSubViewPort")
 
-[node name="Tracker" type="CharacterBody3D" node_paths=PackedStringArray("aiming_node")]
+[node name="Tracker" type="CharacterBody3D" node_paths=PackedStringArray("visuals", "aiming_node")]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_q30j4")
+visuals = NodePath("Visuals")
 aiming_node = NodePath("Visuals/Headattachement/aiming node")
 attack_range = 1.5
 metadata/_custom_type_script = "uid://b2mma88kgmdm2"
@@ -72,5 +73,6 @@ billboard = 2
 texture = SubResource("ViewportTexture_vmbfs")
 
 [connection signal="being_hit" from="." to="." method="_on_being_hit"]
+[connection signal="died" from="Visuals" to="Visuals" method="_on_died"]
 
 [editable path="Visuals"]

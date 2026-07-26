@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://cgn81wf48rxfa"]
+[gd_scene load_steps=10 format=3 uid="uid://cgn81wf48rxfa"]
 
 [ext_resource type="PackedScene" uid="uid://srgn3wkeivsn" path="res://Character/Scenes/personnage.tscn" id="1_n8chh"]
-[ext_resource type="PackedScene" uid="uid://iy8hslvdkxhi" path="res://Ennemies/Guards/Trackers/Scenes/tracker.tscn" id="2_66fur"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_66fur"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -34,6 +33,7 @@ metallic = 1.0
 roughness = 0.06
 
 [node name="test_enemy" type="Node3D"]
+transform = Transform3D(0.9659258, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, 0.9659258, 0, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
@@ -44,7 +44,7 @@ shadow_enabled = true
 environment = SubResource("Environment_j2qdx")
 
 [node name="Personnage" parent="." instance=ExtResource("1_n8chh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -8)
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 3.0000005, 0, 0)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_66fur")
@@ -55,6 +55,7 @@ skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/MeshInstance3D"]
 collision_layer = 2
+collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_udswm")
@@ -76,5 +77,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, 0)
 mesh = SubResource("BoxMesh_66fur")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_66fur")
-
-[node name="Tracker" parent="." instance=ExtResource("2_66fur")]

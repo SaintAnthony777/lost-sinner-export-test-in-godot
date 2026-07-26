@@ -133,7 +133,7 @@ shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/uv2_scale = Vector3(0, 0, 0)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 
-[node name="Thrown_Avelyn_Fury of the Gods" type="Node3D"]
+[node name="Thrown_Avelyn_Fury of the Gods" type="Node3D" groups=["Allies"]]
 script = ExtResource("1_4ck5m")
 metadata/_custom_type_script = "uid://b2pb1uhe2wsdr"
 

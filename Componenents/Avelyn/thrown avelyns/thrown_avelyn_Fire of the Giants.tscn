@@ -131,7 +131,7 @@ billboard_mode = 1
 material = SubResource("StandardMaterial3D_lf8q1")
 size = Vector2(0.4, 0.4)
 
-[node name="Thrown_Avelyn_Fire of the Giants" type="Node3D"]
+[node name="Thrown_Avelyn_Fire of the Giants" type="Node3D" groups=["Allies"]]
 script = ExtResource("1_ta1px")
 attack_nature = "Fire"
 metadata/_custom_type_script = "uid://b2pb1uhe2wsdr"

@@ -49,8 +49,7 @@ func taking_damage(taken_attack:Attack):
 	if is_invulnerable : HitStopManager.hit_stop_function(.01,.1) ; return
 	
 	#check block status
-	if owner is character_mesh or owner is EnemyVisuals:
-		owner.is_taking_damage=true
+	if owner is character_mesh or owner is EnemyVisuals : owner.is_taking_damage=true
 	
 	if (owner is character_mesh or owner is EnemyVisuals) and owner.is_blocking :
 		self.body_nature="metal"

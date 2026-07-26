@@ -24,7 +24,7 @@ data = PackedVector3Array(15, 0, 15, -15, 0, 15, 15, 0, -15, -15, 0, 15, -15, 0,
 
 [node name="Test Great Gate" type="Node3D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." groups=["World Environnements"]]
 environment = SubResource("Environment_8vtm4")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
