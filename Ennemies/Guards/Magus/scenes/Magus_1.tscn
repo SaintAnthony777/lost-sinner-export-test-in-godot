@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c8g34g67htqxy"]
+[gd_scene load_steps=11 format=3 uid="uid://c8g34g67htqxy"]
 
 [ext_resource type="Script" uid="uid://b2mma88kgmdm2" path="res://Ennemies/regular enemies/script/regular_enemy.gd" id="1_qh6ur"]
 [ext_resource type="PackedScene" uid="uid://bb6q4lm8g7t8d" path="res://Ennemies/Guards/Magus/scenes/refined_magus.tscn" id="2_58kaq"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://3n3lojgxpf18" path="res://Ennemies/Guards/Magus/scrips/statemachines/idle_state.gd" id="4_n03pj"]
 [ext_resource type="Script" uid="uid://1twgeu10uhbf" path="res://Ennemies/Guards/Magus/scrips/statemachines/Dying.gd" id="5_m2lsv"]
 [ext_resource type="Script" uid="uid://bti6xs0hik41u" path="res://Ennemies/Guards/Magus/scrips/statemachines/taking_damage.gd" id="6_op1x6"]
+[ext_resource type="Script" uid="uid://dn4stewaujkm4" path="res://Ennemies/Guards/Magus/scrips/statemachines/distant_attack.gd" id="7_ue5tb"]
+[ext_resource type="Script" uid="uid://dtktgxt6jr60s" path="res://Ennemies/Guards/Magus/scrips/statemachines/swift_chase.gd" id="8_o3aam"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_58kaq"]
 
@@ -21,35 +23,32 @@ aiming_node = NodePath("refined Magus/Headattachement/aiming node")
 attack_range = 7.0
 metadata/_custom_type_script = "uid://b2mma88kgmdm2"
 
-[node name="refined Magus" parent="." instance=ExtResource("2_58kaq")]
+[node name="refined Magus" parent="." node_paths=PackedStringArray("projectile_spawn_point") instance=ExtResource("2_58kaq")]
+projectile_spawn_point = NodePath("staff attachement/spell starting point")
 
 [node name="Skeleton3D" parent="refined Magus/Armature" index="0"]
-bones/0/position = Vector3(-9.127044e-05, 1.0592821, -0.026796281)
-bones/8/rotation = Quaternion(0.51417226, 0.020698408, -0.0071030282, 0.8574078)
-bones/9/rotation = Quaternion(1.7012933e-06, 1.5393596e-06, 0.70914, 0.70506775)
-bones/10/rotation = Quaternion(-0.091659226, -0.63597745, -0.11569385, 0.7574605)
-bones/47/rotation = Quaternion(0.38452446, -0.18513283, -0.20387796, 0.88107914)
-bones/48/rotation = Quaternion(3.937676e-07, -9.541401e-07, -0.432834, 0.9014737)
-bones/49/rotation = Quaternion(-0.24652901, -0.11337966, -0.22840711, 0.93498605)
-bones/96/position = Vector3(0.00017669244, 1.0592822, -0.026795855)
-bones/119/rotation = Quaternion(0.51417255, 0.02069367, -0.0070944508, 0.8574078)
-bones/120/rotation = Quaternion(1.7017295e-06, 1.5287959e-06, 0.7091323, 0.7050755)
-bones/125/rotation = Quaternion(0.3845212, -0.18514054, -0.2038656, 0.881082)
-bones/126/rotation = Quaternion(4.0720192e-07, -9.4965924e-07, -0.432834, 0.90147364)
-bones/130/position = Vector3(0.32555094, 1.4265012, -0.015306205)
-bones/131/position = Vector3(0.3130037, 1.4430537, 0.26546043)
-bones/132/position = Vector3(-0.7217518, 1.2939092, -0.33979112)
-bones/133/position = Vector3(-0.3217594, 1.2948745, 0.26291886)
-bones/134/position = Vector3(0.17727152, 0.28375992, -0.15884922)
-bones/150/position = Vector3(0.2603405, 0.14179218, 0.25289148)
-bones/151/position = Vector3(-0.1945153, 0.28375986, 0.02223099)
-bones/167/position = Vector3(-0.2900434, 0.25047407, 0.45555586)
+bones/0/position = Vector3(-9.127043e-05, 0.9693252, -0.026796283)
+bones/85/rotation = Quaternion(0.096346244, -0.031185577, 0.99049896, -0.09304123)
+bones/86/rotation = Quaternion(-0.45967564, 3.4918784e-07, 7.559722e-08, 0.88808703)
+bones/87/rotation = Quaternion(0.61791474, 0.033716902, -0.1102268, 0.7777498)
+bones/90/rotation = Quaternion(-0.09835314, 0.35346258, 0.926136, 0.08753972)
+bones/91/rotation = Quaternion(-0.6457767, -1.2049859e-06, -1.2957025e-06, 0.7635264)
+bones/92/rotation = Quaternion(0.59207004, -0.0037184167, 0.02860951, 0.80537003)
+bones/96/position = Vector3(0.00017669247, 0.9693252, -0.026795857)
+bones/99/rotation = Quaternion(0.09304125, 0.990499, 0.031185592, 0.096346214)
+bones/100/rotation = Quaternion(-0.4596756, 3.433185e-07, 7.4021784e-08, 0.888087)
+bones/106/rotation = Quaternion(-0.087506734, 0.926171, -0.35337582, -0.09836453)
+bones/107/rotation = Quaternion(-0.6457767, -1.2016725e-06, -1.3002183e-06, 0.7635264)
+bones/130/position = Vector3(0.32555094, 1.3119551, 0.10581821)
+bones/131/position = Vector3(0.31300372, 1.3013804, 0.43004298)
+bones/132/position = Vector3(-0.7217518, 1.2944691, -0.24427515)
+bones/133/position = Vector3(-0.32175943, 1.144481, 0.4275014)
 
 [node name="Headattachement" parent="refined Magus" index="2"]
-transform = Transform3D(1, 1.778148e-10, -8.908334e-11, -1.8284575e-10, 1, 7.636845e-08, 9.4342714e-11, -7.636845e-08, 1, -0.00026313233, 1.8078233, -0.023992129)
+transform = Transform3D(1, 4.1039436e-10, -6.263491e-11, -4.709289e-10, 0.9434155, -0.33161288, -7.359183e-11, 0.33161288, 0.9434155, -0.00026313213, 1.6745807, 0.22407514)
 
-[node name="BoneAttachment3D" parent="refined Magus" index="5"]
-transform = Transform3D(0.78180015, 0.12989277, 0.60984963, 0.6069456, 0.065538615, -0.7920364, -0.14284857, 0.9893596, -0.02759993, -0.32175118, 1.2981066, 0.26293653)
+[node name="staff attachement" parent="refined Magus" index="5"]
+transform = Transform3D(0.78187615, 0.12982827, 0.6097658, 0.60687625, 0.06541899, -0.7920995, -0.14272712, 0.989376, -0.027640104, -0.3217596, 1.1444764, 0.4275049)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.920992, 0)
@@ -83,6 +82,14 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [node name="taking damage" type="Node" parent="StateMachine"]
 script = ExtResource("6_op1x6")
+metadata/_custom_type_script = "uid://dq36efs6bxser"
+
+[node name="Distant attack" type="Node" parent="StateMachine"]
+script = ExtResource("7_ue5tb")
+metadata/_custom_type_script = "uid://bjdqm4tfg4nls"
+
+[node name="Swift chase" type="Node" parent="StateMachine"]
+script = ExtResource("8_o3aam")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
 
 [connection signal="being_hit" from="." to="." method="_on_being_hit"]

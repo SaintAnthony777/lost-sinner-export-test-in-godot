@@ -6,7 +6,6 @@ const CHASE_SPEED:=2.5
 const ATTACK_RANGE:=3.0
 
 func enter() -> void:
-	print('chasing')
 	visuals.Grounding("Chasing","Slow Chase")
 	
 func physics_update(_delta) -> void:

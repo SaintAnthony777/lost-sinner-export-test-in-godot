@@ -14,7 +14,6 @@ func physics_update(_delta) -> void:
 	
 func state_logic()->void:
 	character.unused_weapon_attachment.hide()
-	
 	instance=thrown_hammer_mesh.instantiate()
 	if character.thrown_hammer and is_instance_valid(instance):
 		var target_point := player.get_target_point()

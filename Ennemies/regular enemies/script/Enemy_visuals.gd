@@ -20,7 +20,7 @@ signal being_hit
 signal died
 @onready var hurt_box_component: HurtBoxComponent = $HurtBoxComponent
 @onready var health_component: HealthComponent = $HealthComponent
-
+@export var projectile_spawn_point:Marker3D
 func Grounding(current_state:String,current_action:String)->void:
 	animation_tree.set('parameters/Final_State/transition_request',"Grounded")
 	animation_tree.set("parameters/Ground Transisitons/transition_request",current_state)
@@ -42,9 +42,19 @@ func _on_being_hit() -> void:
 	enemy_body.target.camera_shaking(.1,.1)
 	if enemy_body.target.character.attack_direction!=current_react_dir:
 		current_react_dir=enemy_body.target.character.attack_direction
+		print(current_react_dir)
 		self.Grounding("Taking Damage","React "+current_react_dir.capitalize())
 
 func _on_died() -> void:
 	self.Grounding("Dying","Dying 2")
 	await animation_tree.animation_finished
 	enemy_body.queue_free()
+	
+func spawn_fireball_projectile(projectile_element:String)->void:
+	var projectile_packed_scene:PackedScene=load("res://Componenents/projectiles/enemy/"+projectile_element+"_ball_enemy.tscn")
+	var projectile_instance:enemy_projectile=projectile_packed_scene.instantiate()
+	get_parent().owner.add_child(projectile_instance)
+	if is_instance_valid(projectile_instance):
+		projectile_instance.global_position=projectile_spawn_point.global_position
+		projectile_instance.basis=projectile_spawn_point.basis
+		projectile_instance.look_at(enemy_body.target.global_position)

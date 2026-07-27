@@ -1,10 +1,10 @@
 [gd_scene load_steps=44 format=3 uid="uid://bxcw1l6fi1m3g"]
 
-[ext_resource type="Script" uid="uid://c0ca7fmk3tu7n" path="res://Componenents/projectiles/enemy/fireball_enemy.gd" id="1_cj4ke"]
-[ext_resource type="Shader" uid="uid://px5onitwonxc" path="res://Componenents/projectiles/enemy/shaders/fireball_enemy.tres" id="1_fipt0"]
-[ext_resource type="Texture2D" uid="uid://daakhy7kex2n5" path="res://VFXES/Aura/Weapon Auras/fire aura/textures/Super Perlin/SuperPerlin_03-512x512.png" id="2_g6dio"]
-[ext_resource type="Script" uid="uid://dflwyxok3081k" path="res://Componenents/Hitbox and HurtBox/hitbox_component.gd" id="3_w3uda"]
-[ext_resource type="Texture2D" uid="uid://cogtcj7u06w03" path="res://VFXES/Fire/textures/Flare00.PNG" id="5_euu6d"]
+[ext_resource type="Script" uid="uid://c0ca7fmk3tu7n" path="res://Componenents/projectiles/enemy/fireball_enemy.gd" id="1_2vild"]
+[ext_resource type="Shader" uid="uid://px5onitwonxc" path="res://Componenents/projectiles/enemy/shaders/fireball_enemy.tres" id="2_2e32q"]
+[ext_resource type="Texture2D" uid="uid://daakhy7kex2n5" path="res://VFXES/Aura/Weapon Auras/fire aura/textures/Super Perlin/SuperPerlin_03-512x512.png" id="3_nxlr3"]
+[ext_resource type="Script" uid="uid://dflwyxok3081k" path="res://Componenents/Hitbox and HurtBox/hitbox_component.gd" id="4_v2jsu"]
+[ext_resource type="Texture2D" uid="uid://cogtcj7u06w03" path="res://VFXES/Fire/textures/Flare00.PNG" id="5_is0m8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cj4ke"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -28,12 +28,12 @@ gradient = SubResource("Gradient_euu6d")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w3uda"]
 render_priority = 0
-shader = ExtResource("1_fipt0")
+shader = ExtResource("2_2e32q")
 shader_parameter/Maincolor = Color(1.7034768, 0.85373425, 0.24584155, 1)
 shader_parameter/alpha_offset = Vector2(4, 2)
 shader_parameter/Speed_Given = 0.1
 shader_parameter/alpha_scale = Vector2(1, 1)
-shader_parameter/Main_alpha = ExtResource("2_g6dio")
+shader_parameter/Main_alpha = ExtResource("3_nxlr3")
 shader_parameter/Alpha_dissolve_gradient = SubResource("GradientTexture2D_dmjyb")
 shader_parameter/Dissolve_parameter = 0.0
 
@@ -266,7 +266,7 @@ blend_mode = 1
 cull_mode = 2
 shading_mode = 0
 albedo_color = Color(4.614886, 3.182924, 1.945398, 1)
-albedo_texture = ExtResource("5_euu6d")
+albedo_texture = ExtResource("5_is0m8")
 billboard_mode = 3
 billboard_keep_scale = true
 particles_anim_h_frames = 1
@@ -276,57 +276,6 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_dmjyb"]
 material = SubResource("StandardMaterial3D_euu6d")
 size = Vector2(0.1, 0.1)
-
-[sub_resource type="Animation" id="Animation_euu6d"]
-resource_name = "blow animation"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Meshes/inner ball:mesh:radius")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.5, 1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Meshes/inner ball:mesh:height")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [1.0, 2.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Meshes/inner ball:surface_material_override/0:shader_parameter/Dissolve_parameter")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.8, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 2.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Meshes/exterior rings:surface_material_override/0:shader_parameter/Dissolve_parameter")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.81, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [1.0, 1.0, 3.0]
-}
 
 [sub_resource type="Animation" id="Animation_dmjyb"]
 length = 0.001
@@ -379,14 +328,69 @@ tracks/3/keys = {
 "values": [1.0]
 }
 
+[sub_resource type="Animation" id="Animation_euu6d"]
+resource_name = "blow animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Meshes/inner ball:mesh:radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.5, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Meshes/inner ball:mesh:height")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 2.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Meshes/inner ball:surface_material_override/0:shader_parameter/Dissolve_parameter")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 2.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Meshes/exterior rings:surface_material_override/0:shader_parameter/Dissolve_parameter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.81, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 3.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dmjyb"]
 _data = {
 &"RESET": SubResource("Animation_dmjyb"),
 &"blow animation": SubResource("Animation_euu6d")
 }
 
-[node name="Fireball_enemy" type="Node3D" groups=["Bad guys"]]
-script = ExtResource("1_cj4ke")
+[node name="Fireball_enemy" type="Node3D" node_paths=PackedStringArray("curr_hitbox") groups=["Bad guys"]]
+script = ExtResource("1_2vild")
+fireball_speed = -26.0
+damage = 25.0
+nature = "fire"
+curr_hitbox = NodePath("HitBoxComponent")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_dmjyb")
@@ -428,7 +432,7 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_i446o")
 
 [node name="HitBoxComponent" type="Area3D" parent="."]
-script = ExtResource("3_w3uda")
+script = ExtResource("4_v2jsu")
 metadata/_custom_type_script = "uid://dflwyxok3081k"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBoxComponent"]

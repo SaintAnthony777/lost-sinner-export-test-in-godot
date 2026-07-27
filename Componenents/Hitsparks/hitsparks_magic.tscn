@@ -1,0 +1,171 @@
+[gd_scene load_steps=23 format=3 uid="uid://cj74fi0rsgrci"]
+
+[ext_resource type="Script" uid="uid://bianv8brumg2u" path="res://Componenents/Hitsparks/scripts/hitsparks.gd" id="1_6a6gl"]
+[ext_resource type="Texture2D" uid="uid://3iq24w626574" path="res://Componenents/Hitsparks/textures/effect_4.png" id="2_xtvdx"]
+[ext_resource type="Shader" uid="uid://dg5r2pfjr0ixb" path="res://Componenents/Hitsparks/hitsparks2.tres" id="3_j048h"]
+[ext_resource type="Texture2D" uid="uid://bk2ykev004cgd" path="res://Componenents/Hitsparks/textures/spotlight_1.png" id="4_axo68"]
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_cyg02"]
+parameter_name = "Main_texture"
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_tvorh"]
+output_port_for_preview = 0
+expanded_output_ports = [0]
+source = 5
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_w6405"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_kiajr"]
+expanded_output_ports = [0]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeBillboard" id="VisualShaderNodeBillboard_qewmq"]
+billboard_type = 3
+keep_scale = true
+
+[sub_resource type="VisualShader" id="VisualShader_bqxt5"]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_disabled, diffuse_toon, specular_schlick_ggx, unshaded;
+
+uniform sampler2D Main_texture : source_color;
+
+
+
+void vertex() {
+	mat4 n_out2p0;
+// GetBillboardMatrix:2
+	{
+		mat4 __wm = mat4(normalize(INV_VIEW_MATRIX[0]), normalize(INV_VIEW_MATRIX[1]), normalize(INV_VIEW_MATRIX[2]), MODEL_MATRIX[3]);
+		__wm = __wm * mat4(vec4(cos(INSTANCE_CUSTOM.x), -sin(INSTANCE_CUSTOM.x), 0.0, 0.0), vec4(sin(INSTANCE_CUSTOM.x), cos(INSTANCE_CUSTOM.x), 0.0, 0.0), vec4(0.0, 0.0, 1.0, 0.0), vec4(0.0, 0.0, 0.0, 1.0));
+		__wm = __wm * mat4(vec4(length(MODEL_MATRIX[0].xyz), 0.0, 0.0, 0.0), vec4(0.0, length(MODEL_MATRIX[1].xyz), 0.0, 0.0), vec4(0.0, 0.0, length(MODEL_MATRIX[2].xyz), 0.0), vec4(0.0, 0.0, 0.0, 1.0));
+		n_out2p0 = VIEW_MATRIX * __wm;
+	}
+
+
+// Output:0
+	MODELVIEW_MATRIX = n_out2p0;
+
+
+}
+
+void fragment() {
+// Input:6
+	vec4 n_out6p0 = COLOR;
+	float n_out6p4 = n_out6p0.a;
+
+
+	vec4 n_out4p0;
+// Texture2D:4
+	n_out4p0 = texture(Main_texture, UV);
+	float n_out4p4 = n_out4p0.a;
+
+
+// FloatOp:5
+	float n_out5p0 = n_out6p4 * n_out4p4;
+
+
+// Output:0
+	ALBEDO = vec3(n_out6p0.xyz);
+	ALPHA = n_out5p0;
+
+
+}
+"
+modes/cull = 2
+modes/diffuse = 3
+flags/unshaded = true
+nodes/vertex/2/node = SubResource("VisualShaderNodeBillboard_qewmq")
+nodes/vertex/2/position = Vector2(0, 360)
+nodes/vertex/connections = PackedInt32Array(2, 0, 0, 10)
+nodes/fragment/0/position = Vector2(640, 100)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture2DParameter_cyg02")
+nodes/fragment/3/position = Vector2(-140, 340)
+nodes/fragment/4/node = SubResource("VisualShaderNodeTexture_tvorh")
+nodes/fragment/4/position = Vector2(180, 320)
+nodes/fragment/5/node = SubResource("VisualShaderNodeFloatOp_w6405")
+nodes/fragment/5/position = Vector2(440, 240)
+nodes/fragment/6/node = SubResource("VisualShaderNodeInput_kiajr")
+nodes/fragment/6/position = Vector2(80, 40)
+nodes/fragment/connections = PackedInt32Array(3, 0, 4, 2, 4, 4, 5, 1, 5, 0, 0, 1, 6, 4, 5, 0, 6, 0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xq47x"]
+render_priority = 0
+shader = SubResource("VisualShader_bqxt5")
+shader_parameter/Main_texture = ExtResource("2_xtvdx")
+
+[sub_resource type="Gradient" id="Gradient_qewmq"]
+colors = PackedColorArray(1.2539924, 2.1814032, 0.50859696, 1, 2.6137478, 2.2627864, 2.3661, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cyg02"]
+gradient = SubResource("Gradient_qewmq")
+use_hdr = true
+
+[sub_resource type="Curve" id="Curve_bqxt5"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5213415, 0.99999994), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_rl4dd"]
+curve = SubResource("Curve_bqxt5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2m2dj"]
+angle_min = -179.99998
+angle_max = 180.00002
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_rl4dd")
+color = Color(3.5420802, 3.5420802, 2.0445504, 1)
+color_ramp = SubResource("GradientTexture1D_cyg02")
+
+[sub_resource type="QuadMesh" id="QuadMesh_pvo1d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pvo1d"]
+render_priority = 0
+shader = ExtResource("3_j048h")
+shader_parameter/Main_texture = ExtResource("4_axo68")
+
+[sub_resource type="Gradient" id="Gradient_cyg02"]
+colors = PackedColorArray(1.2539924, 2.1814032, 0.50859696, 1, 2.6137478, 2.2627864, 2.3661, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tvorh"]
+gradient = SubResource("Gradient_cyg02")
+use_hdr = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eiuq4"]
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 8.0
+initial_velocity_max = 12.0
+gravity = Vector3(0, 0, 0)
+color = Color(6.936375, 6.936375, 6.936375, 1)
+color_ramp = SubResource("GradientTexture1D_tvorh")
+
+[sub_resource type="QuadMesh" id="QuadMesh_7s2vj"]
+size = Vector2(0.2, 0.5)
+
+[node name="Hitspark neutral" type="Node3D"]
+script = ExtResource("1_6a6gl")
+metadata/_custom_type_script = "uid://bianv8brumg2u"
+
+[node name="Effects" type="GPUParticles3D" parent="."]
+material_override = SubResource("ShaderMaterial_xq47x")
+emitting = false
+amount = 1
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_2m2dj")
+draw_pass_1 = SubResource("QuadMesh_pvo1d")
+
+[node name="Sparks" type="GPUParticles3D" parent="."]
+material_override = SubResource("ShaderMaterial_pvo1d")
+emitting = false
+amount = 25
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_eiuq4")
+draw_pass_1 = SubResource("QuadMesh_7s2vj")

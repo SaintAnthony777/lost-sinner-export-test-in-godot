@@ -49,3 +49,4 @@ shape = SubResource("ConcavePolygonShape3D_ctuwc")
 
 [node name="Magus 1" parent="." instance=ExtResource("2_b0cmc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5472779, -1.1920929e-07, 4.443907)
+attack_range = 3.0
