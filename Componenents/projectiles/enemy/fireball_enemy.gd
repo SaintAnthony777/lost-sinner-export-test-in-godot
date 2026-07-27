@@ -8,6 +8,8 @@ extends Node3D
 @export var damage:float
 @export var nature:String
 @export var curr_hitbox:HitBoxComponent
+@export var attack_direction:String
+
 func _ready() -> void:
 	dealt_attack.create_attack(
 		damage,
@@ -17,6 +19,7 @@ func _ready() -> void:
 		.0
 	)
 	curr_hitbox.collsion_shape.disabled=false
+
 func _process(delta: float) -> void:
 	lifetime+=delta
 	fireball_shapecast.force_shapecast_update()

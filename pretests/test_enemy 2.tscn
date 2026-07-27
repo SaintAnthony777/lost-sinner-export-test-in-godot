@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://nmipsdjc5r4o"]
+[gd_scene load_steps=10 format=3 uid="uid://nmipsdjc5r4o"]
 
 [ext_resource type="PackedScene" uid="uid://srgn3wkeivsn" path="res://Character/Scenes/personnage.tscn" id="1_ctuwc"]
 [ext_resource type="PackedScene" uid="uid://c8g34g67htqxy" path="res://Ennemies/Guards/Magus/scenes/Magus_1.tscn" id="2_b0cmc"]
+[ext_resource type="PackedScene" uid="uid://iy8hslvdkxhi" path="res://Ennemies/Guards/Trackers/Scenes/tracker.tscn" id="3_emf7r"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ctuwc"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -49,4 +50,6 @@ shape = SubResource("ConcavePolygonShape3D_ctuwc")
 
 [node name="Magus 1" parent="." instance=ExtResource("2_b0cmc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5472779, -1.1920929e-07, 4.443907)
-attack_range = 3.0
+
+[node name="Tracker" parent="." instance=ExtResource("3_emf7r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6051795, 0, 4.077032)

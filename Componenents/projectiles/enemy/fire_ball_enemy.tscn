@@ -396,6 +396,7 @@ curr_hitbox = NodePath("HitBoxComponent")
 environment = SubResource("Environment_dmjyb")
 
 [node name="Meshes" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="inner ball" type="MeshInstance3D" parent="Meshes"]
 mesh = SubResource("SphereMesh_g6dio")
@@ -432,6 +433,7 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_i446o")
 
 [node name="HitBoxComponent" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("4_v2jsu")
 metadata/_custom_type_script = "uid://dflwyxok3081k"
 
@@ -439,10 +441,12 @@ metadata/_custom_type_script = "uid://dflwyxok3081k"
 shape = SubResource("SphereShape3D_w3uda")
 
 [node name="Fireball shapecast" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("SphereShape3D_cj4ke")
 target_position = Vector3(0, 0, 0)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 amount = 45
 process_material = SubResource("ParticleProcessMaterial_cj4ke")
 draw_pass_1 = SubResource("QuadMesh_dmjyb")

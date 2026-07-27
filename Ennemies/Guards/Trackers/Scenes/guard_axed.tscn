@@ -13033,7 +13033,7 @@ shape = SubResource("CapsuleShape3D_5lcun")
 
 [node name="HealthComponent" type="Node" parent="." index="6" node_paths=PackedStringArray("Health_gauge")]
 script = ExtResource("6_44s4s")
-Max_health = 100.0
+Max_health = 400.0
 Resistance = Array[String](["Physical"])
 Health_gauge = NodePath("../HealthSubViewPort/EnemyHealth")
 Bearable_power = 13.0

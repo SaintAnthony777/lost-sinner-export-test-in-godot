@@ -4,11 +4,12 @@ extends State
 @onready var refined_magus: EnemyVisuals = $"../../refined Magus"
 
 func _ready() -> void:
+	await get_tree().process_frame
 	refined_magus.Grounding("Chasing","Slow Chase")
 
 func physics_update(_delta) -> void:
 	magus_1.aiming_at_player()
-	magus_1.chasing_player(2.0)
+	magus_1.chasing_player(.2)
 	if magus_1.is_target_in_range():
 		state_machine.change_state("idle state")
 	if refined_magus.is_taking_damage:

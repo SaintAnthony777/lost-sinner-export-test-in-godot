@@ -99,6 +99,7 @@ var is_enchanting:bool=false
 #user hint guide
 @onready var user_command_guide: UserCommandGuide = $"User_command_canvas/User Command guide"
 
+@onready var received_direction:String=""
 func _ready() -> void:
 	health_component.Moveable_Player=player
 	Shield_Light.hide()

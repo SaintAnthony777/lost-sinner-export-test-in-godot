@@ -4,7 +4,7 @@ class_name EnemyVisuals extends Node3D
 @onready var animation_tree: AnimationTree = $AnimationTree
 
 @onready var attack_direction:String="left"
-
+@onready var received_direction:String="ch"
 var is_attacking:=false
 var is_taking_damage:bool=false
 var is_lunging:bool=false
@@ -40,11 +40,10 @@ func _process(delta: float) -> void:
 		died.emit()
 func _on_being_hit() -> void:
 	enemy_body.target.camera_shaking(.1,.1)
-	if enemy_body.target.character.attack_direction!=current_react_dir:
-		current_react_dir=enemy_body.target.character.attack_direction
-		print(current_react_dir)
-		self.Grounding("Taking Damage","React "+current_react_dir.capitalize())
-
+	print("la direction de l'attaque est ",received_direction)
+	self.Grounding("Taking Damage","React "+received_direction.capitalize())
+	await self.animation_tree.animation_finished
+	self.Grounding("Still motion","Idle")
 func _on_died() -> void:
 	self.Grounding("Dying","Dying 2")
 	await animation_tree.animation_finished

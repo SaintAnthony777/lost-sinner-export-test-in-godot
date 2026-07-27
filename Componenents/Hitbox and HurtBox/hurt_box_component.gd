@@ -26,6 +26,7 @@ func _on_area_entered(area: Area3D) -> void:
 			
 			if owner is EnemyVisuals or owner is character_mesh :
 				owner.get_parent().velocity=Vector3.ZERO
+				owner.received_direction=area.owner.attack_direction
 				if !owner.is_alive : return
 				else : owner.being_hit.emit()
 				

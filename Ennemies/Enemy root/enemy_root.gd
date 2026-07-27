@@ -28,7 +28,7 @@ func _process(_delta: float) -> void:
 	
 func aiming_at_player()->void:
 	if!target:return
-	self.look_at(Vector3(
+	self.visuals.look_at(Vector3(
 		target.global_position.x,
 		self.global_position.y,
 		target.global_position.z
