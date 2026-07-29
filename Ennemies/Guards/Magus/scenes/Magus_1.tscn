@@ -27,28 +27,28 @@ metadata/_custom_type_script = "uid://b2mma88kgmdm2"
 projectile_spawn_point = NodePath("staff attachement/spell starting point")
 
 [node name="Skeleton3D" parent="refined Magus/Armature" index="0"]
-bones/0/position = Vector3(-9.127043e-05, 0.9604414, -0.02679628)
-bones/85/rotation = Quaternion(0.09616119, -0.029076075, 0.9903995, -0.09495559)
-bones/86/rotation = Quaternion(-0.47598475, 3.370806e-07, 8.6438384e-08, 0.87945366)
-bones/87/rotation = Quaternion(0.6301147, 0.03604929, -0.111254916, 0.76764464)
-bones/90/rotation = Quaternion(-0.09778564, 0.35772163, 0.9244009, 0.08919735)
-bones/91/rotation = Quaternion(-0.6597667, -1.1754166e-06, -1.3215471e-06, 0.75147057)
-bones/92/rotation = Quaternion(0.6028019, -0.0044676284, 0.029738255, 0.797324)
-bones/96/position = Vector3(0.00017669244, 0.9604414, -0.026795855)
-bones/99/rotation = Quaternion(0.09495558, 0.99039954, 0.029076079, 0.096161105)
-bones/100/rotation = Quaternion(-0.47598493, 3.3380584e-07, 8.886678e-08, 0.8794534)
-bones/106/rotation = Quaternion(-0.08919766, 0.9244008, -0.3577218, -0.097785614)
-bones/107/rotation = Quaternion(-0.6597668, -1.1721758e-06, -1.3197258e-06, 0.7514705)
-bones/130/position = Vector3(0.32555094, 1.3030713, 0.10581821)
-bones/131/position = Vector3(0.31300372, 1.2924964, 0.43004304)
-bones/132/position = Vector3(-0.7217518, 1.2855853, -0.24427515)
-bones/133/position = Vector3(-0.32175937, 1.1355972, 0.4275014)
+bones/0/position = Vector3(-9.1270456e-05, 0.952446, -0.02679628)
+bones/85/rotation = Quaternion(0.096019365, -0.02750355, 0.9902918, -0.09667535)
+bones/86/rotation = Quaternion(-0.48998833, 3.4156253e-07, 8.9057714e-08, 0.87172896)
+bones/87/rotation = Quaternion(0.6408398, 0.038185816, -0.11218597, 0.75847244)
+bones/90/rotation = Quaternion(-0.09726051, 0.36148083, 0.9228421, 0.09074458)
+bones/91/rotation = Quaternion(-0.6719461, -1.15062e-06, -1.3233513e-06, 0.7406001)
+bones/92/rotation = Quaternion(0.6123753, -0.005181921, 0.03078186, 0.7899507)
+bones/96/position = Vector3(0.00017669244, 0.952446, -0.026795855)
+bones/99/rotation = Quaternion(0.096675344, 0.99029183, 0.02750355, 0.0960193)
+bones/100/rotation = Quaternion(-0.4899884, 3.4416365e-07, 8.721195e-08, 0.871729)
+bones/106/rotation = Quaternion(-0.09074267, 0.9228446, -0.3614747, -0.0972613)
+bones/107/rotation = Quaternion(-0.6719372, -1.1502398e-06, -1.3460162e-06, 0.7406081)
+bones/130/position = Vector3(0.32555094, 1.2950759, 0.10581821)
+bones/131/position = Vector3(0.31300375, 1.2845011, 0.43004304)
+bones/132/position = Vector3(-0.7217518, 1.2775899, -0.24427515)
+bones/133/position = Vector3(-0.32175943, 1.1276017, 0.4275014)
 
 [node name="Headattachement" parent="refined Magus" index="2"]
-transform = Transform3D(1, 4.1039436e-10, -6.263491e-11, -4.709289e-10, 0.9434155, -0.33161288, -7.359183e-11, 0.33161288, 0.9434155, -0.00026313213, 1.665697, 0.22407514)
+transform = Transform3D(1, 4.1039436e-10, -6.263491e-11, -4.709289e-10, 0.9434155, -0.33161288, -7.359183e-11, 0.33161288, 0.9434155, -0.00026313215, 1.6577015, 0.22407514)
 
 [node name="staff attachement" parent="refined Magus" index="5"]
-transform = Transform3D(0.78187615, 0.12982827, 0.6097658, 0.60687625, 0.06541899, -0.7920995, -0.14272712, 0.989376, -0.027640104, -0.3217596, 1.1355927, 0.4275049)
+transform = Transform3D(0.78187615, 0.12982827, 0.6097658, 0.60687625, 0.06541899, -0.7920995, -0.14272712, 0.989376, -0.027640104, -0.3217596, 1.1275972, 0.4275049)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.920992, 0)

@@ -188,10 +188,11 @@ func camera_switch_logic():
 func get_best_target()->enemy_root:
 	var best_target : enemy_root
 	var min_angle = INF
+	var min_distance = INF
 	var enemies_in_sight=camera_area_of_sight.get_overlapping_bodies()
 	for foe in enemies_in_sight :
 		if foe is enemy_root and foe.visuals.is_alive:
-			camera_line_of_sight.look_at(foe.aiming_node.global_position)
+			camera_line_of_sight.look_at(foe.global_position)
 			camera_line_of_sight.force_raycast_update()
 			if camera_line_of_sight.is_colliding() and camera_line_of_sight.get_collider() is enemy_root:
 				var direction_to_enemy = (foe.global_position-self.global_position).normalized()
@@ -200,6 +201,8 @@ func get_best_target()->enemy_root:
 				if angle < min_angle:
 					min_angle = angle
 					best_target=foe
+				else: best_target=foe
+	print(best_target)
 	return best_target
 
 func gravity_applying(delta)->void:

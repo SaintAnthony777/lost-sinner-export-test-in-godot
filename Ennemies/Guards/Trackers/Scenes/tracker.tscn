@@ -26,7 +26,23 @@ aiming_node = NodePath("Visuals/Headattachement/aiming node")
 attack_range = 1.5
 metadata/_custom_type_script = "uid://b2mma88kgmdm2"
 
-[node name="Visuals" parent="." instance=ExtResource("2_087bu")]
+[node name="Visuals" parent="." node_paths=PackedStringArray("projectile_spawn_point") instance=ExtResource("2_087bu")]
+projectile_spawn_point = NodePath("Headattachement/aiming node")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0293245, 0)
+shape = SubResource("CapsuleShape3D_q30j4")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+height = 2.0
+
+[node name="HealthBarAnchor" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0688846, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="HealthBarAnchor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.0688846, 0)
+billboard = 2
+texture = SubResource("ViewportTexture_vmbfs")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("5_ohjtu")
@@ -56,21 +72,6 @@ metadata/_custom_type_script = "uid://dq36efs6bxser"
 [node name="Strafing" type="Node" parent="StateMachine"]
 script = ExtResource("9_ohjtu")
 metadata/_custom_type_script = "uid://dq36efs6bxser"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0293245, 0)
-shape = SubResource("CapsuleShape3D_q30j4")
-
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-height = 2.0
-
-[node name="HealthBarAnchor" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0688846, 0)
-
-[node name="Sprite3D" type="Sprite3D" parent="HealthBarAnchor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.0688846, 0)
-billboard = 2
-texture = SubResource("ViewportTexture_vmbfs")
 
 [connection signal="being_hit" from="." to="." method="_on_being_hit"]
 [connection signal="died" from="Visuals" to="Visuals" method="_on_died"]
